@@ -1,0 +1,1236 @@
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useOutletContext,
+  useParams,
+} from 'react-router'
+import { FormEvent, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
+import { categories, formatPrice, products, type Product } from './data'
+
+export type CartItem = {
+  product: Product
+  quantity: number
+  color: string
+  engraving?: string
+  foilStyle?: 'blind' | 'gold' | 'silver'
+}
+
+type StoreContext = {
+  addToCart: (
+    product: Product,
+    quantity?: number,
+    color?: string,
+    engraving?: string,
+    foilStyle?: 'blind' | 'gold' | 'silver'
+  ) => void
+}
+
+function Icon({
+  name,
+}: {
+  name:
+    | 'bag'
+    | 'menu'
+    | 'close'
+    | 'arrow'
+    | 'minus'
+    | 'plus'
+    | 'shield'
+    | 'sparkle'
+    | 'play'
+    | 'check'
+    | 'down'
+    | 'refresh'
+}) {
+  const paths = {
+    bag: (
+      <>
+        <path d="M6.5 8.5h11l1 11h-13l1-11Z" />
+        <path d="M9 9V6.5a3 3 0 0 1 6 0V9" />
+      </>
+    ),
+    menu: <path d="M4 8h16M4 16h16" />,
+    close: <path d="m5 5 14 14M19 5 5 19" />,
+    arrow: <path d="M5 12h14M14 7l5 5-5 5" />,
+    down: <path d="M12 5v14M7 14l5 5 5-5" />,
+    minus: <path d="M6 12h12" />,
+    plus: <path d="M6 12h12M12 6v12" />,
+    shield: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
+    sparkle: <path d="m12 3 2.5 5.5L20 11l-4.5 4 1.5 6-5-3.5-5 3.5 1.5-6L4 11l5.5-2.5L12 3z" />,
+    play: <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" />,
+    check: <polyline points="20 6 9 17 4 12" />,
+    refresh: (
+      <>
+        <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+        <path d="M3 3v5h5" />
+        <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+        <path d="M16 16h5v5" />
+      </>
+    ),
+  }
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      {paths[name]}
+    </svg>
+  )
+}
+
+function Logo({ light = false }: { light?: boolean }) {
+  return (
+    <span className={`brand-logo ${light ? 'is-light' : ''}`}>
+      <img src="/assets/cuoriva-mark.png" alt="CUORIVA" />
+    </span>
+  )
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [pathname])
+  return null
+}
+
+export function StoreLayout() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [cartOpen, setCartOpen] = useState(false)
+  const [cart, setCart] = useState<CartItem[]>([])
+
+  const addToCart = (
+    product: Product,
+    quantity = 1,
+    color = product.colors[0].name,
+    engraving = '',
+    foilStyle: 'blind' | 'gold' | 'silver' = 'blind'
+  ) => {
+    setCart((current) => {
+      const match = current.find(
+        (item) =>
+          item.product.slug === product.slug &&
+          item.color === color &&
+          item.engraving === engraving &&
+          item.foilStyle === foilStyle
+      )
+      if (match) {
+        return current.map((item) =>
+          item === match ? { ...item, quantity: item.quantity + quantity } : item
+        )
+      }
+      return [...current, { product, quantity, color, engraving, foilStyle }]
+    })
+    setCartOpen(true)
+  }
+
+  const count = cart.reduce((total, item) => total + item.quantity, 0)
+  const total = cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
+
+  return (
+    <div className="store-shell">
+      <ScrollToTop />
+      <aside className="atelier-rail">
+        <Link to="/" aria-label="Cuoriva ana sayfa" onClick={() => setMenuOpen(false)}>
+          <Logo />
+        </Link>
+        <button type="button" className="rail-menu" onClick={() => setMenuOpen(true)}>
+          <Icon name="menu" />
+          <span>Menü</span>
+        </button>
+        <span className="rail-note">Hakiki Deri · Dünyaları Taşıyoruz</span>
+        <button type="button" className="rail-cart" onClick={() => setCartOpen(true)} aria-label="Sepet">
+          <Icon name="bag" />
+          <b>{count}</b>
+        </button>
+      </aside>
+
+      <header className="mobile-header">
+        <button type="button" onClick={() => setMenuOpen(true)} aria-label="Menüyü aç">
+          <Icon name="menu" />
+        </button>
+        <Link to="/" aria-label="Cuoriva ana sayfa">
+          <Logo />
+        </Link>
+        <button type="button" onClick={() => setCartOpen(true)} aria-label="Sepet">
+          <Icon name="bag" />
+          <b>{count}</b>
+        </button>
+      </header>
+
+      {/* Fullscreen Editorial Menu */}
+      <div className={`menu-canvas ${menuOpen ? 'is-open' : ''}`} aria-hidden={!menuOpen}>
+        <div className="menu-photo" />
+        <div className="menu-content">
+          <button type="button" className="canvas-close" onClick={() => setMenuOpen(false)}>
+            <Icon name="close" />
+            <span>Kapat</span>
+          </button>
+          <p className="overline">CUORIVA LEATHER GOODS</p>
+          <nav>
+            <NavLink to="/kategori/tumu" onClick={() => setMenuOpen(false)}>
+              <small>00</small>Tüm Koleksiyon<Icon name="arrow" />
+            </NavLink>
+            {categories.map((category) => (
+              <NavLink key={category.slug} to={`/kategori/${category.slug}`} onClick={() => setMenuOpen(false)}>
+                <small>{category.index}</small>
+                {category.name}
+                <Icon name="arrow" />
+              </NavLink>
+            ))}
+          </nav>
+          <div className="menu-secondary">
+            <Link to="/#motto" onClick={() => setMenuOpen(false)}>Mottomuz & Hikâye</Link>
+            <Link to="/#kisisellestir" onClick={() => setMenuOpen(false)}>İsim Baskı Atölyesi</Link>
+            <Link to="/#mekanizma" onClick={() => setMenuOpen(false)}>Mekanizma Teknolojisi</Link>
+            <a href="mailto:destek@cuoriva.com">İletişim</a>
+          </div>
+        </div>
+      </div>
+
+      {/* Cart Drawer */}
+      <div className={`drawer-backdrop ${cartOpen ? 'is-open' : ''}`} onClick={() => setCartOpen(false)} />
+      <aside className={`cart-drawer ${cartOpen ? 'is-open' : ''}`} aria-label="Sepet">
+        <div className="cart-head">
+          <div>
+            <p className="overline">Cuoriva Atelier</p>
+            <h2>
+              Sepetiniz <span>({count})</span>
+            </h2>
+          </div>
+          <button type="button" onClick={() => setCartOpen(false)} aria-label="Sepeti kapat">
+            <Icon name="close" />
+          </button>
+        </div>
+        <div className="cart-items">
+          {cart.length === 0 ? (
+            <div className="empty-cart">
+              <Icon name="bag" />
+              <h3>Sepetiniz henüz boş</h3>
+              <p>Ömürlük bir parça seçmek için koleksiyona göz atın.</p>
+              <button
+                type="button"
+                onClick={() => {
+                  setCartOpen(false)
+                  setMenuOpen(true)
+                }}
+              >
+                Koleksiyonu Keşfet
+              </button>
+            </div>
+          ) : (
+            cart.map((item, idx) => (
+              <article className="cart-item" key={`${item.product.slug}-${item.color}-${idx}`}>
+                <img src={item.product.images[0]} alt={item.product.name} />
+                <div>
+                  <h3>{item.product.name}</h3>
+                  <p>
+                    {item.color} · Adet {item.quantity}
+                  </p>
+                  {item.engraving && (
+                    <span className="cart-engraving-badge">
+                      ✦ Özel Baskı: <strong>{item.engraving}</strong> (
+                      {item.foilStyle === 'gold'
+                        ? 'Altın Varak'
+                        : item.foilStyle === 'silver'
+                        ? 'Gümüş Varak'
+                        : 'Sıcak Gofraj'}
+                      )
+                    </span>
+                  )}
+                  <strong>{formatPrice(item.product.price * item.quantity)}</strong>
+                </div>
+                <button
+                  type="button"
+                  aria-label="Ürünü kaldır"
+                  onClick={() => setCart((current) => current.filter((_, i) => i !== idx))}
+                >
+                  <Icon name="close" />
+                </button>
+              </article>
+            ))
+          )}
+        </div>
+        {cart.length > 0 && (
+          <div className="cart-summary">
+            <p>
+              <span>Ara Toplam</span>
+              <strong>{formatPrice(total)}</strong>
+            </p>
+            <p className="cart-perk">
+              <Icon name="check" />
+              <span>Ücretsiz Sigortalı Kargo & Özel Ahşap Hediye Kutusu Dahil</span>
+            </p>
+            <button type="button" className="checkout-btn">
+              Güvenli Ödemeye Geç <Icon name="arrow" />
+            </button>
+          </div>
+        )}
+      </aside>
+
+      <div className="page-content">
+        <Outlet context={{ addToCart } satisfies StoreContext} />
+        <Footer />
+      </div>
+    </div>
+  )
+}
+
+function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
+  return (
+    <article className="shop-card" style={{ '--delay': `${index * 60}ms` } as CSSProperties}>
+      <Link to={`/urun/${product.slug}`} className="shop-card-image">
+        {product.tag && <span className="product-tag">{product.tag}</span>}
+        {product.rfidProtected && <span className="rfid-tag">RFID Korumalı</span>}
+        <img src={product.images[0]} alt={product.name} loading="lazy" />
+        <div className="card-action">
+          İncele & Kişiselleştir <Icon name="arrow" />
+        </div>
+      </Link>
+      <div className="shop-card-info">
+        <div>
+          <p>{product.category}</p>
+          <Link to={`/urun/${product.slug}`}>{product.name}</Link>
+          {product.isPersonalizable && <span className="custom-perk-hint">✦ Ücretsiz İsim Baskısı</span>}
+        </div>
+        <strong>{formatPrice(product.price)}</strong>
+      </div>
+    </article>
+  )
+}
+
+/* =========================================================================
+   SCROLL-DRIVEN VIDEO HERO COMPONENT
+   "Dünyaları Sizinle Taşıyoruz"
+   Scroll yaptıkça videodaki cüzdan açılır veya kapanır (Video Scrubbing)
+   ========================================================================= */
+
+function VideoScrollHero() {
+  const trackRef = useRef<HTMLElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [smoothProgress, setSmoothProgress] = useState(0)
+  const [videoDuration, setVideoDuration] = useState(10.0)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false)
+
+  // Track window scroll over trackRef
+  useEffect(() => {
+    if (isAutoPlaying) return
+
+    const handleScroll = () => {
+      if (!trackRef.current) return
+      const rect = trackRef.current.getBoundingClientRect()
+      const totalScrollable = rect.height - window.innerHeight
+      if (totalScrollable <= 0) return
+      const current = -rect.top
+      const raw = Math.max(0, Math.min(1, current / totalScrollable))
+      setScrollProgress(raw)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [isAutoPlaying])
+
+  // Smooth lerp 60fps for continuous video seek
+  useEffect(() => {
+    if (isAutoPlaying) return
+    let animId: number
+    const update = () => {
+      setSmoothProgress((prev) => {
+        const delta = scrollProgress - prev
+        if (Math.abs(delta) < 0.001) return scrollProgress
+        return prev + delta * 0.2
+      })
+      animId = requestAnimationFrame(update)
+    }
+    animId = requestAnimationFrame(update)
+    return () => cancelAnimationFrame(animId)
+  }, [scrollProgress, isAutoPlaying])
+
+  // Scrub video playback time based on smoothProgress
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video || isAutoPlaying) return
+
+    const onMeta = () => {
+      if (video.duration && !isNaN(video.duration)) {
+        setVideoDuration(video.duration)
+      }
+      video.pause()
+    }
+    video.addEventListener('loadedmetadata', onMeta)
+    if (video.readyState >= 1) onMeta()
+
+    const targetTime = smoothProgress * (video.duration || videoDuration || 10.0)
+    // Only seek if noticeably different to prevent browser audio/video stutter
+    if (Math.abs(video.currentTime - targetTime) > 0.02) {
+      video.currentTime = targetTime
+      setCurrentTime(targetTime)
+    }
+
+    return () => video.removeEventListener('loadedmetadata', onMeta)
+  }, [smoothProgress, videoDuration, isAutoPlaying])
+
+  // Auto-play toggle
+  const toggleAutoPlay = () => {
+    const video = videoRef.current
+    if (!video) return
+    if (isAutoPlaying) {
+      video.pause()
+      setIsAutoPlaying(false)
+    } else {
+      video.play()
+      setIsAutoPlaying(true)
+    }
+  }
+
+  // Handle time update during auto play
+  const handleTimeUpdate = () => {
+    const video = videoRef.current
+    if (!video || !isAutoPlaying) return
+    setCurrentTime(video.currentTime)
+    if (video.duration) {
+      setSmoothProgress(video.currentTime / video.duration)
+      setScrollProgress(video.currentTime / video.duration)
+    }
+  }
+
+  // Manual scroll helper
+  const triggerAutoScroll = (targetRatio: number) => {
+    if (isAutoPlaying) {
+      videoRef.current?.pause()
+      setIsAutoPlaying(false)
+    }
+    if (!trackRef.current) return
+    const rect = trackRef.current.getBoundingClientRect()
+    const totalScrollable = rect.height - window.innerHeight
+    const targetScroll = window.scrollY + rect.top + targetRatio * totalScrollable
+    window.scrollTo({ top: targetScroll, behavior: 'smooth' })
+  }
+
+  return (
+    <section className="video-scroll-track" ref={trackRef} id="motto">
+      {/* Pinned Video Viewport */}
+      <div className="video-scroll-pinned">
+        {/* The Native HTML5 Video Element */}
+        <video
+          ref={videoRef}
+          src="/assets/cuoriva-hero-video.mp4"
+          playsInline
+          muted
+          preload="auto"
+          className="hero-scrub-video"
+          onTimeUpdate={handleTimeUpdate}
+          onEnded={() => setIsAutoPlaying(false)}
+        />
+
+        {/* Ambient Film Grain & Golden Hour Vignette */}
+        <div className="video-hero-vignette" />
+        <div className="floating-dust-particles" aria-hidden="true" />
+
+        {/* Dynamic Editorial Headline Overlays */}
+        <div className="video-hero-overlay-copy">
+          {smoothProgress < 0.22 && (
+            <div className="phase-copy phase-1">
+              <span className="phase-badge">
+                <span className="pulse-dot" />
+                CUORIVA · AKDENİZ 2025
+              </span>
+              <h1>
+                Taşıdığın<br />
+                <em>hikâye.</em>
+              </h1>
+              <p>
+                Akdeniz sokağında sessiz bir yürüyüş. Cebinizde ömürlük bir yol arkadaşı...
+              </p>
+              <div className="scroll-prompt-indicator">
+                <div className="mouse-wheel-icon">
+                  <span className="wheel-dot" />
+                </div>
+                <span>Aşağı Kaydırın · Cüzdan Açılsın ↓</span>
+              </div>
+            </div>
+          )}
+
+          {smoothProgress >= 0.22 && smoothProgress < 0.55 && (
+            <div className="phase-copy phase-2">
+              <span className="phase-badge">BİR AN VE ZAMAN YAVAŞLAR</span>
+              <h2>
+                Cüzdan düşerken,<br />
+                <em>dünyalar açılır.</em>
+              </h2>
+              <p>
+                Ağır çekimde arnavut kaldırımlarına değen cüzdandan sınırsız bir anı tufanı fışkırır...
+              </p>
+            </div>
+          )}
+
+          {smoothProgress >= 0.55 && (
+            <div className="phase-copy phase-3">
+              <span className="phase-badge gold">CUORIVA İMZA MOTTO</span>
+              <h1 className="motto-glow-title">
+                Dünyaları<br />
+                <em>sizinle taşıyoruz.</em>
+              </h1>
+              <p>
+                Yalnızca kart ve nakit değil; seyahatleriniz, biniş kartlarınız, polaroidleriniz ve tüm dünyanız tek bir cüzdanda.
+              </p>
+              <div className="hero-action-buttons">
+                <a href="#koleksiyon" className="hero-cta primary">
+                  Koleksiyonu Keşfet <Icon name="down" />
+                </a>
+                <a href="#kisisellestir" className="hero-cta secondary">
+                  İsmini Deriye Kazı
+                </a>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Interactive Video Controller */}
+        <aside className="video-scrub-controller" aria-label="Video Scroll Kontrolü">
+          <div className="video-scrub-status">
+            <span className="video-state-label">
+              ✦{' '}
+              <strong>
+                {smoothProgress < 0.25
+                  ? 'Cüzdan Kapalı'
+                  : smoothProgress < 0.6
+                  ? 'Cüzdan Açılıyor...'
+                  : 'Cüzdan Açık · Kartlar Saçıldı'}
+              </strong>
+            </span>
+            <span className="video-time-tag">
+              {currentTime.toFixed(1)}s / {videoDuration.toFixed(1)}s (%{Math.round(smoothProgress * 100)})
+            </span>
+          </div>
+
+          <div className="video-slider-wrap">
+            <input
+              type="range"
+              min={0}
+              max={1}
+              step={0.005}
+              value={smoothProgress}
+              onChange={(e) => triggerAutoScroll(parseFloat(e.target.value))}
+              className="video-slider"
+              title="Cüzdan açılışını kaydırın"
+            />
+          </div>
+
+          <div className="video-quick-actions">
+            <button
+              type="button"
+              className="video-action-btn"
+              onClick={() => triggerAutoScroll(0)}
+              title="Cüzdanı kapat ve başa dön"
+            >
+              <Icon name="refresh" />
+              <span>Cüzdanı Kapat (0s)</span>
+            </button>
+            <button
+              type="button"
+              className="video-action-btn"
+              onClick={() => triggerAutoScroll(0.85)}
+              title="Cüzdanı tamamen aç"
+            >
+              <Icon name="sparkle" />
+              <span>Cüzdanı Aç (10s)</span>
+            </button>
+            <button
+              type="button"
+              className={`video-action-btn ${isAutoPlaying ? 'active' : ''}`}
+              onClick={toggleAutoPlay}
+              title="Otomatik oynat / durdur"
+            >
+              <Icon name={isAutoPlaying ? 'close' : 'play'} />
+              <span>{isAutoPlaying ? 'Durdur' : 'Oynat'}</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+  )
+}
+
+/* =========================================================================
+   INTERACTIVE POP-UP MECHANISM SIMULATOR
+   ========================================================================= */
+function MechanismSimulator() {
+  const [ejected, setEjected] = useState(false)
+
+  return (
+    <section className="mechanism-section" id="mekanizma">
+      <div className="mechanism-grid">
+        <div className="mechanism-info">
+          <p className="overline">Patentli Kızak Teknolojisi</p>
+          <h2>
+            Tek dokunuşla,<br />
+            <em>düzen parmaklarınızda.</em>
+          </h2>
+          <p>
+            Alttaki ergonomik tetiği tek bir parmak hareketiyle kaydırın; içerideki 6 kart, kademeli merdiven formuyla anında karşınıza çıksın.
+            Kalabalık kart yığınları içinde aramak yok, kartlarınızın bükülmesi veya kırılması yok.
+          </p>
+
+          <ul className="mechanism-features">
+            <li>
+              <Icon name="shield" />
+              <div>
+                <strong>%100 RFID & NFC Kalkanı</strong>
+                <span>Alüminyum iç kafes, temassız POS hırsızlıklarına ve sinyal kopyalamaya karşı tam koruma sağlar.</span>
+              </div>
+            </li>
+            <li>
+              <Icon name="sparkle" />
+              <div>
+                <strong>Patentli Kademe Mekanizması</strong>
+                <span>Kartlar birbirine sürtünmeden basamak şeklinde yükselir, istediğiniz karta 1 saniyede erişin.</span>
+              </div>
+            </li>
+            <li>
+              <Icon name="check" />
+              <div>
+                <strong>Crazy Horse Hakiki Deri Kaplama</strong>
+                <span>Alüminyum gövdenin dışı, kullandıkça kendine has vintage karakter kazanan birinci sınıf deri ile kaplanmıştır.</span>
+              </div>
+            </li>
+          </ul>
+
+          <Link to="/kategori/mekanizmali-cuzdan" className="primary-link">
+            Mekanizmalı Modelleri İncele <Icon name="arrow" />
+          </Link>
+        </div>
+
+        <div className="mechanism-interactive-box">
+          <div className="interactive-cardholder-wrap">
+            <div className={`cardholder-device ${ejected ? 'is-ejected' : ''}`}>
+              {/* Emerging Cards */}
+              <div className="ejected-cards-layer">
+                <div className="sim-card card-1">
+                  <span>CUORIVA BLACK</span>
+                  <small>•••• 4892</small>
+                </div>
+                <div className="sim-card card-2">
+                  <span>ATELIER CLUB</span>
+                  <small>VIP GOLD</small>
+                </div>
+                <div className="sim-card card-3">
+                  <span>TRAVEL PASS</span>
+                  <small>•••• 1024</small>
+                </div>
+                <div className="sim-card card-4">
+                  <span>IDENTITY</span>
+                  <small>•••• 8820</small>
+                </div>
+                <div className="sim-card card-5">
+                  <span>METRO PASS</span>
+                  <small>•••• 7311</small>
+                </div>
+              </div>
+
+              {/* Leather Wallet Body */}
+              <div className="wallet-leather-body">
+                <div className="leather-texture-overlay" />
+                <div className="wallet-embossed-brand">CUORIVA</div>
+                <div className="wallet-stitch-left" />
+                <div className="wallet-stitch-right" />
+                <div className="wallet-stitch-bottom" />
+
+                {/* Interactive Lever Button */}
+                <button
+                  type="button"
+                  className={`wallet-lever ${ejected ? 'pushed' : ''}`}
+                  onClick={() => setEjected(!ejected)}
+                  title="Kartları çıkar / içeri al"
+                >
+                  <span className="lever-knob" />
+                </button>
+              </div>
+            </div>
+
+            <div className="interactive-helper-prompt">
+              <button
+                type="button"
+                className="trigger-demo-btn"
+                onClick={() => setEjected(!ejected)}
+              >
+                {ejected ? 'Kartları İçeri Al ↺' : 'Tıkla & Mekanizmayı Çalıştır ➔'}
+              </button>
+              <small>Alttaki tetiğe tıklayarak mekanizmayı test edebilirsiniz.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* =========================================================================
+   LIVE LEATHER EMBOSSING STUDIO (KİŞİSELLEŞTİRME ATÖLYESİ)
+   ========================================================================= */
+function EmbossingStudio() {
+  const [name, setName] = useState('OĞUZ OLGUN')
+  const [leatherColor, setLeatherColor] = useState<'cognac' | 'chestnut' | 'olive' | 'black'>('cognac')
+  const [foilStyle, setFoilStyle] = useState<'blind' | 'gold' | 'silver'>('blind')
+
+  const leatherPalette = {
+    cognac: { name: 'Konyak Taba', bg: '#96481e', stitch: '#cf9872' },
+    chestnut: { name: 'Antik Kestane', bg: '#4e281c', stitch: '#9c6f5d' },
+    olive: { name: 'Zeytin Yeşili', bg: '#3e4233', stitch: '#868c73' },
+    black: { name: 'Gece Siyahı', bg: '#1c1b1a', stitch: '#42413e' },
+  }
+
+  const selected = leatherPalette[leatherColor]
+
+  return (
+    <section className="embossing-studio-section" id="kisisellestir">
+      <div className="studio-header">
+        <p className="overline">Ücretsiz Kişiselleştirme Atölyesi</p>
+        <h2>
+          Cüzdanınıza ruh katın:<br />
+          <em>Adınız deriye kazınsın.</em>
+        </h2>
+        <p>
+          Getto Deri ve Eonaks müşterilerinin en çok sevdiği zanaat ayrıntısı: Sipariş verdiğiniz her Cuoriva parçasına,
+          atölyemizde geleneksel pirinç harfler ve sıcak gofraj presiyle isminizi veya baş harflerinizi ücretsiz olarak işliyoruz.
+        </p>
+      </div>
+
+      <div className="studio-workbench">
+        {/* Real-time Leather Preview Canvas */}
+        <div className="leather-swatch-display" style={{ background: selected.bg }}>
+          <div className="leather-grain-overlay" />
+          <div className="leather-hand-stitching" style={{ borderColor: selected.stitch }} />
+
+          <div className="swatch-content">
+            <span className="swatch-brand-watermark">CUORIVA LEATHER GOODS</span>
+
+            <div className={`embossed-name-output style-${foilStyle}`}>
+              {name.trim() ? name.toUpperCase() : 'İSMİNİZİ YAZIN'}
+            </div>
+
+            <div className="swatch-meta">
+              <span>Bitkisel Tabaklama · %100 Dana Derisi</span>
+              <span>İstanbul Atölye Baskısı</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Customization Controls */}
+        <div className="studio-controls">
+          <div className="control-group">
+            <label htmlFor="custom-name-input">
+              <span>Deriye İşlenecek İsim veya Baş Harfler</span>
+              <small>Maks. 16 Karakter (Ücretsiz)</small>
+            </label>
+            <input
+              id="custom-name-input"
+              type="text"
+              maxLength={16}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Örn: OĞUZ OLGUN ya da O.O."
+            />
+          </div>
+
+          <div className="control-group">
+            <label>Baskı Tarzını Seçin</label>
+            <div className="foil-options">
+              <button
+                type="button"
+                className={`foil-pill ${foilStyle === 'blind' ? 'active' : ''}`}
+                onClick={() => setFoilStyle('blind')}
+              >
+                <span>✦ Sıcak Gofraj (Deboss)</span>
+                <small>Derinin kendi doğal tonunda derin çökertme</small>
+              </button>
+              <button
+                type="button"
+                className={`foil-pill ${foilStyle === 'gold' ? 'active' : ''}`}
+                onClick={() => setFoilStyle('gold')}
+              >
+                <span>✦ Altın Varak (Gold)</span>
+                <small>24K ışıltılı İtalyan altın folyo baskı</small>
+              </button>
+              <button
+                type="button"
+                className={`foil-pill ${foilStyle === 'silver' ? 'active' : ''}`}
+                onClick={() => setFoilStyle('silver')}
+              >
+                <span>✦ Gümüş Varak (Silver)</span>
+                <small>Platin parlaklığında modern metalik baskı</small>
+              </button>
+            </div>
+          </div>
+
+          <div className="control-group">
+            <label>Deri Tonunu Önizleyin</label>
+            <div className="leather-color-buttons">
+              {(Object.keys(leatherPalette) as (keyof typeof leatherPalette)[]).map((key) => (
+                <button
+                  key={key}
+                  type="button"
+                  className={`color-btn ${leatherColor === key ? 'active' : ''}`}
+                  onClick={() => setLeatherColor(key)}
+                >
+                  <i style={{ background: leatherPalette[key].bg }} />
+                  <span>{leatherPalette[key].name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="studio-cta-wrap">
+            <Link to="/kategori/tumu" className="primary-link">
+              Bu Baskıyla Bir Ürün Seçin <Icon name="arrow" />
+            </Link>
+            <p className="studio-note">
+              * Seçtiğiniz ürünün sayfasında isminizi tekrar belirtebilir, hediyelik özel not ekleyebilirsiniz.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* =========================================================================
+   HOMEPAGE
+   ========================================================================= */
+export function HomePage() {
+  return (
+    <main>
+      {/* 1. SCROLL-DRIVEN VIDEO HERO (Scroll yaptıkça video oynar: cüzdan açılır / kapanır) */}
+      <VideoScrollHero />
+
+      {/* 2. Interactive RFID Pop-up Mechanism Simulator */}
+      <MechanismSimulator />
+
+      {/* 3. Category Runway */}
+      <section className="category-runway" id="koleksiyon">
+        <header>
+          <p className="overline">Koleksiyonlar</p>
+          <h2>Her yolculuk için bir Cuoriva.</h2>
+        </header>
+        <div className="category-list">
+          {categories.map((category) => (
+            <Link to={`/kategori/${category.slug}`} className="category-row" key={category.slug}>
+              <span>{category.index}</span>
+              <div>
+                <h3>{category.name}</h3>
+                <p className="category-subtext">{category.description}</p>
+              </div>
+              <div className="category-thumb">
+                <img src={category.image} alt={category.name} loading="lazy" />
+              </div>
+              <Icon name="arrow" />
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. Live Embossing Studio */}
+      <EmbossingStudio />
+
+      {/* 5. Featured Products Grid */}
+      <section className="new-arrivals">
+        <header className="split-heading">
+          <div>
+            <p className="overline">Öne Çıkan Parçalar</p>
+            <h2>Mekanizmalı & İkonik Modeller</h2>
+          </div>
+          <Link to="/kategori/tumu">
+            Tüm Koleksiyonu Gör <Icon name="arrow" />
+          </Link>
+        </header>
+        <div className="editorial-grid">
+          {products.slice(0, 6).map((product, index) => (
+            <ProductCard product={product} index={index} key={product.slug} />
+          ))}
+        </div>
+      </section>
+
+      {/* 6. Bohemian Craftsmanship Editorial Band */}
+      <section className="craft-band">
+        <div className="craft-mark">
+          <img src="/assets/cuoriva-mark.png" alt="Cuoriva Mark" />
+        </div>
+        <div className="craft-band-image">
+          <img src="/assets/cuoriva-leather-emboss.jpg" alt="Cuoriva damgalı hakiki deri ve saraç dikişi" />
+        </div>
+        <div className="craft-band-copy">
+          <p className="overline">Derinin Hafızası</p>
+          <h2>
+            Her çizik,<br />
+            <em>size ait bir hikâye.</em>
+          </h2>
+          <p>
+            Crazy horse ve bitkisel tabaklanmış deriler zamanı gizlemez. Dokunduğunuz anların sıcaklığını,
+            cebinizdeki formunu ve yaptığınız yolculukları yüzeyindeki benzersiz patinada saklar.
+            Kullandıkça eskiyen değil, kullandıkça güzelleşen bir yaşam ortağı.
+          </p>
+          <div className="craft-details-checklist">
+            <span>✓ Mumlu iplikle elde çift saraç dikişi</span>
+            <span>✓ Masif pirinç dayanıklı aksesuarlar</span>
+            <span>✓ Eonaks & Getto Deri standartlarının ötesinde bohem lüks</span>
+          </div>
+          <Link to="/kategori/tumu">
+            Atölye Koleksiyonunu Keşfet <Icon name="arrow" />
+          </Link>
+        </div>
+      </section>
+
+      {/* 7. Guarantees & Service Strip */}
+      <section className="service-strip">
+        <div>
+          <span>01</span>
+          <h3>Ücretsiz Kişiselleştirme</h3>
+          <p>Tüm cüzdan ve kartlıklara adınız veya baş harfleriniz ücretsiz işlenir.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <h3>Ömür Boyu Atölye Bakımı</h3>
+          <p>Dikiş, mekanizma ve deri bakımı için Cuoriva atölyesi her zaman yanınızda.</p>
+        </div>
+        <div>
+          <span>03</span>
+          <h3>Özel Ahşap Hediye Kutusu</h3>
+          <p>Her sipariş, mühürlü kart ve özel koruyucu kesesinde hediye edilmeye hazır gelir.</p>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+/* =========================================================================
+   CATEGORY PAGE
+   ========================================================================= */
+export function CategoryPage() {
+  const { slug = 'tumu' } = useParams()
+  const navigate = useNavigate()
+  const [sort, setSort] = useState('onerilen')
+  const category = categories.find((item) => item.slug === slug)
+  const visible = slug === 'tumu' ? products : products.filter((product) => product.categorySlug === slug)
+  const sorted = useMemo(
+    () =>
+      [...visible].sort((a, b) =>
+        sort === 'artan' ? a.price - b.price : sort === 'azalan' ? b.price - a.price : 0
+      ),
+    [visible, sort]
+  )
+
+  return (
+    <main className="category-page">
+      <section className="category-intro">
+        <p className="breadcrumb">
+          <Link to="/">Ana Sayfa</Link> / Koleksiyon
+        </p>
+        <p className="overline">{String(visible.length).padStart(2, '0')} Parça Listeleniyor</p>
+        <h1>{category?.name ?? 'Tüm Parçalar'}</h1>
+        <p>{category?.description ?? 'Usta ellerde şekillenen, ömür boyu yanınızda taşıyacağınız hakiki deri parçalar.'}</p>
+      </section>
+
+      <div className="shop-toolbar">
+        <div className="category-pills">
+          <button className={slug === 'tumu' ? 'active' : ''} onClick={() => navigate('/kategori/tumu')}>
+            Tümü
+          </button>
+          {categories.map((item) => (
+            <button
+              className={slug === item.slug ? 'active' : ''}
+              onClick={() => navigate(`/kategori/${item.slug}`)}
+              key={item.slug}
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
+        <label>
+          Sırala
+          <select value={sort} onChange={(event) => setSort(event.target.value)}>
+            <option value="onerilen">Önerilen Sıralama</option>
+            <option value="artan">Fiyat: Düşükten Yükseğe</option>
+            <option value="azalan">Fiyat: Yüksekten Düşüğe</option>
+          </select>
+        </label>
+      </div>
+
+      <section className="catalog-grid">
+        {sorted.map((product, index) => (
+          <ProductCard product={product} index={index} key={product.slug} />
+        ))}
+      </section>
+    </main>
+  )
+}
+
+/* =========================================================================
+   PRODUCT DETAIL PAGE
+   ========================================================================= */
+export function ProductPage() {
+  const { slug } = useParams()
+  const { addToCart } = useOutletContext<StoreContext>()
+  const product = products.find((item) => item.slug === slug)
+  const [color, setColor] = useState(product?.colors[0].name ?? '')
+  const [quantity, setQuantity] = useState(1)
+  const [activeDetail, setActiveDetail] = useState('detay')
+
+  // Personalization State
+  const [wantsEngraving, setWantsEngraving] = useState(false)
+  const [engravingText, setEngravingText] = useState('')
+  const [foilStyle, setFoilStyle] = useState<'blind' | 'gold' | 'silver'>('blind')
+
+  if (!product) return <NotFound />
+  const related = products
+    .filter((item) => item.categorySlug === product.categorySlug && item.slug !== product.slug)
+    .slice(0, 3)
+
+  const handleAdd = () => {
+    addToCart(product, quantity, color, wantsEngraving ? engravingText : '', foilStyle)
+  }
+
+  return (
+    <main className="product-page">
+      <div className="product-gallery">
+        <div className="gallery-main">
+          <img src={product.images[0]} alt={product.name} />
+          {product.tag && <span className="product-tag">{product.tag}</span>}
+          {product.rfidProtected && <span className="rfid-tag">RFID Korumalı</span>}
+        </div>
+        <div className="gallery-secondary">
+          <img src={product.images[1]} alt={`${product.name} detay görünümü`} />
+        </div>
+      </div>
+
+      <section className="product-purchase">
+        <p className="breadcrumb">
+          <Link to="/">Ana Sayfa</Link> / <Link to={`/kategori/${product.categorySlug}`}>{product.category}</Link>
+        </p>
+        <p className="overline">{product.category}</p>
+        <h1>{product.name}</h1>
+        <strong className="detail-price">{formatPrice(product.price)}</strong>
+        <p className="product-description">{product.description}</p>
+
+        {/* Color Picker */}
+        <div className="option-block">
+          <div className="option-label">
+            <span>Deri Rengi</span>
+            <strong>{color}</strong>
+          </div>
+          <div className="swatches">
+            {product.colors.map((item) => (
+              <button
+                type="button"
+                key={item.name}
+                className={color === item.name ? 'active' : ''}
+                onClick={() => setColor(item.name)}
+                aria-label={item.name}
+              >
+                <i style={{ background: item.value }} />
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Personalization Section (Free Name Embossing) */}
+        {product.isPersonalizable && (
+          <div className="personalization-box">
+            <div className="personalization-toggle-row">
+              <label className="checkbox-label">
+                <input
+                  type="checkbox"
+                  checked={wantsEngraving}
+                  onChange={(e) => setWantsEngraving(e.target.checked)}
+                />
+                <span className="checkbox-custom" />
+                <div>
+                  <strong>Üzerine Ücretsiz İsim / Baş Harf Yazılsın</strong>
+                  <small>Geleneksel sıcak presle deriye kazınır (+0 TL)</small>
+                </div>
+              </label>
+            </div>
+
+            {wantsEngraving && (
+              <div className="personalization-inputs">
+                <div className="p-input-field">
+                  <label htmlFor="p-text">Yazılacak İsim veya Baş Harfler (Maks 15)</label>
+                  <input
+                    id="p-text"
+                    type="text"
+                    maxLength={15}
+                    value={engravingText}
+                    onChange={(e) => setEngravingText(e.target.value)}
+                    placeholder="Örn: OĞUZ OLGUN"
+                  />
+                </div>
+
+                <div className="p-style-selector">
+                  <button
+                    type="button"
+                    className={foilStyle === 'blind' ? 'active' : ''}
+                    onClick={() => setFoilStyle('blind')}
+                  >
+                    Sıcak Gofraj (Deboss)
+                  </button>
+                  <button
+                    type="button"
+                    className={foilStyle === 'gold' ? 'active' : ''}
+                    onClick={() => setFoilStyle('gold')}
+                  >
+                    Altın Varak
+                  </button>
+                  <button
+                    type="button"
+                    className={foilStyle === 'silver' ? 'active' : ''}
+                    onClick={() => setFoilStyle('silver')}
+                  >
+                    Gümüş Varak
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Quantity & Buy Row */}
+        <div className="buy-row">
+          <div className="quantity">
+            <button type="button" onClick={() => setQuantity((value) => Math.max(1, value - 1))}>
+              <Icon name="minus" />
+            </button>
+            <span>{quantity}</span>
+            <button type="button" onClick={() => setQuantity((value) => value + 1)}>
+              <Icon name="plus" />
+            </button>
+          </div>
+          <button type="button" className="add-cart" onClick={handleAdd}>
+            Sepete Ekle <span>{formatPrice(product.price * quantity)}</span>
+          </button>
+        </div>
+
+        <p className="stock-note">
+          <i /> Stokta · Bugün kargoya hazır · Ücretsiz & Sigortalı Teslimat
+        </p>
+
+        {/* Tabs */}
+        <div className="detail-tabs">
+          <div>
+            {['detay', 'kargo', 'bakim'].map((tab) => (
+              <button
+                type="button"
+                className={activeDetail === tab ? 'active' : ''}
+                onClick={() => setActiveDetail(tab)}
+                key={tab}
+              >
+                {tab === 'detay' ? 'Ürün Detayı' : tab === 'kargo' ? 'Teslimat & Kutu' : 'Deri Bakımı'}
+              </button>
+            ))}
+          </div>
+          {activeDetail === 'detay' && (
+            <ul>
+              {product.details.map((detail) => (
+                <li key={detail}>{detail}</li>
+              ))}
+            </ul>
+          )}
+          {activeDetail === 'kargo' && (
+            <p>
+              Tüm siparişleriniz özel ahşap Cuoriva koruma kutusu ve bez kese içerisinde, sigortalı kargo ile gönderilir.
+              Saat 14:00'e kadar verilen siparişlerde aynı gün kargoya teslim edilir.
+            </p>
+          )}
+          {activeDetail === 'bakim' && (
+            <p>
+              Crazy horse ve bitkisel tabaklanmış deriler kimyasal madde sevmez. Kuru ve yumuşak pamuklu bir bezle hafifçe silin.
+              Yıllar geçtikçe derinleşen rengi ve kazandığı patina derinizin eşsiz imzasıdır.
+            </p>
+          )}
+        </div>
+      </section>
+
+      <section className="product-story">
+        <p className="overline">Zanaatkâr Notu</p>
+        <h2>
+          Seri üretim değil.<br />
+          <em>Sizin için özel üretim.</em>
+        </h2>
+        <p>
+          Deri üzerindeki doğal ton geçişleri ve hafif izler kusur değil; doğanın ve derinin karakteridir.
+          Hiçbir Cuoriva parçası dünyada bir başkasıyla tamamen aynı değildir.
+        </p>
+      </section>
+
+      {related.length > 0 && (
+        <section className="related">
+          <header className="split-heading">
+            <div>
+              <p className="overline">Birlikte İyi Gider</p>
+              <h2>Tamamlayıcı Parçalar</h2>
+            </div>
+          </header>
+          <div className="catalog-grid">
+            {related.map((item, index) => (
+              <ProductCard product={item} index={index} key={item.slug} />
+            ))}
+          </div>
+        </section>
+      )}
+    </main>
+  )
+}
+
+export function NotFound() {
+  return (
+    <main className="not-found">
+      <p className="overline">404</p>
+      <h1>Bu parça atölyede bulunamadı.</h1>
+      <Link to="/">
+        Ana Sayfaya Dön <Icon name="arrow" />
+      </Link>
+    </main>
+  )
+}
+
+function Footer() {
+  const submit = (event: FormEvent) => event.preventDefault()
+  return (
+    <footer>
+      <div className="footer-newsletter">
+        <p className="overline">Cuoriva Gazette</p>
+        <h2>
+          Dünyaları<br />
+          <em>birlikte taşıyalım.</em>
+        </h2>
+        <form onSubmit={submit}>
+          <input
+            type="email"
+            required
+            placeholder="E-posta adresinizi bırakın..."
+            aria-label="E-posta adresiniz"
+          />
+          <button type="submit" aria-label="Kaydol">
+            <Icon name="arrow" />
+          </button>
+        </form>
+      </div>
+
+      <div className="footer-base">
+        <Logo light />
+        <nav>
+          {categories.map((category) => (
+            <Link to={`/kategori/${category.slug}`} key={category.slug}>
+              {category.name}
+            </Link>
+          ))}
+        </nav>
+        <div>
+          <a href="mailto:destek@cuoriva.com">destek@cuoriva.com</a>
+          <p>© 2025 Cuoriva Leather Goods · El Yapımı Hakiki Deri</p>
+        </div>
+      </div>
+    </footer>
+  )
+}

@@ -1,0 +1,10 @@
+{
+  "description": "Discover and shop Cuoriva’s premium leather goods through a bohemian-inspired storefront with immersive scrolling visuals.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
