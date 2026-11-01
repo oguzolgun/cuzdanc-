@@ -10,6 +10,8 @@ import {
 import { FormEvent, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { categories, formatPrice, products, type Product } from './data'
 
+import { CanvasScrollHero } from './CanvasScrollHero'
+
 export type CartItem = {
   product: Product
   quantity: number
@@ -26,6 +28,9 @@ type StoreContext = {
     engraving?: string,
     foilStyle?: 'blind' | 'gold' | 'silver'
   ) => void
+  openMenu: () => void
+  openCart: () => void
+  cartCount: number
 }
 
 function Icon({
@@ -126,37 +131,69 @@ export function StoreLayout() {
 
   const count = cart.reduce((total, item) => total + item.quantity, 0)
   const total = cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
+  const { pathname } = useLocation()
+  const openMenu = () => setMenuOpen(true)
+  const openCart = () => setCartOpen(true)
 
   return (
     <div className="store-shell">
       <ScrollToTop />
-      <aside className="atelier-rail">
-        <Link to="/" aria-label="Cuoriva ana sayfa" onClick={() => setMenuOpen(false)}>
-          <Logo />
-        </Link>
-        <button type="button" className="rail-menu" onClick={() => setMenuOpen(true)}>
-          <Icon name="menu" />
-          <span>Menü</span>
-        </button>
-        <span className="rail-note">Hakiki Deri · Dünyaları Taşıyoruz</span>
-        <button type="button" className="rail-cart" onClick={() => setCartOpen(true)} aria-label="Sepet">
-          <Icon name="bag" />
-          <b>{count}</b>
-        </button>
-      </aside>
 
-      <header className="mobile-header">
-        <button type="button" onClick={() => setMenuOpen(true)} aria-label="Menüyü aç">
-          <Icon name="menu" />
-        </button>
-        <Link to="/" aria-label="Cuoriva ana sayfa">
-          <Logo />
-        </Link>
-        <button type="button" onClick={() => setCartOpen(true)} aria-label="Sepet">
-          <Icon name="bag" />
-          <b>{count}</b>
-        </button>
-      </header>
+      {/* Global Top Header Bar for Inner Pages (Homepage uses dynamic header inside CanvasScrollHero) */}
+      {pathname !== '/' && (
+        <header className="cuoriva-nav-header is-scrolled">
+          <div className="nav-container">
+            <div className="nav-left">
+              <Link to="/" className="nav-brand" aria-label="Cuoriva Ana Sayfa">
+                <span className="cr-monogram-wrap">
+                  <img src="/assets/cuoriva-mark.png" alt="CR" className="cr-monogram" />
+                </span>
+                <div className="nav-brand-text">
+                  <span className="brand-title">CUORIVA</span>
+                  <span className="brand-subtitle">LEATHER GOODS</span>
+                </div>
+              </Link>
+            </div>
+
+            <nav className="nav-center" aria-label="Ana Menü">
+              <Link to="/kategori/tumu" className="nav-link">
+                Koleksiyon
+              </Link>
+              <Link to="/#motto" className="nav-link">
+                Hikâyemiz
+              </Link>
+              <Link to="/#mekanizma" className="nav-link">
+                Mekanizma
+              </Link>
+              <a href="mailto:destek@cuoriva.com" className="nav-link">
+                İletişim
+              </a>
+            </nav>
+
+            <div className="nav-right">
+              <button
+                type="button"
+                className="nav-action-btn menu-trigger"
+                onClick={openMenu}
+                aria-label="Koleksiyon Menüsünü Aç"
+              >
+                <Icon name="menu" />
+                <span className="btn-label">Menü</span>
+              </button>
+
+              <button
+                type="button"
+                className="nav-action-btn cart-trigger"
+                onClick={openCart}
+                aria-label="Sepeti Görüntüle"
+              >
+                <Icon name="bag" />
+                <span className="cart-badge">{count}</span>
+              </button>
+            </div>
+          </div>
+        </header>
+      )}
 
       {/* Fullscreen Editorial Menu */}
       <div className={`menu-canvas ${menuOpen ? 'is-open' : ''}`} aria-hidden={!menuOpen}>
@@ -269,7 +306,7 @@ export function StoreLayout() {
       </aside>
 
       <div className="page-content">
-        <Outlet context={{ addToCart } satisfies StoreContext} />
+        <Outlet context={{ addToCart, openMenu, openCart, cartCount: count } satisfies StoreContext} />
         <Footer />
       </div>
     </div>
@@ -296,262 +333,6 @@ function ProductCard({ product, index = 0 }: { product: Product; index?: number 
         <strong>{formatPrice(product.price)}</strong>
       </div>
     </article>
-  )
-}
-
-/* =========================================================================
-   SCROLL-DRIVEN VIDEO HERO COMPONENT
-   "Dünyaları Sizinle Taşıyoruz"
-   Scroll yaptıkça videodaki cüzdan açılır veya kapanır (Video Scrubbing)
-   ========================================================================= */
-
-function VideoScrollHero() {
-  const trackRef = useRef<HTMLElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
-  const [smoothProgress, setSmoothProgress] = useState(0)
-  const [videoDuration, setVideoDuration] = useState(10.0)
-  const [currentTime, setCurrentTime] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(false)
-
-  // Track window scroll over trackRef
-  useEffect(() => {
-    if (isAutoPlaying) return
-
-    const handleScroll = () => {
-      if (!trackRef.current) return
-      const rect = trackRef.current.getBoundingClientRect()
-      const totalScrollable = rect.height - window.innerHeight
-      if (totalScrollable <= 0) return
-      const current = -rect.top
-      const raw = Math.max(0, Math.min(1, current / totalScrollable))
-      setScrollProgress(raw)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [isAutoPlaying])
-
-  // Smooth lerp 60fps for continuous video seek
-  useEffect(() => {
-    if (isAutoPlaying) return
-    let animId: number
-    const update = () => {
-      setSmoothProgress((prev) => {
-        const delta = scrollProgress - prev
-        if (Math.abs(delta) < 0.001) return scrollProgress
-        return prev + delta * 0.2
-      })
-      animId = requestAnimationFrame(update)
-    }
-    animId = requestAnimationFrame(update)
-    return () => cancelAnimationFrame(animId)
-  }, [scrollProgress, isAutoPlaying])
-
-  // Scrub video playback time based on smoothProgress
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video || isAutoPlaying) return
-
-    const onMeta = () => {
-      if (video.duration && !isNaN(video.duration)) {
-        setVideoDuration(video.duration)
-      }
-      video.pause()
-    }
-    video.addEventListener('loadedmetadata', onMeta)
-    if (video.readyState >= 1) onMeta()
-
-    const targetTime = smoothProgress * (video.duration || videoDuration || 10.0)
-    // Only seek if noticeably different to prevent browser audio/video stutter
-    if (Math.abs(video.currentTime - targetTime) > 0.02) {
-      video.currentTime = targetTime
-      setCurrentTime(targetTime)
-    }
-
-    return () => video.removeEventListener('loadedmetadata', onMeta)
-  }, [smoothProgress, videoDuration, isAutoPlaying])
-
-  // Auto-play toggle
-  const toggleAutoPlay = () => {
-    const video = videoRef.current
-    if (!video) return
-    if (isAutoPlaying) {
-      video.pause()
-      setIsAutoPlaying(false)
-    } else {
-      video.play()
-      setIsAutoPlaying(true)
-    }
-  }
-
-  // Handle time update during auto play
-  const handleTimeUpdate = () => {
-    const video = videoRef.current
-    if (!video || !isAutoPlaying) return
-    setCurrentTime(video.currentTime)
-    if (video.duration) {
-      setSmoothProgress(video.currentTime / video.duration)
-      setScrollProgress(video.currentTime / video.duration)
-    }
-  }
-
-  // Manual scroll helper
-  const triggerAutoScroll = (targetRatio: number) => {
-    if (isAutoPlaying) {
-      videoRef.current?.pause()
-      setIsAutoPlaying(false)
-    }
-    if (!trackRef.current) return
-    const rect = trackRef.current.getBoundingClientRect()
-    const totalScrollable = rect.height - window.innerHeight
-    const targetScroll = window.scrollY + rect.top + targetRatio * totalScrollable
-    window.scrollTo({ top: targetScroll, behavior: 'smooth' })
-  }
-
-  return (
-    <section className="video-scroll-track" ref={trackRef} id="motto">
-      {/* Pinned Video Viewport */}
-      <div className="video-scroll-pinned">
-        {/* The Native HTML5 Video Element */}
-        <video
-          ref={videoRef}
-          src="/assets/cuoriva-hero-video.mp4"
-          playsInline
-          muted
-          preload="auto"
-          className="hero-scrub-video"
-          onTimeUpdate={handleTimeUpdate}
-          onEnded={() => setIsAutoPlaying(false)}
-        />
-
-        {/* Ambient Film Grain & Golden Hour Vignette */}
-        <div className="video-hero-vignette" />
-        <div className="floating-dust-particles" aria-hidden="true" />
-
-        {/* Dynamic Editorial Headline Overlays */}
-        <div className="video-hero-overlay-copy">
-          {smoothProgress < 0.22 && (
-            <div className="phase-copy phase-1">
-              <span className="phase-badge">
-                <span className="pulse-dot" />
-                CUORIVA · AKDENİZ 2025
-              </span>
-              <h1>
-                Taşıdığın<br />
-                <em>hikâye.</em>
-              </h1>
-              <p>
-                Akdeniz sokağında sessiz bir yürüyüş. Cebinizde ömürlük bir yol arkadaşı...
-              </p>
-              <div className="scroll-prompt-indicator">
-                <div className="mouse-wheel-icon">
-                  <span className="wheel-dot" />
-                </div>
-                <span>Aşağı Kaydırın · Cüzdan Açılsın ↓</span>
-              </div>
-            </div>
-          )}
-
-          {smoothProgress >= 0.22 && smoothProgress < 0.55 && (
-            <div className="phase-copy phase-2">
-              <span className="phase-badge">BİR AN VE ZAMAN YAVAŞLAR</span>
-              <h2>
-                Cüzdan düşerken,<br />
-                <em>dünyalar açılır.</em>
-              </h2>
-              <p>
-                Ağır çekimde arnavut kaldırımlarına değen cüzdandan sınırsız bir anı tufanı fışkırır...
-              </p>
-            </div>
-          )}
-
-          {smoothProgress >= 0.55 && (
-            <div className="phase-copy phase-3">
-              <span className="phase-badge gold">CUORIVA İMZA MOTTO</span>
-              <h1 className="motto-glow-title">
-                Dünyaları<br />
-                <em>sizinle taşıyoruz.</em>
-              </h1>
-              <p>
-                Yalnızca kart ve nakit değil; seyahatleriniz, biniş kartlarınız, polaroidleriniz ve tüm dünyanız tek bir cüzdanda.
-              </p>
-              <div className="hero-action-buttons">
-                <a href="#koleksiyon" className="hero-cta primary">
-                  Koleksiyonu Keşfet <Icon name="down" />
-                </a>
-                <a href="#kisisellestir" className="hero-cta secondary">
-                  İsmini Deriye Kazı
-                </a>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Interactive Video Controller */}
-        <aside className="video-scrub-controller" aria-label="Video Scroll Kontrolü">
-          <div className="video-scrub-status">
-            <span className="video-state-label">
-              ✦{' '}
-              <strong>
-                {smoothProgress < 0.25
-                  ? 'Cüzdan Kapalı'
-                  : smoothProgress < 0.6
-                  ? 'Cüzdan Açılıyor...'
-                  : 'Cüzdan Açık · Kartlar Saçıldı'}
-              </strong>
-            </span>
-            <span className="video-time-tag">
-              {currentTime.toFixed(1)}s / {videoDuration.toFixed(1)}s (%{Math.round(smoothProgress * 100)})
-            </span>
-          </div>
-
-          <div className="video-slider-wrap">
-            <input
-              type="range"
-              min={0}
-              max={1}
-              step={0.005}
-              value={smoothProgress}
-              onChange={(e) => triggerAutoScroll(parseFloat(e.target.value))}
-              className="video-slider"
-              title="Cüzdan açılışını kaydırın"
-            />
-          </div>
-
-          <div className="video-quick-actions">
-            <button
-              type="button"
-              className="video-action-btn"
-              onClick={() => triggerAutoScroll(0)}
-              title="Cüzdanı kapat ve başa dön"
-            >
-              <Icon name="refresh" />
-              <span>Cüzdanı Kapat (0s)</span>
-            </button>
-            <button
-              type="button"
-              className="video-action-btn"
-              onClick={() => triggerAutoScroll(0.85)}
-              title="Cüzdanı tamamen aç"
-            >
-              <Icon name="sparkle" />
-              <span>Cüzdanı Aç (10s)</span>
-            </button>
-            <button
-              type="button"
-              className={`video-action-btn ${isAutoPlaying ? 'active' : ''}`}
-              onClick={toggleAutoPlay}
-              title="Otomatik oynat / durdur"
-            >
-              <Icon name={isAutoPlaying ? 'close' : 'play'} />
-              <span>{isAutoPlaying ? 'Durdur' : 'Oynat'}</span>
-            </button>
-          </div>
-        </aside>
-      </div>
-    </section>
   )
 }
 
@@ -801,10 +582,16 @@ function EmbossingStudio() {
    HOMEPAGE
    ========================================================================= */
 export function HomePage() {
+  const { openMenu, openCart, cartCount } = useOutletContext<StoreContext>()
+
   return (
     <main>
-      {/* 1. SCROLL-DRIVEN VIDEO HERO (Scroll yaptıkça video oynar: cüzdan açılır / kapanır) */}
-      <VideoScrollHero />
+      {/* 1. SCROLL-DRIVEN VIDEO HERO (Canvas + WebP image sequence scrubbed by scroll) */}
+      <CanvasScrollHero
+        onOpenMenu={openMenu}
+        onOpenCart={openCart}
+        cartCount={cartCount}
+      />
 
       {/* 2. Interactive RFID Pop-up Mechanism Simulator */}
       <MechanismSimulator />

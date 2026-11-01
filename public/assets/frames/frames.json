@@ -1,0 +1,8 @@
+{
+  "frameCount": 239,
+  "desktopPattern": "/assets/frames/desktop/frame_{index}.webp",
+  "mobilePattern": "/assets/frames/mobile/frame_{index}.webp",
+  "aspectRatio": 1.7777778,
+  "fps": 24,
+  "duration": 10.03
+}
