@@ -453,7 +453,7 @@ function MechanismSimulator() {
    LIVE LEATHER EMBOSSING STUDIO (KİŞİSELLEŞTİRME ATÖLYESİ)
    ========================================================================= */
 function EmbossingStudio() {
-  const [name, setName] = useState('OĞUZ OLGUN')
+  const [name, setName] = useState('BURAYA İSİM GİRİNİZ')
   const [leatherColor, setLeatherColor] = useState<'cognac' | 'chestnut' | 'olive' | 'black'>('cognac')
 
   const leatherPalette = {
@@ -500,30 +500,68 @@ function EmbossingStudio() {
           {/* Refined Bottom-Right Personalized Deboss Name */}
           <div className="swatch-corner-emboss">
             <div className="embossed-name-output style-blind">
-              {name.trim() ? name.toUpperCase() : 'İSMİNİZ'}
+              {name.trim() ? name.toUpperCase() : 'BURAYA İSİM GİRİNİZ'}
             </div>
           </div>
         </div>
 
         {/* Customization Controls */}
         <div className="studio-controls">
-          <div className="control-group">
-            <label htmlFor="custom-name-input">
-              <span>Deriye İşlenecek İsim veya Baş Harfler</span>
-              <small>Maks. 16 Karakter (Ücretsiz)</small>
-            </label>
-            <input
-              id="custom-name-input"
-              type="text"
-              maxLength={16}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Örn: OĞUZ OLGUN ya da O.O."
-            />
+          {/* Enhanced UX Input Area */}
+          <div className="emboss-input-group">
+            <div className="emboss-input-header">
+              <label htmlFor="custom-name-input">
+                Deriye İşlenecek İsim veya Baş Harfler
+              </label>
+              <span className="emboss-input-badge">
+                ✦ Ücretsiz Sıcak Baskı
+              </span>
+            </div>
+
+            <div className="emboss-input-box">
+              <svg viewBox="0 0 24 24" className="emboss-input-icon" fill="none" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+              </svg>
+
+              <input
+                id="custom-name-input"
+                type="text"
+                maxLength={16}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                onFocus={(e) => e.target.select()}
+                placeholder="Buraya isim giriniz..."
+                className="emboss-text-field"
+                autoComplete="off"
+                spellCheck="false"
+              />
+
+              <div className="emboss-input-actions">
+                {name.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => setName('')}
+                    className="emboss-clear-btn"
+                    title="Temizle"
+                    aria-label="Metni temizle"
+                  >
+                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" strokeWidth="2.5">
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </button>
+                )}
+                <span className="emboss-char-count">{name.length}/16</span>
+              </div>
+            </div>
+
+            <p className="emboss-input-hint">
+              <strong>✦ Canlı Önizleme:</strong> Buraya yazdığınız isim soldaki hakiki deriye anında sıcak gofrajla işlenir.
+            </p>
           </div>
 
-          <div className="control-group">
-            <label>Deri Tonunu Önizleyin</label>
+          <div className="leather-color-group">
+            <span className="leather-color-header">Deri Tonunu Önizleyin</span>
             <div className="leather-color-buttons">
               {(Object.keys(leatherPalette) as (keyof typeof leatherPalette)[]).map((key) => (
                 <button

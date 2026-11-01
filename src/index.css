@@ -972,34 +972,214 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   opacity: 0.38;
 }
 
-.leather-color-buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+/* Customization Studio Controls & High-UX Input */
+.studio-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
-.color-btn {
+
+.emboss-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.emboss-input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.emboss-input-header label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--deep-brown);
+}
+
+.emboss-input-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(166, 86, 31, 0.12);
+  border: 1px solid rgba(166, 86, 31, 0.28);
+  color: var(--cognac);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Distinct, Interactive Luxury Input Box */
+.emboss-input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid rgba(166, 86, 31, 0.38);
+  border-radius: 8px;
+  padding: 0 16px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(43, 27, 18, 0.06), inset 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.emboss-input-box:hover {
+  border-color: rgba(166, 86, 31, 0.65);
+  box-shadow: 0 6px 20px rgba(166, 86, 31, 0.08);
+}
+
+.emboss-input-box:focus-within {
+  border-color: var(--cognac);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(166, 86, 31, 0.18), 0 8px 24px rgba(166, 86, 31, 0.14);
+}
+
+.emboss-input-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--cognac);
+  flex-shrink: 0;
+  margin-right: 12px;
+  transition: transform 0.2s ease;
+}
+
+.emboss-input-box:focus-within .emboss-input-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.emboss-text-field {
+  flex: 1;
+  width: 100%;
+  height: 58px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--deep-brown);
+}
+
+.emboss-text-field::placeholder {
+  color: rgba(43, 27, 18, 0.35);
+  font-style: italic;
+  font-size: 20px;
+}
+
+.emboss-input-actions {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.emboss-clear-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(43, 27, 18, 0.08);
+  border: none;
+  color: var(--deep-brown);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.emboss-clear-btn:hover {
+  background: var(--cognac);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.emboss-char-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(43, 27, 18, 0.55);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+.emboss-input-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #7b7268;
+  margin-top: 6px;
+}
+
+.emboss-input-hint strong {
+  color: var(--cognac);
+}
+
+/* Leather Color Selection */
+.leather-color-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.leather-color-header {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--deep-brown);
+}
+
+.leather-color-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.color-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(27, 23, 20, 0.18);
   background: var(--paper);
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 10px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.12em;
+  transition: all 0.2s ease;
 }
+
+.color-btn:hover {
+  border-color: var(--cognac);
+  background: #ffffff;
+}
+
 .color-btn i {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   flex-shrink: 0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.35);
 }
+
 .color-btn.active {
-  border-color: var(--ink);
-  background: var(--ink);
+  border-color: var(--cognac);
+  background: var(--deep-brown);
   color: var(--cream);
+  box-shadow: 0 4px 14px rgba(43, 27, 18, 0.25);
 }
 
 .studio-cta-wrap { margin-top: 10px; }
