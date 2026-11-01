@@ -455,13 +455,12 @@ function MechanismSimulator() {
 function EmbossingStudio() {
   const [name, setName] = useState('OĞUZ OLGUN')
   const [leatherColor, setLeatherColor] = useState<'cognac' | 'chestnut' | 'olive' | 'black'>('cognac')
-  const [foilStyle, setFoilStyle] = useState<'blind' | 'gold' | 'silver'>('blind')
 
   const leatherPalette = {
-    cognac: { name: 'Konyak Taba', bg: '#96481e', stitch: '#cf9872' },
-    chestnut: { name: 'Antik Kestane', bg: '#4e281c', stitch: '#9c6f5d' },
-    olive: { name: 'Zeytin Yeşili', bg: '#3e4233', stitch: '#868c73' },
-    black: { name: 'Gece Siyahı', bg: '#1c1b1a', stitch: '#42413e' },
+    cognac: { name: 'Konyak Taba', bg: '#96481e', stitch: '#cf9872', isDark: false },
+    chestnut: { name: 'Antik Kestane', bg: '#4e281c', stitch: '#9c6f5d', isDark: true },
+    olive: { name: 'Zeytin Yeşili', bg: '#3e4233', stitch: '#868c73', isDark: true },
+    black: { name: 'Gece Siyahı', bg: '#1c1b1a', stitch: '#42413e', isDark: true },
   }
 
   const selected = leatherPalette[leatherColor]
@@ -475,27 +474,33 @@ function EmbossingStudio() {
           <em>Adınız deriye kazınsın.</em>
         </h2>
         <p>
-          Getto Deri ve Eonaks müşterilerinin en çok sevdiği zanaat ayrıntısı: Sipariş verdiğiniz her Cuoriva parçasına,
-          atölyemizde geleneksel pirinç harfler ve sıcak gofraj presiyle isminizi veya baş harflerinizi ücretsiz olarak işliyoruz.
+          Cuoriva atölyesinin zamansız zanaat ayrıntısı: Sipariş verdiğiniz her parçaya,
+          geleneksel pirinç harfler ve sıcak gofraj presiyle isminizi veya baş harflerinizi ücretsiz olarak işliyoruz.
         </p>
       </div>
 
       <div className="studio-workbench">
         {/* Real-time Leather Preview Canvas */}
-        <div className="leather-swatch-display" style={{ background: selected.bg }}>
+        <div
+          className={`leather-swatch-display ${selected.isDark ? 'is-dark' : ''}`}
+          style={{ background: selected.bg }}
+        >
           <div className="leather-grain-overlay" />
           <div className="leather-hand-stitching" style={{ borderColor: selected.stitch }} />
 
-          <div className="swatch-content">
-            <span className="swatch-brand-watermark">CUORIVA LEATHER GOODS</span>
-
-            <div className={`embossed-name-output style-${foilStyle}`}>
-              {name.trim() ? name.toUpperCase() : 'İSMİNİZİ YAZIN'}
+          {/* Cuoriva Brand Stamp (Top Left) */}
+          <div className="swatch-brand-stamp">
+            <img src="/assets/cuoriva-mark.png" alt="CUORIVA" className="swatch-cr-mark" />
+            <div className="swatch-brand-info">
+              <span className="swatch-brand-name">CUORIVA</span>
+              <span className="swatch-brand-sub">LEATHER GOODS</span>
             </div>
+          </div>
 
-            <div className="swatch-meta">
-              <span>Bitkisel Tabaklama · %100 Dana Derisi</span>
-              <span>İstanbul Atölye Baskısı</span>
+          {/* Refined Bottom-Right Personalized Deboss Name */}
+          <div className="swatch-corner-emboss">
+            <div className="embossed-name-output style-blind">
+              {name.trim() ? name.toUpperCase() : 'İSMİNİZ'}
             </div>
           </div>
         </div>
@@ -515,36 +520,6 @@ function EmbossingStudio() {
               onChange={(e) => setName(e.target.value)}
               placeholder="Örn: OĞUZ OLGUN ya da O.O."
             />
-          </div>
-
-          <div className="control-group">
-            <label>Baskı Tarzını Seçin</label>
-            <div className="foil-options">
-              <button
-                type="button"
-                className={`foil-pill ${foilStyle === 'blind' ? 'active' : ''}`}
-                onClick={() => setFoilStyle('blind')}
-              >
-                <span>✦ Sıcak Gofraj (Deboss)</span>
-                <small>Derinin kendi doğal tonunda derin çökertme</small>
-              </button>
-              <button
-                type="button"
-                className={`foil-pill ${foilStyle === 'gold' ? 'active' : ''}`}
-                onClick={() => setFoilStyle('gold')}
-              >
-                <span>✦ Altın Varak (Gold)</span>
-                <small>24K ışıltılı İtalyan altın folyo baskı</small>
-              </button>
-              <button
-                type="button"
-                className={`foil-pill ${foilStyle === 'silver' ? 'active' : ''}`}
-                onClick={() => setFoilStyle('silver')}
-              >
-                <span>✦ Gümüş Varak (Silver)</span>
-                <small>Platin parlaklığında modern metalik baskı</small>
-              </button>
-            </div>
           </div>
 
           <div className="control-group">
