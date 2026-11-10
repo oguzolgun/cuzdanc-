@@ -6,6 +6,7 @@ import {
   useNavigate,
   useOutletContext,
   useParams,
+  useSearchParams,
 } from 'react-router'
 import { FormEvent, useEffect, useMemo, useState, type CSSProperties } from 'react'
 import {
@@ -16,7 +17,8 @@ import {
   products,
   type Product,
 } from './data'
-import { CanvasScrollHero } from './CanvasScrollHero'
+import { HeaderNav } from './HeaderNav'
+import { AppleHero } from './AppleHero'
 
 export type CartItem = {
   product: Product
@@ -107,10 +109,17 @@ function Logo({ light = false }: { light?: boolean }) {
 }
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   useEffect(() => {
+    if (hash) {
+      const targetId = hash.slice(1)
+      window.setTimeout(() => {
+        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
+      }, 60)
+      return
+    }
     window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [pathname])
+  }, [pathname, hash])
   return null
 }
 
@@ -147,7 +156,6 @@ export function StoreLayout() {
 
   const count = cart.reduce((total, item) => total + item.quantity, 0)
   const total = cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
-  const { pathname } = useLocation()
   const openMenu = () => setMenuOpen(true)
   const openCart = () => setCartOpen(true)
 
@@ -155,61 +163,8 @@ export function StoreLayout() {
     <div className="store-shell">
       <ScrollToTop />
 
-      {/* Global Top Header Bar for Inner Pages (Homepage uses dynamic header inside CanvasScrollHero) */}
-      {pathname !== '/' && (
-        <header className="elon-nav-header is-scrolled">
-          <div className="nav-container">
-            <div className="nav-left">
-              <Link to="/" className="nav-brand" aria-label="ELON LEATHER Ana Sayfa">
-                <span className="el-monogram-wrap">
-                  <img src="/assets/elon-mark.png" alt="EL" className="el-monogram" />
-                </span>
-                <div className="nav-brand-text">
-                  <span className="brand-title">ELON LEATHER</span>
-                  <span className="brand-subtitle">EL DİKİMİ ATELIER</span>
-                </div>
-              </Link>
-            </div>
-
-            <nav className="nav-center" aria-label="Ana Menü">
-              <Link to="/kategori/tumu" className="nav-link">
-                Koleksiyon
-              </Link>
-              <Link to="/#motto" className="nav-link">
-                Hikâyemiz
-              </Link>
-              <Link to="/#mekanizma" className="nav-link">
-                Mekanizma
-              </Link>
-              <a href="mailto:destek@elonleather.com" className="nav-link">
-                İletişim
-              </a>
-            </nav>
-
-            <div className="nav-right">
-              <button
-                type="button"
-                className="nav-action-btn menu-trigger"
-                onClick={openMenu}
-                aria-label="Koleksiyon Menüsünü Aç"
-              >
-                <Icon name="menu" />
-                <span className="btn-label">Menü</span>
-              </button>
-
-              <button
-                type="button"
-                className="nav-action-btn cart-trigger"
-                onClick={openCart}
-                aria-label="Sepeti Görüntüle"
-              >
-                <Icon name="bag" />
-                <span className="cart-badge">{count}</span>
-              </button>
-            </div>
-          </div>
-        </header>
-      )}
+      {/* Unified Apple-Style Frosted Header Across All Routes */}
+      <HeaderNav cartCount={count} onOpenCart={openCart} onOpenMobileMenu={openMenu} />
 
       {/* Fullscreen Editorial Menu */}
       <div className={`menu-canvas ${menuOpen ? 'is-open' : ''}`} aria-hidden={!menuOpen}>
@@ -348,15 +303,30 @@ export function StoreLayout() {
 }
 
 function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
-  const mainImg = productImgUrl(product.images[0], 700)
-  const hoverImg = product.images[1] ? productImgUrl(product.images[1], 700) : null
+  const [selectedSlug, setSelectedSlug] = useState(product.slug)
+
+  useEffect(() => {
+    setSelectedSlug(product.slug)
+  }, [product.slug])
+
+  const siblings = useMemo(
+    () =>
+      products.filter(
+        (item) => item.model === product.model && item.categorySlug === product.categorySlug
+      ),
+    [product.model, product.categorySlug]
+  )
+
+  const active = siblings.find((s) => s.slug === selectedSlug) ?? product
+  const mainImg = productImgUrl(active.images[0], 700)
+  const hoverImg = active.images[1] ? productImgUrl(active.images[1], 700) : null
 
   return (
     <article className="shop-card" style={{ '--delay': `${(index % 9) * 45}ms` } as CSSProperties}>
-      <Link to={`/urun/${product.slug}`} className="shop-card-image">
-        {product.tag && <span className="product-tag">{product.tag}</span>}
-        {product.rfidProtected && <span className="rfid-tag">RFID Korumalı</span>}
-        <img src={mainImg} alt={product.name} className="primary-card-img" loading="lazy" />
+      <Link to={`/urun/${active.slug}`} className="shop-card-image">
+        {active.tag && <span className="product-tag">{active.tag}</span>}
+        {active.rfidProtected && <span className="rfid-tag">RFID Korumalı</span>}
+        <img src={mainImg} alt={active.name} className="primary-card-img" loading="lazy" />
         {hoverImg && <img src={hoverImg} alt="" className="secondary-card-img" loading="lazy" aria-hidden="true" />}
         <div className="card-action">
           İncele & Seçenekleri Gör <Icon name="arrow" />
@@ -364,17 +334,37 @@ function ProductCard({ product, index = 0 }: { product: Product; index?: number 
       </Link>
       <div className="shop-card-info">
         <div>
-          <p>{product.category}</p>
-          <Link to={`/urun/${product.slug}`}>{product.name}</Link>
+          <p>{active.category}</p>
+          <Link to={`/urun/${active.slug}`}>{active.name}</Link>
           <div className="card-meta-row">
-            <span className="card-color-chip">
-              <i style={{ background: product.colorHex }} />
-              {product.colorName}
-            </span>
-            {product.isPersonalizable && <span className="custom-perk-hint">✦ Ücretsiz Baskı</span>}
+            {siblings.length > 1 ? (
+              <div className="card-swatch-dots" role="group" aria-label="Renk seçenekleri">
+                {siblings.slice(0, 6).map((sib) => (
+                  <button
+                    type="button"
+                    key={sib.slug}
+                    className={`card-swatch-dot ${sib.slug === active.slug ? 'active' : ''}`}
+                    onClick={() => setSelectedSlug(sib.slug)}
+                    title={sib.colorName}
+                    aria-label={`${sib.model} - ${sib.colorName}`}
+                  >
+                    <i style={{ background: sib.colorHex }} />
+                  </button>
+                ))}
+                {siblings.length > 6 && (
+                  <span className="card-swatch-more">+{siblings.length - 6}</span>
+                )}
+              </div>
+            ) : (
+              <span className="card-color-chip">
+                <i style={{ background: active.colorHex }} />
+                {active.colorName}
+              </span>
+            )}
+            {active.isPersonalizable && <span className="custom-perk-hint">✦ Ücretsiz Baskı</span>}
           </div>
         </div>
-        <strong>{formatPrice(product.price)}</strong>
+        <strong>{formatPrice(active.price)}</strong>
       </div>
     </article>
   )
@@ -650,7 +640,7 @@ const FEATURED_SLUGS = [
 ]
 
 export function HomePage() {
-  const { openMenu, openCart, cartCount } = useOutletContext<StoreContext>()
+  const { addToCart } = useOutletContext<StoreContext>()
 
   const featuredProducts = useMemo(() => {
     const picked = FEATURED_SLUGS.map((slug) => products.find((p) => p.slug === slug)).filter(
@@ -666,8 +656,8 @@ export function HomePage() {
 
   return (
     <main>
-      {/* 1. SCROLL-DRIVEN VIDEO HERO (Canvas + WebP image sequence scrubbed by scroll) */}
-      <CanvasScrollHero onOpenMenu={openMenu} onOpenCart={openCart} cartCount={cartCount} />
+      {/* 1. APPLE-STYLE PRODUCT LAUNCH HERO + FINISH SWITCHER + CATEGORY DOCK */}
+      <AppleHero onAddToCart={(product) => addToCart(product, 1, product.colorName)} />
 
       {/* 2. Interactive RFID Pop-up Mechanism Simulator */}
       <MechanismSimulator />
@@ -784,15 +774,19 @@ export function CategoryPage() {
   const { slug: rawSlug = 'tumu' } = useParams()
   const slug = LEGACY_SLUG_ALIAS[rawSlug] ?? rawSlug
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+
+  const urlQuery = searchParams.get('ara') ?? ''
+  const urlSub = searchParams.get('alt') ?? 'tumu'
 
   const [sort, setSort] = useState('onerilen')
-  const [searchQuery, setSearchQuery] = useState('')
-  const [subFilter, setSubFilter] = useState('tumu')
+  const [searchQuery, setSearchQuery] = useState(urlQuery)
+  const [subFilter, setSubFilter] = useState(urlSub)
 
   useEffect(() => {
-    setSubFilter('tumu')
-    setSearchQuery('')
-  }, [slug])
+    setSubFilter(searchParams.get('alt') ?? 'tumu')
+    setSearchQuery(searchParams.get('ara') ?? '')
+  }, [slug, searchParams])
 
   const category = categories.find((item) => item.slug === slug)
 
@@ -1278,38 +1272,65 @@ export function NotFound() {
 function Footer() {
   const submit = (event: FormEvent) => event.preventDefault()
   return (
-    <footer>
-      <div className="footer-newsletter">
-        <p className="overline">Elon Leather Gazette</p>
-        <h2>
-          Dünyaları<br />
-          <em>birlikte taşıyalım.</em>
-        </h2>
-        <form onSubmit={submit}>
-          <input
-            type="email"
-            required
-            placeholder="E-posta adresinizi bırakın..."
-            aria-label="E-posta adresiniz"
-          />
-          <button type="submit" aria-label="Kaydol">
-            <Icon name="arrow" />
-          </button>
-        </form>
-      </div>
+    <footer className="apple-footer">
+      <div className="apple-footer-inner">
+        <div className="footer-newsletter">
+          <p className="overline">Elon Leather Gazette</p>
+          <h2>
+            Dünyaları<br />
+            <em>birlikte taşıyalım.</em>
+          </h2>
+          <form onSubmit={submit}>
+            <input
+              type="email"
+              required
+              placeholder="E-posta adresinizi bırakın..."
+              aria-label="E-posta adresiniz"
+            />
+            <button type="submit" aria-label="Kaydol">
+              <Icon name="arrow" />
+            </button>
+          </form>
+        </div>
 
-      <div className="footer-base">
-        <Logo light />
-        <nav>
-          {categories.map((category) => (
-            <Link to={`/kategori/${category.slug}`} key={category.slug}>
-              {category.name}
-            </Link>
-          ))}
-        </nav>
-        <div>
-          <a href="mailto:destek@elonleather.com">destek@elonleather.com</a>
-          <p>© 2025 Elon Leather · El Yapımı Hakiki Deri</p>
+        <div className="footer-directory">
+          <div className="footer-dir-brand">
+            <Logo light />
+            <p>
+              El dikimi hakiki dana derisi cüzdanlar, mekanizmalı RFID kartlıklar ve kişiselleştirilebilir günlük taşıma aksesuarları.
+            </p>
+          </div>
+
+          <div className="footer-dir-col">
+            <h4>Koleksiyonlar</h4>
+            {categories.map((category) => (
+              <Link to={`/kategori/${category.slug}`} key={category.slug}>
+                {category.name}
+              </Link>
+            ))}
+          </div>
+
+          <div className="footer-dir-col">
+            <h4>Öne Çıkanlar</h4>
+            <Link to="/kategori/yeni-gelenler">Yeni Gelenler</Link>
+            <Link to="/kategori/cok-satanlar">Çok Satan Modeller</Link>
+            <Link to="/kategori/tumu">Tüm 129 Parça</Link>
+            <Link to="/#kisisellestir">İsim Baskı Atölyesi</Link>
+            <Link to="/#mekanizma">RFID Mekanizma Teknolojisi</Link>
+          </div>
+
+          <div className="footer-dir-col">
+            <h4>Atölye &amp; Destek</h4>
+            <a href="mailto:destek@elonleather.com">destek@elonleather.com</a>
+            <span>Ücretsiz Sıcak Gofraj Baskı</span>
+            <span>Aynı Gün Sigortalı Kargo</span>
+            <span>Ömür Boyu Atölye Bakımı</span>
+          </div>
+        </div>
+
+        <div className="footer-legal">
+          <p>© 2026 ELON LEATHER · El Yapımı Hakiki Deri Atölyesi</p>
+          <p>Telif Hakkı Saklıdır.</p>
         </div>
       </div>
     </footer>

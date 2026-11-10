@@ -75,7 +75,7 @@ export const categories: Category[] = [
     name: 'Deri Çanta & Pasaportluk',
     index: '05',
     count: 14,
-    image: "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/wgvwvwe-01.jpg?v=1788179157",
+    image: "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/derielcantasimhasir5.jpg?v=1787596588",
     description: 'El dikimi hakiki deri el çantaları, göğüs/omuz çantaları, Dopp Kit ve 2’si 1 arada pasaportluklar.',
   },
   {
@@ -83,7 +83,7 @@ export const categories: Category[] = [
     name: 'Deri Telefon Kılıfı',
     index: '06',
     count: 13,
-    image: "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1_f46502d3-6c6a-4a79-848d-a130bd495849.jpg?v=1787599605",
+    image: "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/hollanda-1_dd69c646-adce-4092-af75-f6ce5d4a474c.jpg?v=1787599595",
     description: 'Kartlık ve para bölmeli kapaklı telefon kılıfları ile iPhone MagSafe uyumlu tam deri arka kapaklar.',
   },
   {
