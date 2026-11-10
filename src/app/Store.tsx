@@ -7,9 +7,15 @@ import {
   useOutletContext,
   useParams,
 } from 'react-router'
-import { FormEvent, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
-import { categories, formatPrice, products, type Product } from './data'
-
+import { FormEvent, useEffect, useMemo, useState, type CSSProperties } from 'react'
+import {
+  categories,
+  craftStandards,
+  formatPrice,
+  productImgUrl,
+  products,
+  type Product,
+} from './data'
 import { CanvasScrollHero } from './CanvasScrollHero'
 
 export type CartItem = {
@@ -17,7 +23,8 @@ export type CartItem = {
   quantity: number
   color: string
   engraving?: string
-  foilStyle?: 'blind' | 'gold' | 'silver'
+  foilStyle?: 'blind'
+  phoneModel?: string
 }
 
 type StoreContext = {
@@ -26,7 +33,8 @@ type StoreContext = {
     quantity?: number,
     color?: string,
     engraving?: string,
-    foilStyle?: 'blind' | 'gold' | 'silver'
+    foilStyle?: 'blind',
+    phoneModel?: string
   ) => void
   openMenu: () => void
   openCart: () => void
@@ -49,6 +57,7 @@ function Icon({
     | 'check'
     | 'down'
     | 'refresh'
+    | 'search'
 }) {
   const paths = {
     bag: (
@@ -67,6 +76,12 @@ function Icon({
     sparkle: <path d="m12 3 2.5 5.5L20 11l-4.5 4 1.5 6-5-3.5-5 3.5 1.5-6L4 11l5.5-2.5L12 3z" />,
     play: <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" />,
     check: <polyline points="20 6 9 17 4 12" />,
+    search: (
+      <>
+        <circle cx="11" cy="11" r="7" />
+        <path d="m20 20-3.5-3.5" />
+      </>
+    ),
     refresh: (
       <>
         <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
@@ -86,7 +101,7 @@ function Icon({
 function Logo({ light = false }: { light?: boolean }) {
   return (
     <span className={`brand-logo ${light ? 'is-light' : ''}`}>
-      <img src="/assets/cuoriva-mark.png" alt="CUORIVA" />
+      <img src="/assets/elon-logo.png" alt="ELON LEATHER" />
     </span>
   )
 }
@@ -107,9 +122,10 @@ export function StoreLayout() {
   const addToCart = (
     product: Product,
     quantity = 1,
-    color = product.colors[0].name,
+    color = product.colorName,
     engraving = '',
-    foilStyle: 'blind' | 'gold' | 'silver' = 'blind'
+    foilStyle: 'blind' = 'blind',
+    phoneModel = ''
   ) => {
     setCart((current) => {
       const match = current.find(
@@ -117,14 +133,14 @@ export function StoreLayout() {
           item.product.slug === product.slug &&
           item.color === color &&
           item.engraving === engraving &&
-          item.foilStyle === foilStyle
+          item.phoneModel === phoneModel
       )
       if (match) {
         return current.map((item) =>
           item === match ? { ...item, quantity: item.quantity + quantity } : item
         )
       }
-      return [...current, { product, quantity, color, engraving, foilStyle }]
+      return [...current, { product, quantity, color, engraving, foilStyle, phoneModel }]
     })
     setCartOpen(true)
   }
@@ -141,16 +157,16 @@ export function StoreLayout() {
 
       {/* Global Top Header Bar for Inner Pages (Homepage uses dynamic header inside CanvasScrollHero) */}
       {pathname !== '/' && (
-        <header className="cuoriva-nav-header is-scrolled">
+        <header className="elon-nav-header is-scrolled">
           <div className="nav-container">
             <div className="nav-left">
-              <Link to="/" className="nav-brand" aria-label="Cuoriva Ana Sayfa">
-                <span className="cr-monogram-wrap">
-                  <img src="/assets/cuoriva-mark.png" alt="CR" className="cr-monogram" />
+              <Link to="/" className="nav-brand" aria-label="ELON LEATHER Ana Sayfa">
+                <span className="el-monogram-wrap">
+                  <img src="/assets/elon-mark.png" alt="EL" className="el-monogram" />
                 </span>
                 <div className="nav-brand-text">
-                  <span className="brand-title">CUORIVA</span>
-                  <span className="brand-subtitle">LEATHER GOODS</span>
+                  <span className="brand-title">ELON LEATHER</span>
+                  <span className="brand-subtitle">EL DİKİMİ ATELIER</span>
                 </div>
               </Link>
             </div>
@@ -165,7 +181,7 @@ export function StoreLayout() {
               <Link to="/#mekanizma" className="nav-link">
                 Mekanizma
               </Link>
-              <a href="mailto:destek@cuoriva.com" className="nav-link">
+              <a href="mailto:destek@elonleather.com" className="nav-link">
                 İletişim
               </a>
             </nav>
@@ -203,24 +219,39 @@ export function StoreLayout() {
             <Icon name="close" />
             <span>Kapat</span>
           </button>
-          <p className="overline">CUORIVA LEATHER GOODS</p>
+          <p className="overline">ELON LEATHER</p>
           <nav>
             <NavLink to="/kategori/tumu" onClick={() => setMenuOpen(false)}>
-              <small>00</small>Tüm Koleksiyon<Icon name="arrow" />
+              <small>00</small>
+              <span>
+                Tüm Koleksiyon <em>({products.length})</em>
+              </span>
+              <Icon name="arrow" />
             </NavLink>
             {categories.map((category) => (
               <NavLink key={category.slug} to={`/kategori/${category.slug}`} onClick={() => setMenuOpen(false)}>
                 <small>{category.index}</small>
-                {category.name}
+                <span>
+                  {category.name} <em>({category.count})</em>
+                </span>
                 <Icon name="arrow" />
               </NavLink>
             ))}
           </nav>
           <div className="menu-secondary">
-            <Link to="/#motto" onClick={() => setMenuOpen(false)}>Mottomuz & Hikâye</Link>
-            <Link to="/#kisisellestir" onClick={() => setMenuOpen(false)}>İsim Baskı Atölyesi</Link>
-            <Link to="/#mekanizma" onClick={() => setMenuOpen(false)}>Mekanizma Teknolojisi</Link>
-            <a href="mailto:destek@cuoriva.com">İletişim</a>
+            <Link to="/kategori/yeni-gelenler" onClick={() => setMenuOpen(false)}>
+              Yeni Gelenler
+            </Link>
+            <Link to="/kategori/cok-satanlar" onClick={() => setMenuOpen(false)}>
+              Çok Satanlar
+            </Link>
+            <Link to="/#motto" onClick={() => setMenuOpen(false)}>
+              Mottomuz & Hikâye
+            </Link>
+            <Link to="/#kisisellestir" onClick={() => setMenuOpen(false)}>
+              İsim Baskı Atölyesi
+            </Link>
+            <a href="mailto:destek@elonleather.com">İletişim</a>
           </div>
         </div>
       </div>
@@ -230,7 +261,7 @@ export function StoreLayout() {
       <aside className={`cart-drawer ${cartOpen ? 'is-open' : ''}`} aria-label="Sepet">
         <div className="cart-head">
           <div>
-            <p className="overline">Cuoriva Atelier</p>
+            <p className="overline">Elon Leather Atelier</p>
             <h2>
               Sepetiniz <span>({count})</span>
             </h2>
@@ -258,21 +289,24 @@ export function StoreLayout() {
           ) : (
             cart.map((item, idx) => (
               <article className="cart-item" key={`${item.product.slug}-${item.color}-${idx}`}>
-                <img src={item.product.images[0]} alt={item.product.name} />
+                <img src={productImgUrl(item.product.images[0], 300)} alt={item.product.name} />
                 <div>
-                  <h3>{item.product.name}</h3>
+                  <h3>
+                    <Link to={`/urun/${item.product.slug}`} onClick={() => setCartOpen(false)}>
+                      {item.product.name}
+                    </Link>
+                  </h3>
                   <p>
                     {item.color} · Adet {item.quantity}
                   </p>
+                  {item.phoneModel && (
+                    <span className="cart-engraving-badge">
+                      Telefon Modeli: <strong>{item.phoneModel}</strong>
+                    </span>
+                  )}
                   {item.engraving && (
                     <span className="cart-engraving-badge">
-                      ✦ Özel Baskı: <strong>{item.engraving}</strong> (
-                      {item.foilStyle === 'gold'
-                        ? 'Altın Varak'
-                        : item.foilStyle === 'silver'
-                        ? 'Gümüş Varak'
-                        : 'Sıcak Gofraj'}
-                      )
+                      ✦ Özel Sıcak Baskı: <strong>{item.engraving}</strong>
                     </span>
                   )}
                   <strong>{formatPrice(item.product.price * item.quantity)}</strong>
@@ -296,7 +330,7 @@ export function StoreLayout() {
             </p>
             <p className="cart-perk">
               <Icon name="check" />
-              <span>Ücretsiz Sigortalı Kargo & Özel Ahşap Hediye Kutusu Dahil</span>
+              <span>Ücretsiz Sigortalı Kargo & Özel Hediye Kutusu Dahil</span>
             </p>
             <button type="button" className="checkout-btn">
               Güvenli Ödemeye Geç <Icon name="arrow" />
@@ -314,21 +348,31 @@ export function StoreLayout() {
 }
 
 function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
+  const mainImg = productImgUrl(product.images[0], 700)
+  const hoverImg = product.images[1] ? productImgUrl(product.images[1], 700) : null
+
   return (
-    <article className="shop-card" style={{ '--delay': `${index * 60}ms` } as CSSProperties}>
+    <article className="shop-card" style={{ '--delay': `${(index % 9) * 45}ms` } as CSSProperties}>
       <Link to={`/urun/${product.slug}`} className="shop-card-image">
         {product.tag && <span className="product-tag">{product.tag}</span>}
         {product.rfidProtected && <span className="rfid-tag">RFID Korumalı</span>}
-        <img src={product.images[0]} alt={product.name} loading="lazy" />
+        <img src={mainImg} alt={product.name} className="primary-card-img" loading="lazy" />
+        {hoverImg && <img src={hoverImg} alt="" className="secondary-card-img" loading="lazy" aria-hidden="true" />}
         <div className="card-action">
-          İncele & Kişiselleştir <Icon name="arrow" />
+          İncele & Seçenekleri Gör <Icon name="arrow" />
         </div>
       </Link>
       <div className="shop-card-info">
         <div>
           <p>{product.category}</p>
           <Link to={`/urun/${product.slug}`}>{product.name}</Link>
-          {product.isPersonalizable && <span className="custom-perk-hint">✦ Ücretsiz İsim Baskısı</span>}
+          <div className="card-meta-row">
+            <span className="card-color-chip">
+              <i style={{ background: product.colorHex }} />
+              {product.colorName}
+            </span>
+            {product.isPersonalizable && <span className="custom-perk-hint">✦ Ücretsiz Baskı</span>}
+          </div>
         </div>
         <strong>{formatPrice(product.price)}</strong>
       </div>
@@ -352,7 +396,7 @@ function MechanismSimulator() {
             <em>düzen parmaklarınızda.</em>
           </h2>
           <p>
-            Alttaki ergonomik tetiği tek bir parmak hareketiyle kaydırın; içerideki 6 kart, kademeli merdiven formuyla anında karşınıza çıksın.
+            Alttaki ergonomik tetiği tek bir parmak hareketiyle kaydırın; içerideki kartlarınız kademeli merdiven formuyla anında karşınıza çıksın.
             Kalabalık kart yığınları içinde aramak yok, kartlarınızın bükülmesi veya kırılması yok.
           </p>
 
@@ -367,20 +411,20 @@ function MechanismSimulator() {
             <li>
               <Icon name="sparkle" />
               <div>
-                <strong>Patentli Kademe Mekanizması</strong>
+                <strong>Kademeli Akıllı Mekanizma</strong>
                 <span>Kartlar birbirine sürtünmeden basamak şeklinde yükselir, istediğiniz karta 1 saniyede erişin.</span>
               </div>
             </li>
             <li>
               <Icon name="check" />
               <div>
-                <strong>Crazy Horse Hakiki Deri Kaplama</strong>
-                <span>Alüminyum gövdenin dışı, kullandıkça kendine has vintage karakter kazanan birinci sınıf deri ile kaplanmıştır.</span>
+                <strong>El İşçiliği Hakiki Deri</strong>
+                <span>Gövde dışı, kullandıkça kendine has doğal patina kazanan birinci sınıf dana derisi ile kaplanmıştır.</span>
               </div>
             </li>
           </ul>
 
-          <Link to="/kategori/mekanizmali-cuzdan" className="primary-link">
+          <Link to="/kategori/mekanizmali-magsafe-kartlik" className="primary-link">
             Mekanizmalı Modelleri İncele <Icon name="arrow" />
           </Link>
         </div>
@@ -391,7 +435,7 @@ function MechanismSimulator() {
               {/* Emerging Cards */}
               <div className="ejected-cards-layer">
                 <div className="sim-card card-1">
-                  <span>CUORIVA BLACK</span>
+                  <span>ELON BLACK</span>
                   <small>•••• 4892</small>
                 </div>
                 <div className="sim-card card-2">
@@ -415,7 +459,8 @@ function MechanismSimulator() {
               {/* Leather Wallet Body */}
               <div className="wallet-leather-body">
                 <div className="leather-texture-overlay" />
-                <div className="wallet-embossed-brand">CUORIVA</div>
+                <img src="/assets/elon-mark.png" alt="EL" className="wallet-embossed-mark" />
+                <div className="wallet-embossed-brand">ELON LEATHER</div>
                 <div className="wallet-stitch-left" />
                 <div className="wallet-stitch-right" />
                 <div className="wallet-stitch-bottom" />
@@ -474,7 +519,7 @@ function EmbossingStudio() {
           <em>Adınız deriye kazınsın.</em>
         </h2>
         <p>
-          Cuoriva atölyesinin zamansız zanaat ayrıntısı: Sipariş verdiğiniz her parçaya,
+          Elon Leather atölyesinin zamansız zanaat ayrıntısı: Sipariş verdiğiniz her parçaya,
           geleneksel pirinç harfler ve sıcak gofraj presiyle isminizi veya baş harflerinizi ücretsiz olarak işliyoruz.
         </p>
       </div>
@@ -488,12 +533,12 @@ function EmbossingStudio() {
           <div className="leather-grain-overlay" />
           <div className="leather-hand-stitching" style={{ borderColor: selected.stitch }} />
 
-          {/* Cuoriva Brand Stamp (Top Left) */}
+          {/* Elon Leather Brand Stamp (Top Left) */}
           <div className="swatch-brand-stamp">
-            <img src="/assets/cuoriva-mark.png" alt="CUORIVA" className="swatch-cr-mark" />
+            <img src="/assets/elon-mark.png" alt="ELON LEATHER" className="swatch-el-mark" />
             <div className="swatch-brand-info">
-              <span className="swatch-brand-name">CUORIVA</span>
-              <span className="swatch-brand-sub">LEATHER GOODS</span>
+              <span className="swatch-brand-name">ELON LEATHER</span>
+              <span className="swatch-brand-sub">EL DİKİMİ ATELIER</span>
             </div>
           </div>
 
@@ -510,23 +555,24 @@ function EmbossingStudio() {
           {/* Enhanced UX Input Area */}
           <div className="emboss-input-group">
             <div className="emboss-input-header">
-              <label htmlFor="custom-name-input">
-                Deriye İşlenecek İsim veya Baş Harfler
-              </label>
-              <span className="emboss-input-badge">
-                ✦ Ücretsiz Sıcak Baskı
-              </span>
+              <label htmlFor="custom-name-input">Deriye İşlenecek İsim veya Baş Harfler</label>
+              <span className="emboss-input-badge">✦ Ücretsiz Sıcak Baskı</span>
             </div>
 
             <div className="emboss-input-box">
               <svg viewBox="0 0 24 24" className="emboss-input-icon" fill="none" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.8"
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                />
               </svg>
 
               <input
                 id="custom-name-input"
                 type="text"
-                maxLength={16}
+                maxLength={22}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 onFocus={(e) => e.target.select()}
@@ -551,7 +597,7 @@ function EmbossingStudio() {
                     </svg>
                   </button>
                 )}
-                <span className="emboss-char-count">{name.length}/16</span>
+                <span className="emboss-char-count">{name.length}/22</span>
               </div>
             </div>
 
@@ -594,17 +640,34 @@ function EmbossingStudio() {
 /* =========================================================================
    HOMEPAGE
    ========================================================================= */
+const FEATURED_SLUGS = [
+  'apex-el-yapimi-hakiki-deri-miknatisli-cift-katli-cuzdan-ve-kartlik-antik-taba',
+  'peru-magsafe-ozellikli-standli-mekanizmali-premium-hakiki-deri-kartlik-koyu-taba',
+  'oslo-hakiki-deri-unisex-cuzdan-12x9-cm-sik-ve-dayanikli-tasarim-taba-siyah',
+  'dubai-gold-ince-tasarim-hakiki-deri-mandal-tutuculu-cuzdan-ve-kartlik-taba-kahverengi',
+  'elegant-hakiki-deri-el-cantasi-taba-kahverengi',
+  'rusya-hakiki-deri-kapakli-kartlikli-ve-para-bolmeli-telefon-kilifi-taba-kahverengi',
+]
+
 export function HomePage() {
   const { openMenu, openCart, cartCount } = useOutletContext<StoreContext>()
+
+  const featuredProducts = useMemo(() => {
+    const picked = FEATURED_SLUGS.map((slug) => products.find((p) => p.slug === slug)).filter(
+      (p): p is Product => Boolean(p)
+    )
+    return picked.length >= 6 ? picked : products.slice(0, 6)
+  }, [])
+
+  const craftImage = useMemo(() => {
+    const apex = products.find((p) => p.slug === FEATURED_SLUGS[0] && p.images[1])
+    return productImgUrl(apex?.images[1] || products[0].images[0], 1400)
+  }, [])
 
   return (
     <main>
       {/* 1. SCROLL-DRIVEN VIDEO HERO (Canvas + WebP image sequence scrubbed by scroll) */}
-      <CanvasScrollHero
-        onOpenMenu={openMenu}
-        onOpenCart={openCart}
-        cartCount={cartCount}
-      />
+      <CanvasScrollHero onOpenMenu={openMenu} onOpenCart={openCart} cartCount={cartCount} />
 
       {/* 2. Interactive RFID Pop-up Mechanism Simulator */}
       <MechanismSimulator />
@@ -612,19 +675,21 @@ export function HomePage() {
       {/* 3. Category Runway */}
       <section className="category-runway" id="koleksiyon">
         <header>
-          <p className="overline">Koleksiyonlar</p>
-          <h2>Her yolculuk için bir Cuoriva.</h2>
+          <p className="overline">Koleksiyonlar · {products.length} Parça</p>
+          <h2>Her yolculuk için bir Elon Leather.</h2>
         </header>
         <div className="category-list">
           {categories.map((category) => (
             <Link to={`/kategori/${category.slug}`} className="category-row" key={category.slug}>
               <span>{category.index}</span>
               <div>
-                <h3>{category.name}</h3>
+                <h3>
+                  {category.name} <small className="category-count-pill">{category.count}</small>
+                </h3>
                 <p className="category-subtext">{category.description}</p>
               </div>
               <div className="category-thumb">
-                <img src={category.image} alt={category.name} loading="lazy" />
+                <img src={productImgUrl(category.image, 600)} alt={category.name} loading="lazy" />
               </div>
               <Icon name="arrow" />
             </Link>
@@ -640,14 +705,14 @@ export function HomePage() {
         <header className="split-heading">
           <div>
             <p className="overline">Öne Çıkan Parçalar</p>
-            <h2>Mekanizmalı & İkonik Modeller</h2>
+            <h2>İkonik & Çok Satan Modeller</h2>
           </div>
           <Link to="/kategori/tumu">
-            Tüm Koleksiyonu Gör <Icon name="arrow" />
+            Tüm Koleksiyonu Gör ({products.length}) <Icon name="arrow" />
           </Link>
         </header>
         <div className="editorial-grid">
-          {products.slice(0, 6).map((product, index) => (
+          {featuredProducts.map((product, index) => (
             <ProductCard product={product} index={index} key={product.slug} />
           ))}
         </div>
@@ -656,10 +721,10 @@ export function HomePage() {
       {/* 6. Bohemian Craftsmanship Editorial Band */}
       <section className="craft-band">
         <div className="craft-mark">
-          <img src="/assets/cuoriva-mark.png" alt="Cuoriva Mark" />
+          <img src="/assets/elon-mark.png" alt="ELON LEATHER" />
         </div>
         <div className="craft-band-image">
-          <img src="/assets/cuoriva-leather-emboss.jpg" alt="Cuoriva damgalı hakiki deri ve saraç dikişi" />
+          <img src={craftImage} alt="Elon Leather el dikimi hakiki dana derisi işçiliği" />
         </div>
         <div className="craft-band-copy">
           <p className="overline">Derinin Hafızası</p>
@@ -668,14 +733,14 @@ export function HomePage() {
             <em>size ait bir hikâye.</em>
           </h2>
           <p>
-            Crazy horse ve bitkisel tabaklanmış deriler zamanı gizlemez. Dokunduğunuz anların sıcaklığını,
+            Bitkisel tabaklanmış ve doğal dokulu hakiki deriler zamanı gizlemez. Dokunduğunuz anların sıcaklığını,
             cebinizdeki formunu ve yaptığınız yolculukları yüzeyindeki benzersiz patinada saklar.
             Kullandıkça eskiyen değil, kullandıkça güzelleşen bir yaşam ortağı.
           </p>
           <div className="craft-details-checklist">
-            <span>✓ Mumlu iplikle elde çift saraç dikişi</span>
-            <span>✓ Masif pirinç dayanıklı aksesuarlar</span>
-            <span>✓ Eonaks & Getto Deri standartlarının ötesinde bohem lüks</span>
+            <span>✓ %100 birinci sınıf hakiki dana derisi ve el işçiliği</span>
+            <span>✓ Neodyum mıknatıs, alüminyum mekanizma & MagSafe çözümleri</span>
+            <span>✓ Ücretsiz sıcak gofraj baskısı ve ömür boyu bakım güvencesi</span>
           </div>
           <Link to="/kategori/tumu">
             Atölye Koleksiyonunu Keşfet <Icon name="arrow" />
@@ -693,12 +758,12 @@ export function HomePage() {
         <div>
           <span>02</span>
           <h3>Ömür Boyu Atölye Bakımı</h3>
-          <p>Dikiş, mekanizma ve deri bakımı için Cuoriva atölyesi her zaman yanınızda.</p>
+          <p>Dikiş, mekanizma ve deri bakımı için Elon Leather atölyesi her zaman yanınızda.</p>
         </div>
         <div>
           <span>03</span>
-          <h3>Özel Ahşap Hediye Kutusu</h3>
-          <p>Her sipariş, mühürlü kart ve özel koruyucu kesesinde hediye edilmeye hazır gelir.</p>
+          <h3>Özel Hediye Kutusu</h3>
+          <p>Her sipariş, mühürlü kart ve özel koruyucu kutusunda hediye edilmeye hazır gelir.</p>
         </div>
       </section>
     </main>
@@ -706,21 +771,93 @@ export function HomePage() {
 }
 
 /* =========================================================================
-   CATEGORY PAGE
+   CATEGORY PAGE (Supports all 129 products, subcategories & live search)
    ========================================================================= */
+const LEGACY_SLUG_ALIAS: Record<string, string> = {
+  'mekanizmali-cuzdan': 'mekanizmali-magsafe-kartlik',
+  'klasik-cuzdan': 'klasik-deri-cuzdan',
+  'magsafe-kartlik': 'mekanizmali-magsafe-kartlik',
+  'seyahat-pasaport': 'deri-canta',
+}
+
 export function CategoryPage() {
-  const { slug = 'tumu' } = useParams()
+  const { slug: rawSlug = 'tumu' } = useParams()
+  const slug = LEGACY_SLUG_ALIAS[rawSlug] ?? rawSlug
   const navigate = useNavigate()
+
   const [sort, setSort] = useState('onerilen')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [subFilter, setSubFilter] = useState('tumu')
+
+  useEffect(() => {
+    setSubFilter('tumu')
+    setSearchQuery('')
+  }, [slug])
+
   const category = categories.find((item) => item.slug === slug)
-  const visible = slug === 'tumu' ? products : products.filter((product) => product.categorySlug === slug)
-  const sorted = useMemo(
-    () =>
-      [...visible].sort((a, b) =>
-        sort === 'artan' ? a.price - b.price : sort === 'azalan' ? b.price - a.price : 0
-      ),
-    [visible, sort]
-  )
+
+  const pageMeta = useMemo(() => {
+    if (category) {
+      return { title: category.name, description: category.description }
+    }
+    if (slug === 'cuzdan-kartlik') {
+      return {
+        title: 'Cüzdan & Kartlık',
+        description: 'Mıknatıslı cüzdanlar, klasik el dikimi modeller, mekanizmalı & MagSafe kartlıkların tamamı.',
+      }
+    }
+    if (slug === 'yeni-gelenler') {
+      return {
+        title: 'Yeni Gelenler',
+        description: 'Atölyeden yeni çıkan en güncel Elon Leather tasarımları ve sezon renkleri.',
+      }
+    }
+    if (slug === 'cok-satanlar') {
+      return {
+        title: 'Çok Satan Modeller',
+        description: 'Kullanıcılarımızın en çok tercih ettiği imza Elon Leather parçaları.',
+      }
+    }
+    return {
+      title: 'Tüm Koleksiyon',
+      description: 'Usta ellerde şekillenen, ömür boyu yanınızda taşıyacağınız 129 özgün hakiki deri parça.',
+    }
+  }, [category, slug])
+
+  const baseVisible = useMemo(() => {
+    if (slug === 'tumu') return products
+    if (slug === 'cuzdan-kartlik') return products.filter((p) => p.mainCategory === 'Cüzdan & Kartlık')
+    if (slug === 'yeni-gelenler') return products.filter((p) => p.isNew)
+    if (slug === 'cok-satanlar') return products.filter((p) => p.isBestseller)
+    return products.filter((p) => p.categorySlug === slug)
+  }, [slug])
+
+  const subCategories = useMemo(() => {
+    const unique = Array.from(new Set(baseVisible.map((p) => p.subCategory)))
+    return unique.length > 1 ? unique : []
+  }, [baseVisible])
+
+  const filtered = useMemo(() => {
+    const q = searchQuery.trim().toLocaleLowerCase('tr-TR')
+    return baseVisible.filter((p) => {
+      if (subFilter !== 'tumu' && p.subCategory !== subFilter) return false
+      if (!q) return true
+      return (
+        p.name.toLocaleLowerCase('tr-TR').includes(q) ||
+        p.model.toLocaleLowerCase('tr-TR').includes(q) ||
+        p.colorName.toLocaleLowerCase('tr-TR').includes(q) ||
+        p.category.toLocaleLowerCase('tr-TR').includes(q)
+      )
+    })
+  }, [baseVisible, subFilter, searchQuery])
+
+  const sorted = useMemo(() => {
+    const list = [...filtered]
+    if (sort === 'artan') return list.sort((a, b) => a.price - b.price)
+    if (sort === 'azalan') return list.sort((a, b) => b.price - a.price)
+    if (sort === 'alfabetik') return list.sort((a, b) => a.name.localeCompare(b.name, 'tr-TR'))
+    return list
+  }, [filtered, sort])
 
   return (
     <main className="category-page">
@@ -728,15 +865,27 @@ export function CategoryPage() {
         <p className="breadcrumb">
           <Link to="/">Ana Sayfa</Link> / Koleksiyon
         </p>
-        <p className="overline">{String(visible.length).padStart(2, '0')} Parça Listeleniyor</p>
-        <h1>{category?.name ?? 'Tüm Parçalar'}</h1>
-        <p>{category?.description ?? 'Usta ellerde şekillenen, ömür boyu yanınızda taşıyacağınız hakiki deri parçalar.'}</p>
+        <p className="overline">{String(sorted.length).padStart(2, '0')} Parça Listeleniyor</p>
+        <h1>{pageMeta.title}</h1>
+        <p>{pageMeta.description}</p>
       </section>
 
       <div className="shop-toolbar">
         <div className="category-pills">
           <button className={slug === 'tumu' ? 'active' : ''} onClick={() => navigate('/kategori/tumu')}>
-            Tümü
+            Tümü ({products.length})
+          </button>
+          <button
+            className={slug === 'cok-satanlar' ? 'active' : ''}
+            onClick={() => navigate('/kategori/cok-satanlar')}
+          >
+            Çok Satanlar ({products.filter((p) => p.isBestseller).length})
+          </button>
+          <button
+            className={slug === 'yeni-gelenler' ? 'active' : ''}
+            onClick={() => navigate('/kategori/yeni-gelenler')}
+          >
+            Yeni Gelenler ({products.filter((p) => p.isNew).length})
           </button>
           {categories.map((item) => (
             <button
@@ -744,96 +893,252 @@ export function CategoryPage() {
               onClick={() => navigate(`/kategori/${item.slug}`)}
               key={item.slug}
             >
-              {item.name}
+              {item.name} ({item.count})
             </button>
           ))}
         </div>
-        <label>
-          Sırala
-          <select value={sort} onChange={(event) => setSort(event.target.value)}>
-            <option value="onerilen">Önerilen Sıralama</option>
-            <option value="artan">Fiyat: Düşükten Yükseğe</option>
-            <option value="azalan">Fiyat: Yüksekten Düşüğe</option>
-          </select>
-        </label>
+
+        <div className="toolbar-controls">
+          <div className="catalog-search-box">
+            <Icon name="search" />
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Model, ürün veya renk ara..."
+              aria-label="Katalogda ara"
+            />
+          </div>
+
+          <label className="sort-label">
+            Sırala
+            <select value={sort} onChange={(event) => setSort(event.target.value)}>
+              <option value="onerilen">Önerilen Sıralama</option>
+              <option value="artan">Fiyat: Düşükten Yükseğe</option>
+              <option value="azalan">Fiyat: Yüksekten Düşüğe</option>
+              <option value="alfabetik">İsme Göre (A-Z)</option>
+            </select>
+          </label>
+        </div>
       </div>
 
-      <section className="catalog-grid">
-        {sorted.map((product, index) => (
-          <ProductCard product={product} index={index} key={product.slug} />
-        ))}
-      </section>
+      {subCategories.length > 0 && (
+        <div className="subcategory-pills" role="group" aria-label="Alt kategori filtreleri">
+          <button
+            type="button"
+            className={subFilter === 'tumu' ? 'active' : ''}
+            onClick={() => setSubFilter('tumu')}
+          >
+            Tüm Alt Türler
+          </button>
+          {subCategories.map((sub) => (
+            <button
+              type="button"
+              key={sub}
+              className={subFilter === sub ? 'active' : ''}
+              onClick={() => setSubFilter(sub)}
+            >
+              {sub}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {sorted.length === 0 ? (
+        <div className="empty-catalog-state">
+          <p className="overline">Sonuç Bulunamadı</p>
+          <h2>Aradığınız kriterde parça bulunamadı.</h2>
+          <button
+            type="button"
+            onClick={() => {
+              setSearchQuery('')
+              setSubFilter('tumu')
+            }}
+          >
+            Filtreleri Temizle
+          </button>
+        </div>
+      ) : (
+        <section className="catalog-grid">
+          {sorted.map((product, index) => (
+            <ProductCard product={product} index={index} key={product.slug} />
+          ))}
+        </section>
+      )}
     </main>
   )
 }
 
 /* =========================================================================
-   PRODUCT DETAIL PAGE
+   PRODUCT DETAIL PAGE (Multi-image gallery & sibling color variant navigation)
    ========================================================================= */
 export function ProductPage() {
   const { slug } = useParams()
+  const navigate = useNavigate()
   const { addToCart } = useOutletContext<StoreContext>()
   const product = products.find((item) => item.slug === slug)
-  const [color, setColor] = useState(product?.colors[0].name ?? '')
+
+  const [activeImgIdx, setActiveImgIdx] = useState(0)
   const [quantity, setQuantity] = useState(1)
   const [activeDetail, setActiveDetail] = useState('detay')
-
-  // Personalization State
   const [wantsEngraving, setWantsEngraving] = useState(false)
   const [engravingText, setEngravingText] = useState('')
-  const [foilStyle, setFoilStyle] = useState<'blind' | 'gold' | 'silver'>('blind')
+  const [phoneModel, setPhoneModel] = useState('')
+
+  useEffect(() => {
+    setActiveImgIdx(0)
+    setQuantity(1)
+    setActiveDetail('detay')
+  }, [slug])
+
+  // Real sibling color products belonging to the exact same model
+  const siblingVariants = useMemo(() => {
+    if (!product) return []
+    return products.filter(
+      (item) => item.model === product.model && item.categorySlug === product.categorySlug
+    )
+  }, [product])
+
+  const related = useMemo(() => {
+    if (!product) return []
+    const sameCategoryOtherModels = products.filter(
+      (item) => item.categorySlug === product.categorySlug && item.model !== product.model
+    )
+    const fallback = products.filter(
+      (item) => item.categorySlug !== product.categorySlug && item.isBestseller
+    )
+    return (sameCategoryOtherModels.length >= 3 ? sameCategoryOtherModels : [...sameCategoryOtherModels, ...fallback]).slice(0, 3)
+  }, [product])
 
   if (!product) return <NotFound />
-  const related = products
-    .filter((item) => item.categorySlug === product.categorySlug && item.slug !== product.slug)
-    .slice(0, 3)
+
+  const images = product.images.length > 0 ? product.images : ['/assets/elon-logo.png']
+  const safeImgIdx = activeImgIdx < images.length ? activeImgIdx : 0
+
+  const isPhoneCase = product.categorySlug === 'deri-telefon-kilifi'
+
+  const mergedDetails = useMemo(() => {
+    const seen = new Set(product.details.map((d) => d.toLocaleLowerCase('tr-TR')))
+    const extra = craftStandards.filter((s) => {
+      if (!product.isPersonalizable && s.includes('İsim')) return false
+      return !seen.has(s.toLocaleLowerCase('tr-TR'))
+    })
+    return [...product.details, ...extra]
+  }, [product])
 
   const handleAdd = () => {
-    addToCart(product, quantity, color, wantsEngraving ? engravingText : '', foilStyle)
+    addToCart(
+      product,
+      quantity,
+      product.colorName,
+      wantsEngraving ? engravingText : '',
+      'blind',
+      isPhoneCase ? phoneModel.trim() : ''
+    )
   }
 
   return (
     <main className="product-page">
       <div className="product-gallery">
-        <div className="gallery-main">
-          <img src={product.images[0]} alt={product.name} />
+        <div className="gallery-stage">
+          <img
+            src={productImgUrl(images[safeImgIdx], 1400)}
+            alt={`${product.name} - Görsel ${safeImgIdx + 1}`}
+          />
           {product.tag && <span className="product-tag">{product.tag}</span>}
           {product.rfidProtected && <span className="rfid-tag">RFID Korumalı</span>}
+
+          {images.length > 1 && (
+            <div className="gallery-nav-controls">
+              <button
+                type="button"
+                aria-label="Önceki görsel"
+                onClick={() => setActiveImgIdx((i) => (i - 1 + images.length) % images.length)}
+              >
+                ‹
+              </button>
+              <span>
+                {safeImgIdx + 1} / {images.length}
+              </span>
+              <button
+                type="button"
+                aria-label="Sonraki görsel"
+                onClick={() => setActiveImgIdx((i) => (i + 1) % images.length)}
+              >
+                ›
+              </button>
+            </div>
+          )}
         </div>
-        <div className="gallery-secondary">
-          <img src={product.images[1]} alt={`${product.name} detay görünümü`} />
-        </div>
+
+        {images.length > 1 && (
+          <div className="gallery-thumbs">
+            {images.map((imgUrl, idx) => (
+              <button
+                type="button"
+                key={`${imgUrl}-${idx}`}
+                className={safeImgIdx === idx ? 'active' : ''}
+                onClick={() => setActiveImgIdx(idx)}
+                aria-label={`${product.name} görsel ${idx + 1}`}
+              >
+                <img src={productImgUrl(imgUrl, 240)} alt="" loading="lazy" />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <section className="product-purchase">
         <p className="breadcrumb">
           <Link to="/">Ana Sayfa</Link> / <Link to={`/kategori/${product.categorySlug}`}>{product.category}</Link>
         </p>
-        <p className="overline">{product.category}</p>
+        <p className="overline">
+          {product.model} · {product.subCategory}
+        </p>
         <h1>{product.name}</h1>
         <strong className="detail-price">{formatPrice(product.price)}</strong>
         <p className="product-description">{product.description}</p>
 
-        {/* Color Picker */}
+        {/* Real Sibling Color Switcher */}
         <div className="option-block">
           <div className="option-label">
-            <span>Deri Rengi</span>
-            <strong>{color}</strong>
+            <span>Deri Rengi {siblingVariants.length > 1 ? `(${siblingVariants.length} Seçenek)` : ''}</span>
+            <strong>{product.colorName}</strong>
           </div>
           <div className="swatches">
-            {product.colors.map((item) => (
+            {siblingVariants.map((sib) => (
               <button
                 type="button"
-                key={item.name}
-                className={color === item.name ? 'active' : ''}
-                onClick={() => setColor(item.name)}
-                aria-label={item.name}
+                key={sib.slug}
+                className={sib.slug === product.slug ? 'active' : ''}
+                onClick={() => {
+                  if (sib.slug !== product.slug) navigate(`/urun/${sib.slug}`)
+                }}
+                title={sib.colorName}
+                aria-label={sib.colorName}
               >
-                <i style={{ background: item.value }} />
+                <i style={{ background: sib.colorHex }} />
               </button>
             ))}
           </div>
         </div>
+
+        {/* Phone model input for Phone Case category */}
+        {isPhoneCase && (
+          <div className="personalization-box">
+            <div className="p-input-field">
+              <label htmlFor="phone-model-input">Telefon Modeliniz (Birebir Kalıp Üretim İçin)</label>
+              <input
+                id="phone-model-input"
+                type="text"
+                maxLength={40}
+                value={phoneModel}
+                onChange={(e) => setPhoneModel(e.target.value)}
+                placeholder="Örn: iPhone 16 Pro Max"
+              />
+            </div>
+          </div>
+        )}
 
         {/* Personalization Section (Free Name Embossing) */}
         {product.isPersonalizable && (
@@ -848,7 +1153,7 @@ export function ProductPage() {
                 <span className="checkbox-custom" />
                 <div>
                   <strong>Üzerine Ücretsiz İsim / Baş Harf Yazılsın</strong>
-                  <small>Geleneksel sıcak presle deriye kazınır (+0 TL)</small>
+                  <small>Geleneksel sıcak gofraj presiyle deriye kazınır (+0 TL)</small>
                 </div>
               </label>
             </div>
@@ -856,39 +1161,15 @@ export function ProductPage() {
             {wantsEngraving && (
               <div className="personalization-inputs">
                 <div className="p-input-field">
-                  <label htmlFor="p-text">Yazılacak İsim veya Baş Harfler (Maks 15)</label>
+                  <label htmlFor="p-text">Yazılacak İsim veya Baş Harfler (Maks 22)</label>
                   <input
                     id="p-text"
                     type="text"
-                    maxLength={15}
+                    maxLength={22}
                     value={engravingText}
                     onChange={(e) => setEngravingText(e.target.value)}
                     placeholder="Örn: OĞUZ OLGUN"
                   />
-                </div>
-
-                <div className="p-style-selector">
-                  <button
-                    type="button"
-                    className={foilStyle === 'blind' ? 'active' : ''}
-                    onClick={() => setFoilStyle('blind')}
-                  >
-                    Sıcak Gofraj (Deboss)
-                  </button>
-                  <button
-                    type="button"
-                    className={foilStyle === 'gold' ? 'active' : ''}
-                    onClick={() => setFoilStyle('gold')}
-                  >
-                    Altın Varak
-                  </button>
-                  <button
-                    type="button"
-                    className={foilStyle === 'silver' ? 'active' : ''}
-                    onClick={() => setFoilStyle('silver')}
-                  >
-                    Gümüş Varak
-                  </button>
                 </div>
               </div>
             )}
@@ -931,20 +1212,20 @@ export function ProductPage() {
           </div>
           {activeDetail === 'detay' && (
             <ul>
-              {product.details.map((detail) => (
+              {mergedDetails.map((detail) => (
                 <li key={detail}>{detail}</li>
               ))}
             </ul>
           )}
           {activeDetail === 'kargo' && (
             <p>
-              Tüm siparişleriniz özel ahşap Cuoriva koruma kutusu ve bez kese içerisinde, sigortalı kargo ile gönderilir.
+              Tüm siparişleriniz özel Elon Leather koruma kutusu ve bez kese içerisinde, sigortalı kargo ile gönderilir.
               Saat 14:00'e kadar verilen siparişlerde aynı gün kargoya teslim edilir.
             </p>
           )}
           {activeDetail === 'bakim' && (
             <p>
-              Crazy horse ve bitkisel tabaklanmış deriler kimyasal madde sevmez. Kuru ve yumuşak pamuklu bir bezle hafifçe silin.
+              Bitkisel tabaklanmış ve doğal dokulu hakiki deriler kimyasal madde sevmez. Kuru ve yumuşak pamuklu bir bezle hafifçe silin.
               Yıllar geçtikçe derinleşen rengi ve kazandığı patina derinizin eşsiz imzasıdır.
             </p>
           )}
@@ -959,7 +1240,7 @@ export function ProductPage() {
         </h2>
         <p>
           Deri üzerindeki doğal ton geçişleri ve hafif izler kusur değil; doğanın ve derinin karakteridir.
-          Hiçbir Cuoriva parçası dünyada bir başkasıyla tamamen aynı değildir.
+          Hiçbir Elon Leather parçası dünyada bir başkasıyla tamamen aynı değildir.
         </p>
       </section>
 
@@ -999,7 +1280,7 @@ function Footer() {
   return (
     <footer>
       <div className="footer-newsletter">
-        <p className="overline">Cuoriva Gazette</p>
+        <p className="overline">Elon Leather Gazette</p>
         <h2>
           Dünyaları<br />
           <em>birlikte taşıyalım.</em>
@@ -1027,8 +1308,8 @@ function Footer() {
           ))}
         </nav>
         <div>
-          <a href="mailto:destek@cuoriva.com">destek@cuoriva.com</a>
-          <p>© 2025 Cuoriva Leather Goods · El Yapımı Hakiki Deri</p>
+          <a href="mailto:destek@elonleather.com">destek@elonleather.com</a>
+          <p>© 2025 Elon Leather · El Yapımı Hakiki Deri</p>
         </div>
       </div>
     </footer>

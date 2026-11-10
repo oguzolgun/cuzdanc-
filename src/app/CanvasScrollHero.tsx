@@ -363,16 +363,16 @@ export function CanvasScrollHero({ onOpenMenu, onOpenCart, cartCount = 0 }: Canv
           Transparent over the hero with cream text;
           Morphs into a blurred cream/brown bar after the hero ends
           ========================================================================= */}
-      <header className="cuoriva-nav-header" ref={headerRef}>
+      <header className="elon-nav-header" ref={headerRef}>
         <div className="nav-container">
           <div className="nav-left">
-            <a href="#hero" className="nav-brand" aria-label="Cuoriva Ana Sayfa">
-              <span className="cr-monogram-wrap">
-                <img src="/assets/cuoriva-mark.png" alt="CR" className="cr-monogram" />
+            <a href="#hero" className="nav-brand" aria-label="ELON LEATHER Ana Sayfa">
+              <span className="el-monogram-wrap">
+                <img src="/assets/elon-mark.png" alt="EL" className="el-monogram" />
               </span>
               <div className="nav-brand-text">
-                <span className="brand-title">CUORIVA</span>
-                <span className="brand-subtitle">LEATHER GOODS</span>
+                <span className="brand-title">ELON LEATHER</span>
+                <span className="brand-subtitle">EL DİKİMİ ATELIER</span>
               </div>
             </a>
           </div>
@@ -387,7 +387,7 @@ export function CanvasScrollHero({ onOpenMenu, onOpenCart, cartCount = 0 }: Canv
             <a href="#mekanizma" className="nav-link">
               Mekanizma
             </a>
-            <a href="mailto:destek@cuoriva.com" className="nav-link">
+            <a href="mailto:destek@elonleather.com" className="nav-link">
               İletişim
             </a>
           </nav>
@@ -452,15 +452,15 @@ export function CanvasScrollHero({ onOpenMenu, onOpenCart, cartCount = 0 }: Canv
           {/* =====================================================================
               OVERLAY STORYTELLING TIED TO SCROLL PROGRESS
               Placed gracefully on the quieter left side so the wallet and
-              CUORIVA embossing are never covered.
+              leather embossing are never covered.
               ===================================================================== */}
 
           {/* --- PHASE 1: 0 - 0.15 --- */}
           <div className="hero-overlay-phase phase-1" ref={p1Ref}>
             <div className="phase-top-mark">
-              <img src="/assets/cuoriva-mark.png" alt="CR" className="phase-cr-logo" />
+              <img src="/assets/elon-mark.png" alt="EL" className="phase-el-logo" />
               <div className="phase-mark-copy">
-                <span className="phase-eyebrow">CUORIVA · ATELIER</span>
+                <span className="phase-eyebrow">ELON LEATHER</span>
                 <span className="phase-location">AKDENİZ · EL DİKİMİ</span>
               </div>
             </div>
