@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /*?ara=
+Disallow: /*?alt=
+
+Sitemap: https://elonleather.com/sitemap.xml

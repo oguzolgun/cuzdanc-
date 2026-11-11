@@ -1,0 +1,25 @@
+{
+  "brandName": "Elon Leather",
+  "legalName": "Elon Leather",
+  "siteUrl": "https://elonleather.com",
+  "locale": "tr_TR",
+  "language": "tr-TR",
+  "email": "destek@elonleather.com",
+  "whatsappNumber": "TODO",
+  "shippingSummary": "TODO",
+  "shippingBadgeText": "TODO",
+  "returnPolicy": "TODO",
+  "giftBoxIncluded": "TODO",
+  "personalizationDefaults": {
+    "nameEmbossing": "Ücretsiz",
+    "logoAdditionExtraTry": 150,
+    "imagePrintExtraTry": 300,
+    "maxNameLength": 22
+  },
+  "defaultOgImage": "/assets/products/elon-leather-koleksiyon-banner.webp",
+  "socialLinks": [],
+  "seoHome": {
+    "title": "Elon Leather | El Yapımı Hakiki Deri Cüzdan & Çanta",
+    "metaDescription": "El yapımı hakiki deri cüzdan, kartlık, çanta ve aksesuar koleksiyonu. İsteğe bağlı isim baskısı ve zamansız zanaatla Elon Leather atölyesini keşfedin."
+  }
+}

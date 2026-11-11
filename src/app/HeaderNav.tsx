@@ -1,6 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
-import { categories, formatPrice, productImgUrl, products } from './data'
+import {
+  formatPrice,
+  getCategoryBySlug,
+  getChildCategories,
+  getProductsByCategory,
+  parentCategories,
+  products,
+} from './data'
 
 type HeaderNavProps = {
   cartCount: number
@@ -8,21 +15,11 @@ type HeaderNavProps = {
   onOpenMobileMenu: () => void
 }
 
-const NAV_SHORT_LABELS: Record<string, string> = {
-  'miknatisli-deri-cuzdan': 'Mıknatıslı',
-  'klasik-deri-cuzdan': 'Klasik Cüzdan',
-  'mekanizmali-magsafe-kartlik': 'Mekanizmalı',
-  'ince-deri-kartlik': 'İnce Kartlık',
-  'deri-canta': 'Çanta & Pasaport',
-  'deri-telefon-kilifi': 'Telefon Kılıfı',
-  aksesuar: 'Aksesuar',
-}
-
 export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNavProps) {
   const { pathname, search } = useLocation()
   const navigate = useNavigate()
   const [scrolled, setScrolled] = useState(false)
-  const [activeCatSlug, setActiveCatSlug] = useState<string | null>(null)
+  const [activeParentSlug, setActiveParentSlug] = useState<string | null>(null)
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchInput, setSearchInput] = useState('')
   const closeTimerRef = useRef<number | null>(null)
@@ -32,7 +29,7 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
     const onScroll = () => {
       setScrolled(window.scrollY > 12)
       if (window.scrollY > 40) {
-        setActiveCatSlug(null)
+        setActiveParentSlug(null)
       }
     }
     onScroll()
@@ -40,17 +37,15 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close overlays whenever route changes
   useEffect(() => {
-    setActiveCatSlug(null)
+    setActiveParentSlug(null)
     setSearchOpen(false)
   }, [pathname, search])
 
-  // Escape closes mega-menu or spotlight search
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setActiveCatSlug(null)
+        setActiveParentSlug(null)
         setSearchOpen(false)
       }
     }
@@ -64,19 +59,19 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
     }
   }, [searchOpen])
 
-  const openCategoryMenu = (slug: string) => {
+  const openParentMenu = (slug: string) => {
     if (closeTimerRef.current) {
       window.clearTimeout(closeTimerRef.current)
       closeTimerRef.current = null
     }
     setSearchOpen(false)
-    setActiveCatSlug(slug)
+    setActiveParentSlug(slug)
   }
 
   const scheduleClose = () => {
     if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current)
     closeTimerRef.current = window.setTimeout(() => {
-      setActiveCatSlug(null)
+      setActiveParentSlug(null)
     }, 150)
   }
 
@@ -87,104 +82,131 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
     }
   }
 
-  const activeCategory = useMemo(
-    () => categories.find((c) => c.slug === activeCatSlug) ?? null,
-    [activeCatSlug]
+  const activeParent = useMemo(
+    () => parentCategories.find((c) => c.slug === activeParentSlug) ?? null,
+    [activeParentSlug]
   )
 
-  const activeSubCategories = useMemo(() => {
-    if (!activeCategory) return []
-    const items = products.filter((p) => p.categorySlug === activeCategory.slug)
-    return Array.from(new Set(items.map((p) => p.subCategory)))
-  }, [activeCategory])
+  const activeChildren = useMemo(
+    () => (activeParent ? getChildCategories(activeParent.slug) : []),
+    [activeParent]
+  )
 
-  // Pick up to 4 distinct models inside the hovered category
   const activeFeaturedModels = useMemo(() => {
-    if (!activeCategory) return []
-    const items = products.filter((p) => p.categorySlug === activeCategory.slug)
-    const seen = new Set<string>()
-    const result = []
-    for (const item of items) {
-      if (!seen.has(item.model)) {
-        seen.add(item.model)
-        result.push(item)
-        if (result.length >= 4) break
-      }
-    }
-    return result
-  }, [activeCategory])
+    if (!activeParent) return []
+    return getProductsByCategory(activeParent.slug).slice(0, 4)
+  }, [activeParent])
 
   const spotlightResults = useMemo(() => {
     const q = searchInput.trim().toLocaleLowerCase('tr-TR')
     if (!q) {
-      return products.filter((p) => p.isBestseller).slice(0, 6)
+      return products.slice(0, 6).map((prod) => ({
+        prod,
+        variant: prod.variants[0],
+        catName: getCategoryBySlug(prod.primaryCategory)?.name || prod.productType,
+      }))
     }
-    return products
-      .filter(
-        (p) =>
-          p.name.toLocaleLowerCase('tr-TR').includes(q) ||
-          p.model.toLocaleLowerCase('tr-TR').includes(q) ||
-          p.colorName.toLocaleLowerCase('tr-TR').includes(q) ||
-          p.category.toLocaleLowerCase('tr-TR').includes(q) ||
-          p.subCategory.toLocaleLowerCase('tr-TR').includes(q)
+
+    const matches: Array<{
+      prod: (typeof products)[number]
+      variant: (typeof products)[number]['variants'][number]
+      catName: string
+    }> = []
+
+    for (const prod of products) {
+      const catName = getCategoryBySlug(prod.primaryCategory)?.name || prod.productType
+      const modelMatch =
+        prod.name.toLocaleLowerCase('tr-TR').includes(q) ||
+        prod.modelName.toLocaleLowerCase('tr-TR').includes(q) ||
+        prod.productType.toLocaleLowerCase('tr-TR').includes(q) ||
+        catName.toLocaleLowerCase('tr-TR').includes(q)
+
+      const matchedVariant = prod.variants.find((v) =>
+        v.renk.toLocaleLowerCase('tr-TR').includes(q)
       )
-      .slice(0, 6)
+
+      if (modelMatch || matchedVariant) {
+        matches.push({
+          prod,
+          variant: matchedVariant || prod.variants[0],
+          catName,
+        })
+      }
+      if (matches.length >= 6) break
+    }
+    return matches
   }, [searchInput])
 
   const submitSpotlight = (e: React.FormEvent) => {
     e.preventDefault()
-    const q = searchInput.trim()
+    const first = spotlightResults[0]
     setSearchOpen(false)
-    navigate(q ? `/kategori/tumu?ara=${encodeURIComponent(q)}` : '/kategori/tumu')
+    if (first) {
+      const hasColorMatch =
+        searchInput.trim() &&
+        first.variant.renk.toLocaleLowerCase('tr-TR').includes(searchInput.trim().toLocaleLowerCase('tr-TR'))
+      navigate(
+        hasColorMatch
+          ? `/urun/${first.prod.slug}/?renk=${encodeURIComponent(first.variant.renkSlug)}`
+          : `/urun/${first.prod.slug}/`
+      )
+    }
   }
 
   return (
     <div className="apple-header-shell">
       <header
-        className={`apple-global-nav ${scrolled || activeCatSlug || searchOpen ? 'is-elevated' : ''}`}
+        className={`apple-global-nav ${scrolled || activeParentSlug || searchOpen ? 'is-elevated' : ''}`}
         onMouseLeave={scheduleClose}
         onMouseEnter={cancelClose}
       >
         <div className="apple-nav-inner">
-          {/* Left: Brand Identity */}
           <Link to="/" className="apple-nav-brand" aria-label="ELON LEATHER Ana Sayfa">
-            <img src="/assets/elon-mark.png" alt="EL" className="apple-nav-mark" />
+            <img
+              src="/assets/elon-mark.png"
+              alt="ELON LEATHER amblemi"
+              width={28}
+              height={28}
+              className="apple-nav-mark"
+            />
             <span className="apple-nav-wordmark">ELON LEATHER</span>
           </Link>
 
-          {/* Center: Clean Category Links (Desktop) */}
           <nav className="apple-nav-links" aria-label="Kategori Menüsü">
-            {categories.map((cat) => {
+            {parentCategories.map((cat) => {
+              const childSlugs = new Set(getChildCategories(cat.slug).map((c) => `/${c.slug}`))
+              const cleanPath = pathname.replace(/\/+$/, '') || '/'
               const isCurrent =
-                activeCatSlug === cat.slug || pathname === `/kategori/${cat.slug}`
+                activeParentSlug === cat.slug ||
+                cleanPath === `/${cat.slug}` ||
+                childSlugs.has(cleanPath)
               return (
                 <Link
                   key={cat.slug}
-                  to={`/kategori/${cat.slug}`}
+                  to={`/${cat.slug}/`}
                   className={`apple-nav-item ${isCurrent ? 'is-active' : ''}`}
-                  onMouseEnter={() => openCategoryMenu(cat.slug)}
-                  onFocus={() => openCategoryMenu(cat.slug)}
+                  onMouseEnter={() => openParentMenu(cat.slug)}
+                  onFocus={() => openParentMenu(cat.slug)}
                 >
-                  {NAV_SHORT_LABELS[cat.slug] ?? cat.name}
+                  {cat.name}
                 </Link>
               )
             })}
             <Link
-              to="/kategori/tumu"
-              className={`apple-nav-item ${pathname === '/kategori/tumu' ? 'is-active' : ''}`}
-              onMouseEnter={() => setActiveCatSlug(null)}
+              to="/hikayemiz/"
+              className={`apple-nav-item ${pathname.startsWith('/hikayemiz') ? 'is-active' : ''}`}
+              onMouseEnter={() => setActiveParentSlug(null)}
             >
-              Tümü
+              Hikâyemiz
             </Link>
           </nav>
 
-          {/* Right: Spotlight Search, Cart Bag, Mobile Drawer Trigger */}
           <div className="apple-nav-actions">
             <button
               type="button"
               className={`apple-icon-btn ${searchOpen ? 'is-active' : ''}`}
               onClick={() => {
-                setActiveCatSlug(null)
+                setActiveParentSlug(null)
                 setSearchOpen((prev) => !prev)
               }}
               aria-label="Katalogda Ara"
@@ -200,7 +222,7 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
               type="button"
               className="apple-bag-btn"
               onClick={() => {
-                setActiveCatSlug(null)
+                setActiveParentSlug(null)
                 setSearchOpen(false)
                 onOpenCart()
               }}
@@ -217,7 +239,7 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
               type="button"
               className="apple-mobile-trigger"
               onClick={() => {
-                setActiveCatSlug(null)
+                setActiveParentSlug(null)
                 setSearchOpen(false)
                 onOpenMobileMenu()
               }}
@@ -230,30 +252,29 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
           </div>
         </div>
 
-        {/* Apple-Style Mega Menu Flyout Panel */}
-        {activeCategory && (
-          <div className="apple-flyout-panel" role="region" aria-label={activeCategory.name}>
+        {/* Mega Menu Flyout Panel */}
+        {activeParent && (
+          <div className="apple-flyout-panel" role="region" aria-label={activeParent.name}>
             <div className="apple-flyout-inner">
               <div className="apple-flyout-col">
-                <p className="apple-flyout-eyebrow">{activeCategory.name} · {activeCategory.count} Parça</p>
+                <p className="apple-flyout-eyebrow">
+                  {activeParent.name} · {getProductsByCategory(activeParent.slug).length} Model
+                </p>
                 <ul className="apple-flyout-sublist">
                   <li>
-                    <Link to={`/kategori/${activeCategory.slug}`} className="is-strong">
-                      Tüm {activeCategory.name}
+                    <Link to={`/${activeParent.slug}/`} className="is-strong">
+                      Tüm {activeParent.name}
                     </Link>
                   </li>
-                  {activeSubCategories.map((sub) => (
-                    <li key={sub}>
-                      <Link to={`/kategori/${activeCategory.slug}?alt=${encodeURIComponent(sub)}`}>
-                        {sub}
+                  {activeChildren.map((sub) => (
+                    <li key={sub.slug}>
+                      <Link to={`/${sub.slug}/`}>
+                        {sub.name} ({getProductsByCategory(sub.slug).length})
                       </Link>
                     </li>
                   ))}
                   <li>
-                    <Link to="/kategori/yeni-gelenler">Yeni Gelenler</Link>
-                  </li>
-                  <li>
-                    <Link to="/kategori/cok-satanlar">Çok Satan Modeller</Link>
+                    <Link to="/#kisisellestir">İsim Baskı Atölyesi</Link>
                   </li>
                 </ul>
               </div>
@@ -261,23 +282,38 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
               <div className="apple-flyout-showcase">
                 <p className="apple-flyout-eyebrow">Öne Çıkan Modeller</p>
                 <div className="apple-flyout-grid">
-                  {activeFeaturedModels.map((item) => (
-                    <Link key={item.slug} to={`/urun/${item.slug}`} className="apple-flyout-card">
-                      <div className="apple-flyout-thumb">
-                        <img src={productImgUrl(item.images[0], 360)} alt={item.name} />
-                      </div>
-                      <strong>{item.model}</strong>
-                      <span>{item.colorName}</span>
-                      <b>{formatPrice(item.price)}</b>
-                    </Link>
-                  ))}
+                  {activeFeaturedModels.map((item) => {
+                    const firstVariant = item.variants[0]
+                    const thumb = firstVariant?.images[0]
+                    const formattedPrice = formatPrice(firstVariant?.price)
+                    return (
+                      <Link key={item.slug} to={`/urun/${item.slug}/`} className="apple-flyout-card">
+                        <div className="apple-flyout-thumb">
+                          {thumb && (
+                            <img
+                              src={thumb.thumb}
+                              alt={thumb.alt}
+                              width={thumb.width}
+                              height={thumb.height}
+                              loading="lazy"
+                            />
+                          )}
+                        </div>
+                        <strong>{item.modelName}</strong>
+                        <span>
+                          {item.variants.length} Renk · {firstVariant?.renk}
+                        </span>
+                        <b>{formattedPrice || 'Fiyat Güncelleniyor'}</b>
+                      </Link>
+                    )
+                  })}
                 </div>
               </div>
             </div>
           </div>
         )}
 
-        {/* Apple-Style Spotlight Instant Search Panel */}
+        {/* Spotlight Instant Search Panel */}
         {searchOpen && (
           <div className="apple-flyout-panel spotlight-panel" role="dialog" aria-label="Hızlı Ürün Arama">
             <div className="apple-spotlight-inner">
@@ -291,7 +327,7 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
                   type="search"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
-                  placeholder="elonleather.com kataloğunda ara: Apex, Peru, MagSafe, Antik Taba..."
+                  placeholder="Model veya renk ara: Rio Boss, Duo, Wonder, Atlas, Zeytin Yeşili..."
                   aria-label="Katalog arama"
                 />
                 {searchInput && (
@@ -306,8 +342,8 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
               </form>
 
               <div className="spotlight-quick-tags">
-                <span>Popüler Aramalar:</span>
-                {['Apex', 'MagSafe', 'Oslo', 'Pasaportluk', 'Antik Taba', 'Telefon Kılıfı'].map((term) => (
+                <span>Hızlı Erişim:</span>
+                {['Rio Boss', 'Rio', 'Duo', 'Dubai', 'Wonder', 'Elegant', 'Atlas', 'Hong Kong'].map((term) => (
                   <button
                     key={term}
                     type="button"
@@ -319,50 +355,54 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
               </div>
 
               <div className="spotlight-results-grid">
-                {spotlightResults.map((item) => (
-                  <Link
-                    key={item.slug}
-                    to={`/urun/${item.slug}`}
-                    className="spotlight-result-item"
-                  >
-                    <img src={productImgUrl(item.images[0], 240)} alt={item.name} />
-                    <div>
-                      <small>{item.category}</small>
-                      <strong>{item.name}</strong>
-                      <span>{formatPrice(item.price)}</span>
-                    </div>
-                  </Link>
-                ))}
+                {spotlightResults.map(({ prod, variant, catName }) => {
+                  const thumb = variant.images[0]
+                  const priceStr = formatPrice(variant.price)
+                  return (
+                    <Link
+                      key={prod.slug}
+                      to={`/urun/${prod.slug}/`}
+                      className="spotlight-result-item"
+                    >
+                      {thumb && (
+                        <img
+                          src={thumb.thumb}
+                          alt={thumb.alt}
+                          width={thumb.width}
+                          height={thumb.height}
+                          loading="lazy"
+                        />
+                      )}
+                      <div>
+                        <small>{catName}</small>
+                        <strong>
+                          {prod.modelName} · {variant.renk}
+                        </strong>
+                        <span>{priceStr || 'Fiyat Güncelleniyor'}</span>
+                      </div>
+                    </Link>
+                  )
+                })}
               </div>
 
-              {searchInput.trim() && (
-                <div className="spotlight-footer-action">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const q = searchInput.trim()
-                      setSearchOpen(false)
-                      navigate(`/kategori/tumu?ara=${encodeURIComponent(q)}`)
-                    }}
-                  >
-                    &ldquo;{searchInput.trim()}&rdquo; için tüm katalog sonuçlarını gör →
-                  </button>
-                </div>
+              {spotlightResults.length === 0 && (
+                <p className="spotlight-empty-note">
+                  &ldquo;{searchInput}&rdquo; için eşleşen ürün bulunamadı. Tüm koleksiyon için kategori menüsünü kullanabilirsiniz.
+                </p>
               )}
             </div>
           </div>
         )}
       </header>
 
-      {/* Subtle frosted backdrop behind dropdown */}
-      {(activeCatSlug || searchOpen) && (
+      {(activeParentSlug || searchOpen) && (
         <div
           className="apple-nav-backdrop"
           onMouseEnter={() => {
-            if (activeCatSlug) scheduleClose()
+            if (activeParentSlug) scheduleClose()
           }}
           onClick={() => {
-            setActiveCatSlug(null)
+            setActiveParentSlug(null)
             setSearchOpen(false)
           }}
           aria-hidden="true"

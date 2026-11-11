@@ -1,0 +1,1418 @@
+{
+  "rio": [
+    {
+      "colorName": "Siyah Haki",
+      "colorSlug": "siyah-haki",
+      "colorHex": "#3f4935",
+      "price": 1500,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-1-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/HAKI4_87fd5f25-9bbd-45a6-bc28-f9d7fb6af9e3.jpg?v=1793081985",
+          "sourceFileName": "HAKI4_87fd5f25-9bbd-45a6-bc28-f9d7fb6af9e3.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-2-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/HAKI2_7f6f3c80-5316-4860-91bb-a2924faa8518.jpg?v=1793081985",
+          "sourceFileName": "HAKI2_7f6f3c80-5316-4860-91bb-a2924faa8518.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/HAKI3_6c169a2e-8920-41c4-933a-793c3f93d333.jpg?v=1793081985",
+          "sourceFileName": "HAKI3_6c169a2e-8920-41c4-933a-793c3f93d333.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-4-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF7515.jpg?v=1793081985",
+          "sourceFileName": "DSCF7515.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Siyah Taba",
+      "colorSlug": "siyah-taba",
+      "colorHex": "#96481e",
+      "price": 1500,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-1-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF0998.jpg?v=1793081736",
+          "sourceFileName": "DSCF0998.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-2-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF0991.jpg?v=1793081736",
+          "sourceFileName": "DSCF0991.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF0984.jpg?v=1793081736",
+          "sourceFileName": "DSCF0984.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-4-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF0979.jpg?v=1793081736",
+          "sourceFileName": "DSCF0979.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Zeytin Karası Yeşil",
+      "colorSlug": "zeytin-karasi-yesil",
+      "colorHex": "#3f4935",
+      "price": 1500,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-1-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/R_C4_B1o-taba-on-yuz_a31bb95c-0735-4eba-ac68-78765bae9076.jpg?v=1787596601",
+          "sourceFileName": "R_C4_B1o-taba-on-yuz_a31bb95c-0735-4eba-ac68-78765bae9076.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/rio-siyah_4532a77e-a364-4054-85da-4ea0aad9c4ec.jpg?v=1787596601",
+          "sourceFileName": "rio-siyah_4532a77e-a364-4054-85da-4ea0aad9c4ec.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/rio-zeytin-karasi_135ea6c9-3443-4f44-b311-125683a1372e.jpg?v=1787596601",
+          "sourceFileName": "rio-zeytin-karasi_135ea6c9-3443-4f44-b311-125683a1372e.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/r_C4_B1o-taba-detay_5469e0d2-7225-4ac6-8ffb-99a2c824d08b.jpg?v=1787596601",
+          "sourceFileName": "r_C4_B1o-taba-detay_5469e0d2-7225-4ac6-8ffb-99a2c824d08b.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Taba (Kahverengi)",
+      "colorSlug": "taba-kahverengi",
+      "colorHex": "#96481e",
+      "price": 1500,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-1-600.webp",
+          "width": 1600,
+          "height": 1422,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/eonaks-rio-taba.jpg?v=1791660127",
+          "sourceFileName": "eonaks-rio-taba.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/R_C4_B1o-taba-on-yuz_0c856bc9-095e-46f0-aab9-2c9473ff0443.jpg?v=1787596600",
+          "sourceFileName": "R_C4_B1o-taba-on-yuz_0c856bc9-095e-46f0-aab9-2c9473ff0443.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/rio-siyah_1123305e-98a4-4926-babf-a37b2d2cffe9.jpg?v=1787596600",
+          "sourceFileName": "rio-siyah_1123305e-98a4-4926-babf-a37b2d2cffe9.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/rio-zeytin-karasi_d8d27e1d-7e72-4426-ae28-e1ea814162b3.jpg?v=1787596601",
+          "sourceFileName": "rio-zeytin-karasi_d8d27e1d-7e72-4426-ae28-e1ea814162b3.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Siyah",
+      "colorSlug": "siyah",
+      "colorHex": "#1c1b19",
+      "price": 1500,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-1-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/rio-siyah.jpg?v=1787596600",
+          "sourceFileName": "rio-siyah.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/R_C4_B1o-taba-on-yuz.jpg?v=1787596600",
+          "sourceFileName": "R_C4_B1o-taba-on-yuz.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/rio-zeytin-karasi.jpg?v=1787596600",
+          "sourceFileName": "rio-zeytin-karasi.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/r_C4_B1o-taba-detay.jpg?v=1787596600",
+          "sourceFileName": "r_C4_B1o-taba-detay.jpg"
+        }
+      ]
+    }
+  ],
+  "rio-boss": [
+    {
+      "colorName": "Zeytin Karası Yeşil",
+      "colorSlug": "zeytin-karasi-yesil",
+      "colorHex": "#3f4935",
+      "price": 1600,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-1-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/Rio-boss-1_556108c1-bc3f-4fde-8fba-897f1be92a9e.jpg?v=1787596608",
+          "sourceFileName": "Rio-boss-1_556108c1-bc3f-4fde-8fba-897f1be92a9e.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/Rio-boss-2_5e80cecd-ac9d-4a6b-ac65-76511ce108cc.jpg?v=1787596608",
+          "sourceFileName": "Rio-boss-2_5e80cecd-ac9d-4a6b-ac65-76511ce108cc.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/Rio-boss-3_fd4469dc-4474-4d7b-9565-2436e8fd7066.jpg?v=1787596608",
+          "sourceFileName": "Rio-boss-3_fd4469dc-4474-4d7b-9565-2436e8fd7066.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/Rio-boss-4_bfe0cf7e-4144-46af-b785-460012faf47e.jpg?v=1787596608",
+          "sourceFileName": "Rio-boss-4_bfe0cf7e-4144-46af-b785-460012faf47e.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Taba (Kahverengi)",
+      "colorSlug": "taba-kahverengi",
+      "colorHex": "#96481e",
+      "price": 1600,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-1-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/Rio-boss-1_7b95e74d-d1eb-41cb-a55c-9a984e49e466.jpg?v=1787596607",
+          "sourceFileName": "Rio-boss-1_7b95e74d-d1eb-41cb-a55c-9a984e49e466.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/Rio-boss-2_f6c97445-d439-4c14-a265-7b728b57adb8.jpg?v=1787596607",
+          "sourceFileName": "Rio-boss-2_f6c97445-d439-4c14-a265-7b728b57adb8.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/Rio-boss-3_507a6d0b-fd19-4763-850d-5e063a65bc89.jpg?v=1787596607",
+          "sourceFileName": "Rio-boss-3_507a6d0b-fd19-4763-850d-5e063a65bc89.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/Rio-boss-4_04779d2a-3ecc-41ff-9564-be22840c7c02.jpg?v=1787596607",
+          "sourceFileName": "Rio-boss-4_04779d2a-3ecc-41ff-9564-be22840c7c02.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Siyah",
+      "colorSlug": "siyah",
+      "colorHex": "#1c1b19",
+      "price": 1600,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-1-600.webp",
+          "width": 1600,
+          "height": 1422,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/eonaks-rio-boss-siyah.jpg?v=1791660845",
+          "sourceFileName": "eonaks-rio-boss-siyah.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/Rio-boss-1.jpg?v=1787596607",
+          "sourceFileName": "Rio-boss-1.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/Rio-boss-2.jpg?v=1787596607",
+          "sourceFileName": "Rio-boss-2.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/Rio-boss-3.jpg?v=1787596607",
+          "sourceFileName": "Rio-boss-3.jpg"
+        }
+      ]
+    }
+  ],
+  "rio-bro": [
+    {
+      "colorName": "Taba",
+      "colorSlug": "taba",
+      "colorHex": "#96481e",
+      "price": 1500,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-1-600.webp",
+          "width": 1600,
+          "height": 1422,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/eonaks-rio-bro-taba.jpg?v=1791660142",
+          "sourceFileName": "eonaks-rio-bro-taba.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-2-600.webp",
+          "width": 1600,
+          "height": 2392,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1-03.jpg?v=1788252135",
+          "sourceFileName": "1-03.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1-07.jpg?v=1788252135",
+          "sourceFileName": "1-07.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-4-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1-01.jpg?v=1788252135",
+          "sourceFileName": "1-01.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Antrasit",
+      "colorSlug": "antrasit",
+      "colorHex": "#3a3b3d",
+      "price": 1500,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-1-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1-01.jpg?v=1788252135",
+          "sourceFileName": "1-01.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-2-600.webp",
+          "width": 1600,
+          "height": 2392,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1-03.jpg?v=1788252135",
+          "sourceFileName": "1-03.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1-02.jpg?v=1788252135",
+          "sourceFileName": "1-02.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-4-600.webp",
+          "width": 1600,
+          "height": 2402,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1-08.jpg?v=1788252135",
+          "sourceFileName": "1-08.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Kahverengi",
+      "colorSlug": "kahverengi",
+      "colorHex": "#5b331e",
+      "price": 1500,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-1-600.webp",
+          "width": 1600,
+          "height": 2392,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1-03.jpg?v=1788252135",
+          "sourceFileName": "1-03.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-2-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1-01.jpg?v=1788252135",
+          "sourceFileName": "1-01.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1-02.jpg?v=1788252135",
+          "sourceFileName": "1-02.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-4-600.webp",
+          "width": 1600,
+          "height": 2402,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1-08.jpg?v=1788252135",
+          "sourceFileName": "1-08.jpg"
+        }
+      ]
+    }
+  ],
+  "duo": [
+    {
+      "colorName": "Taba (Kahverengi)",
+      "colorSlug": "taba-kahverengi",
+      "colorHex": "#96481e",
+      "price": 1499,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-1-600.webp",
+          "width": 1600,
+          "height": 1422,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/eonaks-duo-taba.jpg?v=1791660130",
+          "sourceFileName": "eonaks-duo-taba.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/2_e06edbc8-2d94-482d-955b-7d2a8554bba4.jpg?v=1787596620",
+          "sourceFileName": "2_e06edbc8-2d94-482d-955b-7d2a8554bba4.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/10_3d0b1307-7d04-4d7c-ac3a-d4a567dbceb4.jpg?v=1787596620",
+          "sourceFileName": "10_3d0b1307-7d04-4d7c-ac3a-d4a567dbceb4.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/11_b6b1ff23-f360-4ed6-acf6-ffd1005f5931.jpg?v=1787596620",
+          "sourceFileName": "11_b6b1ff23-f360-4ed6-acf6-ffd1005f5931.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Siyah",
+      "colorSlug": "siyah",
+      "colorHex": "#1c1b19",
+      "price": 1499,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-1-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/wefwef_8386b4c7-f7f6-4dd6-9340-2d1cd08d828d.jpg?v=1788248590",
+          "sourceFileName": "wefwef_8386b4c7-f7f6-4dd6-9340-2d1cd08d828d.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-2-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/wefwe.jpg?v=1788248578",
+          "sourceFileName": "wefwe.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/2.jpg?v=1787596619",
+          "sourceFileName": "2.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/10.jpg?v=1787596619",
+          "sourceFileName": "10.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Zeytin Karası Yeşil",
+      "colorSlug": "zeytin-karasi-yesil",
+      "colorHex": "#3f4935",
+      "price": 1499,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-1-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/2_5e04a9ad-334f-489d-afdf-28244c270b57.jpg?v=1787599609",
+          "sourceFileName": "2_5e04a9ad-334f-489d-afdf-28244c270b57.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/10_9df613cb-ebeb-4d12-8244-eca1a7ac211c.jpg?v=1787599609",
+          "sourceFileName": "10_9df613cb-ebeb-4d12-8244-eca1a7ac211c.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/11_020c51b2-1b59-49aa-baa6-b7839373a250.jpg?v=1787599610",
+          "sourceFileName": "11_020c51b2-1b59-49aa-baa6-b7839373a250.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/12_c9b54c3e-35b5-4a5e-a25d-05e3f203ecef.jpg?v=1787599610",
+          "sourceFileName": "12_c9b54c3e-35b5-4a5e-a25d-05e3f203ecef.jpg"
+        }
+      ]
+    }
+  ],
+  "dubai": [
+    {
+      "colorName": "Taba Yeşil",
+      "colorSlug": "taba-yesil",
+      "colorHex": "#3f4935",
+      "price": 1400,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-1-600.webp",
+          "width": 1080,
+          "height": 1350,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/88.jpg?v=1788173988",
+          "sourceFileName": "88.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-2-600.webp",
+          "width": 1080,
+          "height": 1350,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/66.jpg?v=1788173926",
+          "sourceFileName": "66.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-3-600.webp",
+          "width": 1080,
+          "height": 1350,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/11_53976151-e643-408a-8c0f-466e199d9e53.jpg?v=1788173604",
+          "sourceFileName": "11_53976151-e643-408a-8c0f-466e199d9e53.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-4-600.webp",
+          "width": 1080,
+          "height": 1350,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/33.jpg?v=1788173717",
+          "sourceFileName": "33.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Zeytin Karası Yeşil",
+      "colorSlug": "zeytin-karasi-yesil",
+      "colorHex": "#3f4935",
+      "price": 1400,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-1-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/dubai-renkler_63fefc47-bb4e-4aa4-b311-96c9f16a943c.jpg?v=1787596595",
+          "sourceFileName": "dubai-renkler_63fefc47-bb4e-4aa4-b311-96c9f16a943c.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/mandalli-2_7a3faf62-539a-41a9-8866-3376a2a90db7.jpg?v=1787596595",
+          "sourceFileName": "mandalli-2_7a3faf62-539a-41a9-8866-3376a2a90db7.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/mandalli-deri-c_C3_BCzdan_d700b7a5-8991-455f-97c8-bd02431c02f7.jpg?v=1787596595",
+          "sourceFileName": "mandalli-deri-c_C3_BCzdan_d700b7a5-8991-455f-97c8-bd02431c02f7.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/mandalli-3_aef324d0-320f-480a-8595-5610c2cc71c6.jpg?v=1787596595",
+          "sourceFileName": "mandalli-3_aef324d0-320f-480a-8595-5610c2cc71c6.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Taba (Kahverengi)",
+      "colorSlug": "taba-kahverengi",
+      "colorHex": "#96481e",
+      "price": 1400,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-1-600.webp",
+          "width": 1600,
+          "height": 1422,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/eonaks-dubai-taba.jpg?v=1791660129",
+          "sourceFileName": "eonaks-dubai-taba.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/mandalli-2_dc7e3579-7d61-44d8-ab3c-e3f928065c83.jpg?v=1787596594",
+          "sourceFileName": "mandalli-2_dc7e3579-7d61-44d8-ab3c-e3f928065c83.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/dubai-renkler_26f2a5c5-67e2-4ffb-a8a5-4950c860ef39.jpg?v=1787596595",
+          "sourceFileName": "dubai-renkler_26f2a5c5-67e2-4ffb-a8a5-4950c860ef39.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-4.webp",
+          "thumb": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/mandalli-deri-c_C3_BCzdan_bdb1ab9c-546d-4db5-b44a-93a81fed4050.jpg?v=1787596595",
+          "sourceFileName": "mandalli-deri-c_C3_BCzdan_bdb1ab9c-546d-4db5-b44a-93a81fed4050.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Siyah",
+      "colorSlug": "siyah",
+      "colorHex": "#1c1b19",
+      "price": 1400,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-dubai-siyah-klasik-deri-cuzdan-1.webp",
+          "thumb": "/assets/products/elon-leather-dubai-siyah-klasik-deri-cuzdan-1-600.webp",
+          "width": 1600,
+          "height": 2000,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/444-03_0e37f215-beff-460d-86a1-57054d0c4596.jpg?v=1788175053",
+          "sourceFileName": "444-03_0e37f215-beff-460d-86a1-57054d0c4596.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-dubai-siyah-klasik-deri-cuzdan-2.webp",
+          "thumb": "/assets/products/elon-leather-dubai-siyah-klasik-deri-cuzdan-2-600.webp",
+          "width": 1600,
+          "height": 2000,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/444-01_6b43aa99-5120-4485-8f04-e72ee604220a.jpg?v=1788175052",
+          "sourceFileName": "444-01_6b43aa99-5120-4485-8f04-e72ee604220a.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-dubai-siyah-klasik-deri-cuzdan-3.webp",
+          "thumb": "/assets/products/elon-leather-dubai-siyah-klasik-deri-cuzdan-3-600.webp",
+          "width": 1600,
+          "height": 2000,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/444-02_8540415f-f55f-468f-b421-e4cb2ce3a283.jpg?v=1788175051",
+          "sourceFileName": "444-02_8540415f-f55f-468f-b421-e4cb2ce3a283.jpg"
+        }
+      ]
+    }
+  ],
+  "wonder": [
+    {
+      "colorName": "Siyah",
+      "colorSlug": "siyah",
+      "colorHex": "#1c1b19",
+      "price": 1500,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-1.webp",
+          "thumb": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-1-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF8742.jpg?v=1791873120",
+          "sourceFileName": "DSCF8742.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-2.webp",
+          "thumb": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-2-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF8749.jpg?v=1791873120",
+          "sourceFileName": "DSCF8749.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-3.webp",
+          "thumb": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF9268.jpg?v=1791873120",
+          "sourceFileName": "DSCF9268.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-4.webp",
+          "thumb": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-4-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF9274.jpg?v=1791873120",
+          "sourceFileName": "DSCF9274.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Taba",
+      "colorSlug": "taba",
+      "colorHex": "#96481e",
+      "price": 1500,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-1.webp",
+          "thumb": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-1-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF8757.jpg?v=1791872796",
+          "sourceFileName": "DSCF8757.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-2.webp",
+          "thumb": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-2-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF8758.jpg?v=1791872796",
+          "sourceFileName": "DSCF8758.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-3.webp",
+          "thumb": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF8760.jpg?v=1791872796",
+          "sourceFileName": "DSCF8760.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-4.webp",
+          "thumb": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-4-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF8764.jpg?v=1791872796",
+          "sourceFileName": "DSCF8764.jpg"
+        }
+      ]
+    }
+  ],
+  "elegant": [
+    {
+      "colorName": "Siyah",
+      "colorSlug": "siyah",
+      "colorHex": "#1c1b19",
+      "price": 2999,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-1.webp",
+          "thumb": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-1-600.webp",
+          "width": 1600,
+          "height": 2844,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/ergegerv.jpg?v=1788178651",
+          "sourceFileName": "ergegerv.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-2.webp",
+          "thumb": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-2-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6112_7aaf7df7-9c69-4b19-8abc-2bdba9e7ab38.jpg?v=1793083006",
+          "sourceFileName": "DSCF6112_7aaf7df7-9c69-4b19-8abc-2bdba9e7ab38.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-3.webp",
+          "thumb": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6118_dace49ce-e07e-41de-860b-6892fbf3737d.jpg?v=1793083005",
+          "sourceFileName": "DSCF6118_dace49ce-e07e-41de-860b-6892fbf3737d.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-4.webp",
+          "thumb": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-4-600.webp",
+          "width": 1600,
+          "height": 1068,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6066_d4d62e44-b8bd-4a69-866e-417a2496bcb3.jpg?v=1793083006",
+          "sourceFileName": "DSCF6066_d4d62e44-b8bd-4a69-866e-417a2496bcb3.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Siyah (Desenli)",
+      "colorSlug": "siyah-desenli",
+      "colorHex": "#1c1b19",
+      "price": 2999,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-1.webp",
+          "thumb": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-1-600.webp",
+          "width": 1600,
+          "height": 2844,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/hrhrhr.jpg?v=1788178530",
+          "sourceFileName": "hrhrhr.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-2.webp",
+          "thumb": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/8_e74179a5-e50f-42ce-b1b9-ffaa386c58e7.jpg?v=1787596624",
+          "sourceFileName": "8_e74179a5-e50f-42ce-b1b9-ffaa386c58e7.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-3.webp",
+          "thumb": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6046_33fac65e-f130-4f0a-a678-84907f01d186.jpg?v=1793082785",
+          "sourceFileName": "DSCF6046_33fac65e-f130-4f0a-a678-84907f01d186.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-4.webp",
+          "thumb": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-4-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6047_519b6e6a-3324-4c23-b376-840ca9d53aa9.jpg?v=1793082785",
+          "sourceFileName": "DSCF6047_519b6e6a-3324-4c23-b376-840ca9d53aa9.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Antrasit",
+      "colorSlug": "antrasit",
+      "colorHex": "#3a3b3d",
+      "price": 2999,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-1.webp",
+          "thumb": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-1-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6140_1.jpg?v=1788330711",
+          "sourceFileName": "DSCF6140_1.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-2.webp",
+          "thumb": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-2-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6022.jpg?v=1793083736",
+          "sourceFileName": "DSCF6022.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-3.webp",
+          "thumb": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6023.jpg?v=1793083735",
+          "sourceFileName": "DSCF6023.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-4.webp",
+          "thumb": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-4-600.webp",
+          "width": 1600,
+          "height": 1068,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6026.jpg?v=1793083736",
+          "sourceFileName": "DSCF6026.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Taba (Kahverengi)",
+      "colorSlug": "taba-kahverengi",
+      "colorHex": "#96481e",
+      "price": 2999,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-1.webp",
+          "thumb": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-1-600.webp",
+          "width": 1600,
+          "height": 2844,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/wgvwvwe-01.jpg?v=1788179157",
+          "sourceFileName": "wgvwvwe-01.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-2.webp",
+          "thumb": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/5_f58d6ed1-b1a4-4433-a9b3-3308fd5c07d3.jpg?v=1787596623",
+          "sourceFileName": "5_f58d6ed1-b1a4-4433-a9b3-3308fd5c07d3.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-3.webp",
+          "thumb": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1_fa1e65c9-6c9a-43ac-a42e-13b614ecab14.jpg?v=1787596623",
+          "sourceFileName": "1_fa1e65c9-6c9a-43ac-a42e-13b614ecab14.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-4.webp",
+          "thumb": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/3_35d6109e-8592-4a6c-a56f-f7d4972fa235.jpg?v=1787596623",
+          "sourceFileName": "3_35d6109e-8592-4a6c-a56f-f7d4972fa235.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Timsah Yeşil",
+      "colorSlug": "timsah-yesil",
+      "colorHex": "#3f4935",
+      "price": 2999,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-1.webp",
+          "thumb": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-1-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6149.jpg?v=1788346887",
+          "sourceFileName": "DSCF6149.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-2.webp",
+          "thumb": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-2-600.webp",
+          "width": 1600,
+          "height": 2844,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/wefwfe-01.jpg?v=1788179268",
+          "sourceFileName": "wefwfe-01.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-3.webp",
+          "thumb": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6029.jpg?v=1793083376",
+          "sourceFileName": "DSCF6029.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-4.webp",
+          "thumb": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-4-600.webp",
+          "width": 1600,
+          "height": 1068,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6060.jpg?v=1793083377",
+          "sourceFileName": "DSCF6060.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Vişne Çürüğü Mor",
+      "colorSlug": "visne-curugu-mor",
+      "colorHex": "#54232d",
+      "price": 2999,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-1.webp",
+          "thumb": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-1-600.webp",
+          "width": 1600,
+          "height": 2844,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/svwvwecv-02.jpg?v=1788179060",
+          "sourceFileName": "svwvwecv-02.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-2.webp",
+          "thumb": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-2-600.webp",
+          "width": 1600,
+          "height": 1068,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6032.jpg?v=1793083581",
+          "sourceFileName": "DSCF6032.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-3.webp",
+          "thumb": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6034.jpg?v=1793083581",
+          "sourceFileName": "DSCF6034.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-4.webp",
+          "thumb": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-4-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6095.jpg?v=1793083581",
+          "sourceFileName": "DSCF6095.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Kahve",
+      "colorSlug": "kahve",
+      "colorHex": "#5b331e",
+      "price": 2999,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-1.webp",
+          "thumb": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-1-600.webp",
+          "width": 1600,
+          "height": 1422,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/eonaks-elegant-el-cantasi-kahve.jpg?v=1791660128",
+          "sourceFileName": "eonaks-elegant-el-cantasi-kahve.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-2.webp",
+          "thumb": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-2-600.webp",
+          "width": 1600,
+          "height": 2844,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/wrwfwew.jpg?v=1788178785",
+          "sourceFileName": "wrwfwew.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-3.webp",
+          "thumb": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-3-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6194.jpg?v=1793083927",
+          "sourceFileName": "DSCF6194.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-4.webp",
+          "thumb": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-4-600.webp",
+          "width": 1600,
+          "height": 2400,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/DSCF6017.jpg?v=1793083928",
+          "sourceFileName": "DSCF6017.jpg"
+        }
+      ]
+    }
+  ],
+  "atlas": [
+    {
+      "colorName": "Taba (Kahverengi)",
+      "colorSlug": "taba-kahverengi",
+      "colorHex": "#96481e",
+      "price": 2999,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-1.webp",
+          "thumb": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-1-600.webp",
+          "width": 1600,
+          "height": 1422,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/eonaks-eon-gogus-cantasi-taba.jpg?v=1791660129",
+          "sourceFileName": "eonaks-eon-gogus-cantasi-taba.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-2.webp",
+          "thumb": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/2_22ffaa1e-6881-4121-a661-09e09766eee2.jpg?v=1787596625",
+          "sourceFileName": "2_22ffaa1e-6881-4121-a661-09e09766eee2.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-3.webp",
+          "thumb": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1_a8e986eb-53b4-40c5-8355-a7be66318083.jpg?v=1787596625",
+          "sourceFileName": "1_a8e986eb-53b4-40c5-8355-a7be66318083.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-4.webp",
+          "thumb": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/10_e6b76da9-9a21-4a54-a728-5443e9843938.jpg?v=1787596625",
+          "sourceFileName": "10_e6b76da9-9a21-4a54-a728-5443e9843938.jpg"
+        }
+      ]
+    }
+  ],
+  "port": [
+    {
+      "colorName": "Taba",
+      "colorSlug": "taba",
+      "colorHex": "#96481e",
+      "price": 1499,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-port-taba-deri-pasaportluk-1.webp",
+          "thumb": "/assets/products/elon-leather-port-taba-deri-pasaportluk-1-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/port8.jpg?v=1787596618",
+          "sourceFileName": "port8.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-port-taba-deri-pasaportluk-2.webp",
+          "thumb": "/assets/products/elon-leather-port-taba-deri-pasaportluk-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/port6.jpg?v=1787596619",
+          "sourceFileName": "port6.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-port-taba-deri-pasaportluk-3.webp",
+          "thumb": "/assets/products/elon-leather-port-taba-deri-pasaportluk-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/port3.jpg?v=1787596619",
+          "sourceFileName": "port3.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-port-taba-deri-pasaportluk-4.webp",
+          "thumb": "/assets/products/elon-leather-port-taba-deri-pasaportluk-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/port2.jpg?v=1787596619",
+          "sourceFileName": "port2.jpg"
+        }
+      ]
+    }
+  ],
+  "cekya": [
+    {
+      "colorName": "Mor",
+      "colorSlug": "mor",
+      "colorHex": "#4b2d47",
+      "price": 599,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-1.webp",
+          "thumb": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-1-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/derisetianahtarlikmor_8e2cceb8-b1a8-4bcf-b469-01992d877ef9.jpg?v=1787596585",
+          "sourceFileName": "derisetianahtarlikmor_8e2cceb8-b1a8-4bcf-b469-01992d877ef9.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-2.webp",
+          "thumb": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-2-600.webp",
+          "width": 1500,
+          "height": 1500,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/anahtarlik3_2d4fa16e-ab32-4ca8-8ffc-eb42085e2e39.jpg?v=1787596584",
+          "sourceFileName": "anahtarlik3_2d4fa16e-ab32-4ca8-8ffc-eb42085e2e39.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-3.webp",
+          "thumb": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-3-600.webp",
+          "width": 1500,
+          "height": 1500,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/anahtarlik1_7702303a-df3e-41b5-b480-18880bee0ca9.jpg?v=1787596584",
+          "sourceFileName": "anahtarlik1_7702303a-df3e-41b5-b480-18880bee0ca9.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-4.webp",
+          "thumb": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-4-600.webp",
+          "width": 1500,
+          "height": 1500,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/anahtarlik4_a1a389d9-6983-4484-b2ba-bf263dfa63ce.jpg?v=1787596584",
+          "sourceFileName": "anahtarlik4_a1a389d9-6983-4484-b2ba-bf263dfa63ce.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Haki",
+      "colorSlug": "haki",
+      "colorHex": "#3f4935",
+      "price": 599,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-1.webp",
+          "thumb": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-1-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/derisetiahakianahtarlik_f62b7b42-c8f6-486a-b40a-4d53a03684d4.jpg?v=1787596584",
+          "sourceFileName": "derisetiahakianahtarlik_f62b7b42-c8f6-486a-b40a-4d53a03684d4.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-2.webp",
+          "thumb": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-2-600.webp",
+          "width": 1500,
+          "height": 1500,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/anahtarlik3_55cb5164-1810-4b51-8465-faf490970c00.jpg?v=1787596584",
+          "sourceFileName": "anahtarlik3_55cb5164-1810-4b51-8465-faf490970c00.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-3.webp",
+          "thumb": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-3-600.webp",
+          "width": 1500,
+          "height": 1500,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/anahtarlik1_c36cbf75-88b9-48f5-8356-cdd4293bd71d.jpg?v=1787596584",
+          "sourceFileName": "anahtarlik1_c36cbf75-88b9-48f5-8356-cdd4293bd71d.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-4.webp",
+          "thumb": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-4-600.webp",
+          "width": 1500,
+          "height": 1500,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/anahtarlik4_a1c7b71f-c2e0-460a-98a0-acc33cf14850.jpg?v=1787596584",
+          "sourceFileName": "anahtarlik4_a1c7b71f-c2e0-460a-98a0-acc33cf14850.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Kahve",
+      "colorSlug": "kahve",
+      "colorHex": "#5b331e",
+      "price": 599,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-1.webp",
+          "thumb": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-1-600.webp",
+          "width": 1600,
+          "height": 1422,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/eonaks-cekya-anahtarlik-kahve.jpg?v=1791660130",
+          "sourceFileName": "eonaks-cekya-anahtarlik-kahve.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-2.webp",
+          "thumb": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-2-600.webp",
+          "width": 1500,
+          "height": 1500,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/anahtarlik3.jpg?v=1787596583",
+          "sourceFileName": "anahtarlik3.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-3.webp",
+          "thumb": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-3-600.webp",
+          "width": 1500,
+          "height": 1500,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/anahtarlik1.jpg?v=1787596584",
+          "sourceFileName": "anahtarlik1.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-4.webp",
+          "thumb": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-4-600.webp",
+          "width": 1500,
+          "height": 1500,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/anahtarlik4.jpg?v=1787596584",
+          "sourceFileName": "anahtarlik4.jpg"
+        }
+      ]
+    }
+  ],
+  "hong-kong": [
+    {
+      "colorName": "Koyu Taba",
+      "colorSlug": "koyu-taba",
+      "colorHex": "#7c3f1c",
+      "price": 800,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-1.webp",
+          "thumb": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-1-600.webp",
+          "width": 1600,
+          "height": 1422,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/eonaks-hong-kong-ajanda-koyu-taba.jpg?v=1791660128",
+          "sourceFileName": "eonaks-hong-kong-ajanda-koyu-taba.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-2.webp",
+          "thumb": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-2-600.webp",
+          "width": 1600,
+          "height": 1600,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1_69dc4651-8118-43b0-9d1a-383cca632b16.jpg?v=1787599589",
+          "sourceFileName": "1_69dc4651-8118-43b0-9d1a-383cca632b16.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-3.webp",
+          "thumb": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-3-600.webp",
+          "width": 1600,
+          "height": 1600,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/3_d60d370c-91f4-4448-8379-12e609bd6cef.jpg?v=1787599589",
+          "sourceFileName": "3_d60d370c-91f4-4448-8379-12e609bd6cef.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-4.webp",
+          "thumb": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-4-600.webp",
+          "width": 1600,
+          "height": 1600,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/2_679ceac3-647f-456a-b7b9-54b2be3b798f.jpg?v=1787599589",
+          "sourceFileName": "2_679ceac3-647f-456a-b7b9-54b2be3b798f.jpg"
+        }
+      ]
+    },
+    {
+      "colorName": "Kırmızı",
+      "colorSlug": "kirmizi",
+      "colorHex": "#7f2424",
+      "price": 800,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-1.webp",
+          "thumb": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-1-600.webp",
+          "width": 1600,
+          "height": 1600,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/1_a8ce1f1a-5781-4012-85a8-2263594e80cc.jpg?v=1787599589",
+          "sourceFileName": "1_a8ce1f1a-5781-4012-85a8-2263594e80cc.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-2.webp",
+          "thumb": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-2-600.webp",
+          "width": 1600,
+          "height": 1600,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/3_c724018e-d14f-4463-86ef-7125c104643f.jpg?v=1787599590",
+          "sourceFileName": "3_c724018e-d14f-4463-86ef-7125c104643f.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-3.webp",
+          "thumb": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-3-600.webp",
+          "width": 1600,
+          "height": 1600,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/2_e7b207e6-7545-4ce7-86e2-f079cd64d4d6.jpg?v=1787599589",
+          "sourceFileName": "2_e7b207e6-7545-4ce7-86e2-f079cd64d4d6.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-4.webp",
+          "thumb": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-4-600.webp",
+          "width": 1600,
+          "height": 1600,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/8_2a728150-a9fc-4e09-b710-bdbdce0476b9.jpg?v=1787599589",
+          "sourceFileName": "8_2a728150-a9fc-4e09-b710-bdbdce0476b9.jpg"
+        }
+      ]
+    }
+  ],
+  "berlin": [
+    {
+      "colorName": "Frisko",
+      "colorSlug": "frisko",
+      "colorHex": "#5b331e",
+      "price": 499,
+      "images": [
+        {
+          "full": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-1.webp",
+          "thumb": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-1-600.webp",
+          "width": 1600,
+          "height": 1422,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/eonaks-berlin-bileklik-frisko.jpg?v=1791660130",
+          "sourceFileName": "eonaks-berlin-bileklik-frisko.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-2.webp",
+          "thumb": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-2-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/hakiki-deri-bileklik-1.jpg?v=1787596597",
+          "sourceFileName": "hakiki-deri-bileklik-1.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-3.webp",
+          "thumb": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-3-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/hakiki-deri-bileklik.jpg?v=1787596596",
+          "sourceFileName": "hakiki-deri-bileklik.jpg"
+        },
+        {
+          "full": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-4.webp",
+          "thumb": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-4-600.webp",
+          "width": 1200,
+          "height": 1800,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0822/8585/4958/files/hakiki-deri-bileklik-3.jpg?v=1787596596",
+          "sourceFileName": "hakiki-deri-bileklik-3.jpg"
+        }
+      ]
+    }
+  ]
+}

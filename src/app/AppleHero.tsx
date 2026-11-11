@@ -1,9 +1,17 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
-import { categories, formatPrice, productImgUrl, products, type Product } from './data'
+import {
+  formatPrice,
+  getCategoryBySlug,
+  getProductsByCategory,
+  products,
+  subCategories,
+  type ProductRecord,
+  type ProductVariantRecord,
+} from './data'
 
 type AppleHeroProps = {
-  onAddToCart: (product: Product) => void
+  onAddToCart: (product: ProductRecord, variant: ProductVariantRecord) => void
 }
 
 type FlagshipSpec = {
@@ -15,89 +23,86 @@ type FlagshipSpec = {
 
 const FLAGSHIP_SPECS: FlagshipSpec[] = [
   {
-    slug: 'apex-el-yapimi-hakiki-deri-miknatisli-cift-katli-cuzdan-ve-kartlik-antik-taba',
-    tabLabel: 'Apex',
-    tagline: 'Çift katlı neodyum mıknatıslı mimari. Tüm kartlarınız tek bir zarif katmanda.',
-    highlights: ['Neodyum Mıknatıs', 'Çift Katlı Kart Gözü', 'Ücretsiz Sıcak Baskı'],
+    slug: 'rio-boss-miknatisli-deri-cuzdan',
+    tabLabel: 'Rio Boss',
+    tagline:
+      '8 x 10 cm kompakt ölçüsünde 20 karta kadar kapasite ve 2 ayrı banknot bölmesi sunan mıknatıslı hakiki deri cüzdan.',
+    highlights: ['8 x 10 cm Ölçü', '20 Karta Kadar', '2 Banknot Bölmesi', 'İsim / Logo Baskısı'],
   },
   {
-    slug: 'peru-magsafe-ozellikli-standli-mekanizmali-premium-hakiki-deri-kartlik-koyu-taba',
-    tabLabel: 'Peru MagSafe',
-    tagline: 'iPhone MagSafe uyumu, entegre stand ve tek dokunuşlu kademeli alüminyum mekanizma.',
-    highlights: ['MagSafe & Standlı', 'RFID / NFC Kalkanı', 'Kademeli Tetik'],
-  },
-  {
-    slug: 'oslo-hakiki-deri-unisex-cuzdan-12x9-cm-sik-ve-dayanikli-tasarim-taba-siyah',
-    tabLabel: 'Oslo Classic',
-    tagline: '12×9 cm kompakt oranlar, el saraç dikişi ve zamanla kişiselleşen doğal patina.',
-    highlights: ['Kompakt 12×9 cm', 'Unisex İki Renk Doku', 'El Dikimi Saraç'],
-  },
-  {
-    slug: 'rio-el-yapimi-hakiki-deri-miknatisli-cift-katli-cuzdan-ve-kartlik-taba-kahverengi',
+    slug: 'rio-miknatisli-deri-cuzdan',
     tabLabel: 'Rio',
-    tagline: 'Yüksek kapasiteli kağıt para ve gizli kart bölmeleriyle günlük ergonomik konfor.',
-    highlights: ['Güçlü Gizli Mıknatıs', '10+ Kart Kapasitesi', 'Birinci Sınıf Dana Derisi'],
+    tagline:
+      'Gizli mıknatıslı çift katlı tasarım ve beş farklı doğal renk seçeneğiyle günlük taşımada düzenli ergonomi.',
+    highlights: ['Mıknatıslı Çift Kat', 'El Yapımı Hakiki Deri', '5 Renk Alternatifi', 'Ücretsiz İsim Baskısı'],
   },
   {
-    slug: 'dopp-kit-dallas-hasir-orgu-baskili-hakiki-deri-zarif-el-cantasi-taba-kahverengi',
-    tabLabel: 'Dallas Çanta',
-    tagline: 'Hasır örgü dokulu hakiki dana derisinden telefon, pasaport ve kişisel eşya organizer portföy çanta.',
-    highlights: ['Hasır Örgü Baskılı Deri', 'Metal Fermuar & Sap', 'Ücretsiz İsim Baskısı'],
+    slug: 'duo-klasik-deri-cuzdan',
+    tabLabel: 'Duo',
+    tagline:
+      'Geleneksel katlanır cüzdan alışkanlıklarını özenli el dikişi ve sıcak deri dokusuyla buluşturan zamansız model.',
+    highlights: ['Klasik El Yapımı Form', 'Hakiki Deri Gövde', '3 Zamansız Renk', 'Ücretsiz İsim Baskısı'],
+  },
+  {
+    slug: 'wonder-ince-deri-kartlik',
+    tabLabel: 'Wonder',
+    tagline:
+      'Yalnızca temel kartlarını yanında taşımak isteyenler için cepte ağırlık yapmayan ultra sade el yapımı kartlık.',
+    highlights: ['İnce Minimal Siluet', 'El Yapımı Hakiki Deri', 'Siyah & Taba Renkler', 'Ücretsiz İsim Baskısı'],
+  },
+  {
+    slug: 'atlas-deri-omuz-cantasi',
+    tabLabel: 'Atlas Çanta',
+    tagline:
+      'Hareketli şehir günlerinde ve keşif seyahatlerinde ellerinizi serbest bırakan sıcak taba göğüs ve omuz çantası.',
+    highlights: ['Omuz & Göğüs Kullanımı', 'Taba Hakiki Deri', 'El Yapımı İşçilik', 'Ücretsiz İsim Baskısı'],
   },
 ]
+
+function bannerToThumb(bannerPath: string): string {
+  return bannerPath.replace(/(\.[^.]+)$/, '-600$1')
+}
 
 export function AppleHero({ onAddToCart }: AppleHeroProps) {
   const flagshipSeries = useMemo(() => {
     return FLAGSHIP_SPECS.map((spec) => {
-      const baseProduct = products.find((p) => p.slug === spec.slug)
-      if (!baseProduct) return null
-      const variants = products.filter(
-        (p) => p.model === baseProduct.model && p.categorySlug === baseProduct.categorySlug
-      )
-      return { spec, baseProduct, variants }
+      const product = products.find((p) => p.slug === spec.slug)
+      if (!product) return null
+      const category = getCategoryBySlug(product.primaryCategory)
+      return { spec, product, category }
     }).filter((entry): entry is NonNullable<typeof entry> => entry !== null)
   }, [])
 
   const [activeModelIdx, setActiveModelIdx] = useState(0)
-  const [selectedSlugsByModel, setSelectedSlugsByModel] = useState<Record<string, string>>({})
-
-  // Preload flagship product photos so tab & color switches are instant
-  useEffect(() => {
-    flagshipSeries.forEach(({ baseProduct }) => {
-      const url = baseProduct.images[0]
-      if (url) {
-        const preloader = new Image()
-        preloader.src = productImgUrl(url, 960)
-      }
-    })
-  }, [flagshipSeries])
+  const [selectedVariantByModel, setSelectedVariantByModel] = useState<Record<string, string>>({})
 
   const activeEntry = flagshipSeries[activeModelIdx] ?? flagshipSeries[0]
   if (!activeEntry) return null
 
-  const activeSlug =
-    selectedSlugsByModel[activeEntry.baseProduct.model] ?? activeEntry.baseProduct.slug
-  const activeProduct =
-    activeEntry.variants.find((v) => v.slug === activeSlug) ?? activeEntry.baseProduct
+  const { product: activeProduct, spec, category } = activeEntry
+  const activeColorSlug = selectedVariantByModel[activeProduct.id] || activeProduct.variants[0].renkSlug
+  const activeVariant =
+    activeProduct.variants.find((v) => v.renkSlug === activeColorSlug) || activeProduct.variants[0]
+  const heroImage = activeVariant.images[0]
+  const formattedPrice = formatPrice(activeVariant.price)
 
   return (
     <section className="apple-hero" id="hero">
       <div className="apple-hero-container">
-        {/* Upper Crisp Apple Editorial Typography Stack */}
         <div className="apple-hero-header">
           <span className="apple-hero-eyebrow">
-            ELON LEATHER · YENİ KOLEKSİYON & ÜCRETSİZ İSİM BASKISI
+            ELON LEATHER · EL YAPIMI HAKİKİ DERİ KOLEKSİYONU
           </span>
           <h1 className="apple-hero-title">
             Cebinizdeki dünyayı<br />
             <em>yeniden tanımlayın.</em>
           </h1>
           <p className="apple-hero-subtitle">
-            Tek dokunuşla açılan RFID korumalı mekanizmalar, neodyum mıknatıslar ve el dikimi %100 hakiki dana derisiyle 129 özgün tasarım.
+            Doğal damarlı hakiki deri cüzdanlar, ince kartlıklar, çantalar ve günlük aksesuarlarla 12 özgün atölye tasarımı.
           </p>
           <div className="apple-hero-ctas">
-            <Link to="/kategori/tumu" className="apple-btn-primary">
-              Koleksiyonu Keşfet ({products.length})
+            <Link to="/cuzdan-kartlik/" className="apple-btn-primary">
+              Koleksiyonu Keşfet ({products.length} Seri)
             </Link>
             <a href="#kisisellestir" className="apple-btn-secondary">
               İsim Baskısı Dene <span>→</span>
@@ -105,35 +110,44 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
           </div>
         </div>
 
-        {/* Lower Interactive Apple-Style Flagship Product Showcase Stage */}
+        {/* Interactive Flagship Showcase Stage */}
         <div className="apple-stage-card">
           <div className="apple-stage-grid">
-            {/* Media Frame */}
             <div className="apple-stage-media">
-              <img
-                key={activeProduct.images[0]}
-                src={productImgUrl(activeProduct.images[0], 960)}
-                alt={activeProduct.name}
-                className="apple-stage-photo"
-              />
+              {heroImage && (
+                <picture key={heroImage.full}>
+                  <source media="(max-width: 768px)" srcSet={heroImage.thumb} />
+                  <img
+                    src={heroImage.full}
+                    alt={heroImage.alt}
+                    width={heroImage.width}
+                    height={heroImage.height}
+                    fetchPriority="high"
+                    loading="eager"
+                    decoding="sync"
+                    className="apple-stage-photo"
+                  />
+                </picture>
+              )}
               <div className="apple-stage-media-badges">
-                {activeProduct.tag && <span className="stage-badge-light">{activeProduct.tag}</span>}
-                {activeProduct.rfidProtected && <span className="stage-badge-dark">RFID Korumalı</span>}
+                <span className="stage-badge-light">Hakiki Deri · El Yapımı</span>
+                {activeProduct.personalization.isimYazdirma && (
+                  <span className="stage-badge-dark">Ücretsiz İsim Baskısı</span>
+                )}
               </div>
             </div>
 
-            {/* Specs, Color Dots & Quick Actions */}
             <div className="apple-stage-info">
               <div className="apple-stage-meta">
-                <span className="stage-kicker">{activeProduct.category}</span>
-                <h2>{activeProduct.model} Serisi</h2>
-                <strong className="stage-price">{formatPrice(activeProduct.price)}</strong>
+                <span className="stage-kicker">{category?.name || activeProduct.productType}</span>
+                <h2>{activeProduct.modelName} Serisi</h2>
+                {formattedPrice && <strong className="stage-price">{formattedPrice}</strong>}
               </div>
 
-              <p className="stage-tagline">{activeEntry.spec.tagline}</p>
+              <p className="stage-tagline">{spec.tagline}</p>
 
               <ul className="stage-highlights">
-                {activeEntry.spec.highlights.map((hl) => (
+                {spec.highlights.map((hl) => (
                   <li key={hl}>
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                       <polyline points="20 6 9 17 4 12" />
@@ -143,27 +157,26 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
                 ))}
               </ul>
 
-              {/* Variant Swatches */}
-              {activeEntry.variants.length > 1 && (
+              {activeProduct.variants.length > 1 && (
                 <div className="stage-swatches-wrap">
                   <div className="stage-swatches-label">
                     <span>Deri Rengi:</span>
-                    <strong>{activeProduct.colorName}</strong>
+                    <strong>{activeVariant.renk}</strong>
                   </div>
                   <div className="stage-swatches-list">
-                    {activeEntry.variants.map((variant) => (
+                    {activeProduct.variants.map((variant) => (
                       <button
                         type="button"
-                        key={variant.slug}
-                        className={`stage-swatch-dot ${variant.slug === activeProduct.slug ? 'is-selected' : ''}`}
+                        key={variant.sku}
+                        className={`stage-swatch-dot ${variant.renkSlug === activeVariant.renkSlug ? 'is-selected' : ''}`}
                         onClick={() =>
-                          setSelectedSlugsByModel((prev) => ({
+                          setSelectedVariantByModel((prev) => ({
                             ...prev,
-                            [activeEntry.baseProduct.model]: variant.slug,
+                            [activeProduct.id]: variant.renkSlug,
                           }))
                         }
-                        title={variant.colorName}
-                        aria-label={`${activeEntry.baseProduct.model} - ${variant.colorName}`}
+                        title={variant.renk}
+                        aria-label={`${activeProduct.modelName} - ${variant.renk}`}
                       >
                         <i style={{ background: variant.colorHex }} />
                       </button>
@@ -173,28 +186,32 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
               )}
 
               <div className="stage-actions">
-                <Link to={`/urun/${activeProduct.slug}`} className="stage-action-buy">
+                <Link
+                  to={`/urun/${activeProduct.slug}/?renk=${encodeURIComponent(activeVariant.renkSlug)}`}
+                  className="stage-action-buy"
+                >
                   Ürünü İncele &amp; Özelleştir
                 </Link>
-                <button
-                  type="button"
-                  className="stage-action-bag"
-                  onClick={() => onAddToCart(activeProduct)}
-                >
-                  Sepete Ekle
-                </button>
+                {typeof activeVariant.price === 'number' && (
+                  <button
+                    type="button"
+                    className="stage-action-bag"
+                    onClick={() => onAddToCart(activeProduct, activeVariant)}
+                  >
+                    Sepete Ekle
+                  </button>
+                )}
               </div>
             </div>
           </div>
 
-          {/* Series Switcher Tabs (Apple-style Bottom Finish/Model Bar) */}
           <div className="apple-stage-switcher" role="tablist" aria-label="Öne çıkan seriler">
             {flagshipSeries.map((entry, idx) => (
               <button
                 type="button"
                 role="tab"
                 aria-selected={activeModelIdx === idx}
-                key={entry.baseProduct.model}
+                key={entry.product.id}
                 className={`stage-tab-btn ${activeModelIdx === idx ? 'is-active' : ''}`}
                 onClick={() => setActiveModelIdx(idx)}
               >
@@ -205,24 +222,34 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
           </div>
         </div>
 
-        {/* Apple Store Horizontal Category Dock */}
-        <div className="apple-category-dock" aria-label="Kategorilere göz atın">
+        {/* Horizontal Sub-Category Dock (Strictly 9 non-empty sub-categories) */}
+        <div className="apple-category-dock" aria-label="Alt kategorilere göz atın">
           <div className="apple-dock-header">
-            <span id="motto">Tüm Koleksiyon · 7 Kategori</span>
-            <Link to="/kategori/tumu">129 Parçanın Tamamını Gör →</Link>
+            <span id="motto">Tüm Koleksiyon · {subCategories.length} Kategori</span>
+            <Link to="/cuzdan-kartlik/">Cüzdan &amp; Kartlıkları Gör →</Link>
           </div>
           <div className="apple-dock-track">
-            {categories.map((cat) => (
-              <Link to={`/kategori/${cat.slug}`} key={cat.slug} className="apple-dock-card">
-                <div className="apple-dock-thumb">
-                  <img src={productImgUrl(cat.image, 420)} alt={cat.name} />
-                </div>
-                <div className="apple-dock-label">
-                  <strong>{cat.name}</strong>
-                  <span>{cat.count} Parça</span>
-                </div>
-              </Link>
-            ))}
+            {subCategories.map((cat) => {
+              const modelCount = getProductsByCategory(cat.slug).length
+              return (
+                <Link to={`/${cat.slug}/`} key={cat.slug} className="apple-dock-card">
+                  <div className="apple-dock-thumb">
+                    <img
+                      src={bannerToThumb(cat.bannerImage)}
+                      alt={cat.name}
+                      width={600}
+                      height={600}
+                      loading="lazy"
+                      fetchPriority="low"
+                    />
+                  </div>
+                  <div className="apple-dock-label">
+                    <strong>{cat.name}</strong>
+                    <span>{modelCount} Seri</span>
+                  </div>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </div>

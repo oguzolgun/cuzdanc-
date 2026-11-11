@@ -1,0 +1,2111 @@
+[
+  {
+    "id": "rio",
+    "slug": "rio-miknatisli-deri-cuzdan",
+    "sourceFolder": "RİO",
+    "name": "Rio El Yapımı Mıknatıslı Deri Cüzdan",
+    "modelName": "Rio",
+    "productType": "Mıknatıslı Deri Cüzdan",
+    "primaryCategory": "miknatisli-deri-cuzdan",
+    "extraCategories": [],
+    "shortDescription": "Mıknatıslı çift katlı gövde yapısını el yapımı hakiki deri işçiliğiyle buluşturan Rio cüzdan; beş farklı renk alternatifi ve ücretsiz sıcak isim baskısıyla günlük taşımanıza düzenli ve sıcak bir eşlik sunar.",
+    "longDescription": "Rio El Yapımı Mıknatıslı Deri Cüzdan, günlük hayatında hem hızlı erişim hem de derli toplu bir cep profili arayan kullanıcılar için özenle tasarlanmıştır. İki kanat arasına özenle gizlenen manyetik kapanış sistemi sayesinde ekstra çıtçıt ya da kalın dış kemer kullanılmadan kapaklar sessizce sabitlenir ve çantanızda veya cebinizde kendiliğinden açılmaz. Doğal damarlı hakiki deri yüzeyi ilk günden itibaren elde sıcak, tok ve samimi bir kavrama hissi uyandırır. Gün boyu yapılan şehir yürüyüşlerinden yoğun iş toplantılarına ve hafta sonu kaçamaklarına kadar her ortamda formunu dengeli biçimde koruyarak günlük rutininize zahmetsiz bir konfor katar. Düzenli kullanımla birlikte el ısısına ve günlük hareketlerinize uyum sağlayarak kendine has derin bir patina geliştirir ve yıllar geçtikçe daha karakterli bir görünüme kavuşur. Siyah Haki ve Siyah Taba gibi iki renkli modern kombinlerin yanı sıra tek tonlu Taba, Siyah ve Zeytin Karası Yeşil alternatifleri farklı giyim tarzlarına kolayca eşlik eder. Keten gömlekler, ham denim ceketler veya klasik takım ceket iç cepleriyle sıcak bir doku uyumu yakalar. İsteğe bağlı ücretsiz sıcak isim yazdırma seçeneğiyle yalnızca size veya sevdiklerinize ait kalıcı, anlamlı bir hatıraya dönüşür.",
+    "features": [
+      "El işçiliği ile üretilmiş hakiki deri gövde",
+      "Deri katmanları arasına gizlenen mıknatıslı çift katlı kapanış",
+      "İki tonlu ve tek renkli beş farklı deri alternatifi",
+      "Özel günlerde anlamlı bir armağan için ücretsiz sıcak isim baskısı"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Günlük temizlik için yalnızca kuru ve yumuşak pamuklu bezle nazikçe siliniz.",
+      "Alkol, kolonya, ıslak mendil ve aşındırıcı kimyasal çözücülerle temasından kaçınınız.",
+      "Keskin anahtarlar ve ağır metal nesnelerle aynı cepte taşımayınız."
+    ],
+    "variants": [
+      {
+        "renk": "Siyah Haki",
+        "renkSlug": "siyah-haki",
+        "colorHex": "#3f4935",
+        "sku": "ELN-RIO-SIYHAK",
+        "price": 1500,
+        "seoTitle": "Rio Siyah Haki Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-1-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Siyah Haki mıknatıslı hakiki deri cüzdan - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-2-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Siyah Haki mıknatıslı hakiki deri cüzdan - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Siyah Haki mıknatıslı hakiki deri cüzdan - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-rio-siyah-haki-miknatisli-deri-cuzdan-4-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Siyah Haki mıknatıslı hakiki deri cüzdan - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Siyah Taba",
+        "renkSlug": "siyah-taba",
+        "colorHex": "#96481e",
+        "sku": "ELN-RIO-SIYTAB",
+        "price": 1500,
+        "seoTitle": "Rio Siyah Taba Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-1-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Siyah Taba mıknatıslı hakiki deri cüzdan - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-2-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Siyah Taba mıknatıslı hakiki deri cüzdan - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Siyah Taba mıknatıslı hakiki deri cüzdan - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-rio-siyah-taba-miknatisli-deri-cuzdan-4-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Siyah Taba mıknatıslı hakiki deri cüzdan - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Zeytin Karası Yeşil",
+        "renkSlug": "zeytin-karasi-yesil",
+        "colorHex": "#3f4935",
+        "sku": "ELN-RIO-ZEYKARYES",
+        "price": 1500,
+        "seoTitle": "Rio Zeytin Karası Yeşil Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Zeytin Karası Yeşil mıknatıslı hakiki deri cüzdan - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-1-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Zeytin Karası Yeşil mıknatıslı hakiki deri cüzdan - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Zeytin Karası Yeşil mıknatıslı hakiki deri cüzdan - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-rio-zeytin-karasi-yesil-miknatisli-deri-cuzdan-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Zeytin Karası Yeşil mıknatıslı hakiki deri cüzdan - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Taba (Kahverengi)",
+        "renkSlug": "taba-kahverengi",
+        "colorHex": "#96481e",
+        "sku": "ELN-RIO-TABKAH",
+        "price": 1500,
+        "seoTitle": "Rio Taba (Kahverengi) Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-1-600.webp",
+            "width": 1600,
+            "height": 1422,
+            "alt": "Rio Taba (Kahverengi) mıknatıslı hakiki deri cüzdan - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Taba (Kahverengi) mıknatıslı hakiki deri cüzdan - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Taba (Kahverengi) mıknatıslı hakiki deri cüzdan - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-rio-taba-kahverengi-miknatisli-deri-cuzdan-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Taba (Kahverengi) mıknatıslı hakiki deri cüzdan - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Siyah",
+        "renkSlug": "siyah",
+        "colorHex": "#1c1b19",
+        "sku": "ELN-RIO-SIY",
+        "price": 1500,
+        "seoTitle": "Rio Siyah Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-1-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Siyah mıknatıslı hakiki deri cüzdan - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Siyah mıknatıslı hakiki deri cüzdan - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Siyah mıknatıslı hakiki deri cüzdan - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-rio-siyah-miknatisli-deri-cuzdan-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Siyah mıknatıslı hakiki deri cüzdan - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": true,
+      "logoEkleme": false,
+      "gorselBaski": false,
+      "extraPrice": 0
+    },
+    "faq": [
+      {
+        "question": "Rio modeli mıknatıslı mıdır?",
+        "answer": "Evet, Rio el yapımı hakiki deri cüzdan çift katlı mıknatıslı yapıya sahiptir."
+      },
+      {
+        "question": "Rio cüzdanda hangi renkler mevcut?",
+        "answer": "Siyah Haki, Siyah Taba, Zeytin Karası Yeşil, Taba (Kahverengi) ve Siyah seçenekleri bulunur."
+      },
+      {
+        "question": "Üzerine isim yazdırabilir miyim?",
+        "answer": "Evet, sipariş aşamasında isteğe bağlı ücretsiz sıcak isim baskısı talep edebilirsiniz."
+      }
+    ],
+    "relatedProducts": [
+      "rio-boss-miknatisli-deri-cuzdan",
+      "duo-klasik-deri-cuzdan",
+      "cekya-deri-anahtarlik"
+    ],
+    "seo": {
+      "title": "Rio Mıknatıslı Hakiki Deri Cüzdan | Elon Leather",
+      "metaDescription": "Rio el yapımı mıknatıslı hakiki deri cüzdan. Çift katlı ergonomik form, 5 renk seçeneği ve ücretsiz isim baskısı ayrıcalığıyla hemen keşfedin."
+    }
+  },
+  {
+    "id": "rio-boss",
+    "slug": "rio-boss-miknatisli-deri-cuzdan",
+    "sourceFolder": "RİO BOSS",
+    "name": "Rio Boss Mıknatıslı Çift Katlı Deri Cüzdan",
+    "modelName": "Rio Boss",
+    "productType": "Mıknatıslı Deri Cüzdan",
+    "primaryCategory": "miknatisli-deri-cuzdan",
+    "extraCategories": [],
+    "shortDescription": "8 x 10 cm kompakt ölçüsünde 20 karta kadar kapasite ve 2 ayrı banknot bölmesi sunan Rio Boss; mıknatıslı çift katlı tasarımı, ücretsiz isim, logo ve görsel baskı seçenekleriyle öne çıkar.",
+    "longDescription": "Rio Boss El Yapımı Hakiki Deri Mıknatıslı Çift Katlı Cüzdan ve Kartlık, yüksek taşıma kapasitesini şaşırtıcı derecede kompakt bir siluette toplar. Yalnızca 8 x 10 cm boyutlarında olmasına rağmen düzenli katman mimarisi sayesinde 20 karta kadar rahat yerleşim alanı ve kağıt paraları farklı değerlere ya da fişlere göre ayırmanızı kolaylaştıran 2 ayrı banknot bölmesi sunar. İki kanat arasında gizli çalışan mıknatıslı kapanış sistemi, cebinizde ya da çantanızda hacimli bir kilit çıkıntısı yaratmadan güvenli tutuş sağlar ve ödeme anlarında tek elle akıcı biçimde açılır. Birinci sınıf doğal dokulu hakiki deri kullanımla yumuşayarak elinize uyumlanır ve zaman geçtikçe kullanıcısına özgü benzersiz bir yüzey karakteri geliştirir. Zeytin Karası Yeşil, Taba (Kahverengi) ve Siyah renk seçenekleri hem günlük şehir kombinlerine hem de klasik giyim stiline dengeli bir sıcaklık katar. Kendi adınızı veya baş harflerinizi ücretsiz olarak bastırabileceğiniz gibi, dilerseniz ek ücretle özel logo (+150 TL) ya da görsel baskı (+300 TL) uygulatarak sevdikleriniz veya kurumsal ekipleriniz için tamamen size özel, uzun yıllar değerini koruyan unutulmaz bir hatıra oluşturabilirsiniz.",
+    "features": [
+      "8 x 10 cm kompakt cep dostu gövde ölçüsü",
+      "20 karta kadar yüksek kapasiteli çok katmanlı bölmeler",
+      "Nakit ve fiş düzeni için 2 ayrı banknot bölmesi",
+      "İsteğe bağlı ücretsiz isim, logo (+150 TL) ve görsel (+300 TL) baskı"
+    ],
+    "specs": {
+      "boyut": "8 x 10 cm",
+      "kartKapasitesi": "20 karta kadar",
+      "banknotBolmesi": "2 banknot bölmesi",
+      "kapama": "Mıknatıslı",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Deriyi korumak için düzenli olarak kuru ve yumuşak pamuklu bir bezle siliniz.",
+      "Parfüm, kolonya, alkol ve doğrudan radyatör/güneş ısısından uzak tutunuz.",
+      "Kapasite üzerindeki aşırı kağıt fiş yüklemesinden kaçınarak dikiş formunu koruyunuz."
+    ],
+    "variants": [
+      {
+        "renk": "Zeytin Karası Yeşil",
+        "renkSlug": "zeytin-karasi-yesil",
+        "colorHex": "#3f4935",
+        "sku": "ELN-RBS-ZEYKARYES",
+        "price": 1600,
+        "seoTitle": "Rio Boss Zeytin Karası Yeşil Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-1-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Boss Zeytin Karası Yeşil mıknatıslı hakiki deri cüzdan ve kartlık - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Boss Zeytin Karası Yeşil mıknatıslı hakiki deri cüzdan ve kartlık - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Boss Zeytin Karası Yeşil mıknatıslı hakiki deri cüzdan ve kartlık - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-rio-boss-zeytin-karasi-yesil-miknatisli-deri-cuzdan-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Boss Zeytin Karası Yeşil mıknatıslı hakiki deri cüzdan ve kartlık - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Taba (Kahverengi)",
+        "renkSlug": "taba-kahverengi",
+        "colorHex": "#96481e",
+        "sku": "ELN-RBS-TABKAH",
+        "price": 1600,
+        "seoTitle": "Rio Boss Taba (Kahverengi) Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-1-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Boss Taba (Kahverengi) mıknatıslı hakiki deri cüzdan ve kartlık - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Boss Taba (Kahverengi) mıknatıslı hakiki deri cüzdan ve kartlık - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Boss Taba (Kahverengi) mıknatıslı hakiki deri cüzdan ve kartlık - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-rio-boss-taba-kahverengi-miknatisli-deri-cuzdan-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Boss Taba (Kahverengi) mıknatıslı hakiki deri cüzdan ve kartlık - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Siyah",
+        "renkSlug": "siyah",
+        "colorHex": "#1c1b19",
+        "sku": "ELN-RBS-SIY",
+        "price": 1600,
+        "seoTitle": "Rio Boss Siyah Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-1-600.webp",
+            "width": 1600,
+            "height": 1422,
+            "alt": "Rio Boss Siyah mıknatıslı hakiki deri cüzdan ve kartlık - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Boss Siyah mıknatıslı hakiki deri cüzdan ve kartlık - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Boss Siyah mıknatıslı hakiki deri cüzdan ve kartlık - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-rio-boss-siyah-miknatisli-deri-cuzdan-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Rio Boss Siyah mıknatıslı hakiki deri cüzdan ve kartlık - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": true,
+      "logoEkleme": true,
+      "gorselBaski": true,
+      "extraPrice": 0,
+      "logoExtraPrice": 150,
+      "imageExtraPrice": 300
+    },
+    "faq": [
+      {
+        "question": "Rio Boss cüzdanın ölçüleri ve kart kapasitesi nedir?",
+        "answer": "Rio Boss modeli 8 x 10 cm ölçülerindedir ve 20 karta kadar taşıma kapasitesi ile 2 banknot bölmesi sunar."
+      },
+      {
+        "question": "Rio Boss üzerine logo veya görsel bastırılabilir mi?",
+        "answer": "Evet. İsim yazdırma ücretsizdir; isteğe bağlı logo ekleme (+150 TL) ve görsel baskı (+300 TL) seçenekleri mevcuttur."
+      },
+      {
+        "question": "Hangi renk seçenekleri bulunuyor?",
+        "answer": "Zeytin Karası Yeşil, Taba (Kahverengi) ve Siyah renk seçenekleriyle üretilmektedir."
+      },
+      {
+        "question": "Mıknatıslı kapanış kartlara zarar verir mi?",
+        "answer": "Günlük kartlar ve kimlikler düşünülerek deri katmanları arasına dengeli biçimde yerleştirilmiştir."
+      }
+    ],
+    "relatedProducts": [
+      "rio-miknatisli-deri-cuzdan",
+      "rio-bro-miknatisli-deri-cuzdan",
+      "cekya-deri-anahtarlik"
+    ],
+    "seo": {
+      "title": "Rio Boss Mıknatıslı Deri Cüzdan | Elon Leather",
+      "metaDescription": "8x10 cm ölçü, 20 karta kadar kapasite ve 2 banknot bölmeli Rio Boss mıknatıslı hakiki deri cüzdan. İsim ve logo baskı seçeneklerini inceleyin."
+    }
+  },
+  {
+    "id": "rio-bro",
+    "slug": "rio-bro-miknatisli-deri-cuzdan",
+    "sourceFolder": "RİO BRO",
+    "name": "Rio Bro El Yapımı Mıknatıslı Deri Cüzdan",
+    "modelName": "Rio Bro",
+    "productType": "Mıknatıslı Deri Cüzdan",
+    "primaryCategory": "miknatisli-deri-cuzdan",
+    "extraCategories": [],
+    "shortDescription": "Sıcak dikiş hatları ve mıknatıslı çift katlı yapısıyla Rio Bro, günlük cüzdan kullanımında yalın bohem estetiği el yapımı hakiki deri dokusuyla birleştirir.",
+    "longDescription": "Rio Bro El Yapımı Hakiki Deri Mıknatıslı Çift Katlı Cüzdan, Rio ailesinin dikiş vurgusu ve doğal toprak tonlarıyla öne çıkan karakteristik yorumudur. Çift katlı gövdesi, açıldığı anda tüm kartlarınıza düzenli biçimde ulaşmanızı sağlarken gizli mıknatıs kapanışı sayesinde kapalı konumda formunu pürüzsüz biçimde korur. Dış yüzeydeki belirgin zanaat dikişleri tasarıma sıcak ve samimi bir atölye dokusu kazandırır; kenar kesimleri cepte rahatsızlık vermeyecek dengeli ve yumuşak bir formda özenle tamamlanır. Taba, Antrasit ve Kahverengi renk seçenekleri özellikle koyu kot pantolonlar, toprak tonlu trikolar, süet botlar, keten ceketler ve rahat hafta sonu kombinleriyle zahmetsiz bir uyum yakalar. Doğal damarlı hakiki deri yüzeyi ilk dokunuştan itibaren samimi bir el emeği hissi uyandırır. Zaman geçtikçe kullanıcısının el temasını yansıtan yumuşak ve zengin bir yüzey parıltısı geliştirir ve yıllarca değerini kaybetmeyen samimi bir yol arkadaşına dönüşür. Ücretsiz sıcak isim baskısı ekleyerek günlük cüzdanınızı kişisel bir anıya veya doğum günü gibi özel günlerde verilecek anlamlı bir armağana kolayca dönüştürebilirsiniz.",
+    "features": [
+      "Belirgin zanaat dikiş hatlarına sahip el yapımı hakiki deri",
+      "Hızlı açılış sağlayan mıknatıslı çift katlı cüzdan mimarisi",
+      "Taba, Antrasit ve Kahverengi olmak üzere üç sıcak ton",
+      "İsteğe bağlı ücretsiz isim yazdırma seçeneği"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Temizlik için yalnızca kuru ve yumuşak pamuklu bir bez kullanınız.",
+      "Su birikintisi, deterjan ve yüksek ısı kaynaklarından uzak tutunuz.",
+      "Doğal damar geçişleri her deri parçada özgün görünüm sunar."
+    ],
+    "variants": [
+      {
+        "renk": "Taba",
+        "renkSlug": "taba",
+        "colorHex": "#96481e",
+        "sku": "ELN-RBR-TAB",
+        "price": 1500,
+        "seoTitle": "Rio Bro Taba Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-1-600.webp",
+            "width": 1600,
+            "height": 1422,
+            "alt": "Rio Bro Taba mıknatıslı çift katlı hakiki deri cüzdan - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-2-600.webp",
+            "width": 1600,
+            "height": 2392,
+            "alt": "Rio Bro Taba mıknatıslı çift katlı hakiki deri cüzdan - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Bro Taba mıknatıslı çift katlı hakiki deri cüzdan - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-rio-bro-taba-miknatisli-deri-cuzdan-4-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Bro Taba mıknatıslı çift katlı hakiki deri cüzdan - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Antrasit",
+        "renkSlug": "antrasit",
+        "colorHex": "#3a3b3d",
+        "sku": "ELN-RBR-ANT",
+        "price": 1500,
+        "seoTitle": "Rio Bro Antrasit Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-1-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Bro Antrasit mıknatıslı çift katlı hakiki deri cüzdan - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-2-600.webp",
+            "width": 1600,
+            "height": 2392,
+            "alt": "Rio Bro Antrasit mıknatıslı çift katlı hakiki deri cüzdan - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Bro Antrasit mıknatıslı çift katlı hakiki deri cüzdan - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-rio-bro-antrasit-miknatisli-deri-cuzdan-4-600.webp",
+            "width": 1600,
+            "height": 2402,
+            "alt": "Rio Bro Antrasit mıknatıslı çift katlı hakiki deri cüzdan - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Kahverengi",
+        "renkSlug": "kahverengi",
+        "colorHex": "#5b331e",
+        "sku": "ELN-RBR-KAH",
+        "price": 1500,
+        "seoTitle": "Rio Bro Kahverengi Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-1-600.webp",
+            "width": 1600,
+            "height": 2392,
+            "alt": "Rio Bro Kahverengi mıknatıslı çift katlı hakiki deri cüzdan - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-2-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Bro Kahverengi mıknatıslı çift katlı hakiki deri cüzdan - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Rio Bro Kahverengi mıknatıslı çift katlı hakiki deri cüzdan - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-rio-bro-kahverengi-miknatisli-deri-cuzdan-4-600.webp",
+            "width": 1600,
+            "height": 2402,
+            "alt": "Rio Bro Kahverengi mıknatıslı çift katlı hakiki deri cüzdan - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": true,
+      "logoEkleme": false,
+      "gorselBaski": false,
+      "extraPrice": 0
+    },
+    "faq": [
+      {
+        "question": "Rio Bro hangi malzemeden üretiliyor?",
+        "answer": "Rio Bro el işçiliğiyle şekillendirilen hakiki deriden üretilmektedir."
+      },
+      {
+        "question": "Rio Bro ile Rio Boss arasındaki fark nedir?",
+        "answer": "İki model de mıknatıslı çift katlı formdadır; Rio Bro kendine özgü dikiş detayı ve renk seçkisiyle ayrılır."
+      },
+      {
+        "question": "Üzerine isim baskısı yapılabiliyor mu?",
+        "answer": "Evet, sipariş sırasında ücretsiz isim yazdırma seçeneğini ekleyebilirsiniz."
+      }
+    ],
+    "relatedProducts": [
+      "rio-boss-miknatisli-deri-cuzdan",
+      "rio-miknatisli-deri-cuzdan",
+      "berlin-deri-bileklik"
+    ],
+    "seo": {
+      "title": "Rio Bro Mıknatıslı Deri Cüzdan | Elon Leather",
+      "metaDescription": "Rio Bro mıknatıslı çift katlı el yapımı hakiki deri cüzdan. Taba, Antrasit ve Kahverengi seçenekleri ile özgün tasarımı şimdi hemen inceleyin."
+    }
+  },
+  {
+    "id": "duo",
+    "slug": "duo-klasik-deri-cuzdan",
+    "sourceFolder": "DUO CÜZDAN",
+    "name": "Duo El Yapımı Klasik Deri Cüzdan & Kartlık",
+    "modelName": "Duo",
+    "productType": "Klasik Deri Cüzdan",
+    "primaryCategory": "klasik-deri-cuzdan",
+    "extraCategories": [],
+    "shortDescription": "Geleneksel katlanabilir cüzdan alışkanlıklarını modern deri işçiliğiyle yorumlayan Duo serisi; sade yüzeyi, özenli dikişleri ve üç zamansız renk alternatifiyle öne çıkar.",
+    "longDescription": "Duo El Yapımı Deri Cüzdan ve Kartlık, karmaşadan uzak, sade ve tanıdık bir günlük taşıma düzeni arayan kullanıcılar için özenle tasarlanmıştır. Mıknatıslı ya da metal mekanizmalı yapılara gereksinim duymadan klasik katlanır cüzdan ergonomisini hakiki derinin yumuşaklığıyla buluşturur. İki kanatlı doğal katlama formu ceket iç cebinde, ön veya arka pantolon ceplerinde ve el çantası bölmelerinde dengeli biçimde oturur; kenar dikişleri ise uzun süreli açılıp kapanmalarda formun korunmasına destek olur. Geleneksel cüzdan hissini seven kullanıcılar için günlük kartları ve evrakları sade biçimde düzenleme kolaylığı sağlar. Taba (Kahverengi), Siyah ve Zeytin Karası Yeşil renkleri her mevsim ve her kıyafet tarzıyla kolayca eşleşir; resmi iş toplantılarından keyifli hafta sonu yolculuklarına kadar geniş bir kullanım alanına hitap eder. İlk günkü mat ve doğal dokusu kullanıldıkça kullanıcının ellerinden gelen sıcaklıkla parlar ve benzersiz bir patina kazanır. Doğum günü, Babalar Günü veya yeni iş tebriki için risksiz ve zamansız bir hediye arıyorsanız ücretsiz isim yazdırma seçeneğiyle kişisel dokunuşunuzu kolayca ekleyebilirsiniz.",
+    "features": [
+      "Geleneksel çizgilere sadık el yapımı klasik deri cüzdan formu",
+      "Zamanla kendine özgü patina geliştiren hakiki deri",
+      "Taba, Siyah ve Zeytin Karası Yeşil üç zamansız renk",
+      "Ücretsiz sıcak isim baskısıyla kişiselleştirme imkânı"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Yüzeyi kuru ve tüy bırakmayan yumuşak pamuklu bir bezle temizleyiniz.",
+      "Islak mendil, kolonya veya kimyasal deri parlatıcılardan kaçınınız.",
+      "Uzun süre kullanılmadığında kuru ve güneş görmeyen bir yerde saklayınız."
+    ],
+    "variants": [
+      {
+        "renk": "Taba (Kahverengi)",
+        "renkSlug": "taba-kahverengi",
+        "colorHex": "#96481e",
+        "sku": "ELN-DUO-TABKAH",
+        "price": 1499,
+        "seoTitle": "Duo Taba (Kahverengi) Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-1-600.webp",
+            "width": 1600,
+            "height": 1422,
+            "alt": "Duo Taba (Kahverengi) klasik el yapımı hakiki deri cüzdan ve kartlık - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Duo Taba (Kahverengi) klasik el yapımı hakiki deri cüzdan ve kartlık - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Duo Taba (Kahverengi) klasik el yapımı hakiki deri cüzdan ve kartlık - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-duo-taba-kahverengi-klasik-deri-cuzdan-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Duo Taba (Kahverengi) klasik el yapımı hakiki deri cüzdan ve kartlık - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Siyah",
+        "renkSlug": "siyah",
+        "colorHex": "#1c1b19",
+        "sku": "ELN-DUO-SIY",
+        "price": 1499,
+        "seoTitle": "Duo Siyah Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-1-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Duo Siyah klasik el yapımı hakiki deri cüzdan ve kartlık - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-2-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Duo Siyah klasik el yapımı hakiki deri cüzdan ve kartlık - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Duo Siyah klasik el yapımı hakiki deri cüzdan ve kartlık - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-duo-siyah-klasik-deri-cuzdan-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Duo Siyah klasik el yapımı hakiki deri cüzdan ve kartlık - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Zeytin Karası Yeşil",
+        "renkSlug": "zeytin-karasi-yesil",
+        "colorHex": "#3f4935",
+        "sku": "ELN-DUO-ZEYKARYES",
+        "price": 1499,
+        "seoTitle": "Duo Zeytin Karası Yeşil Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-1-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Duo Zeytin Karası Yeşil klasik el yapımı hakiki deri cüzdan ve kartlık - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Duo Zeytin Karası Yeşil klasik el yapımı hakiki deri cüzdan ve kartlık - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Duo Zeytin Karası Yeşil klasik el yapımı hakiki deri cüzdan ve kartlık - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-duo-zeytin-karasi-yesil-klasik-deri-cuzdan-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Duo Zeytin Karası Yeşil klasik el yapımı hakiki deri cüzdan ve kartlık - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": true,
+      "logoEkleme": false,
+      "gorselBaski": false,
+      "extraPrice": 0
+    },
+    "faq": [
+      {
+        "question": "Duo cüzdan mıknatıslı mıdır?",
+        "answer": "Hayır, Duo klasik katlanır cüzdan ve kartlık yapısına sahip geleneksel bir modeldir."
+      },
+      {
+        "question": "Hangi renklerde üretiliyor?",
+        "answer": "Duo cüzdan Taba (Kahverengi), Siyah ve Zeytin Karası Yeşil renk seçeneklerine sahiptir."
+      },
+      {
+        "question": "İsim baskısı ücretsiz mi?",
+        "answer": "Evet, ürün detay sayfasından ücretsiz isim yazdırma seçeneğini ekleyebilirsiniz."
+      }
+    ],
+    "relatedProducts": [
+      "dubai-mandalli-deri-cuzdan",
+      "wonder-ince-deri-kartlik",
+      "hong-kong-deri-ajanda-kilifi"
+    ],
+    "seo": {
+      "title": "Duo Klasik El Yapımı Deri Cüzdan | Elon Leather",
+      "metaDescription": "Duo el yapımı klasik hakiki deri cüzdan ve kartlık. Zamansız tasarım, 3 farklı renk seçeneği ve ücretsiz isim yazdırma ile şimdi hemen inceleyin."
+    }
+  },
+  {
+    "id": "dubai",
+    "slug": "dubai-mandalli-deri-cuzdan",
+    "sourceFolder": "DUBAI GOLD",
+    "name": "Dubai İnce Tasarım Mandallı Deri Cüzdan",
+    "modelName": "Dubai",
+    "productType": "Mandallı Deri Cüzdan",
+    "primaryCategory": "klasik-deri-cuzdan",
+    "extraCategories": [],
+    "shortDescription": "İnce kesimli klasik gövdeyi pratik banknot mandalıyla buluşturan Dubai cüzdan; cebinde hafiflik ve düzenli kağıt para yerleşimi arayanlar için el işçiliğiyle hazırlanır.",
+    "longDescription": "Dubai İnce Tasarım Hakiki Deri Mandal Tutuculu Cüzdan ve Kartlık, kağıt paraları kalın ve hacimli bölmelere sıkıştırmadan düzenli tutmak isteyen kullanıcılar için sade ve fonksiyonel bir çözüm sunar. Gövdenin ince kesimi özellikle dar paça pantolonlarda ve hafif yazlık ceket ceplerinde istenmeyen kabarıklık oluşmasını azaltırken, iç kısımdaki pratik mandal tutucu mekanizması banknotların tek bir hareketle düzenli biçimde sabitlenmesini ve çıkarılmasını kolaylaştırır. Sade ve pürüzsüz dış yüzeyi elde hafif bir denge oluşturur, günlük ödeme anlarında kağıt paranıza ve temel kartlarınıza hızlı erişim sağlar. İki renkli modern Taba Yeşil alternatifinin yanı sıra Zeytin Karası Yeşil, Taba (Kahverengi) ve Siyah seçenekleri sade ofis stilinden hafta sonu bohem kombinlerine kadar geniş bir beğeni yelpazesine hitap eder. El yapımı hakiki derinin doğal damarlı dokusu kısa sürede elinize uyum sağlar ve düzenli kullanımda yıllar geçtikçe derinleşen sıcak bir yüzey karakteri kazanır. Ürünü yalnızca kendinize özel kılmak veya şık bir hediye sunmak için ücretsiz isim yazdırma seçeneğinden hemen yararlanabilirsiniz.",
+    "features": [
+      "Kağıt paraları düzenlemeye yardımcı mandal tutuculu tasarım",
+      "Cepte ağırlık ve çıkıntı yaratmayan ince kesim profili",
+      "İki tonlu Taba Yeşil dahil dört özgün renk seçeneği",
+      "Ücretsiz sıcak isim baskısı desteği"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Kuru ve yumuşak pamuklu bir bezle nazikçe silerek temizleyiniz.",
+      "Mandal tutucu aksamını gereksiz kalın metal nesnelerle zorlamayınız.",
+      "Su ve aşırı ısı kaynaklarından uzak bir ortamda muhafaza ediniz."
+    ],
+    "variants": [
+      {
+        "renk": "Taba Yeşil",
+        "renkSlug": "taba-yesil",
+        "colorHex": "#3f4935",
+        "sku": "ELN-DUB-TABYES",
+        "price": 1400,
+        "seoTitle": "Dubai Taba Yeşil Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-1-600.webp",
+            "width": 1080,
+            "height": 1350,
+            "alt": "Dubai Taba Yeşil ince tasarım mandallı hakiki deri cüzdan - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-2-600.webp",
+            "width": 1080,
+            "height": 1350,
+            "alt": "Dubai Taba Yeşil ince tasarım mandallı hakiki deri cüzdan - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-3-600.webp",
+            "width": 1080,
+            "height": 1350,
+            "alt": "Dubai Taba Yeşil ince tasarım mandallı hakiki deri cüzdan - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-dubai-taba-yesil-klasik-deri-cuzdan-4-600.webp",
+            "width": 1080,
+            "height": 1350,
+            "alt": "Dubai Taba Yeşil ince tasarım mandallı hakiki deri cüzdan - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Zeytin Karası Yeşil",
+        "renkSlug": "zeytin-karasi-yesil",
+        "colorHex": "#3f4935",
+        "sku": "ELN-DUB-ZEYKARYES",
+        "price": 1400,
+        "seoTitle": "Dubai Zeytin Karası Yeşil Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Dubai Zeytin Karası Yeşil ince tasarım mandallı hakiki deri cüzdan - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Dubai Zeytin Karası Yeşil ince tasarım mandallı hakiki deri cüzdan - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Dubai Zeytin Karası Yeşil ince tasarım mandallı hakiki deri cüzdan - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-dubai-zeytin-karasi-yesil-klasik-deri-cuzdan-1-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Dubai Zeytin Karası Yeşil ince tasarım mandallı hakiki deri cüzdan - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Taba (Kahverengi)",
+        "renkSlug": "taba-kahverengi",
+        "colorHex": "#96481e",
+        "sku": "ELN-DUB-TABKAH",
+        "price": 1400,
+        "seoTitle": "Dubai Taba (Kahverengi) Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-1-600.webp",
+            "width": 1600,
+            "height": 1422,
+            "alt": "Dubai Taba (Kahverengi) ince tasarım mandallı hakiki deri cüzdan - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Dubai Taba (Kahverengi) ince tasarım mandallı hakiki deri cüzdan - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Dubai Taba (Kahverengi) ince tasarım mandallı hakiki deri cüzdan - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-dubai-taba-kahverengi-klasik-deri-cuzdan-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Dubai Taba (Kahverengi) ince tasarım mandallı hakiki deri cüzdan - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Siyah",
+        "renkSlug": "siyah",
+        "colorHex": "#1c1b19",
+        "sku": "ELN-DUB-SIY",
+        "price": 1400,
+        "seoTitle": "Dubai Siyah Deri Cüzdan | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-dubai-siyah-klasik-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-dubai-siyah-klasik-deri-cuzdan-1-600.webp",
+            "width": 1600,
+            "height": 2000,
+            "alt": "Dubai Siyah ince tasarım mandallı hakiki deri cüzdan - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-dubai-siyah-klasik-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-dubai-siyah-klasik-deri-cuzdan-2-600.webp",
+            "width": 1600,
+            "height": 2000,
+            "alt": "Dubai Siyah ince tasarım mandallı hakiki deri cüzdan - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-dubai-siyah-klasik-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-dubai-siyah-klasik-deri-cuzdan-3-600.webp",
+            "width": 1600,
+            "height": 2000,
+            "alt": "Dubai Siyah ince tasarım mandallı hakiki deri cüzdan - yan açı ve kesim detayı"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": true,
+      "logoEkleme": false,
+      "gorselBaski": false,
+      "extraPrice": 0
+    },
+    "faq": [
+      {
+        "question": "Dubai cüzdandaki mandal ne işe yarar?",
+        "answer": "İç kısımdaki mandal tutucu, katlanmış banknotların düzenli ve sabit biçimde tutulmasına yardımcı olur."
+      },
+      {
+        "question": "Dubai modeli ince cepler için uygun mudur?",
+        "answer": "Evet, ince tasarım yaklaşımı sayesinde ön ve ceket ceplerinde hafif bir taşıma sunar."
+      },
+      {
+        "question": "Hangi renk alternatifleri mevcut?",
+        "answer": "Taba Yeşil, Zeytin Karası Yeşil, Taba (Kahverengi) ve Siyah seçenekleri mevcuttur."
+      }
+    ],
+    "relatedProducts": [
+      "duo-klasik-deri-cuzdan",
+      "wonder-ince-deri-kartlik",
+      "rio-miknatisli-deri-cuzdan"
+    ],
+    "seo": {
+      "title": "Dubai Mandallı İnce Deri Cüzdan | Elon Leather",
+      "metaDescription": "İnce tasarım ve pratik mandal tutuculu Dubai el yapımı hakiki deri cüzdan. 4 renk seçeneği ve ücretsiz isim yazdırma ile modelleri hemen keşfedin."
+    }
+  },
+  {
+    "id": "wonder",
+    "slug": "wonder-ince-deri-kartlik",
+    "sourceFolder": "WONDER",
+    "name": "Wonder El Yapımı İnce Deri Kartlık",
+    "modelName": "Wonder",
+    "productType": "İnce Deri Kartlık",
+    "primaryCategory": "ince-deri-kartlik",
+    "extraCategories": [],
+    "shortDescription": "Yalnızca temel kartlarını yanında taşımayı tercih edenler için geliştirilen Wonder ince kartlık, el işçiliği hakiki derisi ve sade formuyla cebinizde varlığını hissettirmez.",
+    "longDescription": "Wonder El Yapımı İnce Deri Kartlık, günlük hayatta nakit yerine banka ve kimlik kartlarını kullanan, ceplerindeki ağırlığı ve karmaşayı ortadan kaldırmak isteyenler için yalın ama karakterli bir tasarım sunar. Büyük ve kalın katmanlı cüzdanların aksine fazlalıklardan arındırılmış ince gövdesi, en dar keten pantolon, ceket iç cebi veya gömlek üst cebinde bile dışarıdan siluet bozulmasına yol açmaz. Hafif yapısı sayesinde gün boyu toplantıdan kafeye, kısa yolculuklardan akşam yürüyüşlerine geçerken varlığını unutturacak bir rahatlıkla temel kartlarınızı düzenli şekilde bir arada tutar. Usta ellerde kesilen ve dikilen hakiki deri yüzey, kullandıkça doğal bir yumuşaklık ve sıcak bir yüzey parıltısı kazanır. Siyah renk seçeneği modern, net ve şehirli bir minimalizm sunarken, Taba alternatifi bohem ve sıcak toprak estetiğini öne çıkarır. Her iki renkte de özenle hazırlanan kart yuvaları kartların günlük hareket esnasında güvenle sabit kalmasına destek olur ve pratik erişim sunar. Dilerseniz ücretsiz isim yazdırma seçeneğini ekleyerek sevdiğiniz birine günlük hayatta her an kullanacağı kalıcı, zarif bir kartlık armağan edebilirsiniz.",
+    "features": [
+      "Minimal taşımaya uygun ultra sade ve ince gövde tasarımı",
+      "El dikişli ve doğal damarlı hakiki deri yapı",
+      "Klasik Siyah ve sıcak Taba renk alternatifleri",
+      "İsteğe bağlı ücretsiz isim baskısı imkânı"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Kart yuvalarını formun korunması için tek yuvaya fazla kart sıkıştırmadan kullanınız.",
+      "Temizlikte yalnızca kuru, yumuşak pamuk bez tercih ediniz.",
+      "Nemden, yağmurdan ve kimyasal içerikli sıvılardan koruyunuz."
+    ],
+    "variants": [
+      {
+        "renk": "Siyah",
+        "renkSlug": "siyah",
+        "colorHex": "#1c1b19",
+        "sku": "ELN-WND-SIY",
+        "price": 1500,
+        "seoTitle": "Wonder Siyah Deri Kartlık | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-1.webp",
+            "thumb": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-1-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Wonder Siyah ince el yapımı hakiki deri kartlık - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-2.webp",
+            "thumb": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-2-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Wonder Siyah ince el yapımı hakiki deri kartlık - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-3.webp",
+            "thumb": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Wonder Siyah ince el yapımı hakiki deri kartlık - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-4.webp",
+            "thumb": "/assets/products/elon-leather-wonder-siyah-ince-deri-kartlik-4-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Wonder Siyah ince el yapımı hakiki deri kartlık - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Taba",
+        "renkSlug": "taba",
+        "colorHex": "#96481e",
+        "sku": "ELN-WND-TAB",
+        "price": 1500,
+        "seoTitle": "Wonder Taba Deri Kartlık | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-1.webp",
+            "thumb": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-1-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Wonder Taba ince el yapımı hakiki deri kartlık - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-2.webp",
+            "thumb": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-2-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Wonder Taba ince el yapımı hakiki deri kartlık - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-3.webp",
+            "thumb": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Wonder Taba ince el yapımı hakiki deri kartlık - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-4.webp",
+            "thumb": "/assets/products/elon-leather-wonder-taba-ince-deri-kartlik-4-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Wonder Taba ince el yapımı hakiki deri kartlık - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": true,
+      "logoEkleme": false,
+      "gorselBaski": false,
+      "extraPrice": 0
+    },
+    "faq": [
+      {
+        "question": "Wonder modeli cüzdan mı yoksa kartlık mıdır?",
+        "answer": "Wonder, günlük kart taşıma alışkanlığına odaklanan ince tasarımlı el yapımı bir deri kartlıktır."
+      },
+      {
+        "question": "Wonder kartlıkta hangi renkler bulunuyor?",
+        "answer": "Siyah ve Taba olmak üzere iki zamansız renk seçeneği sunulmaktadır."
+      },
+      {
+        "question": "Kartlık üzerine isim yazdırabilir miyim?",
+        "answer": "Evet, sipariş aşamasında ücretsiz isim yazdırma seçeneğini belirtebilirsiniz."
+      }
+    ],
+    "relatedProducts": [
+      "dubai-mandalli-deri-cuzdan",
+      "duo-klasik-deri-cuzdan",
+      "berlin-deri-bileklik"
+    ],
+    "seo": {
+      "title": "Wonder İnce El Yapımı Deri Kartlık | Elon Leather",
+      "metaDescription": "Minimal günlük taşıma için el yapımı hakiki deri Wonder ince kartlık. Siyah ve Taba renkleri ile ücretsiz isim yazdırma ayrıcalığını keşfedin."
+    }
+  },
+  {
+    "id": "elegant",
+    "slug": "elegant-deri-el-cantasi",
+    "sourceFolder": "ELEGANT",
+    "name": "Elegant El Yapımı Hakiki Deri El Çantası",
+    "modelName": "Elegant",
+    "productType": "Deri El Çantası",
+    "primaryCategory": "deri-el-cantasi",
+    "extraCategories": [],
+    "shortDescription": "Telefon, cüzdan ve tüm günlük eşyalarınızı tek elde düzenle taşımanız için tasarlanan Elegant deri el çantası; yedi özgün renk ve ücretsiz isim baskısıyla sunulur.",
+    "longDescription": "Elegant El Yapımı Hakiki Deri El Çantası, pantolon veya ceket ceplerini dolduran cüzdan, akıllı telefon, kulaklık, güneş gözlüğü, anahtarlık ve not defteri gibi eşyaları zarif bir düzen içinde tek elde bir araya getirir. Temiz hatlı ve dengeli formu; ofis toplantılarından akşam yemeklerine, günlük şehir işlerinden kısa hafta sonu seyahatlerine kadar her atmosferde rafine ve kendinden emin bir duruş sergiler. Ceplerde oluşan gereksiz şişkinliği ortadan kaldırarak giysi dikişlerinizi ve siluetinizi korurken gün içinde ihtiyacınız olan tüm eşyalara tek noktadan ulaşmanızı kolaylaştırır. Koleksiyonun en geniş renk yelpazesine sahip modellerinden biri olan Elegant; klasik Siyah, karakterli Siyah (Desenli), Antrasit, Taba (Kahverengi) ve Kahve tonlarının yanında dikkat çekici Timsah Yeşil ve Vişne Çürüğü Mor alternatifleriyle de sunulur. El yapımı hakiki derinin esnek dokusu gün boyu konforlu bir elde kavrama sağlar ve kullanıldıkça derinleşir; unisex sade çizgisi hem kadın hem erkek günlük kombinlerine uyum gösterir. Özel günlerde anlamlı bir hediye arıyorsanız ücretsiz isim baskısı ekleyerek yalnızca sahibine özel tek ve kalıcı bir parça haline getirebilirsiniz.",
+    "features": [
+      "Cüzdan, telefon ve günlük eşyalar için derli toplu el çantası hacmi",
+      "Siyah, Timsah Yeşil ve Vişne Çürüğü Mor dahil 7 renk/doku seçeneği",
+      "Zamanla güzelleşen doğal el yapımı hakiki deri",
+      "Ücretsiz sıcak isim yazdırma desteği"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Deri çantayı kullanmadığınızda bez kılıf içerisinde, üzerine ağırlık koymadan saklayınız.",
+      "Parfüm, el dezenfektanı ve alkollü temizlik ürünlerinden uzak tutunuz.",
+      "Yüzeydeki tozu kuru pamuklu bezle hafifçe alınız."
+    ],
+    "variants": [
+      {
+        "renk": "Siyah",
+        "renkSlug": "siyah",
+        "colorHex": "#1c1b19",
+        "sku": "ELN-ELG-SIY",
+        "price": 2999,
+        "seoTitle": "Elegant Siyah El Çantası | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-1.webp",
+            "thumb": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-1-600.webp",
+            "width": 1600,
+            "height": 2844,
+            "alt": "Elegant Siyah hakiki deri el çantası - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-2.webp",
+            "thumb": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-2-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Siyah hakiki deri el çantası - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-3.webp",
+            "thumb": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Siyah hakiki deri el çantası - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-4.webp",
+            "thumb": "/assets/products/elon-leather-elegant-siyah-deri-el-cantasi-4-600.webp",
+            "width": 1600,
+            "height": 1068,
+            "alt": "Elegant Siyah hakiki deri el çantası - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Siyah (Desenli)",
+        "renkSlug": "siyah-desenli",
+        "colorHex": "#1c1b19",
+        "sku": "ELN-ELG-SIYDES",
+        "price": 2999,
+        "seoTitle": "Elegant Siyah (Desenli) El Çantası | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-1.webp",
+            "thumb": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-1-600.webp",
+            "width": 1600,
+            "height": 2844,
+            "alt": "Elegant Siyah (Desenli) hakiki deri el çantası - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-2.webp",
+            "thumb": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Elegant Siyah (Desenli) hakiki deri el çantası - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-3.webp",
+            "thumb": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Siyah (Desenli) hakiki deri el çantası - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-4.webp",
+            "thumb": "/assets/products/elon-leather-elegant-siyah-desenli-deri-el-cantasi-4-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Siyah (Desenli) hakiki deri el çantası - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Antrasit",
+        "renkSlug": "antrasit",
+        "colorHex": "#3a3b3d",
+        "sku": "ELN-ELG-ANT",
+        "price": 2999,
+        "seoTitle": "Elegant Antrasit El Çantası | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-1.webp",
+            "thumb": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-1-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Antrasit hakiki deri el çantası - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-2.webp",
+            "thumb": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-2-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Antrasit hakiki deri el çantası - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-3.webp",
+            "thumb": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Antrasit hakiki deri el çantası - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-4.webp",
+            "thumb": "/assets/products/elon-leather-elegant-antrasit-deri-el-cantasi-4-600.webp",
+            "width": 1600,
+            "height": 1068,
+            "alt": "Elegant Antrasit hakiki deri el çantası - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Taba (Kahverengi)",
+        "renkSlug": "taba-kahverengi",
+        "colorHex": "#96481e",
+        "sku": "ELN-ELG-TABKAH",
+        "price": 2999,
+        "seoTitle": "Elegant Taba (Kahverengi) El Çantası | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-1.webp",
+            "thumb": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-1-600.webp",
+            "width": 1600,
+            "height": 2844,
+            "alt": "Elegant Taba (Kahverengi) hakiki deri el çantası - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-2.webp",
+            "thumb": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Elegant Taba (Kahverengi) hakiki deri el çantası - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-3.webp",
+            "thumb": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Elegant Taba (Kahverengi) hakiki deri el çantası - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-4.webp",
+            "thumb": "/assets/products/elon-leather-elegant-taba-kahverengi-deri-el-cantasi-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Elegant Taba (Kahverengi) hakiki deri el çantası - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Timsah Yeşil",
+        "renkSlug": "timsah-yesil",
+        "colorHex": "#3f4935",
+        "sku": "ELN-ELG-TIMYES",
+        "price": 2999,
+        "seoTitle": "Elegant Timsah Yeşil El Çantası | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-1.webp",
+            "thumb": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-1-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Timsah Yeşil hakiki deri el çantası - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-2.webp",
+            "thumb": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-2-600.webp",
+            "width": 1600,
+            "height": 2844,
+            "alt": "Elegant Timsah Yeşil hakiki deri el çantası - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-3.webp",
+            "thumb": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Timsah Yeşil hakiki deri el çantası - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-4.webp",
+            "thumb": "/assets/products/elon-leather-elegant-timsah-yesil-deri-el-cantasi-4-600.webp",
+            "width": 1600,
+            "height": 1068,
+            "alt": "Elegant Timsah Yeşil hakiki deri el çantası - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Vişne Çürüğü Mor",
+        "renkSlug": "visne-curugu-mor",
+        "colorHex": "#54232d",
+        "sku": "ELN-ELG-VISCURMOR",
+        "price": 2999,
+        "seoTitle": "Elegant Vişne Çürüğü Mor El Çantası | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-1.webp",
+            "thumb": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-1-600.webp",
+            "width": 1600,
+            "height": 2844,
+            "alt": "Elegant Vişne Çürüğü Mor hakiki deri el çantası - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-2.webp",
+            "thumb": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-2-600.webp",
+            "width": 1600,
+            "height": 1068,
+            "alt": "Elegant Vişne Çürüğü Mor hakiki deri el çantası - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-3.webp",
+            "thumb": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Vişne Çürüğü Mor hakiki deri el çantası - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-4.webp",
+            "thumb": "/assets/products/elon-leather-elegant-visne-curugu-mor-deri-el-cantasi-4-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Vişne Çürüğü Mor hakiki deri el çantası - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Kahve",
+        "renkSlug": "kahve",
+        "colorHex": "#5b331e",
+        "sku": "ELN-ELG-KAH",
+        "price": 2999,
+        "seoTitle": "Elegant Kahve El Çantası | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-1.webp",
+            "thumb": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-1-600.webp",
+            "width": 1600,
+            "height": 1422,
+            "alt": "Elegant Kahve hakiki deri el çantası - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-2.webp",
+            "thumb": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-2-600.webp",
+            "width": 1600,
+            "height": 2844,
+            "alt": "Elegant Kahve hakiki deri el çantası - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-3.webp",
+            "thumb": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-3-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Kahve hakiki deri el çantası - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-4.webp",
+            "thumb": "/assets/products/elon-leather-elegant-kahve-deri-el-cantasi-4-600.webp",
+            "width": 1600,
+            "height": 2400,
+            "alt": "Elegant Kahve hakiki deri el çantası - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": true,
+      "logoEkleme": false,
+      "gorselBaski": false,
+      "extraPrice": 0
+    },
+    "faq": [
+      {
+        "question": "Elegant el çantası hangi renk ve dokularda satılıyor?",
+        "answer": "Siyah, Siyah (Desenli), Antrasit, Taba (Kahverengi), Timsah Yeşil, Vişne Çürüğü Mor ve Kahve seçenekleri bulunur."
+      },
+      {
+        "question": "Günlük kullanım için hangi eşyaları sığdırmak uygundur?",
+        "answer": "Telefon, cüzdan, anahtar ve küçük kişisel eşyaları ceplerde ağırlık yapmadan düzenli taşımak için idealdir."
+      },
+      {
+        "question": "El çantasına isim baskısı yaptırabilir miyim?",
+        "answer": "Evet, ürün detay sayfasından ücretsiz isim yazdırma talebinizi iletebilirsiniz."
+      }
+    ],
+    "relatedProducts": [
+      "atlas-deri-omuz-cantasi",
+      "port-deri-pasaportluk",
+      "hong-kong-deri-ajanda-kilifi"
+    ],
+    "seo": {
+      "title": "Elegant Hakiki Deri El Çantası | Elon Leather",
+      "metaDescription": "7 farklı renk ve doku seçeneğiyle Elegant el yapımı hakiki deri el çantası. Günlük eşyalarınız için düzenli şıklık ve isim baskısını keşfedin."
+    }
+  },
+  {
+    "id": "atlas",
+    "slug": "atlas-deri-omuz-cantasi",
+    "sourceFolder": "EON",
+    "name": "Atlas Hakiki Deri Göğüs & Omuz Çantası",
+    "modelName": "Atlas",
+    "productType": "Omuz & Göğüs Çantası",
+    "primaryCategory": "omuz-gogus-cantasi",
+    "extraCategories": [],
+    "shortDescription": "Hareketli şehir günleri ve seyahatler için geliştirilen Atlas göğüs ve omuz çantası; sıcak taba hakiki derisiyle ellerinizi tamamen serbest bırakır.",
+    "longDescription": "Atlas El Yapımı Hakiki Deri Göğüs ve Omuz Çantası, gün boyu şehir içinde hareket ederken veya yeni rotalar keşfederken eşyalarına hem hızlı erişmek hem de iki elini tamamen serbest bırakmak isteyen kullanıcılar için özenle tasarlanmıştır. Vücuda paralel duran ergonomik askı mimarisi kalabalık caddelerde yürüyüş, bisiklet veya motosiklet sürüşü ya da havalimanı aktarmaları sırasında çantanın dengesizce savrulmasını önler ve omuzdaki yükü yumuşakça dağıtır. Taba (Kahverengi) hakiki derinin sıcak ve yaşanmışlık vadeden dokusu; ham kot ceketler, ekru keten gömlekler, sonbahar trençkotları ve toprak tonlu günlük kıyafetlerle güçlü, doğal ve bohem bir uyum yakalar. Cüzdanınızı, pasaportunuzu, telefonunuzu, güneş gözlüğünüzü ve anahtarlarınızı büyük bir sırt çantasına gereksinim duymadan tek kompakt gövdede düzenli biçimde taşımanıza yardımcı olur. Zamanla kazanacağı doğal patina her yolculuğun izini yüzeyinde taşır; düzenli kullanımda derinin yumuşaklığı daha da belirginleşir. Seyahat ve hareket özgürlüğünü seven dostlarınız için kalıcı bir armağan düşünüyorsanız ücretsiz isim yazdırma seçeneğiyle kişisel imzanızı taşıyan zamansız bir yol arkadaşına kolayca dönüştürebilirsiniz.",
+    "features": [
+      "Göğüs veya omuzda çapraz taşımaya uygun ergonomik yapı",
+      "Sıcak Taba (Kahverengi) el yapımı hakiki deri gövde",
+      "Seyahat ve günlük şehir rotaları için dengeli taşıma hacmi",
+      "Ücretsiz sıcak isim baskısı seçeneği"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Yağmur teması halinde kalorifer veya fön kullanmadan oda sıcaklığında kurumaya bırakınız.",
+      "Askı bağlantılarına aşırı ağır nesnelerle gereksiz yük bindirmeyiniz.",
+      "Kuru, yumuşak pamuklu bir bezle düzenli olarak tozunu alınız."
+    ],
+    "variants": [
+      {
+        "renk": "Taba (Kahverengi)",
+        "renkSlug": "taba-kahverengi",
+        "colorHex": "#96481e",
+        "sku": "ELN-ATL-TABKAH",
+        "price": 2999,
+        "seoTitle": "Atlas Taba (Kahverengi) Omuz Çantası | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-1.webp",
+            "thumb": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-1-600.webp",
+            "width": 1600,
+            "height": 1422,
+            "alt": "Atlas Taba (Kahverengi) hakiki deri göğüs ve omuz çantası - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-2.webp",
+            "thumb": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Atlas Taba (Kahverengi) hakiki deri göğüs ve omuz çantası - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-3.webp",
+            "thumb": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Atlas Taba (Kahverengi) hakiki deri göğüs ve omuz çantası - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-4.webp",
+            "thumb": "/assets/products/elon-leather-atlas-taba-kahverengi-deri-omuz-cantasi-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Atlas Taba (Kahverengi) hakiki deri göğüs ve omuz çantası - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": true,
+      "logoEkleme": false,
+      "gorselBaski": false,
+      "extraPrice": 0
+    },
+    "faq": [
+      {
+        "question": "Atlas modeli nasıl taşınır?",
+        "answer": "Hem tek omuzda hem de göğüs hizasında çapraz olarak taşımaya uygun ergonomik formdadır."
+      },
+      {
+        "question": "Çantada hangi renk seçeneği bulunuyor?",
+        "answer": "Atlas modeli sıcak Taba (Kahverengi) hakiki deri seçeneğiyle sunulmaktadır."
+      },
+      {
+        "question": "Üzerine isim baskısı yapılabiliyor mu?",
+        "answer": "Evet, sipariş sırasında ücretsiz isim yazdırma tercihini ekleyebilirsiniz."
+      }
+    ],
+    "relatedProducts": [
+      "elegant-deri-el-cantasi",
+      "port-deri-pasaportluk",
+      "cekya-deri-anahtarlik"
+    ],
+    "seo": {
+      "title": "Atlas Deri Göğüs & Omuz Çantası | Elon Leather",
+      "metaDescription": "Sıcak taba hakiki deriden el yapımı Atlas göğüs ve omuz çantası. Ellerinizi serbest bırakan bohem tasarım ve isim baskısını şimdi hemen keşfedin."
+    }
+  },
+  {
+    "id": "port",
+    "slug": "port-deri-pasaportluk",
+    "sourceFolder": "PORT (PASAPORT CÜZDANI)",
+    "exactNameNote": "TODO",
+    "name": "Port Hakiki Deri Pasaportluk & Seyahat Cüzdanı",
+    "modelName": "Port",
+    "productType": "Deri Pasaportluk",
+    "primaryCategory": "deri-pasaportluk",
+    "extraCategories": [],
+    "shortDescription": "Seyahatlerde pasaportunuzu, uçuş kartlarınızı ve temel kimlik belgelerinizi düzenli biçimde bir arada tutmak için tasarlanan Taba hakiki deri Port pasaportluk ve seyahat cüzdanı.",
+    "longDescription": "Port Hakiki Deri Pasaportluk ve Seyahat Cüzdanı, havalimanı geçişlerinde ve yurt dışı rotalarında tüm seyahat belgelerini tek bir düzenli alanda toplamak isteyen gezginler için özenle hazırlanmıştır. Pasaport kapağını sırt çantası veya el bagajı içindeki bükülmelere, kıvrılmalara ve yüzey sürtünmelerine karşı korurken, sık kullandığınız kimlik, biniş ve ödeme kartlarına hızlıca ulaşmanıza yardımcı olan derli toplu bir yapı sunar. Güvenlik noktalarında, pasaport kontrol sıralarında veya otel girişlerinde evrak arama telaşını ortadan kaldırarak yolculuk ritminizi sadeleştirir ve hızlandırır. Sıcak Taba rengindeki hakiki deri gövdesi her yolculukla birlikte elinizin temasını alarak yumuşar ve size özel bir seyahat hatırası niteliğinde doğal patina geliştirir. İster tek başına ceket iç cebinde ister omuz veya el çantanızın düzenli bir iç gözünde taşınmaya uygundur; yurt dışına sık çıkan yakınlarınız, eğitim için yola çıkan öğrenciler veya balayı gezginleri için zamansız bir armağan alternatifi oluşturur. Ürünün güncel fiyat, kesin ölçü ve bölme kapasitesi bilgileri şu anda doğrulama ve güncelleme aşamasındadır; seri görsellerini ve genel yapısını bu sayfa üzerinden inceleyebilirsiniz.",
+    "features": [
+      "Pasaport ve temel seyahat kartlarını tek gövdede düzenli toplama",
+      "Seyahatlerle derinleşen Taba rengi el yapımı hakiki deri",
+      "Yolculuk aşınmalarına karşı koruyucu dış kılıf formu",
+      "İsteğe bağlı ücretsiz isim baskısı seçeneği"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Yolculuk sonrasında nemli plastik poşetlerde saklamayınız; kuru ve havadar ortamda muhafaza ediniz.",
+      "Toz ve hafif izler için yalnızca kuru pamuklu bez kullanınız.",
+      "Isı kaynaklarından ve kimyasal sıvılardan uzak tutunuz."
+    ],
+    "variants": [
+      {
+        "renk": "Taba",
+        "renkSlug": "taba",
+        "colorHex": "#96481e",
+        "sku": "ELN-PRT-TAB",
+        "price": "TODO",
+        "seoTitle": "Port Taba Pasaportluk | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-port-taba-deri-pasaportluk-1.webp",
+            "thumb": "/assets/products/elon-leather-port-taba-deri-pasaportluk-1-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Port Taba el yapımı hakiki deri pasaportluk ve seyahat cüzdanı - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-port-taba-deri-pasaportluk-2.webp",
+            "thumb": "/assets/products/elon-leather-port-taba-deri-pasaportluk-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Port Taba el yapımı hakiki deri pasaportluk ve seyahat cüzdanı - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-port-taba-deri-pasaportluk-3.webp",
+            "thumb": "/assets/products/elon-leather-port-taba-deri-pasaportluk-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Port Taba el yapımı hakiki deri pasaportluk ve seyahat cüzdanı - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-port-taba-deri-pasaportluk-4.webp",
+            "thumb": "/assets/products/elon-leather-port-taba-deri-pasaportluk-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Port Taba el yapımı hakiki deri pasaportluk ve seyahat cüzdanı - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": true,
+      "logoEkleme": false,
+      "gorselBaski": false,
+      "extraPrice": 0
+    },
+    "faq": [
+      {
+        "question": "Port pasaportluk hangi malzemeden üretiliyor?",
+        "answer": "Port modeli, el yapımı işçilikle hazırlanan Taba rengi hakiki deriden üretilmektedir."
+      },
+      {
+        "question": "Fiyat ve ölçü bilgisi neden görünmüyor?",
+        "answer": "Port seyahat cüzdanının güncel fiyat ve kesin ölçü bilgileri doğrulama aşamasındadır; yakında güncellenecektir."
+      },
+      {
+        "question": "Pasaportluk hangi çanta modelleriyle uyumlu olur?",
+        "answer": "Atlas omuz çantası ve Elegant el çantası ile ton ve doku bakımından doğal bir takım oluşturur."
+      }
+    ],
+    "relatedProducts": [
+      "atlas-deri-omuz-cantasi",
+      "elegant-deri-el-cantasi",
+      "hong-kong-deri-ajanda-kilifi"
+    ],
+    "seo": {
+      "title": "Port Hakiki Deri Pasaportluk | Elon Leather",
+      "metaDescription": "Taba hakiki deriden el yapımı Port pasaportluk ve seyahat cüzdanı. Yolculuklarınızda pasaport ve belgelerinizi düzenle taşıyan modeli inceleyin."
+    }
+  },
+  {
+    "id": "cekya",
+    "slug": "cekya-deri-anahtarlik",
+    "sourceFolder": "anahtarlık fotoğraf",
+    "name": "Çekya Unisex El Yapımı Deri Anahtarlık",
+    "modelName": "Çekya",
+    "productType": "Unisex Deri Anahtarlık",
+    "primaryCategory": "deri-anahtarlik",
+    "extraCategories": [],
+    "shortDescription": "Anahtarlarınızı cepte ve çantada sessizce, çizmeden düzenli taşımak için tasarlanan Çekya unisex hakiki deri anahtarlık; Mor, Haki ve Kahve seçenekleriyle sunulur.",
+    "longDescription": "Çekya Unisex Hakiki Deri Anahtarlık, ev ve araç anahtarlarınızı cebinizdeki telefon ekranını, güneş gözlüğünüzü veya deri cüzdanınızı çizmeden düzenli biçimde taşımanız için tasarlanmış pratik ve sıcak bir günlük eşlikçidir. Sert metal halkaların yarattığı soğuk ve keskin teması yumuşak hakiki deri gövdeyle dengeleyerek gün boyunca elde rahat bir kavrama sağlar; çalışma masanızın veya sehpanın üzerine bırakıldığında gürültü yaratmaz. Kompakt formu sayesinde hem pantolon ceplerinde gereksiz kabarıklık oluşturmaz hem de geniş el veya sırt çantalarının iç bölmelerinde el yordamıyla kolayca bulunur ve anahtarlarınızı dağılmadan bir arada tutar. Mor, Haki ve Kahve renk seçenekleri sade ama özgün renk dokunuşları arayan kullanıcıların stiline kolayca uyum sağlar; kullandığınız cüzdan veya omuz çantasıyla uyumlu renk eşleştirmeleri yapmanıza olanak tanır. Doğal derinin dayanıklı yapısı günlük açma kapama ve anahtar yükü altında formunu yıllarca korur. Yeni ev kutlamaları, yeni araç teslimatı ya da bir deri cüzdan hediyesinin yanına eklenecek anlamlı, ulaşılabilir bir tamamlayıcı parça olarak kadın ve erkek unisex günlük kullanım için idealdir.",
+    "features": [
+      "Hem kadın hem erkek stiline uygun sade unisex form",
+      "Cep ve çanta içindeki ekran ve deri yüzeyleri korumaya yardımcı yapı",
+      "Mor, Haki ve Kahve olmak üzere üç farklı renk alternatifi",
+      "El işçiliğiyle hazırlanmış doğal dokulu hakiki deri"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Gündelik toz ve izler için kuru, yumuşak pamuklu bir bezle siliniz.",
+      "Parfüm, deniz suyu, alkol ve deterjan temasından koruyunuz.",
+      "Islanma durumunda oda sıcaklığında doğal kurumaya bırakınız."
+    ],
+    "variants": [
+      {
+        "renk": "Mor",
+        "renkSlug": "mor",
+        "colorHex": "#4b2d47",
+        "sku": "ELN-CKY-MOR",
+        "price": 599,
+        "seoTitle": "Çekya Mor Deri Anahtarlık | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-1.webp",
+            "thumb": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-1-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Çekya Mor unisex el yapımı hakiki deri anahtarlık - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-2.webp",
+            "thumb": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-2-600.webp",
+            "width": 1500,
+            "height": 1500,
+            "alt": "Çekya Mor unisex el yapımı hakiki deri anahtarlık - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-3.webp",
+            "thumb": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-3-600.webp",
+            "width": 1500,
+            "height": 1500,
+            "alt": "Çekya Mor unisex el yapımı hakiki deri anahtarlık - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-4.webp",
+            "thumb": "/assets/products/elon-leather-cekya-mor-deri-anahtarlik-4-600.webp",
+            "width": 1500,
+            "height": 1500,
+            "alt": "Çekya Mor unisex el yapımı hakiki deri anahtarlık - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Haki",
+        "renkSlug": "haki",
+        "colorHex": "#3f4935",
+        "sku": "ELN-CKY-HAK",
+        "price": 599,
+        "seoTitle": "Çekya Haki Deri Anahtarlık | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-1.webp",
+            "thumb": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-1-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Çekya Haki unisex el yapımı hakiki deri anahtarlık - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-2.webp",
+            "thumb": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-2-600.webp",
+            "width": 1500,
+            "height": 1500,
+            "alt": "Çekya Haki unisex el yapımı hakiki deri anahtarlık - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-3.webp",
+            "thumb": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-3-600.webp",
+            "width": 1500,
+            "height": 1500,
+            "alt": "Çekya Haki unisex el yapımı hakiki deri anahtarlık - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-4.webp",
+            "thumb": "/assets/products/elon-leather-cekya-haki-deri-anahtarlik-4-600.webp",
+            "width": 1500,
+            "height": 1500,
+            "alt": "Çekya Haki unisex el yapımı hakiki deri anahtarlık - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Kahve",
+        "renkSlug": "kahve",
+        "colorHex": "#5b331e",
+        "sku": "ELN-CKY-KAH",
+        "price": 599,
+        "seoTitle": "Çekya Kahve Deri Anahtarlık | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-1.webp",
+            "thumb": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-1-600.webp",
+            "width": 1600,
+            "height": 1422,
+            "alt": "Çekya Kahve unisex el yapımı hakiki deri anahtarlık - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-2.webp",
+            "thumb": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-2-600.webp",
+            "width": 1500,
+            "height": 1500,
+            "alt": "Çekya Kahve unisex el yapımı hakiki deri anahtarlık - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-3.webp",
+            "thumb": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-3-600.webp",
+            "width": 1500,
+            "height": 1500,
+            "alt": "Çekya Kahve unisex el yapımı hakiki deri anahtarlık - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-4.webp",
+            "thumb": "/assets/products/elon-leather-cekya-kahve-deri-anahtarlik-4-600.webp",
+            "width": 1500,
+            "height": 1500,
+            "alt": "Çekya Kahve unisex el yapımı hakiki deri anahtarlık - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": false,
+      "logoEkleme": false,
+      "gorselBaski": false,
+      "extraPrice": 0
+    },
+    "faq": [
+      {
+        "question": "Çekya anahtarlık kimlerin kullanımı için uygundur?",
+        "answer": "Unisex tasarımıyla kadın ve erkek günlük kullanımına eşit ölçüde uygundur."
+      },
+      {
+        "question": "Hangi renk seçenekleri mevcuttur?",
+        "answer": "Çekya modeli Mor, Haki ve Kahve renk alternatifleriyle sunulmaktadır."
+      },
+      {
+        "question": "Anahtarlık hakiki deri midir?",
+        "answer": "Evet, el işçiliğiyle hazırlanan hakiki deriden üretilmektedir."
+      }
+    ],
+    "relatedProducts": [
+      "berlin-deri-bileklik",
+      "hong-kong-deri-ajanda-kilifi",
+      "rio-miknatisli-deri-cuzdan"
+    ],
+    "seo": {
+      "title": "Çekya Unisex Hakiki Deri Anahtarlık | Elon Leather",
+      "metaDescription": "Unisex Çekya el yapımı hakiki deri anahtarlık modelleri. Mor, Haki ve Kahve renk seçenekleriyle anahtarlarınızı cepte ve çantada düzenle taşıyın."
+    }
+  },
+  {
+    "id": "hong-kong",
+    "slug": "hong-kong-deri-ajanda-kilifi",
+    "sourceFolder": "Ajanda kılıfı",
+    "name": "Hong Kong Elit Hakiki Deri Ajanda Kılıfı",
+    "modelName": "Hong Kong",
+    "productType": "Elit Deri Ajanda Kılıfı",
+    "primaryCategory": "deri-ajanda-kilifi",
+    "extraCategories": [],
+    "shortDescription": "Çalışma masanızda notlarınızı ve planlarınızı sıcak deri zanaatıyla koruyan Hong Kong Elit ajanda kılıfı; Koyu Taba ve Kırmızı seçenekleri ile sunulur.",
+    "longDescription": "Hong Kong Elit Hakiki Deri Ajanda Kılıfı, yoğun toplantı temposunda, seyahat notlarında ve yaratıcı tasarım süreçlerinde kullandığınız ajanda ve not defterlerinizi dış darbelere ve yıpranmalara karşı koruyan uzun ömürlü bir kılıftır. Karton veya ince kapaklı defterler çantalarda kısa sürede köşelerinden kıvrılıp sırtından ayrılırken, hakiki deri dış koruyucu gövde sayfa kenarlarını ve defter formunu dengeli biçimde muhafaza eder. Yıl veya elinizdeki not defteri sayfaları sona erdiğinde yalnızca iç defteri yenileyerek aynı el yapımı deri kılıfı yıllarca kullanmaya devam edebilirsiniz; bu sayede kılıf zamanla tüm projelerinize ve fikirlerinize tanıklık eden kalıcı, sürdürülebilir bir masa ortağına dönüşür. Koyu Taba rengi klasik ahşap masalara ve dingin çalışma alanlarına doğal bir sıcaklık katarken, Kırmızı alternatif yaratıcı stüdyo masalarında enerjik ve zarif bir odak noktası oluşturur. Doğal derinin yumuşak dokusu yazı yazarken bileğinize ve elinize sıcak bir zemin sunar. İsteğe bağlı ücretsiz isim baskısıyla meslektaşlarınıza veya sevdiklerinize unutulmaz bir yeni iş, terfi ya da mezuniyet hediyesi sunabilirsiniz.",
+    "features": [
+      "İç defter bittiğinde yenilenerek yıllarca kullanılabilen koruyucu kılıf",
+      "Koyu Taba ve Kırmızı olmak üzere iki karakterli renk seçeneği",
+      "El işçiliği ile hazırlanan doğal dokulu hakiki deri",
+      "Ücretsiz sıcak isim baskısı ile kişiselleştirme"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Dolma kalem mürekkebi, kahve sıçraması ve alkollü temizleyicilerden uzak tutunuz.",
+      "Toz almak için yalnızca kuru ve yumuşak pamuklu bir bez kullanınız.",
+      "Çanta içinde kesici metal eşyalarla temas ettirmemeye özen gösteriniz."
+    ],
+    "variants": [
+      {
+        "renk": "Koyu Taba",
+        "renkSlug": "koyu-taba",
+        "colorHex": "#7c3f1c",
+        "sku": "ELN-HKK-KOYTAB",
+        "price": 800,
+        "seoTitle": "Hong Kong Koyu Taba Deri Ajanda Kılıfı | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-1.webp",
+            "thumb": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-1-600.webp",
+            "width": 1600,
+            "height": 1422,
+            "alt": "Hong Kong Koyu Taba hakiki deri elit ajanda ve defter kılıfı - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-2.webp",
+            "thumb": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-2-600.webp",
+            "width": 1600,
+            "height": 1600,
+            "alt": "Hong Kong Koyu Taba hakiki deri elit ajanda ve defter kılıfı - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-3.webp",
+            "thumb": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-3-600.webp",
+            "width": 1600,
+            "height": 1600,
+            "alt": "Hong Kong Koyu Taba hakiki deri elit ajanda ve defter kılıfı - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-4.webp",
+            "thumb": "/assets/products/elon-leather-hong-kong-koyu-taba-deri-ajanda-kilifi-4-600.webp",
+            "width": 1600,
+            "height": 1600,
+            "alt": "Hong Kong Koyu Taba hakiki deri elit ajanda ve defter kılıfı - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Kırmızı",
+        "renkSlug": "kirmizi",
+        "colorHex": "#7f2424",
+        "sku": "ELN-HKK-KIR",
+        "price": 800,
+        "seoTitle": "Hong Kong Kırmızı Deri Ajanda Kılıfı | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-1.webp",
+            "thumb": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-1-600.webp",
+            "width": 1600,
+            "height": 1600,
+            "alt": "Hong Kong Kırmızı hakiki deri elit ajanda ve defter kılıfı - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-2.webp",
+            "thumb": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-2-600.webp",
+            "width": 1600,
+            "height": 1600,
+            "alt": "Hong Kong Kırmızı hakiki deri elit ajanda ve defter kılıfı - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-3.webp",
+            "thumb": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-3-600.webp",
+            "width": 1600,
+            "height": 1600,
+            "alt": "Hong Kong Kırmızı hakiki deri elit ajanda ve defter kılıfı - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-4.webp",
+            "thumb": "/assets/products/elon-leather-hong-kong-kirmizi-deri-ajanda-kilifi-4-600.webp",
+            "width": 1600,
+            "height": 1600,
+            "alt": "Hong Kong Kırmızı hakiki deri elit ajanda ve defter kılıfı - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": true,
+      "logoEkleme": false,
+      "gorselBaski": false,
+      "extraPrice": 0
+    },
+    "faq": [
+      {
+        "question": "Hong Kong ajanda kılıfı hangi renklerde sunuluyor?",
+        "answer": "Koyu Taba ve Kırmızı olmak üzere iki farklı renk seçeneğine sahiptir."
+      },
+      {
+        "question": "Kılıfa isim yazdırılabilir mi?",
+        "answer": "Evet, sipariş aşamasında isteğe bağlı ücretsiz isim baskısı talep edebilirsiniz."
+      },
+      {
+        "question": "Ürün hangi malzemeden üretiliyor?",
+        "answer": "El yapımı işçilikle hazırlanmış hakiki deriden üretilmektedir."
+      }
+    ],
+    "relatedProducts": [
+      "cekya-deri-anahtarlik",
+      "elegant-deri-el-cantasi",
+      "duo-klasik-deri-cuzdan"
+    ],
+    "seo": {
+      "title": "Hong Kong Elit Deri Ajanda Kılıfı | Elon Leather",
+      "metaDescription": "Hong Kong el yapımı hakiki deri elit ajanda kılıfı. Koyu Taba ve Kırmızı seçenekleri ve ücretsiz isim baskısıyla çalışma stilinizi tamamlayın."
+    }
+  },
+  {
+    "id": "berlin",
+    "slug": "berlin-deri-bileklik",
+    "sourceFolder": "bileklik",
+    "name": "Berlin El Yapımı Ayarlanabilir Deri Bileklik",
+    "modelName": "Berlin",
+    "productType": "Ayarlanabilir Deri Bileklik",
+    "primaryCategory": "deri-bileklik",
+    "extraCategories": [],
+    "shortDescription": "Frisko tonundaki doğal hakiki derisi ve bileğe göre ayarlanabilen pratik yapısıyla Berlin el yapımı erkek bileklik, bohem ve sade aksesuar tarzını zahmetsizce tamamlar.",
+    "longDescription": "Berlin El Yapımı Ayarlanabilir Deri Bileklik, bilek ölçüsü endişesi taşımadan rahatça kullanılabilen sade, sıcak ve karakterli bir günlük erkek aksesuarıdır. Ayarlanabilir bağlantı mimarisi ince ya da kalın farklı bilek ölçülerine kolaylıkla uyum sağlar; böylece hem kendiniz hem de doğum günü veya özel bir teşekkür jesti için hediye alacağınız sevdikleriniz açısından ölçü riski taşımayan pratik bir tercih haline gelir. Frisko tonundaki sıcak toprak renkli hakiki deri yüzeyi, kullandıkça teninizin doğal ısısıyla yumuşar ve bileğinizin doğal kavisini alarak yalnızca size özel kişisel bir form oluşturur. Soğuk metal takılar veya ağır zincirler yerine doğal dokulu materyalleri seven kullanıcılar için dört mevsim hafif, konforlu ve nefes alan bir kullanım vadeder. Tek başına minimalist bir vurgu olarak ya da deri kayışlı klasik bir kol saatiyle aynı bilekte katmanlı şekilde rahatlıkla kombinlenebilir. Ham keten gömleklerden kot ceketlere, sonbahar trikolarından günlük pamuklu tişörtlere kadar farklı stillere yılın her günü dingin, sıcak ve bohem bir doğallık ile el işçiliği ruhu kazandırır.",
+    "features": [
+      "Farklı bilek ölçülerine zahmetsizce uyan ayarlanabilir yapı",
+      "Bohem Frisko tonunda el yapımı hakiki deri",
+      "Saatlerle katmanlı veya tek başına sade kullanım uyumu",
+      "Hafif ve tenle ısınan doğal malzeme konforu"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Duş, deniz, havuz ve yoğun spor öncesinde bilekliği çıkarmanız önerilir.",
+      "Parfüm ve kolonya doğrudan deri yüzeye sıkılmamalıdır.",
+      "Temizlik için kuru pamuklu bezle hafifçe silip kutusunda saklayınız."
+    ],
+    "variants": [
+      {
+        "renk": "Frisko",
+        "renkSlug": "frisko",
+        "colorHex": "#5b331e",
+        "sku": "ELN-BRL-FRI",
+        "price": 499,
+        "seoTitle": "Berlin Frisko Deri Bileklik | Elon Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-1.webp",
+            "thumb": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-1-600.webp",
+            "width": 1600,
+            "height": 1422,
+            "alt": "Berlin Frisko ayarlanabilir el yapımı hakiki deri bileklik - ön görünüm stüdyo çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-2.webp",
+            "thumb": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-2-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Berlin Frisko ayarlanabilir el yapımı hakiki deri bileklik - detay ve yüzey dokusu görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-3.webp",
+            "thumb": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-3-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Berlin Frisko ayarlanabilir el yapımı hakiki deri bileklik - yan açı ve kesim detayı"
+          },
+          {
+            "full": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-4.webp",
+            "thumb": "/assets/products/elon-leather-berlin-frisko-deri-bileklik-4-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Berlin Frisko ayarlanabilir el yapımı hakiki deri bileklik - yakın plan dikiş ve iç bölmeler"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": false,
+      "logoEkleme": false,
+      "gorselBaski": false,
+      "extraPrice": 0
+    },
+    "faq": [
+      {
+        "question": "Berlin deri bilekliğin bedeni var mıdır?",
+        "answer": "Hayır, ayarlanabilir tasarımı sayesinde farklı bilek kalınlıklarına kolayca uyum sağlar."
+      },
+      {
+        "question": "Hangi renk ve malzemeden üretiliyor?",
+        "answer": "Frisko tonunda ve el yapımı hakiki deriden üretilmektedir."
+      },
+      {
+        "question": "Su ile temas etmesi sorun olur mu?",
+        "answer": "Derinin formunu ve dokusunu uzun yıllar korumak için su ve nemden uzak tutulması tavsiye edilir."
+      }
+    ],
+    "relatedProducts": [
+      "cekya-deri-anahtarlik",
+      "wonder-ince-deri-kartlik",
+      "rio-bro-miknatisli-deri-cuzdan"
+    ],
+    "seo": {
+      "title": "Berlin El Yapımı Deri Bileklik | Elon Leather",
+      "metaDescription": "Ayarlanabilir Berlin el yapımı hakiki deri erkek bileklik. Bohem Frisko rengi ve doğal deri dokusuyla günlük stilinizi hemen şimdi tamamlayın."
+    }
+  }
+]

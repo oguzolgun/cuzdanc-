@@ -1,7 +1,10 @@
 {
-  "description": "ELON LEATHER — El yapımı hakiki deri cüzdanlar, kartlıklar, çantalar ve deri aksesuarlar. Dünyaları sizinle taşıyoruz.",
+  "language": "tr",
   "robots": {
-    "index": false
+    "index": true
+  },
+  "icons": {
+    "icon": "/assets/elon-mark.png"
   },
   "accessibility": {
     "addBypassLinks": false,

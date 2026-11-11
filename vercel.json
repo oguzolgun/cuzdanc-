@@ -1,0 +1,19 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/aksesuar", "destination": "/deri-aksesuar/", "permanent": true },
+    { "source": "/cekya-aksesuar", "destination": "/deri-anahtarlik/", "permanent": true },
+    { "source": "/hong-kong-aksesuar", "destination": "/deri-ajanda-kilifi/", "permanent": true },
+    { "source": "/kategori/tumu", "destination": "/cuzdan-kartlik/", "permanent": true },
+    { "source": "/kategori/cuzdan-kartlik", "destination": "/cuzdan-kartlik/", "permanent": true },
+    { "source": "/kategori/miknatisli-deri-cuzdan", "destination": "/miknatisli-deri-cuzdan/", "permanent": true },
+    { "source": "/kategori/klasik-deri-cuzdan", "destination": "/klasik-deri-cuzdan/", "permanent": true },
+    { "source": "/kategori/klasik-cuzdan", "destination": "/klasik-deri-cuzdan/", "permanent": true },
+    { "source": "/kategori/ince-deri-kartlik", "destination": "/ince-deri-kartlik/", "permanent": true },
+    { "source": "/kategori/deri-canta", "destination": "/deri-canta/", "permanent": true },
+    { "source": "/kategori/seyahat-pasaport", "destination": "/deri-pasaportluk/", "permanent": true },
+    { "source": "/kategori/aksesuar", "destination": "/deri-aksesuar/", "permanent": true },
+    { "source": "/kategori/cok-satanlar", "destination": "/cuzdan-kartlik/", "permanent": true },
+    { "source": "/kategori/yeni-gelenler", "destination": "/cuzdan-kartlik/", "permanent": true }
+  ]
+}
