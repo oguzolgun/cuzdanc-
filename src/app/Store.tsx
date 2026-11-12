@@ -698,34 +698,44 @@ export function HomePage() {
     <main>
       <AppleHero onAddToCart={(product, variant) => addToCart(product, variant, 1)} />
 
-      {/* Category Runway covering all 9 active product sub-categories */}
+      {/* Category Grid covering all 9 active product sub-categories */}
       <section className="category-runway" id="koleksiyon">
-        <header>
-          <p className="overline">Koleksiyonlar · {products.length} Özgün Seri</p>
-          <h2>Her yolculuk için bir Elon Leather.</h2>
+        <header className="category-runway-head">
+          <div>
+            <p className="overline">Koleksiyonlar · {products.length} Özgün Seri</p>
+            <h2>Her yolculuk için bir Elon Leather.</h2>
+          </div>
+          <Link to="/cuzdan-kartlik/" className="category-runway-all">
+            Tüm Koleksiyon <Icon name="arrow" />
+          </Link>
         </header>
-        <div className="category-list">
-          {subCategories.map((category, idx) => {
-            const count = getProductsByCategory(category.slug).length
+        <div className="category-cards-grid">
+          {subCategories.map((category) => {
+            const catProducts = getProductsByCategory(category.slug)
+            const variantTotal = catProducts.reduce((sum, p) => sum + p.variants.length, 0)
             return (
-              <Link to={`/${category.slug}/`} className="category-row" key={category.slug}>
-                <span>{String(idx + 1).padStart(2, '0')}</span>
-                <div>
-                  <h3>
-                    {category.name} <small className="category-count-pill">{count} Model</small>
-                  </h3>
-                  <p className="category-subtext">{category.seo.metaDescription}</p>
+              <Link to={`/${category.slug}/`} className="category-card" key={category.slug}>
+                <div className="category-card-body">
+                  <div>
+                    <h3>{category.name}</h3>
+                    <p className="category-card-count">
+                      {catProducts.length} Model · {variantTotal} Renk
+                    </p>
+                  </div>
+                  <span className="category-card-cta">
+                    Keşfet <Icon name="arrow" />
+                  </span>
                 </div>
-                <div className="category-thumb">
+                <div className="category-card-media">
                   <img
                     src={bannerToThumb(category.bannerImage)}
                     alt={category.name}
                     width={600}
                     height={600}
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
-                <Icon name="arrow" />
               </Link>
             )
           })}
