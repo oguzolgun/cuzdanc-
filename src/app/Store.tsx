@@ -759,11 +759,12 @@ export function HomePage() {
         </div>
         <div className="craft-band-image">
           <img
-            src="/assets/products/elon-leather-rio-boss-koyu-taba-miknatisli-deri-cuzdan-2.webp"
-            alt="Elon Leather Rio Boss el yapımı hakiki deri işçiliği"
-            width={1067}
-            height={1600}
+            src="/assets/elon-craft-editorial.webp"
+            alt="El yapımı hakiki deri cüzdan taşıyan Elon Leather stil portresi"
+            width={990}
+            height={1080}
             loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="craft-band-copy">

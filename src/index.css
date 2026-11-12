@@ -1586,8 +1586,8 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 
 /* Craft Band */
 .craft-band { position: relative; display: grid; min-height: 840px; grid-template-columns: 1.05fr .95fr; color: var(--cream); background: #464826; }
-.craft-band-image { overflow: hidden; }
-.craft-band-image img { height: 100%; object-fit: cover; }
+.craft-band-image { position: relative; overflow: hidden; }
+.craft-band-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
 .craft-band-copy { display: flex; flex-direction: column; justify-content: center; padding: 8vw; }
 .craft-band-copy h2 { margin: 20px 0 30px; font-family: 'Cormorant Garamond', serif; font-size: clamp(60px,7.5vw,110px); font-weight: 400; line-height: .84; }
 .craft-band-copy h2 em { font-weight: 400; }
@@ -1977,11 +1977,11 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   .product-story { padding: 72px 20px; }
 
   /* Craft Band & Service Strip */
-  .craft-band { grid-template-columns: minmax(0, 1fr); }
-  .craft-band-image { height: 46vh; }
+  .craft-band { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .craft-band-image { height: 430px; }
   .craft-band-copy { padding: 72px 18px 56px; }
   .craft-band-copy h2 { font-size: clamp(38px, 10vw, 56px); line-height: 0.9; }
-  .craft-mark { top: 46vh; left: 50%; width: 104px; height: 104px; }
+  .craft-mark { top: 430px; left: 50%; width: 104px; height: 104px; }
   .craft-mark img { width: 76px; }
   .service-strip { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 60px 18px; }
   .service-strip > div { border: 0; border-bottom: 1px solid var(--line); padding: 0 0 24px; }
