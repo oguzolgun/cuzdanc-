@@ -1047,38 +1047,104 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   background: var(--cognac);
 }
 
-/* Apple Store Horizontal Category Dock */
+/* Apple Store Horizontal Curated Product Dock */
 .apple-category-dock {
   margin-top: 48px;
 }
 
 .apple-dock-header {
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
-.apple-dock-header > span {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.apple-dock-header > a {
-  font-size: 12px;
-  font-weight: 600;
+.apple-dock-eyebrow {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--cognac);
+  margin-bottom: 4px;
+}
+
+.apple-dock-title {
+  font-family: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
+  font-size: clamp(20px, 2.1vw, 27px);
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.apple-dock-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dock-scroll-arrows {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dock-arrow-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(27, 23, 20, 0.14);
+  background: #ffffff;
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.18s ease;
+}
+
+.dock-arrow-btn svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 2.2;
+}
+
+.dock-arrow-btn:hover {
+  background: var(--cognac);
+  border-color: var(--cognac);
+  color: #ffffff;
+}
+
+.apple-dock-all-link {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cognac);
+  white-space: nowrap;
+  transition: color 0.18s ease;
+}
+
+.apple-dock-all-link:hover {
+  color: #8b4315;
 }
 
 .apple-dock-track {
-  display: grid;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-  gap: 12px;
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 2px 14px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(166, 86, 31, 0.28) transparent;
+  -webkit-overflow-scrolling: touch;
 }
 
 .apple-dock-card {
+  flex: 0 0 158px;
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   padding: 12px;
@@ -1116,19 +1182,39 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 .apple-dock-label {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .apple-dock-label strong {
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.3;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.25;
   color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.apple-dock-label span {
+.apple-dock-category {
   font-size: 11px;
-  color: #574f48;
+  color: #73695f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.apple-dock-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cognac);
+  margin-top: 3px;
+}
+
+.apple-dock-price-pending {
+  font-size: 11px;
+  font-weight: 600;
+  color: #5c544d;
+  margin-top: 3px;
 }
 
 /* =========================================================================
@@ -2010,6 +2096,10 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   .stage-arrow-btn { width: 44px; height: 44px; }
   .stage-actions { flex-direction: column; }
   .stage-action-buy, .stage-action-bag { width: 100%; }
+  .apple-dock-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .apple-dock-actions { width: 100%; justify-content: space-between; }
+  .dock-scroll-arrows { display: none; }
+  .apple-dock-card { flex: 0 0 148px; }
 
   /* Fullscreen Menu */
   .menu-canvas { grid-template-columns: 1fr; }

@@ -1,11 +1,10 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import {
   formatPrice,
   getCategoryBySlug,
-  getProductsByCategory,
+  getProductStartingPrice,
   products,
-  subCategories,
   type ProductRecord,
   type ProductVariantRecord,
 } from './data'
@@ -64,6 +63,8 @@ function bannerToThumb(bannerPath: string): string {
 }
 
 export function AppleHero({ onAddToCart }: AppleHeroProps) {
+  const dockRef = useRef<HTMLDivElement>(null)
+
   const flagshipSeries = useMemo(() => {
     return FLAGSHIP_SPECS.map((spec) => {
       const product = products.find((p) => p.slug === spec.slug)
@@ -75,6 +76,12 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
 
   const [activeModelIdx, setActiveModelIdx] = useState(0)
   const [selectedVariantByModel, setSelectedVariantByModel] = useState<Record<string, string>>({})
+
+  const dockProducts = useMemo(() => {
+    const boss = products.find((p) => p.slug === 'rio-boss-miknatisli-deri-cuzdan')
+    const rest = products.filter((p) => p.slug !== 'rio-boss-miknatisli-deri-cuzdan')
+    return boss ? [boss, ...rest] : products
+  }, [])
 
   const activeEntry = flagshipSeries[activeModelIdx] ?? flagshipSeries[0]
   if (!activeEntry) return null
@@ -277,30 +284,73 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
           </div>
         </div>
 
-        {/* Horizontal Sub-Category Dock (Strictly 9 non-empty sub-categories) */}
-        <div className="apple-category-dock" aria-label="Alt kategorilere göz atın">
+        {/* Horizontal Curated Product Dock with Prices */}
+        <div className="apple-category-dock" aria-label="Öne çıkan ürün modelleri">
           <div className="apple-dock-header">
-            <span id="motto">Tüm Koleksiyon · {subCategories.length} Kategori</span>
-            <Link to="/cuzdan-kartlik/">Cüzdan &amp; Kartlıkları Gör →</Link>
+            <div>
+              <span className="apple-dock-eyebrow">Öne Çıkan Modeller</span>
+              <h3 className="apple-dock-title">Atölye Koleksiyonu · {dockProducts.length} Model</h3>
+            </div>
+            <div className="apple-dock-actions">
+              <div className="dock-scroll-arrows" aria-label="Koleksiyon kaydırma butonları">
+                <button
+                  type="button"
+                  onClick={() => dockRef.current?.scrollBy({ left: -320, behavior: 'smooth' })}
+                  aria-label="Önceki ürünler"
+                  title="Önceki ürünler"
+                  className="dock-arrow-btn"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m15 18-6-6 6-6" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => dockRef.current?.scrollBy({ left: 320, behavior: 'smooth' })}
+                  aria-label="Sonraki ürünler"
+                  title="Sonraki ürünler"
+                  className="dock-arrow-btn"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m9 6 6 6-6 6" />
+                  </svg>
+                </button>
+              </div>
+              <Link to="/cuzdan-kartlik/" className="apple-dock-all-link">
+                Tüm Ürünleri Gör →
+              </Link>
+            </div>
           </div>
-          <div className="apple-dock-track">
-            {subCategories.map((cat) => {
-              const modelCount = getProductsByCategory(cat.slug).length
+          <div className="apple-dock-track" ref={dockRef}>
+            {dockProducts.map((prod) => {
+              const primaryVariant = prod.variants[0]
+              const thumbImg = primaryVariant?.images[0]
+              const startingPrice = getProductStartingPrice(prod)
+              const formattedStartingPrice = formatPrice(startingPrice)
+              const cat = getCategoryBySlug(prod.primaryCategory)
               return (
-                <Link to={`/${cat.slug}/`} key={cat.slug} className="apple-dock-card">
+                <Link to={`/urun/${prod.slug}/`} key={prod.slug} className="apple-dock-card">
                   <div className="apple-dock-thumb">
-                    <img
-                      src={bannerToThumb(cat.bannerImage)}
-                      alt={cat.name}
-                      width={600}
-                      height={600}
-                      loading="lazy"
-                      fetchPriority="low"
-                    />
+                    {thumbImg && (
+                      <img
+                        src={thumbImg.thumb}
+                        alt={prod.name}
+                        width={thumbImg.width}
+                        height={thumbImg.height}
+                        loading="lazy"
+                        fetchPriority="low"
+                        decoding="async"
+                      />
+                    )}
                   </div>
                   <div className="apple-dock-label">
-                    <strong>{cat.name}</strong>
-                    <span>{modelCount} Seri</span>
+                    <strong>{prod.modelName}</strong>
+                    <span className="apple-dock-category">{cat?.name || prod.productType}</span>
+                    {formattedStartingPrice ? (
+                      <span className="apple-dock-price">{formattedStartingPrice}</span>
+                    ) : (
+                      <span className="apple-dock-price-pending">Fiyat Belirleniyor</span>
+                    )}
                   </div>
                 </Link>
               )
