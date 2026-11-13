@@ -714,7 +714,7 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 
 .apple-stage-grid {
   display: grid;
-  grid-template-columns: minmax(250px, 0.94fr) minmax(0, 1.06fr) 64px;
+  grid-template-columns: minmax(280px, 1.15fr) minmax(200px, 0.85fr) 52px;
   align-items: stretch;
   min-height: 430px;
 }
@@ -786,11 +786,12 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 }
 
 .apple-stage-info {
-  padding: 24px 28px;
+  padding: 36px 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 12px;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .apple-stage-meta {
@@ -808,145 +809,58 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 }
 
 .apple-stage-meta h2 {
-  font-size: clamp(28px, 2.8vw, 38px);
+  font-size: clamp(26px, 2.5vw, 36px);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
   color: var(--ink);
+  margin: 0;
 }
 
 .stage-price {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
-  color: var(--ink);
-}
-
-.stage-tagline {
-  font-size: 14px;
-  line-height: 1.55;
-  color: #5f5850;
-}
-
-.stage-highlights {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-}
-
-.stage-highlights li {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.stage-highlights svg {
-  width: 14px;
-  height: 14px;
   color: var(--cognac);
-  stroke-width: 2.2;
-}
-
-.stage-swatches-wrap {
-  padding-top: 14px;
-  border-top: 1px solid rgba(29, 26, 23, 0.08);
-}
-
-.stage-swatches-label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  color: #6e675f;
-  margin-bottom: 10px;
-}
-
-.stage-swatches-label strong {
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.stage-swatches-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.stage-swatch-dot {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(29, 26, 23, 0.14);
-  background: transparent;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  padding: 0;
-  transition: transform 0.15s ease, border-color 0.15s ease;
-}
-
-.stage-swatch-dot:hover {
-  transform: scale(1.1);
-}
-
-.stage-swatch-dot.is-selected {
-  border-color: var(--ink);
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 3.5px var(--cognac);
-}
-
-.stage-swatch-dot i {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  margin-top: 2px;
 }
 
 .stage-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  align-items: center;
   margin-top: 4px;
 }
 
 .stage-action-buy {
-  flex: 1;
-  min-width: 170px;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 13px 20px;
+  gap: 10px;
+  padding: 13px 28px;
   border-radius: 999px;
   background: var(--cognac);
   color: #ffffff;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  transition: background 0.2s ease;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(166, 86, 31, 0.22);
 }
 
 .stage-action-buy:hover {
   background: #8b4315;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(166, 86, 31, 0.32);
 }
 
-.stage-action-bag {
-  padding: 13px 22px;
-  border-radius: 999px;
-  border: 1px solid rgba(29, 26, 23, 0.16);
-  background: transparent;
-  color: var(--ink);
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
+.stage-btn-arrow {
+  width: 15px;
+  height: 15px;
+  stroke-width: 2.2;
+  transition: transform 0.2s ease;
 }
 
-.stage-action-bag:hover {
-  background: #f5f2eb;
-  border-color: var(--ink);
+.stage-action-buy:hover .stage-btn-arrow {
+  transform: translateX(4px);
 }
 
 /* Vertical Up / Down Stepper Rail inside Stage Card */
@@ -955,7 +869,7 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 10px;
+  padding: 24px 6px;
   border-left: 1px solid rgba(29, 26, 23, 0.08);
   background: #faf7f2;
 }
@@ -992,30 +906,14 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-}
-
-.stage-rail-counter {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--ink);
-  display: inline-flex;
-  align-items: baseline;
-  gap: 1px;
-}
-
-.stage-rail-counter small {
-  font-size: 10px;
-  font-weight: 600;
-  color: #574f48;
+  justify-content: center;
 }
 
 .stage-rail-dots {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 6px;
 }
 
 .stage-rail-dot {
@@ -2094,8 +1992,8 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   .apple-stage-media { aspect-ratio: 6 / 5; max-height: 340px; }
   .apple-stage-info { padding: 22px 20px; gap: 14px; }
   .stage-arrow-btn { width: 44px; height: 44px; }
-  .stage-actions { flex-direction: column; }
-  .stage-action-buy, .stage-action-bag { width: 100%; }
+  .stage-actions { width: 100%; }
+  .stage-action-buy { width: 100%; justify-content: center; }
   .apple-dock-header { flex-direction: column; align-items: flex-start; gap: 8px; }
   .apple-dock-actions { width: 100%; justify-content: space-between; }
   .dock-scroll-arrows { display: none; }

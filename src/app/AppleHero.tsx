@@ -58,10 +58,6 @@ const FLAGSHIP_SPECS: FlagshipSpec[] = [
   },
 ]
 
-function bannerToThumb(bannerPath: string): string {
-  return bannerPath.replace(/(\.[^.]+)$/, '-600$1')
-}
-
 export function AppleHero({ onAddToCart }: AppleHeroProps) {
   const dockRef = useRef<HTMLDivElement>(null)
 
@@ -75,7 +71,6 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
   }, [])
 
   const [activeModelIdx, setActiveModelIdx] = useState(0)
-  const [selectedVariantByModel, setSelectedVariantByModel] = useState<Record<string, string>>({})
 
   const dockProducts = useMemo(() => {
     const boss = products.find((p) => p.slug === 'rio-boss-miknatisli-deri-cuzdan')
@@ -94,10 +89,8 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
     setActiveModelIdx((prev) => (prev + 1) % totalSeries)
   }
 
-  const { product: activeProduct, spec, category } = activeEntry
-  const activeColorSlug = selectedVariantByModel[activeProduct.id] || activeProduct.variants[0].renkSlug
-  const activeVariant =
-    activeProduct.variants.find((v) => v.renkSlug === activeColorSlug) || activeProduct.variants[0]
+  const { product: activeProduct, category } = activeEntry
+  const activeVariant = activeProduct.variants[0]
   const heroImage = activeVariant.images[0]
   const formattedPrice = formatPrice(activeVariant.price)
 
@@ -171,67 +164,20 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
                   {formattedPrice && <strong className="stage-price">{formattedPrice}</strong>}
                 </div>
 
-                <p className="stage-tagline">{spec.tagline}</p>
-
-                <ul className="stage-highlights">
-                  {spec.highlights.map((hl) => (
-                    <li key={hl}>
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                      <span>{hl}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {activeProduct.variants.length > 1 && (
-                  <div className="stage-swatches-wrap">
-                    <div className="stage-swatches-label">
-                      <span>Deri Rengi:</span>
-                      <strong>{activeVariant.renk}</strong>
-                    </div>
-                    <div className="stage-swatches-list">
-                      {activeProduct.variants.map((variant) => (
-                        <button
-                          type="button"
-                          key={variant.sku}
-                          className={`stage-swatch-dot ${variant.renkSlug === activeVariant.renkSlug ? 'is-selected' : ''}`}
-                          onClick={() =>
-                            setSelectedVariantByModel((prev) => ({
-                              ...prev,
-                              [activeProduct.id]: variant.renkSlug,
-                            }))
-                          }
-                          title={variant.renk}
-                          aria-label={`${activeProduct.modelName} - ${variant.renk}`}
-                        >
-                          <i style={{ background: variant.colorHex }} />
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
                 <div className="stage-actions">
                   <Link
                     to={`/urun/${activeProduct.slug}/?renk=${encodeURIComponent(activeVariant.renkSlug)}`}
                     className="stage-action-buy"
                   >
-                    Ürünü İncele &amp; Özelleştir
+                    Detay Gör
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="stage-btn-arrow">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
                   </Link>
-                  {typeof activeVariant.price === 'number' && (
-                    <button
-                      type="button"
-                      className="stage-action-bag"
-                      onClick={() => onAddToCart(activeProduct, activeVariant)}
-                    >
-                      Sepete Ekle
-                    </button>
-                  )}
                 </div>
               </div>
 
-              {/* Vertical Up / Down Stepper Rail (replaces bottom 1-5 bar) */}
+              {/* Vertical Up / Down Stepper Rail */}
               <div className="apple-stage-vertical-nav" aria-label="Öne çıkan seriler arası geçiş">
                 <button
                   type="button"
@@ -246,10 +192,6 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
                 </button>
 
                 <div className="stage-rail-status">
-                  <span className="stage-rail-counter">
-                    <strong>0{activeModelIdx + 1}</strong>
-                    <small>/0{totalSeries}</small>
-                  </span>
                   <div className="stage-rail-dots" role="tablist" aria-label="Seri seçimi">
                     {flagshipSeries.map((entry, idx) => (
                       <button
