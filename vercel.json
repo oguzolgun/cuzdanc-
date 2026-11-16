@@ -1,5 +1,9 @@
 {
+  "framework": "vite",
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "dist",
   "trailingSlash": true,
+  "cleanUrls": true,
   "redirects": [
     { "source": "/aksesuar", "destination": "/deri-aksesuar/", "permanent": true },
     { "source": "/cekya-aksesuar", "destination": "/deri-anahtarlik/", "permanent": true },
@@ -15,5 +19,11 @@
     { "source": "/kategori/aksesuar", "destination": "/deri-aksesuar/", "permanent": true },
     { "source": "/kategori/cok-satanlar", "destination": "/cuzdan-kartlik/", "permanent": true },
     { "source": "/kategori/yeni-gelenler", "destination": "/cuzdan-kartlik/", "permanent": true }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!assets/|.*\\..*).*)",
+      "destination": "/index.html"
+    }
   ]
 }
