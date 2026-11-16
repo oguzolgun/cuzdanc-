@@ -37,6 +37,7 @@ import {
 } from './seo'
 import { HeaderNav } from './HeaderNav'
 import { AppleHero } from './AppleHero'
+import { Magnetic3DShowcase } from './Magnetic3DShowcase'
 
 export type PersonalizationAddon = 'none' | 'logo' | 'image'
 
@@ -742,6 +743,8 @@ export function HomePage() {
         </div>
       </section>
 
+      <Magnetic3DShowcase />
+
       <EmbossingStudio />
 
       {/* Featured Products */}
@@ -1268,7 +1271,7 @@ export function ProductPage() {
         </div>
 
         {/* Sticky Purchase Column */}
-        <section className="product-purchase">
+        <section className="product-purchase" id="buy-box">
           <nav className="breadcrumb" aria-label="İçerik Haritası">
             <Link to="/">Ana Sayfa</Link>
             {parentCat && (
@@ -1453,6 +1456,10 @@ export function ProductPage() {
           </p>
         </section>
       </div>
+
+      {product.slug === 'rio-boss-miknatisli-deri-cuzdan' && (
+        <Magnetic3DShowcase isPdp />
+      )}
 
       {/* Below-Fold Deep SEO & Product Specs Architecture */}
       <section className="product-deep-sections">
