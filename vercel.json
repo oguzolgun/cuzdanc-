@@ -20,6 +20,17 @@
     { "source": "/kategori/cok-satanlar", "destination": "/cuzdan-kartlik/", "permanent": true },
     { "source": "/kategori/yeni-gelenler", "destination": "/cuzdan-kartlik/", "permanent": true }
   ],
+  "headers": [
+    {
+      "source": "/assets/sequence/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!assets/|.*\\..*).*)",

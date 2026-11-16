@@ -1,0 +1,39 @@
+{
+  "desktop": {
+    "frameCount": 199,
+    "fps": 20,
+    "width": 1280,
+    "height": 720,
+    "pattern": "/assets/sequence/rio/desktop/f_%04d.webp",
+    "totalSizeMB": 4.29
+  },
+  "mobile": {
+    "frameCount": 120,
+    "fps": 12,
+    "width": 720,
+    "height": 405,
+    "pattern": "/assets/sequence/rio/mobile/f_%04d.webp",
+    "totalSizeMB": 1.24
+  },
+  "duration": 10.03,
+  "poster": "/assets/sequence/rio/poster.webp",
+  "edgeColor": "#221b10",
+  "beats": [
+    {
+      "progress": 0,
+      "label": "Sıcak Gofraj & Dikiş Detayı"
+    },
+    {
+      "progress": 0.35,
+      "label": "Gizli Kilit & Hassas Kapak"
+    },
+    {
+      "progress": 0.65,
+      "label": "3D Katmanlı Kart Mimarisi"
+    },
+    {
+      "progress": 0.92,
+      "label": "Koleksiyon Keşfi"
+    }
+  ]
+}

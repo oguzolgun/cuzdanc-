@@ -2707,63 +2707,89 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 /* =========================================================================
    RIO BOSS 3D ANIMATION & MAGNETIC CLOSURE THEATER
    ========================================================================= */
-.magnetic-3d-section {
+/* ==========================================================================
+   SCROLL-SCRUBBED PRODUCT FILM (ZANAATIN ÜÇÜNCÜ BOYUTU)
+   ========================================================================== */
+
+.magnetic-seq-wrapper {
   position: relative;
-  background: radial-gradient(circle at 50% 20%, #241b16 0%, #130f0d 70%, #0a0807 100%);
+  height: 450vh;
+  background: #221b10;
   color: #f6f1e7;
-  padding: 100px 24px;
-  overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.magnetic-3d-section::before {
-  content: '';
-  position: absolute;
-  top: -150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 900px;
-  height: 450px;
-  background: radial-gradient(ellipse at center, rgba(166, 86, 31, 0.22) 0%, transparent 70%);
-  pointer-events: none;
-  filter: blur(50px);
+.magnetic-seq-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  width: 100%;
+  overflow: hidden;
+  background: #221b10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.magnetic-3d-container {
-  max-width: 1140px;
-  margin: 0 auto;
-  position: relative;
+.magnetic-seq-poster-placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.magnetic-seq-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
   z-index: 2;
 }
 
-.magnetic-3d-header {
-  text-align: center;
-  max-width: 780px;
-  margin: 0 auto 48px;
+/* Ambient Edge Vignette so the canvas frame blends seamlessly into background */
+.magnetic-seq-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(34, 27, 16, 0.65) 75%, #221b10 100%);
+}
+
+.magnetic-seq-top-header {
+  position: absolute;
+  top: clamp(68px, 9vh, 96px);
+  left: clamp(24px, 5vw, 84px);
+  z-index: 10;
+  max-width: 580px;
+  pointer-events: none;
 }
 
 .magnetic-3d-eyebrow {
   display: inline-block;
   padding: 6px 16px;
   border-radius: 999px;
-  background: rgba(166, 86, 31, 0.25);
-  border: 1px solid rgba(201, 138, 75, 0.35);
+  background: rgba(166, 86, 31, 0.28);
+  border: 1px solid rgba(201, 138, 75, 0.4);
   color: #e5a76e;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .magnetic-3d-title {
   font-family: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
-  font-size: clamp(34px, 4.4vw, 54px);
+  font-size: clamp(30px, 3.8vw, 50px);
   font-weight: 400;
   line-height: 1.08;
   color: #ffffff;
-  margin: 0 0 16px;
+  margin: 0;
   letter-spacing: -0.01em;
 }
 
@@ -2773,273 +2799,256 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   display: block;
 }
 
-.magnetic-3d-subtitle {
-  font-size: 16px;
+/* Story Synced Cards (Desktop Left) */
+.magnetic-seq-story-container {
+  position: absolute;
+  left: clamp(24px, 5vw, 84px);
+  top: 55%;
+  transform: translateY(-25%);
+  width: min(440px, calc(100vw - 48px));
+  min-height: 220px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.magnetic-seq-card {
+  position: absolute;
+  inset: 0;
+  padding: 28px 30px;
+  border-radius: 24px;
+  background: rgba(26, 20, 16, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(201, 138, 75, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.magnetic-seq-card.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.seq-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.seq-card-icon {
+  font-size: 20px;
+}
+
+.seq-card-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #df9e62;
+}
+
+.seq-card-title {
+  font-family: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.seq-card-body {
+  font-size: 14px;
   line-height: 1.65;
   color: #c4b9af;
+  margin: 0;
+}
+
+.seq-card-outro {
+  background: linear-gradient(135deg, rgba(34, 25, 19, 0.92) 0%, rgba(20, 15, 12, 0.95) 100%);
+  border-color: rgba(201, 138, 75, 0.35);
+}
+
+.seq-outro-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+/* Slim 3-Dot Progress Rail */
+.magnetic-seq-rail {
+  position: absolute;
+  right: clamp(20px, 4vw, 56px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  padding: 12px 6px;
+}
+
+.seq-rail-track {
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  z-index: 1;
+}
+
+.seq-rail-fill {
+  width: 100%;
+  background: linear-gradient(180deg, #c98a4b, #e5a76e);
+  border-radius: 999px;
+  transition: height 0.1s linear;
+}
+
+.seq-rail-dot {
+  position: relative;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.seq-rail-dot:hover,
+.seq-rail-dot:focus-visible {
+  transform: scale(1.2);
+  outline: none;
+}
+
+.seq-dot-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2a221a;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.25s ease;
+}
+
+.seq-rail-dot.is-active .seq-dot-indicator {
+  background: #c98a4b;
+  border-color: #ffffff;
+  box-shadow: 0 0 12px rgba(201, 138, 75, 0.7);
+  transform: scale(1.25);
+}
+
+.seq-dot-tooltip {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: rgba(20, 16, 13, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f6f1e7;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.seq-rail-dot:hover .seq-dot-tooltip,
+.seq-rail-dot:focus-visible .seq-dot-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Fallback presentation (prefers-reduced-motion, saveData, slow 2G/3G) */
+.magnetic-fallback-section {
+  position: relative;
+  background: #221b10;
+  color: #f6f1e7;
+  padding: 80px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.magnetic-fallback-container {
+  max-width: 1140px;
   margin: 0 auto;
 }
 
-.magnetic-theater {
-  background: rgba(29, 23, 19, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 28px;
-  padding: 24px;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(201, 138, 75, 0.15);
-  backdrop-filter: blur(12px);
-  margin-bottom: 48px;
+.magnetic-fallback-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 40px;
 }
 
-.magnetic-video-wrapper {
+.magnetic-fallback-poster-wrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
-  background: #0f0c0a;
+  margin-bottom: 40px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.magnetic-video-player {
+.magnetic-fallback-poster {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.magnetic-glow-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
-}
-
-.magnetic-play-toggle {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(20, 16, 14, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-  transition: all 0.2s ease;
-  z-index: 5;
-}
-
-.magnetic-play-toggle:hover {
-  background: var(--cognac);
-  border-color: var(--cognac);
-  transform: scale(1.08);
-}
-
-.magnetic-play-toggle svg {
-  width: 18px;
-  height: 18px;
-}
-
-.magnetic-controls-bar {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 18px 4px 20px;
-}
-
-.magnetic-scrubber-track {
-  position: relative;
-  flex: 1;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  cursor: pointer;
-}
-
-.magnetic-scrubber-fill {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #c98a4b, #e5a76e);
-  pointer-events: none;
-}
-
-.magnetic-scrubber-input {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-  margin: 0;
-}
-
-.magnetic-time-display {
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  color: #9f9387;
-  white-space: nowrap;
-  letter-spacing: 0.05em;
-}
-
-.magnetic-chapters-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.magnetic-chapter-pill {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 18px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #f6f1e7;
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.22s ease;
-}
-
-.magnetic-chapter-pill:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(201, 138, 75, 0.4);
-}
-
-.magnetic-chapter-pill.is-active {
-  background: rgba(166, 86, 31, 0.28);
-  border-color: #c98a4b;
-  box-shadow: 0 4px 20px rgba(166, 86, 31, 0.25);
-}
-
-.chapter-icon {
-  font-size: 22px;
-  flex-shrink: 0;
-}
-
-.chapter-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  overflow: hidden;
-}
-
-.chapter-text strong {
-  font-size: 13px;
-  font-weight: 700;
-  color: #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.chapter-text small {
-  font-size: 11px;
-  color: #b5a89b;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.magnetic-features-grid {
+.magnetic-fallback-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
-.magnetic-feature-card {
-  padding: 28px 24px;
+.magnetic-fallback-card {
+  padding: 26px 22px;
   border-radius: 20px;
-  background: rgba(25, 20, 17, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  background: rgba(29, 23, 19, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.magnetic-feature-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(201, 138, 75, 0.35);
-}
-
-.magnetic-feature-card.is-highlight {
-  background: rgba(166, 86, 31, 0.12);
-  border-color: rgba(201, 138, 75, 0.3);
-}
-
-.feature-card-icon {
-  font-size: 28px;
-  margin-bottom: 14px;
-}
-
-.magnetic-feature-card h3 {
+.magnetic-fallback-card h3 {
   font-family: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
-  font-size: 23px;
-  font-weight: 500;
+  font-size: 22px;
   color: #ffffff;
-  margin: 0 0 10px;
-  line-height: 1.15;
+  margin: 8px 0 8px;
 }
 
-.magnetic-feature-card p {
-  font-size: 14px;
+.magnetic-fallback-card p {
+  font-size: 13.5px;
   line-height: 1.6;
   color: #b5a89b;
   margin: 0;
 }
 
-.magnetic-cta-band {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  padding: 32px 36px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, rgba(38, 28, 22, 0.8) 0%, rgba(20, 16, 13, 0.9) 100%);
-  border: 1px solid rgba(201, 138, 75, 0.28);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
-}
-
-.magnetic-cta-kicker {
-  display: block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #df9e62;
-  margin-bottom: 6px;
-}
-
-.magnetic-cta-info h4 {
-  font-family: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
-  font-size: clamp(24px, 2.5vw, 30px);
-  font-weight: 500;
-  color: #ffffff;
-  margin: 0 0 4px;
-  line-height: 1.15;
-}
-
-.magnetic-cta-info p {
-  font-size: 13px;
-  color: #b5a89b;
-  margin: 0;
-}
-
-.magnetic-cta-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-shrink: 0;
-}
-
+/* Button styles */
 .magnetic-btn-primary {
   display: inline-flex;
   align-items: center;
-  padding: 14px 28px;
+  padding: 13px 26px;
   border-radius: 999px;
   background: var(--cognac);
   color: #ffffff;
@@ -3061,7 +3070,7 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 .magnetic-btn-secondary {
   display: inline-flex;
   align-items: center;
-  padding: 13px 22px;
+  padding: 12px 20px;
   border-radius: 999px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -3078,31 +3087,116 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   border-color: #ffffff;
 }
 
-@media (max-width: 900px) {
-  .magnetic-3d-section {
-    padding: 70px 18px;
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (CONTAIN MODE & BOTTOM TEXT CARDS)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .magnetic-seq-wrapper {
+    height: 320vh;
   }
-  .magnetic-theater {
-    padding: 16px;
-    border-radius: 20px;
-  }
-  .magnetic-chapters-grid {
-    grid-template-columns: 1fr;
-  }
-  .magnetic-features-grid {
-    grid-template-columns: 1fr;
-  }
-  .magnetic-cta-band {
+
+  .magnetic-seq-stage {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 24px 20px;
+    justify-content: space-between;
+    padding: 68px 14px 20px;
   }
-  .magnetic-cta-actions {
+
+  .magnetic-seq-top-header {
+    position: relative;
+    top: auto;
+    left: auto;
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 6px;
+    z-index: 10;
+  }
+
+  .magnetic-3d-eyebrow {
+    font-size: 10px;
+    padding: 4px 12px;
+    margin-bottom: 8px;
+  }
+
+  .magnetic-3d-title {
+    font-size: clamp(20px, 5.5vw, 26px);
+  }
+
+  /* In mobile, canvas is centered in available middle space without cropping */
+  .magnetic-seq-canvas,
+  .magnetic-seq-poster-placeholder {
+    position: absolute;
+    top: 20%;
+    bottom: 35%;
+    left: 0;
+    right: 0;
     width: 100%;
-    flex-direction: column;
+    height: 44%;
+    object-fit: contain;
   }
-  .magnetic-btn-primary, .magnetic-btn-secondary {
+
+  .magnetic-seq-story-container {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    min-height: 200px;
+    margin-top: auto;
+    z-index: 10;
+  }
+
+  .magnetic-seq-card {
+    position: absolute;
+    inset: 0;
+    padding: 18px 20px;
+    border-radius: 18px;
+  }
+
+  .seq-card-title {
+    font-size: 20px;
+    margin: 0 0 6px;
+  }
+
+  .seq-card-body {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .seq-outro-actions {
+    margin-top: 12px;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .seq-outro-actions .magnetic-btn-primary,
+  .seq-outro-actions .magnetic-btn-secondary {
     width: 100%;
     justify-content: center;
+    padding: 10px 18px;
+    font-size: 12px;
+  }
+
+  /* Progress rail on mobile sits right-aligned neatly */
+  .magnetic-seq-rail {
+    right: 12px;
+    top: 50%;
+    gap: 14px;
+    padding: 6px 2px;
+  }
+
+  .seq-rail-dot {
+    width: 26px;
+    height: 26px;
+  }
+
+  .seq-dot-tooltip {
+    display: none;
+  }
+
+  .magnetic-fallback-grid {
+    grid-template-columns: 1fr;
   }
 }
