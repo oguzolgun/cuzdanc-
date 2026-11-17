@@ -22,36 +22,36 @@ type FlagshipSpec = {
 
 const FLAGSHIP_SPECS: FlagshipSpec[] = [
   {
-    slug: 'rio-boss-miknatisli-deri-cuzdan',
-    tabLabel: 'Rio Boss',
+    slug: 'lodos-pro-miknatisli-deri-cuzdan',
+    tabLabel: 'Lodos Pro',
     tagline:
       '8 x 10 cm kompakt ölçüsünde 20 karta kadar kapasite ve 2 ayrı banknot bölmesi sunan mıknatıslı hakiki deri cüzdan.',
     highlights: ['8 x 10 cm Ölçü', '20 Karta Kadar', '2 Banknot Bölmesi', 'İsim / Logo Baskısı'],
   },
   {
-    slug: 'rio-miknatisli-deri-cuzdan',
-    tabLabel: 'Rio',
+    slug: 'lodos-miknatisli-deri-cuzdan',
+    tabLabel: 'Lodos',
     tagline:
       'Gizli mıknatıslı çift katlı tasarım ve beş farklı doğal renk seçeneğiyle günlük taşımada düzenli ergonomi.',
     highlights: ['Mıknatıslı Çift Kat', 'El Yapımı Hakiki Deri', '5 Renk Alternatifi', 'Ücretsiz İsim Baskısı'],
   },
   {
-    slug: 'duo-klasik-deri-cuzdan',
-    tabLabel: 'Duo',
+    slug: 'kesisleme-klasik-deri-cuzdan',
+    tabLabel: 'Keşişleme',
     tagline:
       'Geleneksel katlanır cüzdan alışkanlıklarını özenli el dikişi ve sıcak deri dokusuyla buluşturan zamansız model.',
     highlights: ['Klasik El Yapımı Form', 'Hakiki Deri Gövde', '3 Zamansız Renk', 'Ücretsiz İsim Baskısı'],
   },
   {
-    slug: 'wonder-ince-deri-kartlik',
-    tabLabel: 'Wonder',
+    slug: 'esinti-ince-deri-kartlik',
+    tabLabel: 'Esinti',
     tagline:
       'Yalnızca temel kartlarını yanında taşımak isteyenler için cepte ağırlık yapmayan ultra sade el yapımı kartlık.',
     highlights: ['İnce Minimal Siluet', 'El Yapımı Hakiki Deri', 'Siyah & Taba Renkler', 'Ücretsiz İsim Baskısı'],
   },
   {
-    slug: 'atlas-deri-omuz-cantasi',
-    tabLabel: 'Atlas Çanta',
+    slug: 'assos-deri-omuz-cantasi',
+    tabLabel: 'Assos Çanta',
     tagline:
       'Hareketli şehir günlerinde ve keşif seyahatlerinde ellerinizi serbest bırakan sıcak taba göğüs ve omuz çantası.',
     highlights: ['Omuz & Göğüs Kullanımı', 'Taba Hakiki Deri', 'El Yapımı İşçilik', 'Ücretsiz İsim Baskısı'],
@@ -73,8 +73,8 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
   const [activeModelIdx, setActiveModelIdx] = useState(0)
 
   const dockProducts = useMemo(() => {
-    const boss = products.find((p) => p.slug === 'rio-boss-miknatisli-deri-cuzdan')
-    const rest = products.filter((p) => p.slug !== 'rio-boss-miknatisli-deri-cuzdan')
+    const boss = products.find((p) => p.slug === 'lodos-pro-miknatisli-deri-cuzdan')
+    const rest = products.filter((p) => p.slug !== 'lodos-pro-miknatisli-deri-cuzdan')
     return boss ? [boss, ...rest] : products
   }, [])
 

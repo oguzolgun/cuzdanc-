@@ -389,8 +389,8 @@ export function Magnetic3DShowcase({ isPdp = false }: { isPdp?: boolean }) {
                   Hemen Kişiselleştir &amp; Satın Al (1.600 TL) ↑
                 </a>
               ) : (
-                <Link to="/urun/rio-boss-miknatisli-deri-cuzdan/" className="magnetic-btn-primary">
-                  Rio Boss&apos;u İncele &amp; Sipariş Ver (1.600 TL) →
+                <Link to="/urun/lodos-pro-miknatisli-deri-cuzdan/" className="magnetic-btn-primary">
+                  Lodos Pro&apos;yu İncele &amp; Sipariş Ver (1.600 TL) →
                 </Link>
               )}
               <Link to="/cuzdan-kartlik/" className="magnetic-btn-secondary">
@@ -509,11 +509,11 @@ export function Magnetic3DShowcase({ isPdp = false }: { isPdp?: boolean }) {
                 </a>
               ) : (
                 <Link
-                  to="/urun/rio-boss-miknatisli-deri-cuzdan/"
+                  to="/urun/lodos-pro-miknatisli-deri-cuzdan/"
                   className="magnetic-btn-primary"
                   tabIndex={activeBeatIndex === 3 ? 0 : -1}
                 >
-                  Rio Boss&apos;u İncele →
+                  Lodos Pro&apos;yu İncele →
                 </Link>
               )}
               <Link

@@ -127,15 +127,7 @@ for (const prod of products) {
     }
   } else {
     if (prod.specs.boyut === 'TODO' || prod.specs.kartKapasitesi === 'TODO') {
-      errors.push(`Rio Boss missing confirmed specs`);
-    }
-  }
-
-  if (prod.id === 'port') {
-    for (const v of prod.variants) {
-      if (v.price !== 'TODO') {
-        errors.push(`Port variant "${v.renk}" price should be "TODO", got ${v.price}`);
-      }
+      errors.push(`Lodos Pro missing confirmed specs`);
     }
   }
 

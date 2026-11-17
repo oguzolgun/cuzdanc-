@@ -660,7 +660,7 @@ function EmbossingStudio() {
               Bu Baskıyla Bir Ürün Seçin <Icon name="arrow" />
             </Link>
             <p className="studio-note">
-              * Seçtiğiniz ürünün sayfasında isminizi belirtebilir; Rio Boss modelinde logo veya görsel baskı seçeneğini tercih edebilirsiniz.
+              * Seçtiğiniz ürünün sayfasında isminizi belirtebilir; Lodos Pro modelinde logo veya görsel baskı seçeneğini tercih edebilirsiniz.
             </p>
           </div>
         </div>
@@ -673,19 +673,19 @@ function EmbossingStudio() {
    HOMEPAGE (/)
    ========================================================================= */
 const FEATURED_MODEL_SLUGS = [
-  'rio-boss-miknatisli-deri-cuzdan',
-  'rio-miknatisli-deri-cuzdan',
-  'duo-klasik-deri-cuzdan',
-  'wonder-ince-deri-kartlik',
-  'elegant-deri-el-cantasi',
-  'atlas-deri-omuz-cantasi',
+  'lodos-pro-miknatisli-deri-cuzdan',
+  'lodos-miknatisli-deri-cuzdan',
+  'kesisleme-klasik-deri-cuzdan',
+  'esinti-ince-deri-kartlik',
+  'efes-deri-el-cantasi',
+  'assos-deri-omuz-cantasi',
 ]
 
 export function HomePage() {
   const { addToCart } = useOutletContext<StoreContext>()
 
   const homeSeo = useMemo(() => {
-    const heroProduct = getProductBySlug('rio-boss-miknatisli-deri-cuzdan') || products[0]
+    const heroProduct = getProductBySlug('lodos-pro-miknatisli-deri-cuzdan') || products[0]
     return buildHomeSeo(siteConfig, heroProduct?.variants[0]?.images[0])
   }, [])
   useDocumentSeo(homeSeo)
@@ -799,7 +799,7 @@ export function HomePage() {
           <div className="craft-details-checklist">
             <span>✓ %100 el yapımı hakiki deri gövde ve özenli dikiş</span>
             <span>✓ Cüzdan, kartlık, pasaportluk, çanta ve küçük deri aksesuar seçkisi</span>
-            <span>✓ İsteğe bağlı sıcak gofraj isim baskısı (Rio Boss’ta ek logo ve görsel)</span>
+            <span>✓ İsteğe bağlı sıcak gofraj isim baskısı (Lodos Pro’da ek logo ve görsel)</span>
           </div>
           <Link to="/hikayemiz/">
             Hikâyemizi &amp; Zanaatımızı Keşfedin <Icon name="arrow" />
@@ -1463,7 +1463,7 @@ export function ProductPage() {
         </section>
       </div>
 
-      {product.slug === 'rio-boss-miknatisli-deri-cuzdan' && (
+      {product.slug === 'lodos-pro-miknatisli-deri-cuzdan' && (
         <Magnetic3DShowcase isPdp />
       )}
 
@@ -1621,7 +1621,7 @@ export function BrandStoryPage() {
           <span>03</span>
           <h2>Kişiye Özel Dokunuş</h2>
           <p>
-            Sıcak gofraj baskı uygulamasıyla tüm ürünlere ücretsiz isim veya baş harf işleyebiliyoruz. Seçili Rio Boss
+            Sıcak gofraj baskı uygulamasıyla tüm ürünlere ücretsiz isim veya baş harf işleyebiliyoruz. Seçili Lodos Pro
             serisinde ayrıca isteğe bağlı logo veya görsel baskı seçenekleri sunulur.
           </p>
         </article>

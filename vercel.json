@@ -19,7 +19,19 @@
     { "source": "/kategori/seyahat-pasaport", "destination": "/deri-pasaportluk/", "permanent": true },
     { "source": "/kategori/aksesuar", "destination": "/deri-aksesuar/", "permanent": true },
     { "source": "/kategori/cok-satanlar", "destination": "/cuzdan-kartlik/", "permanent": true },
-    { "source": "/kategori/yeni-gelenler", "destination": "/cuzdan-kartlik/", "permanent": true }
+    { "source": "/kategori/yeni-gelenler", "destination": "/cuzdan-kartlik/", "permanent": true },
+    { "source": "/urun/rio-miknatisli-deri-cuzdan", "destination": "/urun/lodos-miknatisli-deri-cuzdan/", "permanent": true },
+    { "source": "/urun/rio-boss-miknatisli-deri-cuzdan", "destination": "/urun/lodos-pro-miknatisli-deri-cuzdan/", "permanent": true },
+    { "source": "/urun/rio-bro-miknatisli-deri-cuzdan", "destination": "/urun/lodos-plus-miknatisli-deri-cuzdan/", "permanent": true },
+    { "source": "/urun/duo-klasik-deri-cuzdan", "destination": "/urun/kesisleme-klasik-deri-cuzdan/", "permanent": true },
+    { "source": "/urun/dubai-mandalli-deri-cuzdan", "destination": "/urun/garbi-mandalli-deri-cuzdan/", "permanent": true },
+    { "source": "/urun/wonder-ince-deri-kartlik", "destination": "/urun/esinti-ince-deri-kartlik/", "permanent": true },
+    { "source": "/urun/elegant-deri-el-cantasi", "destination": "/urun/efes-deri-el-cantasi/", "permanent": true },
+    { "source": "/urun/atlas-deri-omuz-cantasi", "destination": "/urun/assos-deri-omuz-cantasi/", "permanent": true },
+    { "source": "/urun/port-deri-pasaportluk", "destination": "/urun/pasat-deri-pasaportluk/", "permanent": true },
+    { "source": "/urun/cekya-deri-anahtarlik", "destination": "/urun/capa-deri-anahtarlik/", "permanent": true },
+    { "source": "/urun/hong-kong-deri-ajanda-kilifi", "destination": "/urun/seyir-deri-ajanda-kilifi/", "permanent": true },
+    { "source": "/urun/berlin-deri-bileklik", "destination": "/urun/halat-deri-bileklik/", "permanent": true }
   ],
   "headers": [
     {

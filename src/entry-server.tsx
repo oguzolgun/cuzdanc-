@@ -29,7 +29,7 @@ export function computeRouteSeo(urlPath: string): RouteSeoPayload {
   const pathname = url.pathname.replace(/\/+$/, '') || '/'
 
   if (pathname === '/') {
-    const heroProduct = getProductBySlug('rio-boss-miknatisli-deri-cuzdan') || products[0]
+    const heroProduct = getProductBySlug('lodos-pro-miknatisli-deri-cuzdan') || products[0]
     return buildHomeSeo(siteConfig, heroProduct?.variants[0]?.images[0])
   }
 
