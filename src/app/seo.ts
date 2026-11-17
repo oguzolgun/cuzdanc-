@@ -316,6 +316,59 @@ export function buildStorySeo(config: SiteConfigRecord): RouteSeoPayload {
   }
 }
 
+export function buildAllCategoriesSeo(config: SiteConfigRecord): RouteSeoPayload {
+  const canonical = absUrl(config.siteUrl, '/kategoriler/')
+  const title = 'Tüm Kategoriler & Deri Koleksiyonları | Elon Leather'
+  const description =
+    'Elon Leather el yapımı hakiki deri cüzdan, kartlık, deri çanta ve aksesuar koleksiyonları. 12 özgün model ve 9 ürün kategorisini hemen keşfedin.'
+
+  const breadcrumbSchema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: `${config.siteUrl.replace(/\/+$/, '')}/` },
+      { '@type': 'ListItem', position: 2, name: 'Kategoriler', item: canonical },
+    ],
+  }
+
+  const collectionSchema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    description,
+    url: canonical,
+    inLanguage: config.language,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: 9,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Mıknatıslı Deri Cüzdan', url: absUrl(config.siteUrl, '/miknatisli-deri-cuzdan/') },
+        { '@type': 'ListItem', position: 2, name: 'Klasik Deri Cüzdan', url: absUrl(config.siteUrl, '/klasik-deri-cuzdan/') },
+        { '@type': 'ListItem', position: 3, name: 'İnce Deri Kartlık', url: absUrl(config.siteUrl, '/ince-deri-kartlik/') },
+        { '@type': 'ListItem', position: 4, name: 'Pasaportluk', url: absUrl(config.siteUrl, '/deri-pasaportluk/') },
+        { '@type': 'ListItem', position: 5, name: 'El Çantası', url: absUrl(config.siteUrl, '/deri-el-cantasi/') },
+        { '@type': 'ListItem', position: 6, name: 'Omuz & Göğüs Çantası', url: absUrl(config.siteUrl, '/omuz-gogus-cantasi/') },
+        { '@type': 'ListItem', position: 7, name: 'Anahtarlık', url: absUrl(config.siteUrl, '/deri-anahtarlik/') },
+        { '@type': 'ListItem', position: 8, name: 'Ajanda Kılıfı', url: absUrl(config.siteUrl, '/deri-ajanda-kilifi/') },
+        { '@type': 'ListItem', position: 9, name: 'Deri Bileklik', url: absUrl(config.siteUrl, '/deri-bileklik/') },
+      ],
+    },
+  }
+
+  return {
+    title,
+    description,
+    canonical,
+    robots: 'index, follow',
+    ogType: 'website',
+    ogTitle: title,
+    ogDescription: description,
+    ogImage: absUrl(config.siteUrl, config.defaultOgImage),
+    ogLocale: config.locale,
+    jsonLd: [breadcrumbSchema, collectionSchema],
+  }
+}
+
 export function buildNotFoundSeo(config: SiteConfigRecord): RouteSeoPayload {
   return {
     title: 'Sayfa Bulunamadı (404) | Elon Leather',

@@ -12,6 +12,7 @@ import {
   siteConfig,
 } from './app/data'
 import {
+  buildAllCategoriesSeo,
   buildCategorySeo,
   buildHomeSeo,
   buildNotFoundSeo,
@@ -34,6 +35,10 @@ export function computeRouteSeo(urlPath: string): RouteSeoPayload {
 
   if (pathname === '/hikayemiz') {
     return buildStorySeo(siteConfig)
+  }
+
+  if (pathname === '/kategoriler') {
+    return buildAllCategoriesSeo(siteConfig)
   }
 
   if (pathname.startsWith('/urun/')) {

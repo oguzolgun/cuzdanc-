@@ -1499,6 +1499,35 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 }
 .category-runway-all:hover { color: var(--cognac); gap: 16px; }
 
+.category-runway-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.category-runway-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 36px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(27, 23, 20, 0.12);
+  transition: all 0.22s ease;
+}
+
+.category-runway-more-btn:hover {
+  background: var(--cognac);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(166, 86, 31, 0.28);
+}
+
 .category-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3199,4 +3228,166 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   .magnetic-fallback-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ==========================================================================
+   ALL CATEGORIES PAGE (/kategoriler/)
+   ========================================================================== */
+.all-cats-page {
+  background: var(--cream);
+  min-height: 100vh;
+}
+
+.all-cats-hero {
+  padding: 120px 5vw 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.all-cats-hero .breadcrumb {
+  margin-bottom: 20px;
+}
+
+.all-cats-hero h1 {
+  font-family: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
+  font-size: clamp(42px, 5.5vw, 76px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin: 12px 0 20px;
+}
+
+.all-cats-hero h1 em {
+  font-style: italic;
+  color: var(--cognac);
+}
+
+.all-cats-lead {
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.6;
+  color: #574f48;
+  max-width: 720px;
+  margin-bottom: 36px;
+}
+
+.all-cats-tabs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(27, 23, 20, 0.1);
+}
+
+.all-cats-tab-btn {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(27, 23, 20, 0.14);
+  background: transparent;
+  color: #574f48;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.all-cats-tab-btn:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.all-cats-tab-btn.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cream);
+}
+
+.all-cats-grid-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 5vw 72px;
+}
+
+.all-cats-parents-overview {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 5vw 80px;
+  border-top: 1px solid rgba(27, 23, 20, 0.1);
+}
+
+.all-cats-parents-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.all-cats-parent-card {
+  padding: 32px 28px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(27, 23, 20, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(27, 23, 20, 0.04);
+  transition: all 0.22s ease;
+}
+
+.all-cats-parent-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(166, 86, 31, 0.3);
+  box-shadow: 0 16px 36px rgba(27, 23, 20, 0.08);
+}
+
+.parent-card-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cognac);
+  margin-bottom: 12px;
+}
+
+.all-cats-parent-card h3 {
+  font-family: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+
+.parent-card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6a6159;
+  margin: 0 0 24px;
+  flex-grow: 1;
+}
+
+.parent-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(27, 23, 20, 0.06);
+}
+
+.parent-card-models {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8c8278;
+}
+
+@media (max-width: 900px) {
+  .all-cats-hero { padding: 90px 18px 32px; }
+  .all-cats-grid-section { padding: 24px 18px 56px; }
+  .all-cats-parents-overview { padding: 40px 18px 64px; }
+  .all-cats-parents-grid { grid-template-columns: 1fr; gap: 16px; }
+  .category-runway-actions { margin-top: 28px; }
+  .category-runway-more-btn { width: 100%; }
 }

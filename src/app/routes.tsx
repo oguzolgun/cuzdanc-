@@ -1,8 +1,8 @@
 import { createBrowserRouter, Navigate, useParams, type RouteObject } from 'react-router'
-import { BrandStoryPage, CategoryPage, HomePage, NotFound, ProductPage, StoreLayout } from './Store'
+import { AllCategoriesPage, BrandStoryPage, CategoryPage, HomePage, NotFound, ProductPage, StoreLayout } from './Store'
 
 const LEGACY_KATEGORI_REDIRECTS: Record<string, string> = {
-  tumu: '/cuzdan-kartlik/',
+  tumu: '/kategoriler/',
   'cuzdan-kartlik': '/cuzdan-kartlik/',
   'miknatisli-deri-cuzdan': '/miknatisli-deri-cuzdan/',
   'klasik-deri-cuzdan': '/klasik-deri-cuzdan/',
@@ -27,6 +27,8 @@ export const routes: RouteObject[] = [
     Component: StoreLayout,
     children: [
       { index: true, Component: HomePage },
+      { path: 'kategoriler', Component: AllCategoriesPage },
+      { path: 'koleksiyonlar', element: <Navigate to="/kategoriler/" replace /> },
       { path: 'hikayemiz', Component: BrandStoryPage },
       { path: 'urun/:slug', Component: ProductPage },
       { path: 'kategori/:slug', Component: LegacyCategoryRedirect },

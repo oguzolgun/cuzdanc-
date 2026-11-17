@@ -28,6 +28,7 @@ import {
   type ProductVariantRecord,
 } from './data'
 import {
+  buildAllCategoriesSeo,
   buildCategorySeo,
   buildHomeSeo,
   buildNotFoundSeo,
@@ -699,19 +700,19 @@ export function HomePage() {
     <main>
       <AppleHero onAddToCart={(product, variant) => addToCart(product, variant, 1)} />
 
-      {/* Category Grid covering all 9 active product sub-categories */}
+      {/* Category Grid covering 6 featured product sub-categories */}
       <section className="category-runway" id="koleksiyon">
         <header className="category-runway-head">
           <div>
             <p className="overline">Koleksiyonlar · {products.length} Özgün Seri</p>
             <h2>Her yolculuk için bir Elon Leather.</h2>
           </div>
-          <Link to="/cuzdan-kartlik/" className="category-runway-all">
-            Tüm Koleksiyon <Icon name="arrow" />
+          <Link to="/kategoriler/" className="category-runway-all">
+            Tümünü Gör <Icon name="arrow" />
           </Link>
         </header>
         <div className="category-cards-grid">
-          {subCategories.map((category) => {
+          {subCategories.slice(0, 6).map((category) => {
             const catProducts = getProductsByCategory(category.slug)
             const variantTotal = catProducts.reduce((sum, p) => sum + p.variants.length, 0)
             return (
@@ -740,6 +741,11 @@ export function HomePage() {
               </Link>
             )
           })}
+        </div>
+        <div className="category-runway-actions">
+          <Link to="/kategoriler/" className="category-runway-more-btn">
+            Tüm Kategorileri Gör ({subCategories.length} Kategori) →
+          </Link>
         </div>
       </section>
 
@@ -1635,6 +1641,150 @@ export function BrandStoryPage() {
           <Link to="/#kisisellestir" className="apple-btn-primary">
             İsim Baskısı Önizle
           </Link>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+/* =========================================================================
+   ALL CATEGORIES PAGE (/kategoriler/) — Full Directory of 9 Sub-Categories
+   ========================================================================= */
+export function AllCategoriesPage() {
+  const [activeTab, setActiveTab] = useState<'all' | 'cuzdan-kartlik' | 'deri-canta' | 'deri-aksesuar'>('all')
+
+  const seoPayload = useMemo(() => buildAllCategoriesSeo(siteConfig), [])
+  useDocumentSeo(seoPayload)
+
+  const displayedCategories = useMemo(() => {
+    if (activeTab === 'all') return subCategories
+    return subCategories.filter((c) => c.parentSlug === activeTab)
+  }, [activeTab])
+
+  return (
+    <main className="all-cats-page">
+      <section className="all-cats-hero">
+        <nav className="breadcrumb" aria-label="İçerik Haritası">
+          <Link to="/">Ana Sayfa</Link> / <span aria-current="page">Kategoriler</span>
+        </nav>
+        <p className="overline">Elon Leather · Koleksiyon Dizini</p>
+        <h1>
+          Tüm Kategoriler &amp;<br />
+          <em>Atölye Seçkisi.</em>
+        </h1>
+        <p className="all-cats-lead">
+          Zanaatkâr eliyle şekillenen 12 özgün model ve 9 ürün kategorisi. Cebinizde, elinizde ve omzunuzda
+          ömür boyu taşınacak doğal dokulu hakiki deri tasarımlarımızı keşfedin.
+        </p>
+
+        {/* Category Family Tabs */}
+        <div className="all-cats-tabs" role="tablist" aria-label="Kategori Grupları">
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === 'all'}
+            className={`all-cats-tab-btn ${activeTab === 'all' ? 'is-active' : ''}`}
+            onClick={() => setActiveTab('all')}
+          >
+            Tüm Kategoriler ({subCategories.length})
+          </button>
+          {parentCategories.map((parent) => {
+            const count = getChildCategories(parent.slug).length
+            return (
+              <button
+                type="button"
+                key={parent.slug}
+                role="tab"
+                aria-selected={activeTab === parent.slug}
+                className={`all-cats-tab-btn ${activeTab === parent.slug ? 'is-active' : ''}`}
+                onClick={() => setActiveTab(parent.slug as typeof activeTab)}
+              >
+                {parent.name} ({count})
+              </button>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* Grid of Categories */}
+      <section className="all-cats-grid-section">
+        <div className="category-cards-grid">
+          {displayedCategories.map((category) => {
+            const catProducts = getProductsByCategory(category.slug)
+            const variantTotal = catProducts.reduce((sum, p) => sum + p.variants.length, 0)
+            return (
+              <Link to={`/${category.slug}/`} className="category-card" key={category.slug}>
+                <div className="category-card-body">
+                  <div>
+                    <h3>{category.name}</h3>
+                    <p className="category-card-count">
+                      {catProducts.length} Model · {variantTotal} Renk
+                    </p>
+                  </div>
+                  <span className="category-card-cta">
+                    Keşfet <Icon name="arrow" />
+                  </span>
+                </div>
+                <div className="category-card-media">
+                  <img
+                    src={bannerToThumb(category.bannerImage)}
+                    alt={category.name}
+                    width={600}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </Link>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* Parent Collections Overview Banners */}
+      <section className="all-cats-parents-overview">
+        <header className="split-heading">
+          <div>
+            <p className="overline">Ana Koleksiyonlar</p>
+            <h2>3 Temel Deri Dünyası</h2>
+          </div>
+        </header>
+        <div className="all-cats-parents-grid">
+          {parentCategories.map((parent) => {
+            const children = getChildCategories(parent.slug)
+            const parentProds = getProductsByCategory(parent.slug)
+            return (
+              <div key={parent.slug} className="all-cats-parent-card">
+                <span className="parent-card-tag">{children.length} Alt Kategori</span>
+                <h3>{parent.name}</h3>
+                <p className="parent-card-desc">{parent.shortIntro}</p>
+                <div className="parent-card-footer">
+                  <span className="parent-card-models">{parentProds.length} Model Tasarımı</span>
+                  <Link to={`/${parent.slug}/`} className="apple-btn-primary">
+                    Koleksiyonu Aç →
+                  </Link>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      <section className="service-strip">
+        <div>
+          <span>01</span>
+          <h3>İsteğe Bağlı İsim Baskısı</h3>
+          <p>Koleksiyondaki tüm modellerde deriye sıcak gofraj baskıyla ücretsiz isim işlenebilir.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <h3>Doğal Hakiki Deri</h3>
+          <p>Her seri, günlük kullanım alışkanlıklarına göre el işçiliğiyle üretilen hakiki derilerden oluşur.</p>
+        </div>
+        <div>
+          <span>03</span>
+          <h3>Model Bazlı Şeffaf Varyantlar</h3>
+          <p>Her model tek sayfada gerçek renk seçenekleriyle sunulur; yalnızca doğrulanan teknik veriler paylaşılır.</p>
         </div>
       </section>
     </main>

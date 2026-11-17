@@ -46,6 +46,14 @@ function buildRoutePlan() {
   })
 
   routes.push({
+    urlPath: '/kategoriler/',
+    outRel: path.join('kategoriler', 'index.html'),
+    priority: '0.9',
+    changefreq: 'weekly',
+    indexable: true,
+  })
+
+  routes.push({
     urlPath: '/404.html',
     outRel: '404.html',
     priority: '0.0',
