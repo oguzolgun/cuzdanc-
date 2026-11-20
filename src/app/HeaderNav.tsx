@@ -327,7 +327,7 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
                   type="search"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
-                  placeholder="Model veya renk ara: Lodos Pro, Keşişleme, Esinti, Assos, Zeytin Yeşili..."
+                  placeholder="Model veya renk ara: Lodos Pro, Etezyen, Esinti, Assos, Zeytin Yeşili..."
                   aria-label="Katalog arama"
                 />
                 {searchInput && (
@@ -343,7 +343,7 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
 
               <div className="spotlight-quick-tags">
                 <span>Hızlı Erişim:</span>
-                {['Lodos Pro', 'Lodos', 'Keşişleme', 'Garbi', 'Esinti', 'Efes', 'Assos', 'Seyir'].map((term) => (
+                {['Lodos Pro', 'Lodos', 'Etezyen', 'Garbi', 'Esinti', 'Efes', 'Assos', 'Seyir'].map((term) => (
                   <button
                     key={term}
                     type="button"

@@ -248,7 +248,7 @@
     ],
     "relatedProducts": [
       "lodos-pro-miknatisli-deri-cuzdan",
-      "kesisleme-klasik-deri-cuzdan",
+      "etezyen-klasik-deri-cuzdan",
       "capa-deri-anahtarlik"
     ],
     "seo": {
@@ -622,15 +622,15 @@
   },
   {
     "id": "duo",
-    "slug": "kesisleme-klasik-deri-cuzdan",
+    "slug": "etezyen-klasik-deri-cuzdan",
     "sourceFolder": "DUO CÜZDAN",
-    "name": "Keşişleme El Yapımı Klasik Deri Cüzdan & Kartlık",
-    "modelName": "Keşişleme",
+    "name": "Etezyen El Yapımı Klasik Deri Cüzdan & Kartlık",
+    "modelName": "Etezyen",
     "productType": "Klasik Deri Cüzdan",
     "primaryCategory": "klasik-deri-cuzdan",
     "extraCategories": [],
-    "shortDescription": "Geleneksel katlanabilir cüzdan alışkanlıklarını modern deri işçiliğiyle yorumlayan Keşişleme serisi; sade yüzeyi, özenli dikişleri ve üç zamansız renk alternatifiyle öne çıkar.",
-    "longDescription": "Keşişleme El Yapımı Deri Cüzdan ve Kartlık, karmaşadan uzak, sade ve tanıdık bir günlük taşıma düzeni arayan kullanıcılar için özenle tasarlanmıştır. Mıknatıslı ya da metal mekanizmalı yapılara gereksinim duymadan klasik katlanır cüzdan ergonomisini hakiki derinin yumuşaklığıyla buluşturur. İki kanatlı doğal katlama formu ceket iç cebinde, ön veya arka pantolon ceplerinde ve el çantası bölmelerinde dengeli biçimde oturur; kenar dikişleri ise uzun süreli açılıp kapanmalarda formun korunmasına destek olur. Geleneksel cüzdan hissini seven kullanıcılar için günlük kartları ve evrakları sade biçimde düzenleme kolaylığı sağlar. Taba (Kahverengi), Siyah ve Zeytin Karası Yeşil renkleri her mevsim ve her kıyafet tarzıyla kolayca eşleşir; resmi iş toplantılarından keyifli hafta sonu yolculuklarına kadar geniş bir kullanım alanına hitap eder. İlk günkü mat ve doğal dokusu kullanıldıkça kullanıcının ellerinden gelen sıcaklıkla parlar ve benzersiz bir patina kazanır. Doğum günü, Babalar Günü veya yeni iş tebriki için risksiz ve zamansız bir hediye arıyorsanız ücretsiz isim yazdırma seçeneğiyle kişisel dokunuşunuzu kolayca ekleyebilirsiniz.",
+    "shortDescription": "Geleneksel katlanabilir cüzdan alışkanlıklarını modern deri işçiliğiyle yorumlayan Etezyen serisi; sade yüzeyi, özenli dikişleri ve üç zamansız renk alternatifiyle öne çıkar.",
+    "longDescription": "Etezyen El Yapımı Deri Cüzdan ve Kartlık, karmaşadan uzak, sade ve tanıdık bir günlük taşıma düzeni arayan kullanıcılar için özenle tasarlanmıştır. Mıknatıslı ya da metal mekanizmalı yapılara gereksinim duymadan klasik katlanır cüzdan ergonomisini hakiki derinin yumuşaklığıyla buluşturur. İki kanatlı doğal katlama formu ceket iç cebinde, ön veya arka pantolon ceplerinde ve el çantası bölmelerinde dengeli biçimde oturur; kenar dikişleri ise uzun süreli açılıp kapanmalarda formun korunmasına destek olur. Geleneksel cüzdan hissini seven kullanıcılar için günlük kartları ve evrakları sade biçimde düzenleme kolaylığı sağlar. Taba (Kahverengi), Siyah ve Zeytin Karası Yeşil renkleri her mevsim ve her kıyafet tarzıyla kolayca eşleşir; resmi iş toplantılarından keyifli hafta sonu yolculuklarına kadar geniş bir kullanım alanına hitap eder. İlk günkü mat ve doğal dokusu kullanıldıkça kullanıcının ellerinden gelen sıcaklıkla parlar ve benzersiz bir patina kazanır. Doğum günü, Babalar Günü veya yeni iş tebriki için risksiz ve zamansız bir hediye arıyorsanız ücretsiz isim yazdırma seçeneğiyle kişisel dokunuşunuzu kolayca ekleyebilirsiniz.",
     "features": [
       "Geleneksel çizgilere sadık el yapımı klasik deri cüzdan formu",
       "Zamanla kendine özgü patina geliştiren hakiki deri",
@@ -657,35 +657,35 @@
         "colorHex": "#96481e",
         "sku": "ELN-DUO-TABKAH",
         "price": 1499,
-        "seoTitle": "Keşişleme Taba (Kahverengi) Deri Cüzdan | Elon Leather",
+        "seoTitle": "Etezyen Taba (Kahverengi) Deri Cüzdan | Elon Leather",
         "images": [
           {
-            "full": "/assets/products/elon-leather-kesisleme-taba-klasik-deri-cuzdan-1-ana-gorsel.webp",
-            "thumb": "/assets/products/elon-leather-kesisleme-taba-klasik-deri-cuzdan-1-ana-gorsel-600.webp",
+            "full": "/assets/products/elon-leather-etezyen-taba-klasik-deri-cuzdan-1-ana-gorsel.webp",
+            "thumb": "/assets/products/elon-leather-etezyen-taba-klasik-deri-cuzdan-1-ana-gorsel-600.webp",
             "width": 1200,
             "height": 1800,
-            "alt": "Keşişleme Taba (Kahverengi) klasik hakiki deri cüzdan - ana stüdyo görünümü"
+            "alt": "Etezyen Taba (Kahverengi) klasik hakiki deri cüzdan - ana stüdyo görünümü"
           },
           {
-            "full": "/assets/products/elon-leather-kesisleme-taba-klasik-deri-cuzdan-2-acik-gorunum.webp",
-            "thumb": "/assets/products/elon-leather-kesisleme-taba-klasik-deri-cuzdan-2-acik-gorunum-600.webp",
+            "full": "/assets/products/elon-leather-etezyen-taba-klasik-deri-cuzdan-2-acik-gorunum.webp",
+            "thumb": "/assets/products/elon-leather-etezyen-taba-klasik-deri-cuzdan-2-acik-gorunum-600.webp",
             "width": 1200,
             "height": 1800,
-            "alt": "Keşişleme Taba (Kahverengi) klasik hakiki deri cüzdan - açık iç görünüm ve bölmeler"
+            "alt": "Etezyen Taba (Kahverengi) klasik hakiki deri cüzdan - açık iç görünüm ve bölmeler"
           },
           {
-            "full": "/assets/products/elon-leather-kesisleme-taba-klasik-deri-cuzdan-3-yasam-tarzi.webp",
-            "thumb": "/assets/products/elon-leather-kesisleme-taba-klasik-deri-cuzdan-3-yasam-tarzi-600.webp",
+            "full": "/assets/products/elon-leather-etezyen-taba-klasik-deri-cuzdan-3-yasam-tarzi.webp",
+            "thumb": "/assets/products/elon-leather-etezyen-taba-klasik-deri-cuzdan-3-yasam-tarzi-600.webp",
             "width": 1200,
             "height": 1800,
-            "alt": "Keşişleme Taba (Kahverengi) klasik hakiki deri cüzdan - yaşam tarzı kullanım çekimi"
+            "alt": "Etezyen Taba (Kahverengi) klasik hakiki deri cüzdan - yaşam tarzı kullanım çekimi"
           },
           {
-            "full": "/assets/products/elon-leather-kesisleme-taba-klasik-deri-cuzdan-4-detay.webp",
-            "thumb": "/assets/products/elon-leather-kesisleme-taba-klasik-deri-cuzdan-4-detay-600.webp",
+            "full": "/assets/products/elon-leather-etezyen-taba-klasik-deri-cuzdan-4-detay.webp",
+            "thumb": "/assets/products/elon-leather-etezyen-taba-klasik-deri-cuzdan-4-detay-600.webp",
             "width": 1200,
             "height": 1800,
-            "alt": "Keşişleme Taba (Kahverengi) klasik hakiki deri cüzdan - deri dokusu ve dikiş detayı"
+            "alt": "Etezyen Taba (Kahverengi) klasik hakiki deri cüzdan - deri dokusu ve dikiş detayı"
           }
         ],
         "inStock": true
@@ -696,35 +696,35 @@
         "colorHex": "#1c1b19",
         "sku": "ELN-DUO-SIY",
         "price": 1499,
-        "seoTitle": "Keşişleme Siyah Deri Cüzdan | Elon Leather",
+        "seoTitle": "Etezyen Siyah Deri Cüzdan | Elon Leather",
         "images": [
           {
-            "full": "/assets/products/elon-leather-kesisleme-siyah-klasik-deri-cuzdan-1.webp",
-            "thumb": "/assets/products/elon-leather-kesisleme-siyah-klasik-deri-cuzdan-1-600.webp",
+            "full": "/assets/products/elon-leather-etezyen-siyah-klasik-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-etezyen-siyah-klasik-deri-cuzdan-1-600.webp",
             "width": 1066,
             "height": 1600,
-            "alt": "Keşişleme Siyah klasik hakiki deri cüzdan - ön görünüm el çekimi"
+            "alt": "Etezyen Siyah klasik hakiki deri cüzdan - ön görünüm el çekimi"
           },
           {
-            "full": "/assets/products/elon-leather-kesisleme-siyah-klasik-deri-cuzdan-2.webp",
-            "thumb": "/assets/products/elon-leather-kesisleme-siyah-klasik-deri-cuzdan-2-600.webp",
+            "full": "/assets/products/elon-leather-etezyen-siyah-klasik-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-etezyen-siyah-klasik-deri-cuzdan-2-600.webp",
             "width": 1066,
             "height": 1600,
-            "alt": "Keşişleme Siyah klasik hakiki deri cüzdan - detaylı görünüm"
+            "alt": "Etezyen Siyah klasik hakiki deri cüzdan - detaylı görünüm"
           },
           {
-            "full": "/assets/products/elon-leather-kesisleme-siyah-klasik-deri-cuzdan-3.webp",
-            "thumb": "/assets/products/elon-leather-kesisleme-siyah-klasik-deri-cuzdan-3-600.webp",
+            "full": "/assets/products/elon-leather-etezyen-siyah-klasik-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-etezyen-siyah-klasik-deri-cuzdan-3-600.webp",
             "width": 1066,
             "height": 1600,
-            "alt": "Keşişleme Siyah klasik hakiki deri cüzdan - açık iç tasarım ve kart bölmeleri"
+            "alt": "Etezyen Siyah klasik hakiki deri cüzdan - açık iç tasarım ve kart bölmeleri"
           },
           {
-            "full": "/assets/products/elon-leather-kesisleme-siyah-klasik-deri-cuzdan-4.webp",
-            "thumb": "/assets/products/elon-leather-kesisleme-siyah-klasik-deri-cuzdan-4-600.webp",
+            "full": "/assets/products/elon-leather-etezyen-siyah-klasik-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-etezyen-siyah-klasik-deri-cuzdan-4-600.webp",
             "width": 1066,
             "height": 1600,
-            "alt": "Keşişleme Siyah klasik hakiki deri cüzdan - yan profil görünümü"
+            "alt": "Etezyen Siyah klasik hakiki deri cüzdan - yan profil görünümü"
           }
         ],
         "inStock": true
@@ -735,35 +735,35 @@
         "colorHex": "#3f4935",
         "sku": "ELN-DUO-ZEYKARYES",
         "price": 1499,
-        "seoTitle": "Keşişleme Zeytin Karası Yeşil Deri Cüzdan | Elon Leather",
+        "seoTitle": "Etezyen Zeytin Karası Yeşil Deri Cüzdan | Elon Leather",
         "images": [
           {
-            "full": "/assets/products/elon-leather-kesisleme-zeytin-karasi-yesil-klasik-deri-cuzdan-1.webp",
-            "thumb": "/assets/products/elon-leather-kesisleme-zeytin-karasi-yesil-klasik-deri-cuzdan-1-600.webp",
+            "full": "/assets/products/elon-leather-etezyen-zeytin-karasi-yesil-klasik-deri-cuzdan-1.webp",
+            "thumb": "/assets/products/elon-leather-etezyen-zeytin-karasi-yesil-klasik-deri-cuzdan-1-600.webp",
             "width": 1066,
             "height": 1600,
-            "alt": "Keşişleme Zeytin Karası Yeşil klasik hakiki deri cüzdan - ön görünüm el çekimi"
+            "alt": "Etezyen Zeytin Karası Yeşil klasik hakiki deri cüzdan - ön görünüm el çekimi"
           },
           {
-            "full": "/assets/products/elon-leather-kesisleme-zeytin-karasi-yesil-klasik-deri-cuzdan-2.webp",
-            "thumb": "/assets/products/elon-leather-kesisleme-zeytin-karasi-yesil-klasik-deri-cuzdan-2-600.webp",
+            "full": "/assets/products/elon-leather-etezyen-zeytin-karasi-yesil-klasik-deri-cuzdan-2.webp",
+            "thumb": "/assets/products/elon-leather-etezyen-zeytin-karasi-yesil-klasik-deri-cuzdan-2-600.webp",
             "width": 1066,
             "height": 1600,
-            "alt": "Keşişleme Zeytin Karası Yeşil klasik hakiki deri cüzdan - detaylı görünüm"
+            "alt": "Etezyen Zeytin Karası Yeşil klasik hakiki deri cüzdan - detaylı görünüm"
           },
           {
-            "full": "/assets/products/elon-leather-kesisleme-zeytin-karasi-yesil-klasik-deri-cuzdan-3.webp",
-            "thumb": "/assets/products/elon-leather-kesisleme-zeytin-karasi-yesil-klasik-deri-cuzdan-3-600.webp",
+            "full": "/assets/products/elon-leather-etezyen-zeytin-karasi-yesil-klasik-deri-cuzdan-3.webp",
+            "thumb": "/assets/products/elon-leather-etezyen-zeytin-karasi-yesil-klasik-deri-cuzdan-3-600.webp",
             "width": 1066,
             "height": 1600,
-            "alt": "Keşişleme Zeytin Karası Yeşil klasik hakiki deri cüzdan - açık iç tasarım ve kart bölmeleri"
+            "alt": "Etezyen Zeytin Karası Yeşil klasik hakiki deri cüzdan - açık iç tasarım ve kart bölmeleri"
           },
           {
-            "full": "/assets/products/elon-leather-kesisleme-zeytin-karasi-yesil-klasik-deri-cuzdan-4.webp",
-            "thumb": "/assets/products/elon-leather-kesisleme-zeytin-karasi-yesil-klasik-deri-cuzdan-4-600.webp",
+            "full": "/assets/products/elon-leather-etezyen-zeytin-karasi-yesil-klasik-deri-cuzdan-4.webp",
+            "thumb": "/assets/products/elon-leather-etezyen-zeytin-karasi-yesil-klasik-deri-cuzdan-4-600.webp",
             "width": 1066,
             "height": 1600,
-            "alt": "Keşişleme Zeytin Karası Yeşil klasik hakiki deri cüzdan - yan profil görünümü"
+            "alt": "Etezyen Zeytin Karası Yeşil klasik hakiki deri cüzdan - yan profil görünümü"
           }
         ],
         "inStock": true
@@ -777,12 +777,12 @@
     },
     "faq": [
       {
-        "question": "Keşişleme cüzdan mıknatıslı mıdır?",
-        "answer": "Hayır, Keşişleme klasik katlanır cüzdan ve kartlık yapısına sahip geleneksel bir modeldir."
+        "question": "Etezyen cüzdan mıknatıslı mıdır?",
+        "answer": "Hayır, Etezyen klasik katlanır cüzdan ve kartlık yapısına sahip geleneksel bir modeldir."
       },
       {
         "question": "Hangi renklerde üretiliyor?",
-        "answer": "Keşişleme cüzdan Taba (Kahverengi), Siyah ve Zeytin Karası Yeşil renk seçeneklerine sahiptir."
+        "answer": "Etezyen cüzdan Taba (Kahverengi), Siyah ve Zeytin Karası Yeşil renk seçeneklerine sahiptir."
       },
       {
         "question": "İsim baskısı ücretsiz mi?",
@@ -795,8 +795,8 @@
       "seyir-deri-ajanda-kilifi"
     ],
     "seo": {
-      "title": "Keşişleme Klasik El Yapımı Deri Cüzdan | Elon Leather",
-      "metaDescription": "Keşişleme el yapımı klasik hakiki deri cüzdan ve kartlık. Zamansız tasarım, 3 farklı renk seçeneği ve ücretsiz isim yazdırma ile şimdi hemen inceleyin."
+      "title": "Etezyen Klasik El Yapımı Deri Cüzdan | Elon Leather",
+      "metaDescription": "Etezyen el yapımı klasik hakiki deri cüzdan ve kartlık. Zamansız tasarım, 3 farklı renk seçeneği ve ücretsiz isim yazdırma ile şimdi hemen inceleyin."
     }
   },
   {
@@ -1115,7 +1115,7 @@
       }
     ],
     "relatedProducts": [
-      "kesisleme-klasik-deri-cuzdan",
+      "etezyen-klasik-deri-cuzdan",
       "esinti-ince-deri-kartlik",
       "lodos-miknatisli-deri-cuzdan"
     ],
@@ -1256,7 +1256,7 @@
     ],
     "relatedProducts": [
       "garbi-mandalli-deri-cuzdan",
-      "kesisleme-klasik-deri-cuzdan",
+      "etezyen-klasik-deri-cuzdan",
       "halat-deri-bileklik"
     ],
     "seo": {
@@ -2159,7 +2159,7 @@
     "relatedProducts": [
       "capa-deri-anahtarlik",
       "efes-deri-el-cantasi",
-      "kesisleme-klasik-deri-cuzdan"
+      "etezyen-klasik-deri-cuzdan"
     ],
     "seo": {
       "title": "Seyir Elit Deri Ajanda Kılıfı | Elon Leather",

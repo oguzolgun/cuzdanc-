@@ -675,7 +675,7 @@ function EmbossingStudio() {
 const FEATURED_MODEL_SLUGS = [
   'lodos-pro-miknatisli-deri-cuzdan',
   'lodos-miknatisli-deri-cuzdan',
-  'kesisleme-klasik-deri-cuzdan',
+  'etezyen-klasik-deri-cuzdan',
   'esinti-ince-deri-kartlik',
   'efes-deri-el-cantasi',
   'assos-deri-omuz-cantasi',
