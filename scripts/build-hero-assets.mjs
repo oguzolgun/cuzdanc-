@@ -318,6 +318,60 @@ function fillMaskHoles(mask, xMin, xMax, yMin, yMax) {
   return out
 }
 
+function extractLargestUpperComponent(mask, xMin, xMax, yMin, yMax) {
+  const visited = new Uint8Array(W * H)
+  let bestComp = []
+  const queue = new Int32Array(W * H)
+
+  for (let y = yMin; y <= Math.min(yMax, 310); y++) {
+    for (let x = xMin; x <= xMax; x++) {
+      const startP = y * W + x
+      if (visited[startP] || mask[startP] <= 0.35) continue
+      let head = 0
+      let tail = 0
+      queue[tail++] = startP
+      visited[startP] = 1
+      const comp = []
+
+      while (head < tail) {
+        const p = queue[head++]
+        comp.push(p)
+        const px = p % W
+        const py = (p - px) / W
+        const neighbors = [
+          px > xMin ? p - 1 : -1,
+          px < xMax ? p + 1 : -1,
+          py > yMin ? p - W : -1,
+          py < yMax ? p + W : -1,
+        ]
+        for (const np of neighbors) {
+          if (np >= 0 && !visited[np] && mask[np] > 0.25) {
+            visited[np] = 1
+            queue[tail++] = np
+          }
+        }
+      }
+
+      if (comp.length > bestComp.length) {
+        bestComp = comp
+      }
+    }
+  }
+
+  const out = new Float32Array(W * H)
+  for (const p of bestComp) {
+    out[p] = mask[p]
+  }
+  return out
+}
+
+const openRois = [
+  { x0: 210, x1: 685, y0: 120, y1: 445 }, // o1: Lodos Pro
+  { x0: 380, x1: 905, y0: 75, y1: 445 },  // o2: Lodos
+  { x0: 475, x1: 915, y0: 135, y1: 472 }, // o3: Garbi
+  { x0: 410, x1: 925, y0: 100, y1: 455 }, // o4: Etezyen
+]
+
 const openFrames = 36 // 1.2s @ 30fps
 const tmpRgb = [0, 0, 0]
 
@@ -326,17 +380,16 @@ for (let idx = 0; idx < 4; idx++) {
   console.log(`3.${num} Synthesizing seamless solid lift open_${num} & close_${num}...`)
   const targetBuf = bufOpen[idx]
   const sb = slotBounds[idx]
+  const roi = openRois[idx]
   const closedMask = slotMasks[idx]
   const closedBounds = getMaskBounds(closedMask, sb.x0, sb.x1 - 1, 240, trayLipY)
 
-  // Build open floating wallet mask:
-  // Inside slot `idx` (sb.x0..sb.x1), compare o_i against bufEmpty (empty slot!) so overlapping wallet corners are preserved!
-  // Outside slot `idx`, compare o_i against bufS0.
+  // Build open floating wallet mask within tight ROI
   const openMaskRaw = new Float32Array(W * H)
-  const regionY0 = 25
-  const regionY1 = 472
-  const regionX0 = 80
-  const regionX1 = 1020
+  const regionY0 = roi.y0
+  const regionY1 = roi.y1
+  const regionX0 = roi.x0
+  const regionX1 = roi.x1
 
   for (let y = regionY0; y <= regionY1; y++) {
     for (let x = regionX0; x <= regionX1; x++) {
@@ -347,12 +400,15 @@ for (let idx = 0; idx < 4; idx++) {
         Math.abs(targetBuf[i3] - refBuf[i3]) +
         Math.abs(targetBuf[i3 + 1] - refBuf[i3 + 1]) +
         Math.abs(targetBuf[i3 + 2] - refBuf[i3 + 2])
-      if (diff > 24) {
-        openMaskRaw[p] = Math.min(1, (diff - 24) / 36)
+      if (diff > 30) {
+        openMaskRaw[p] = Math.min(1, (diff - 30) / 38)
       }
     }
   }
-  const openMaskClosed = fillMaskHoles(openMaskRaw, regionX0, regionX1, regionY0, regionY1)
+  // Keep ONLY the single connected floating wallet component (eliminates stray pixels on other wallets/lights)
+  const openMaskSingle = extractLargestUpperComponent(openMaskRaw, regionX0, regionX1, regionY0, regionY1)
+  const compBounds = getMaskBounds(openMaskSingle, regionX0, regionX1, regionY0, regionY1)
+  const openMaskClosed = fillMaskHoles(openMaskSingle, compBounds.x0, compBounds.x1, compBounds.y0, compBounds.y1)
   const openMask = dilateMask(openMaskClosed, 2)
   const openBounds = getMaskBounds(openMask, regionX0, regionX1, regionY0, regionY1)
 
