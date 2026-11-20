@@ -521,7 +521,6 @@ export function AppleHero({ onAddToCart: _onAddToCart }: AppleHeroProps) {
                         ) {
                           syncRefs('OPEN', idx, null)
                           setShowCard(true)
-                          setVisibleClip(null)
                         }
                       }}
                     >
@@ -538,11 +537,11 @@ export function AppleHero({ onAddToCart: _onAddToCart }: AppleHeroProps) {
                       preload="none"
                       className={`hero-video-layer ${visibleClip === `close_${idx}` ? 'is-visible' : ''}`}
                       onEnded={() => {
-                        setVisibleClip(null)
                         const nextTarget = stateRef.current.targetWallet
                         if (nextTarget !== null) {
                           playOpenClip(nextTarget, 0, 1.2)
                         } else {
+                          setVisibleClip(null)
                           syncRefs('IDLE', null, null)
                         }
                       }}

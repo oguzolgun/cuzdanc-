@@ -332,7 +332,23 @@ for (let idx = 0; idx < 4; idx++) {
     }
   }
 
+  // Build exact final open frame: 100% locked emptySlotBg + openSprite (zero background drift)
+  const finalOpenFrame = Buffer.from(emptySlotBg)
+  for (let y = 40; y <= 465; y++) {
+    for (let x = 100; x <= 980; x++) {
+      const p = y * W + x
+      const a = openMask[p]
+      if (a > 0.01) {
+        const i3 = p * 3
+        finalOpenFrame[i3] = Math.round(finalOpenFrame[i3] * (1 - a) + targetBuf[i3] * a)
+        finalOpenFrame[i3 + 1] = Math.round(finalOpenFrame[i3 + 1] * (1 - a) + targetBuf[i3 + 1] * a)
+        finalOpenFrame[i3 + 2] = Math.round(finalOpenFrame[i3 + 2] * (1 - a) + targetBuf[i3 + 2] * a)
+      }
+    }
+  }
+
   const clipBuf = Buffer.alloc(openFrames * frameSize)
+  const splitU = 0.44
 
   for (let f = 0; f < openFrames; f++) {
     const dst = clipBuf.subarray(f * frameSize, (f + 1) * frameSize)
@@ -341,43 +357,26 @@ for (let idx = 0; idx < 4; idx++) {
       continue
     }
     if (f >= openFrames - 3) {
-      targetBuf.copy(dst)
+      finalOpenFrame.copy(dst)
       continue
     }
 
     const u = (f - 2) / (openFrames - 5) // 0..1
 
-    // Start with locked background (and gently align residual background near the very end so final frame is seamless)
-    if (u <= 0.72) {
-      emptySlotBg.copy(dst)
-    } else {
-      const bgBlend = easeInOutCubic((u - 0.72) / 0.28)
-      for (let p = 0; p < W * H; p++) {
-        const i3 = p * 3
-        // Outside openMask, smoothly settle any subtle lighting difference into targetBuf
-        const m = openMask[p]
-        const k = bgBlend * (1 - m)
-        dst[i3] = Math.round(emptySlotBg[i3] * (1 - k) + targetBuf[i3] * k)
-        dst[i3 + 1] = Math.round(emptySlotBg[i3 + 1] * (1 - k) + targetBuf[i3 + 1] * k)
-        dst[i3 + 2] = Math.round(emptySlotBg[i3 + 2] * (1 - k) + targetBuf[i3 + 2] * k)
-      }
-    }
+    // 100% locked background (other 3 wallets & tray never move or fade)
+    emptySlotBg.copy(dst)
 
-    // Motion phases:
-    // Closed wallet lifts from (closedBounds.cx, closedBounds.cy) toward (openBounds.cx, openBounds.cy)
-    // Scale 1.0 -> 1.38 during u = 0..0.52
-    // Open wallet enters at u = 0.34..0.56 (fast 0.22 window, ~6 frames) scaling 0.76 -> 1.0 and settling at u = 0.56..1.0
-    const liftT = easeInOutCubic(Math.min(1, u / 0.52))
-    const closedOpacity = u < 0.34 ? 1 : u > 0.56 ? 0 : 1 - easeInOutCubic((u - 0.34) / 0.22)
-    const openOpacity = u < 0.34 ? 0 : u > 0.56 ? 1 : easeInOutCubic((u - 0.34) / 0.22)
-
-    // Draw closed sprite if visible
-    if (closedOpacity > 0.01) {
-      const curScale = 1 + 0.38 * liftT
-      const curCx = closedBounds.cx + (openBounds.cx - closedBounds.cx) * liftT
-      const curCy = closedBounds.cy + (openBounds.cy - closedBounds.cy) * liftT - Math.sin(liftT * Math.PI) * 18
-      const halfW = ((closedBounds.x1 - closedBounds.x0) / 2) * curScale + 4
-      const halfH = ((closedBounds.y1 - closedBounds.y0) / 2) * curScale + 4
+    if (u <= splitU) {
+      // Phase 1: Closed wallet lifts out of slot, scales up, and turns edge-on (scaleX -> 0.14)
+      const p = easeInOutCubic(u / splitU)
+      const scaleY = 1 + 0.36 * p
+      const scaleX = scaleY * (1 - 0.86 * Math.pow(p, 1.35))
+      const midCx = closedBounds.cx + (openBounds.cx - closedBounds.cx) * 0.62
+      const midCy = closedBounds.cy + (openBounds.cy - closedBounds.cy) * 0.68
+      const curCx = closedBounds.cx + (midCx - closedBounds.cx) * p
+      const curCy = closedBounds.cy + (midCy - closedBounds.cy) * p - Math.sin(p * Math.PI) * 14
+      const halfW = ((closedBounds.x1 - closedBounds.x0) / 2) * scaleX + 4
+      const halfH = ((closedBounds.y1 - closedBounds.y0) / 2) * scaleY + 4
 
       const minX = Math.max(0, Math.floor(curCx - halfW))
       const maxX = Math.min(W - 1, Math.ceil(curCx + halfW))
@@ -385,14 +384,13 @@ for (let idx = 0; idx < 4; idx++) {
       const maxY = Math.min(H - 1, Math.ceil(curCy + halfH))
 
       for (let y = minY; y <= maxY; y++) {
-        // Clip behind the front tray lip only at the very start of lift
-        if (liftT < 0.22 && y > trayLipY) continue
-        const sy = (y - curCy) / curScale + closedBounds.cy
+        if (p < 0.28 && y > trayLipY) continue
+        const sy = (y - curCy) / scaleY + closedBounds.cy
         if (sy < closedBounds.y0 || sy > closedBounds.y1) continue
         for (let x = minX; x <= maxX; x++) {
-          const sx = (x - curCx) / curScale + closedBounds.cx
+          const sx = (x - curCx) / scaleX + closedBounds.cx
           if (sx < closedBounds.x0 || sx > closedBounds.x1) continue
-          const a = sampleSpriteBilinear(bufS0, closedMask, sx, sy, tmpRgb) * closedOpacity
+          const a = sampleSpriteBilinear(bufS0, closedMask, sx, sy, tmpRgb)
           if (a > 0.01) {
             const i3 = (y * W + x) * 3
             dst[i3] = Math.round(dst[i3] * (1 - a) + tmpRgb[0] * a)
@@ -401,18 +399,17 @@ for (let idx = 0; idx < 4; idx++) {
           }
         }
       }
-    }
-
-    // Draw open sprite if visible
-    if (openOpacity > 0.01) {
-      const settleT = u <= 0.34 ? 0 : easeOutCubic(Math.min(1, (u - 0.34) / 0.66))
-      const curScale = 0.76 + 0.24 * settleT
-      const startCx = closedBounds.cx + (openBounds.cx - closedBounds.cx) * 0.75
-      const startCy = closedBounds.cy + (openBounds.cy - closedBounds.cy) * 0.75
-      const curCx = startCx + (openBounds.cx - startCx) * settleT
-      const curCy = startCy + (openBounds.cy - startCy) * settleT
-      const halfW = ((openBounds.x1 - openBounds.x0) / 2) * curScale + 4
-      const halfH = ((openBounds.y1 - openBounds.y0) / 2) * curScale + 4
+    } else {
+      // Phase 2: Open wallet unfolds like a book (scaleX 0.14 -> 1.0) & settles cleanly
+      const q = easeOutCubic((u - splitU) / (1 - splitU))
+      const scaleY = 0.88 + 0.12 * q
+      const scaleX = 0.14 + 0.86 * q
+      const midCx = closedBounds.cx + (openBounds.cx - closedBounds.cx) * 0.62
+      const midCy = closedBounds.cy + (openBounds.cy - closedBounds.cy) * 0.68
+      const curCx = midCx + (openBounds.cx - midCx) * q
+      const curCy = midCy + (openBounds.cy - midCy) * q
+      const halfW = ((openBounds.x1 - openBounds.x0) / 2) * scaleX + 4
+      const halfH = ((openBounds.y1 - openBounds.y0) / 2) * scaleY + 4
 
       const minX = Math.max(0, Math.floor(curCx - halfW))
       const maxX = Math.min(W - 1, Math.ceil(curCx + halfW))
@@ -420,12 +417,12 @@ for (let idx = 0; idx < 4; idx++) {
       const maxY = Math.min(H - 1, Math.ceil(curCy + halfH))
 
       for (let y = minY; y <= maxY; y++) {
-        const sy = (y - curCy) / curScale + openBounds.cy
+        const sy = (y - curCy) / scaleY + openBounds.cy
         if (sy < openBounds.y0 || sy > openBounds.y1) continue
         for (let x = minX; x <= maxX; x++) {
-          const sx = (x - curCx) / curScale + openBounds.cx
+          const sx = (x - curCx) / scaleX + openBounds.cx
           if (sx < openBounds.x0 || sx > openBounds.x1) continue
-          const a = sampleSpriteBilinear(targetBuf, openMask, sx, sy, tmpRgb) * openOpacity
+          const a = sampleSpriteBilinear(targetBuf, openMask, sx, sy, tmpRgb)
           if (a > 0.01) {
             const i3 = (y * W + x) * 3
             dst[i3] = Math.round(dst[i3] * (1 - a) + tmpRgb[0] * a)
@@ -453,15 +450,26 @@ for (let idx = 0; idx < 4; idx++) {
   ssimResults.open.push({ wallet: num, startVsS0: ssimStart, endVsOi: ssimEnd })
 }
 
-// 4. Export WebP posters
+// 4. Export WebP posters (o1..o4 from exact last frame of open_i.mp4 so poster === video end frame)
 console.log('4. Exporting WebP posters...')
-for (const name of ['s0', 's_empty', 'o1', 'o2', 'o3', 'o4']) {
+for (const name of ['s0', 's_empty']) {
   spawnSync(FFMPEG, [
     '-y',
     '-i', path.join(SRC_DIR, `${name}.png`),
     '-c:v', 'libwebp',
     '-quality', name === 's0' ? '85' : '82',
     path.join(OUT_DIR, `${name}.webp`),
+  ])
+}
+for (let i = 1; i <= 4; i++) {
+  spawnSync(FFMPEG, [
+    '-y',
+    '-sseof', '-0.05',
+    '-i', path.join(OUT_DIR, `open_${i}.mp4`),
+    '-frames:v', '1',
+    '-c:v', 'libwebp',
+    '-quality', '84',
+    path.join(OUT_DIR, `o${i}.webp`),
   ])
 }
 

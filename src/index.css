@@ -1568,9 +1568,10 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 .category-card {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-  min-height: 122px;
-  border-radius: 14px;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  height: 118px;
+  min-height: 118px;
+  border-radius: 13px;
   overflow: hidden;
   background: linear-gradient(135deg, #ffffff 0%, #f5efe4 100%);
   border: 1px solid rgba(27, 23, 20, 0.08);
@@ -1636,6 +1637,7 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 
 .category-card-media {
   position: relative;
+  height: 100%;
   overflow: hidden;
   background: #ede5d8;
 }
