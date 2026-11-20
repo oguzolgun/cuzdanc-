@@ -372,7 +372,7 @@ const openRois = [
   { x0: 410, x1: 925, y0: 100, y1: 455 }, // o4: Etezyen
 ]
 
-const openFrames = 36 // 1.2s @ 30fps
+const openFrames = 26 // 0.87s @ 30fps — crisp snappy lift & flick-open
 const tmpRgb = [0, 0, 0]
 
 for (let idx = 0; idx < 4; idx++) {
@@ -466,12 +466,12 @@ for (let idx = 0; idx < 4; idx++) {
     const curCx = closedBounds.cx + (openBounds.cx - closedBounds.cx) * moveT
     const curCy = closedBounds.cy + (openBounds.cy - closedBounds.cy) * moveT - Math.sin(moveT * Math.PI) * 18
 
-    // Closed wallet lifts out (0..0.60), open wallet unfolds in-place along the same arc (0.28..1.0)
-    const closedAlpha = u < 0.28 ? 1 : u > 0.62 ? 0 : 1 - easeInOutCubic((u - 0.28) / 0.34)
-    const openAlpha = u < 0.28 ? 0 : u > 0.62 ? 1 : easeInOutCubic((u - 0.28) / 0.34)
+    // Closed wallet lifts out 100% opaque (0..0.34), fast 3-frame flick-open (0.34..0.48), open wallet settles 100% opaque (0.48..1.0)
+    const closedAlpha = u < 0.34 ? 1 : u > 0.48 ? 0 : 1 - easeInOutCubic((u - 0.34) / 0.14)
+    const openAlpha = u < 0.34 ? 0 : u > 0.48 ? 1 : easeInOutCubic((u - 0.34) / 0.14)
 
     if (closedAlpha > 0.01) {
-      const scaleClosed = 1 + 0.32 * moveT
+      const scaleClosed = 1 + 0.24 * Math.min(1, u / 0.48)
       const halfW = ((closedBounds.x1 - closedBounds.x0) / 2) * scaleClosed + 4
       const halfH = ((closedBounds.y1 - closedBounds.y0) / 2) * scaleClosed + 4
       const minX = Math.max(0, Math.floor(curCx - halfW))
@@ -480,7 +480,7 @@ for (let idx = 0; idx < 4; idx++) {
       const maxY = Math.min(H - 1, Math.ceil(curCy + halfH))
 
       for (let y = minY; y <= maxY; y++) {
-        if (moveT < 0.24 && y > trayLipY) continue
+        if (moveT < 0.22 && y > trayLipY) continue
         const sy = (y - curCy) / scaleClosed + closedBounds.cy
         if (sy < closedBounds.y0 || sy > closedBounds.y1) continue
         for (let x = minX; x <= maxX; x++) {
@@ -498,9 +498,9 @@ for (let idx = 0; idx < 4; idx++) {
     }
 
     if (openAlpha > 0.01) {
-      const openGrow = u <= 0.28 ? 0 : easeOutCubic(Math.min(1, (u - 0.28) / 0.72))
-      const scaleOpenY = 0.78 + 0.22 * openGrow
-      const scaleOpenX = 0.64 + 0.36 * openGrow
+      const openGrow = u <= 0.34 ? 0 : easeOutCubic(Math.min(1, (u - 0.34) / 0.66))
+      const scaleOpenY = 0.86 + 0.14 * openGrow
+      const scaleOpenX = 0.78 + 0.22 * openGrow
       const halfW = ((openBounds.x1 - openBounds.x0) / 2) * scaleOpenX + 4
       const halfH = ((openBounds.y1 - openBounds.y0) / 2) * scaleOpenY + 4
       const minX = Math.max(0, Math.floor(curCx - halfW))
