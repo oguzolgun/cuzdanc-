@@ -3959,3 +3959,175 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
     padding: 28px 18px 36px;
   }
 }
+
+/* ==========================================================================
+   REAL PRODUCT ATELIER SHOWCASE & CRAFT BAND CTAS
+   ========================================================================== */
+.atelier-real-showcase {
+  background: #221b10;
+  color: #f6f1e7;
+  padding: 84px 5vw;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.atelier-showcase-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.atelier-showcase-lead {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #c4b9af;
+  margin: 18px 0 28px;
+}
+
+.atelier-feature-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.atelier-feature-tab {
+  text-align: left;
+  padding: 18px 22px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f6f1e7;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.atelier-feature-tab:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(201, 138, 75, 0.4);
+}
+
+.atelier-feature-tab.is-active {
+  background: rgba(166, 86, 31, 0.18);
+  border-color: #c98a4b;
+}
+
+.atelier-tab-kicker {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #df9e62;
+  margin-bottom: 4px;
+}
+
+.atelier-feature-tab strong {
+  display: block;
+  font-family: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.atelier-feature-tab p {
+  margin: 8px 0 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #c4b9af;
+}
+
+.atelier-showcase-ctas {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.atelier-showcase-media {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: #17120b;
+  border: 1px solid rgba(201, 138, 75, 0.22);
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.55);
+}
+
+.atelier-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.craft-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.craft-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.craft-cta-primary:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.craft-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(246, 241, 231, 0.45);
+  color: var(--cream);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.craft-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--cream);
+}
+
+.craft-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #e6ad73;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+  .atelier-real-showcase {
+    padding: 56px 18px;
+  }
+  .atelier-showcase-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .atelier-showcase-media {
+    aspect-ratio: 3 / 4;
+  }
+}

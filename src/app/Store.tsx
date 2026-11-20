@@ -778,10 +778,10 @@ export function HomePage() {
         </div>
         <div className="craft-band-image">
           <img
-            src="/assets/elon-craft-editorial.webp"
-            alt="El yapımı hakiki deri cüzdan taşıyan Elon Leather stil portresi"
-            width={990}
-            height={1080}
+            src="/assets/products/elon-leather-lodos-pro-taba-miknatisli-deri-cuzdan-3-yasam-tarzi.webp"
+            alt="Lodos Pro hakiki deri cüzdan günlük yaşam tarzı kullanımı"
+            width={1200}
+            height={1800}
             loading="lazy"
             decoding="async"
           />
@@ -801,9 +801,17 @@ export function HomePage() {
             <span>✓ Cüzdan, kartlık, pasaportluk, çanta ve küçük deri aksesuar seçkisi</span>
             <span>✓ İsteğe bağlı sıcak gofraj isim baskısı (Lodos Pro’da ek logo ve görsel)</span>
           </div>
-          <Link to="/hikayemiz/">
-            Hikâyemizi &amp; Zanaatımızı Keşfedin <Icon name="arrow" />
-          </Link>
+          <div className="craft-cta-group">
+            <Link to="/kategoriler/" className="craft-cta-primary">
+              Koleksiyonu Keşfet <Icon name="arrow" />
+            </Link>
+            <Link to="/urun/lodos-pro-miknatisli-deri-cuzdan/" className="craft-cta-secondary">
+              Lodos Pro&apos;yu İncele
+            </Link>
+            <Link to="/hikayemiz/" className="craft-cta-link">
+              Hikâyemiz <Icon name="arrow" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -1462,10 +1470,6 @@ export function ProductPage() {
           </p>
         </section>
       </div>
-
-      {product.slug === 'lodos-pro-miknatisli-deri-cuzdan' && (
-        <Magnetic3DShowcase isPdp />
-      )}
 
       {/* Below-Fold Deep SEO & Product Specs Architecture */}
       <section className="product-deep-sections">
