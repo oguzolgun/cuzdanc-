@@ -1,0 +1,141 @@
+{
+  "edgeColor": "#fdf7e3",
+  "autoOpenFirst": true,
+  "durations": {
+    "intro": 2,
+    "open": [
+      1.13,
+      1.13,
+      1.13,
+      1.13
+    ],
+    "close": [
+      1.13,
+      1.13,
+      1.13,
+      1.13
+    ]
+  },
+  "posters": {
+    "s0": "/assets/hero/s0.webp",
+    "sEmpty": "/assets/hero/s_empty.webp",
+    "open": [
+      "/assets/hero/o1.webp",
+      "/assets/hero/o2.webp",
+      "/assets/hero/o3.webp",
+      "/assets/hero/o4.webp"
+    ]
+  },
+  "clips": {
+    "intro": {
+      "mp4": "/assets/hero/intro.mp4",
+      "webm": "/assets/hero/intro.webm"
+    },
+    "open": [
+      {
+        "mp4": "/assets/hero/open_1.mp4",
+        "webm": "/assets/hero/open_1.webm"
+      },
+      {
+        "mp4": "/assets/hero/open_2.mp4",
+        "webm": "/assets/hero/open_2.webm"
+      },
+      {
+        "mp4": "/assets/hero/open_3.mp4",
+        "webm": "/assets/hero/open_3.webm"
+      },
+      {
+        "mp4": "/assets/hero/open_4.mp4",
+        "webm": "/assets/hero/open_4.webm"
+      }
+    ],
+    "close": [
+      {
+        "mp4": "/assets/hero/close_1.mp4",
+        "webm": "/assets/hero/close_1.webm"
+      },
+      {
+        "mp4": "/assets/hero/close_2.mp4",
+        "webm": "/assets/hero/close_2.webm"
+      },
+      {
+        "mp4": "/assets/hero/close_3.mp4",
+        "webm": "/assets/hero/close_3.webm"
+      },
+      {
+        "mp4": "/assets/hero/close_4.mp4",
+        "webm": "/assets/hero/close_4.webm"
+      }
+    ]
+  },
+  "products": [
+    {
+      "index": 0,
+      "id": "lodos-pro",
+      "slug": "lodos-pro-miknatisli-deri-cuzdan",
+      "tabLabel": "01 Lodos Pro",
+      "name": "Lodos Pro",
+      "categoryLabel": "MIKNATISLI DERİ CÜZDAN",
+      "price": "1.600 TL",
+      "colorCount": 3,
+      "url": "/urun/lodos-pro-miknatisli-deri-cuzdan/",
+      "hotspot": {
+        "x": 11.2,
+        "y": 35.8,
+        "w": 19,
+        "h": 40.5
+      }
+    },
+    {
+      "index": 1,
+      "id": "lodos",
+      "slug": "lodos-miknatisli-deri-cuzdan",
+      "tabLabel": "02 Lodos",
+      "name": "Lodos",
+      "categoryLabel": "MIKNATISLI DERİ CÜZDAN",
+      "price": "1.500 TL",
+      "colorCount": 5,
+      "url": "/urun/lodos-miknatisli-deri-cuzdan/",
+      "hotspot": {
+        "x": 32,
+        "y": 36,
+        "w": 18,
+        "h": 40.2
+      }
+    },
+    {
+      "index": 2,
+      "id": "garbi",
+      "slug": "garbi-mandalli-deri-cuzdan",
+      "tabLabel": "03 Garbi",
+      "name": "Garbi",
+      "categoryLabel": "KLASİK DERİ CÜZDAN",
+      "price": "1.400 TL",
+      "colorCount": 4,
+      "url": "/urun/garbi-mandalli-deri-cuzdan/",
+      "hotspot": {
+        "x": 52,
+        "y": 36.8,
+        "w": 17.8,
+        "h": 39.5
+      }
+    },
+    {
+      "index": 3,
+      "id": "kesisleme",
+      "slug": "kesisleme-klasik-deri-cuzdan",
+      "tabLabel": "04 Keşişleme",
+      "name": "Keşişleme",
+      "categoryLabel": "KLASİK DERİ CÜZDAN",
+      "price": "1.499 TL",
+      "colorCount": 3,
+      "url": "/urun/kesisleme-klasik-deri-cuzdan/",
+      "hotspot": {
+        "x": 71.5,
+        "y": 38,
+        "w": 18.5,
+        "h": 38.2
+      }
+    }
+  ]
+}

@@ -79,12 +79,7 @@ export function buildHomeSeo(
     ogDescription: config.seoHome.metaDescription,
     ogImage: absUrl(config.siteUrl, config.defaultOgImage),
     ogLocale: config.locale,
-    preloadImages: firstHeroImage
-      ? [
-          { href: firstHeroImage.thumb, media: '(max-width: 768px)' },
-          { href: firstHeroImage.full, media: '(min-width: 769px)' },
-        ]
-      : [],
+    preloadImages: [{ href: '/assets/hero/s0.webp' }],
     jsonLd: [orgSchema, websiteSchema],
   }
 }
