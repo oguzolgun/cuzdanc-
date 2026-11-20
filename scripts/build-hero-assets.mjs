@@ -285,36 +285,76 @@ function dilateMask(mask, radius) {
   return out
 }
 
-const openFrames = 32 // ~1.07s @ 30fps
+function fillMaskHoles(mask, xMin, xMax, yMin, yMax) {
+  const out = new Float32Array(mask)
+  // Horizontal scanline fill: between leftmost and rightmost >0.65 pixel per row (only fill interior gaps <= 80px)
+  for (let y = yMin; y <= yMax; y++) {
+    let lastX = -1
+    for (let x = xMin; x <= xMax; x++) {
+      if (out[y * W + x] > 0.65) {
+        if (lastX >= 0 && x - lastX > 1 && x - lastX <= 95) {
+          for (let fx = lastX + 1; fx < x; fx++) {
+            out[y * W + fx] = 1
+          }
+        }
+        lastX = x
+      }
+    }
+  }
+  // Vertical scanline fill for any remaining small interior pockets
+  for (let x = xMin; x <= xMax; x++) {
+    let lastY = -1
+    for (let y = yMin; y <= yMax; y++) {
+      if (out[y * W + x] > 0.65) {
+        if (lastY >= 0 && y - lastY > 1 && y - lastY <= 95) {
+          for (let fy = lastY + 1; fy < y; fy++) {
+            out[fy * W + x] = 1
+          }
+        }
+        lastY = y
+      }
+    }
+  }
+  return out
+}
+
+const openFrames = 36 // 1.2s @ 30fps
 const tmpRgb = [0, 0, 0]
 
 for (let idx = 0; idx < 4; idx++) {
   const num = idx + 1
-  console.log(`3.${num} Synthesizing realistic lift open_${num} & close_${num}...`)
+  console.log(`3.${num} Synthesizing seamless solid lift open_${num} & close_${num}...`)
   const targetBuf = bufOpen[idx]
   const sb = slotBounds[idx]
   const closedMask = slotMasks[idx]
   const closedBounds = getMaskBounds(closedMask, sb.x0, sb.x1 - 1, 240, trayLipY)
 
-  // Build open floating wallet mask by comparing o_i vs s0 in the upper floating region
+  // Build open floating wallet mask:
+  // Inside slot `idx` (sb.x0..sb.x1), compare o_i against bufEmpty (empty slot!) so overlapping wallet corners are preserved!
+  // Outside slot `idx`, compare o_i against bufS0.
   const openMaskRaw = new Float32Array(W * H)
-  for (let y = 40; y <= 465; y++) {
-    for (let x = 100; x <= 980; x++) {
-      // Ignore the wallet's own slot area if it overlaps slightly at bottom
-      if (y > 395 && x >= sb.x0 && x < sb.x1) continue
+  const regionY0 = 25
+  const regionY1 = 472
+  const regionX0 = 80
+  const regionX1 = 1020
+
+  for (let y = regionY0; y <= regionY1; y++) {
+    for (let x = regionX0; x <= regionX1; x++) {
       const p = y * W + x
       const i3 = p * 3
-      const diffS0 =
-        Math.abs(targetBuf[i3] - bufS0[i3]) +
-        Math.abs(targetBuf[i3 + 1] - bufS0[i3 + 1]) +
-        Math.abs(targetBuf[i3 + 2] - bufS0[i3 + 2])
-      if (diffS0 > 38) {
-        openMaskRaw[p] = Math.min(1, (diffS0 - 38) / 45)
+      const refBuf = (x >= sb.x0 && x < sb.x1 && y >= 240) ? bufEmpty : bufS0
+      const diff =
+        Math.abs(targetBuf[i3] - refBuf[i3]) +
+        Math.abs(targetBuf[i3 + 1] - refBuf[i3 + 1]) +
+        Math.abs(targetBuf[i3 + 2] - refBuf[i3 + 2])
+      if (diff > 24) {
+        openMaskRaw[p] = Math.min(1, (diff - 24) / 36)
       }
     }
   }
-  const openMask = dilateMask(openMaskRaw, 2)
-  const openBounds = getMaskBounds(openMask, 100, 980, 40, 465)
+  const openMaskClosed = fillMaskHoles(openMaskRaw, regionX0, regionX1, regionY0, regionY1)
+  const openMask = dilateMask(openMaskClosed, 2)
+  const openBounds = getMaskBounds(openMask, regionX0, regionX1, regionY0, regionY1)
 
   // Locked background: s0 with slot `idx` cleanly emptied using s_empty
   const emptySlotBg = Buffer.from(bufS0)
@@ -332,10 +372,10 @@ for (let idx = 0; idx < 4; idx++) {
     }
   }
 
-  // Build exact final open frame: 100% locked emptySlotBg + openSprite (zero background drift)
+  // Build exact final open frame: 100% locked emptySlotBg + solid openSprite
   const finalOpenFrame = Buffer.from(emptySlotBg)
-  for (let y = 40; y <= 465; y++) {
-    for (let x = 100; x <= 980; x++) {
+  for (let y = regionY0; y <= regionY1; y++) {
+    for (let x = regionX0; x <= regionX1; x++) {
       const p = y * W + x
       const a = openMask[p]
       if (a > 0.01) {
@@ -348,7 +388,6 @@ for (let idx = 0; idx < 4; idx++) {
   }
 
   const clipBuf = Buffer.alloc(openFrames * frameSize)
-  const splitU = 0.44
 
   for (let f = 0; f < openFrames; f++) {
     const dst = clipBuf.subarray(f * frameSize, (f + 1) * frameSize)
@@ -366,31 +405,32 @@ for (let idx = 0; idx < 4; idx++) {
     // 100% locked background (other 3 wallets & tray never move or fade)
     emptySlotBg.copy(dst)
 
-    if (u <= splitU) {
-      // Phase 1: Closed wallet lifts out of slot, scales up, and turns edge-on (scaleX -> 0.14)
-      const p = easeInOutCubic(u / splitU)
-      const scaleY = 1 + 0.36 * p
-      const scaleX = scaleY * (1 - 0.86 * Math.pow(p, 1.35))
-      const midCx = closedBounds.cx + (openBounds.cx - closedBounds.cx) * 0.62
-      const midCy = closedBounds.cy + (openBounds.cy - closedBounds.cy) * 0.68
-      const curCx = closedBounds.cx + (midCx - closedBounds.cx) * p
-      const curCy = closedBounds.cy + (midCy - closedBounds.cy) * p - Math.sin(p * Math.PI) * 14
-      const halfW = ((closedBounds.x1 - closedBounds.x0) / 2) * scaleX + 4
-      const halfH = ((closedBounds.y1 - closedBounds.y0) / 2) * scaleY + 4
+    // Smooth continuous arc from closed slot center -> open floating center
+    const moveT = easeInOutCubic(u)
+    const curCx = closedBounds.cx + (openBounds.cx - closedBounds.cx) * moveT
+    const curCy = closedBounds.cy + (openBounds.cy - closedBounds.cy) * moveT - Math.sin(moveT * Math.PI) * 18
 
+    // Closed wallet lifts out (0..0.60), open wallet unfolds in-place along the same arc (0.28..1.0)
+    const closedAlpha = u < 0.28 ? 1 : u > 0.62 ? 0 : 1 - easeInOutCubic((u - 0.28) / 0.34)
+    const openAlpha = u < 0.28 ? 0 : u > 0.62 ? 1 : easeInOutCubic((u - 0.28) / 0.34)
+
+    if (closedAlpha > 0.01) {
+      const scaleClosed = 1 + 0.32 * moveT
+      const halfW = ((closedBounds.x1 - closedBounds.x0) / 2) * scaleClosed + 4
+      const halfH = ((closedBounds.y1 - closedBounds.y0) / 2) * scaleClosed + 4
       const minX = Math.max(0, Math.floor(curCx - halfW))
       const maxX = Math.min(W - 1, Math.ceil(curCx + halfW))
       const minY = Math.max(0, Math.floor(curCy - halfH))
       const maxY = Math.min(H - 1, Math.ceil(curCy + halfH))
 
       for (let y = minY; y <= maxY; y++) {
-        if (p < 0.28 && y > trayLipY) continue
-        const sy = (y - curCy) / scaleY + closedBounds.cy
+        if (moveT < 0.24 && y > trayLipY) continue
+        const sy = (y - curCy) / scaleClosed + closedBounds.cy
         if (sy < closedBounds.y0 || sy > closedBounds.y1) continue
         for (let x = minX; x <= maxX; x++) {
-          const sx = (x - curCx) / scaleX + closedBounds.cx
+          const sx = (x - curCx) / scaleClosed + closedBounds.cx
           if (sx < closedBounds.x0 || sx > closedBounds.x1) continue
-          const a = sampleSpriteBilinear(bufS0, closedMask, sx, sy, tmpRgb)
+          const a = sampleSpriteBilinear(bufS0, closedMask, sx, sy, tmpRgb) * closedAlpha
           if (a > 0.01) {
             const i3 = (y * W + x) * 3
             dst[i3] = Math.round(dst[i3] * (1 - a) + tmpRgb[0] * a)
@@ -399,30 +439,26 @@ for (let idx = 0; idx < 4; idx++) {
           }
         }
       }
-    } else {
-      // Phase 2: Open wallet unfolds like a book (scaleX 0.14 -> 1.0) & settles cleanly
-      const q = easeOutCubic((u - splitU) / (1 - splitU))
-      const scaleY = 0.88 + 0.12 * q
-      const scaleX = 0.14 + 0.86 * q
-      const midCx = closedBounds.cx + (openBounds.cx - closedBounds.cx) * 0.62
-      const midCy = closedBounds.cy + (openBounds.cy - closedBounds.cy) * 0.68
-      const curCx = midCx + (openBounds.cx - midCx) * q
-      const curCy = midCy + (openBounds.cy - midCy) * q
-      const halfW = ((openBounds.x1 - openBounds.x0) / 2) * scaleX + 4
-      const halfH = ((openBounds.y1 - openBounds.y0) / 2) * scaleY + 4
+    }
 
+    if (openAlpha > 0.01) {
+      const openGrow = u <= 0.28 ? 0 : easeOutCubic(Math.min(1, (u - 0.28) / 0.72))
+      const scaleOpenY = 0.78 + 0.22 * openGrow
+      const scaleOpenX = 0.64 + 0.36 * openGrow
+      const halfW = ((openBounds.x1 - openBounds.x0) / 2) * scaleOpenX + 4
+      const halfH = ((openBounds.y1 - openBounds.y0) / 2) * scaleOpenY + 4
       const minX = Math.max(0, Math.floor(curCx - halfW))
       const maxX = Math.min(W - 1, Math.ceil(curCx + halfW))
       const minY = Math.max(0, Math.floor(curCy - halfH))
       const maxY = Math.min(H - 1, Math.ceil(curCy + halfH))
 
       for (let y = minY; y <= maxY; y++) {
-        const sy = (y - curCy) / scaleY + openBounds.cy
+        const sy = (y - curCy) / scaleOpenY + openBounds.cy
         if (sy < openBounds.y0 || sy > openBounds.y1) continue
         for (let x = minX; x <= maxX; x++) {
-          const sx = (x - curCx) / scaleX + openBounds.cx
+          const sx = (x - curCx) / scaleOpenX + openBounds.cx
           if (sx < openBounds.x0 || sx > openBounds.x1) continue
-          const a = sampleSpriteBilinear(targetBuf, openMask, sx, sy, tmpRgb)
+          const a = sampleSpriteBilinear(targetBuf, openMask, sx, sy, tmpRgb) * openAlpha
           if (a > 0.01) {
             const i3 = (y * W + x) * 3
             dst[i3] = Math.round(dst[i3] * (1 - a) + tmpRgb[0] * a)

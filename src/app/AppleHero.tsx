@@ -575,9 +575,13 @@ export function AppleHero({ onAddToCart: _onAddToCart }: AppleHeroProps) {
                     aria-label={`${item.name} cüzdanını aç (${item.price})`}
                     onMouseEnter={() => preloadPair(idx)}
                     onFocus={() => preloadPair(idx)}
-                    onPointerDown={() => preloadPair(idx)}
+                    onPointerDown={(e) => {
+                      if (e.pointerType === 'mouse') e.preventDefault()
+                      preloadPair(idx)
+                    }}
                     onClick={(e) => {
                       e.stopPropagation()
+                      e.currentTarget.blur()
                       if (isDebugMode) return
                       handleSelectWallet(idx)
                     }}
