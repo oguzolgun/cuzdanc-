@@ -750,31 +750,23 @@ export function AppleHero({ onAddToCart: _onAddToCart }: AppleHeroProps) {
             <h2 className="apple-dock-title">Atölye Koleksiyonu · {products.length} Model</h2>
           </div>
           <div className="apple-dock-actions">
-            <div className="dock-scroll-arrows">
-              <button
-                type="button"
-                className="dock-arrow-btn"
-                onClick={() => scrollDock(-1)}
-                aria-label="Önceki modeller"
-              >
-                ‹
-              </button>
-              <button
-                type="button"
-                className="dock-arrow-btn"
-                onClick={() => scrollDock(1)}
-                aria-label="Sonraki modeller"
-              >
-                ›
-              </button>
-            </div>
             <Link to="/kategoriler/" className="apple-dock-all-link">
               Tüm Ürünleri Gör →
             </Link>
           </div>
         </div>
 
-        <div className="apple-dock-track" ref={dockRef}>
+        <div className="apple-dock-carousel">
+          <button
+            type="button"
+            className="dock-edge-arrow is-prev"
+            onClick={() => scrollDock(-1)}
+            aria-label="Önceki modeller"
+          >
+            ‹
+          </button>
+
+          <div className="apple-dock-track" ref={dockRef}>
           {dockProducts.map((prod) => {
             const thumb = prod.variants[0]?.images[0]?.thumb || prod.variants[0]?.images[0]?.full
             const price = getProductStartingPrice(prod)
@@ -804,6 +796,16 @@ export function AppleHero({ onAddToCart: _onAddToCart }: AppleHeroProps) {
               </Link>
             )
           })}
+          </div>
+
+          <button
+            type="button"
+            className="dock-edge-arrow is-next"
+            onClick={() => scrollDock(1)}
+            aria-label="Sonraki modeller"
+          >
+            ›
+          </button>
         </div>
       </div>
     </section>

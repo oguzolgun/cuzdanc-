@@ -983,36 +983,48 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   gap: 16px;
 }
 
-.dock-scroll-arrows {
+.apple-dock-carousel {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 6px;
 }
 
-.dock-arrow-btn {
-  width: 32px;
-  height: 32px;
+.dock-edge-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 1px solid rgba(27, 23, 20, 0.14);
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
   display: grid;
   place-items: center;
   cursor: pointer;
-  padding: 0;
+  padding: 0 0 2px;
+  box-shadow: 0 6px 18px rgba(27, 23, 20, 0.12);
   transition: all 0.18s ease;
 }
 
-.dock-arrow-btn svg {
-  width: 15px;
-  height: 15px;
-  stroke-width: 2.2;
+.dock-edge-arrow.is-prev {
+  left: -14px;
 }
 
-.dock-arrow-btn:hover {
+.dock-edge-arrow.is-next {
+  right: -14px;
+}
+
+.dock-edge-arrow:hover {
   background: var(--cognac);
   border-color: var(--cognac);
   color: #ffffff;
+  transform: translateY(-50%) scale(1.06);
 }
 
 .apple-dock-all-link {
@@ -1034,10 +1046,29 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   gap: 14px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 4px 2px 14px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(166, 86, 31, 0.28) transparent;
+  padding: 4px 12px 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.apple-dock-track::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .dock-edge-arrow.is-prev {
+    left: 2px;
+  }
+  .dock-edge-arrow.is-next {
+    right: 2px;
+  }
+  .dock-edge-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
 }
 
 .apple-dock-card {
@@ -1478,14 +1509,14 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 .studio-cta-wrap { margin-top: 10px; }
 .studio-note { margin-top: 12px; font-size: 12px; color: #574f48; }
 
-/* Compact Horizontal Category Cards Grid (3x3 Desktop / Swipe Strip Mobile) */
-.category-runway { padding: 72px 5vw; background: var(--cream); }
+/* Compact Horizontal Category Cards Grid (3x2 Desktop / Swipe Strip Mobile) */
+.category-runway { padding: 52px 5vw; background: var(--cream); }
 .category-runway-head {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 28px;
+  gap: 20px;
+  margin-bottom: 22px;
 }
 .category-runway-head .overline { margin-bottom: 10px; color: var(--cognac); }
 .category-runway h2, .split-heading h2, .product-story h2 {
@@ -1531,15 +1562,15 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 .category-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 12px;
 }
 
 .category-card {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  min-height: 168px;
-  border-radius: 16px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  min-height: 122px;
+  border-radius: 14px;
   overflow: hidden;
   background: linear-gradient(135deg, #ffffff 0%, #f5efe4 100%);
   border: 1px solid rgba(27, 23, 20, 0.08);
@@ -1547,9 +1578,9 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 }
 
 .category-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: rgba(166, 86, 31, 0.36);
-  box-shadow: 0 16px 34px rgba(29, 24, 18, 0.08);
+  box-shadow: 0 12px 26px rgba(29, 24, 18, 0.08);
 }
 
 .category-card-body {
@@ -1558,21 +1589,21 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 16px;
-  padding: 22px 14px 22px 24px;
+  gap: 10px;
+  padding: 14px 10px 14px 18px;
 }
 
 .category-card-body h3 {
   font-family: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
-  font-size: clamp(22px, 1.75vw, 27px);
+  font-size: clamp(18px, 1.38vw, 22px);
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 1.08;
   color: var(--ink);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .category-card-count {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   color: #574f48;
 }
@@ -1580,15 +1611,15 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 .category-card-cta {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   width: fit-content;
-  padding: 9px 16px;
-  border-radius: 8px;
+  padding: 7px 12px;
+  border-radius: 7px;
   background: var(--ink);
   color: var(--cream);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   transition: background 0.2s ease, gap 0.2s ease;
 }
 
@@ -3439,7 +3470,7 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 
 .hero-poster-layer {
   z-index: 1;
-  transition: opacity 0.25s ease;
+  transition: none;
 }
 
 .hero-poster-layer.is-hidden {
@@ -3496,9 +3527,15 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   transition: transform 0.22s ease;
 }
 
+.hero-hotspot-btn:focus,
+.hero-hotspot-btn:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
 .hero-hotspot-btn:focus-visible {
-  outline: 2px solid #F6F1E7;
-  outline-offset: 4px;
+  outline: 1.5px solid rgba(246, 241, 231, 0.48);
+  outline-offset: 2px;
 }
 
 .hero-hotspot-glow {
