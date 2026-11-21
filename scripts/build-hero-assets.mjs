@@ -287,12 +287,12 @@ function dilateMask(mask, radius) {
 
 function fillMaskHoles(mask, xMin, xMax, yMin, yMax) {
   const out = new Float32Array(mask)
-  // Horizontal scanline fill: between leftmost and rightmost >0.65 pixel per row (only fill interior gaps <= 80px)
+  // Horizontal scanline fill: between leftmost and rightmost >0.65 pixel per row (only fill small interior gaps <= 28px)
   for (let y = yMin; y <= yMax; y++) {
     let lastX = -1
     for (let x = xMin; x <= xMax; x++) {
       if (out[y * W + x] > 0.65) {
-        if (lastX >= 0 && x - lastX > 1 && x - lastX <= 95) {
+        if (lastX >= 0 && x - lastX > 1 && x - lastX <= 28) {
           for (let fx = lastX + 1; fx < x; fx++) {
             out[y * W + fx] = 1
           }
@@ -301,12 +301,12 @@ function fillMaskHoles(mask, xMin, xMax, yMin, yMax) {
       }
     }
   }
-  // Vertical scanline fill for any remaining small interior pockets
+  // Vertical scanline fill for any remaining small interior pockets (<= 28px)
   for (let x = xMin; x <= xMax; x++) {
     let lastY = -1
     for (let y = yMin; y <= yMax; y++) {
       if (out[y * W + x] > 0.65) {
-        if (lastY >= 0 && y - lastY > 1 && y - lastY <= 95) {
+        if (lastY >= 0 && y - lastY > 1 && y - lastY <= 28) {
           for (let fy = lastY + 1; fy < y; fy++) {
             out[fy * W + x] = 1
           }
