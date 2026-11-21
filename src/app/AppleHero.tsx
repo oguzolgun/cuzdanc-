@@ -12,7 +12,7 @@ type AppleHeroProps = {
   onAddToCart?: (product: ProductRecord, variant: ProductVariantRecord) => void
 }
 
-type HeroState = 'INTRO' | 'IDLE' | 'OPEN'
+type HeroState = 'LOADING' | 'INTRO' | 'IDLE' | 'OPENING' | 'OPEN' | 'CLOSING'
 
 type HotspotBox = {
   x: number
@@ -21,76 +21,124 @@ type HotspotBox = {
   h: number
 }
 
-// Vitrindeki 4 ürünü değiştirmek için yalnızca buradaki slug listesini güncellemek yeterlidir.
-// Tüm görseller, fiyatlar, renk varyantları ve bağlantılar otomatik olarak data/products.json'dan çekilir.
-const HERO_SHOWCASE_CONFIG: { slug: string; hotspot: HotspotBox }[] = [
+type HeroProduct = {
+  index: number
+  id: string
+  slug: string
+  tabLabel: string
+  name: string
+  categoryLabel: string
+  price: string
+  colorCount: number
+  url: string
+  hotspot: HotspotBox
+}
+
+const HERO_PRODUCTS: HeroProduct[] = [
   {
+    index: 0,
+    id: 'lodos-pro',
     slug: 'lodos-pro-miknatisli-deri-cuzdan',
+    tabLabel: '01 Lodos Pro',
+    name: 'Lodos Pro',
+    categoryLabel: 'MIKNATISLI DERİ CÜZDAN',
+    price: '1.600 TL',
+    colorCount: 3,
+    url: '/urun/lodos-pro-miknatisli-deri-cuzdan/',
     hotspot: { x: 11.2, y: 35.8, w: 19.0, h: 40.5 },
   },
   {
+    index: 1,
+    id: 'lodos',
     slug: 'lodos-miknatisli-deri-cuzdan',
+    tabLabel: '02 Lodos',
+    name: 'Lodos',
+    categoryLabel: 'MIKNATISLI DERİ CÜZDAN',
+    price: '1.500 TL',
+    colorCount: 5,
+    url: '/urun/lodos-miknatisli-deri-cuzdan/',
     hotspot: { x: 32.0, y: 36.0, w: 18.0, h: 40.2 },
   },
   {
+    index: 2,
+    id: 'garbi',
     slug: 'garbi-mandalli-deri-cuzdan',
+    tabLabel: '03 Garbi',
+    name: 'Garbi',
+    categoryLabel: 'KLASİK DERİ CÜZDAN',
+    price: '1.400 TL',
+    colorCount: 4,
+    url: '/urun/garbi-mandalli-deri-cuzdan/',
     hotspot: { x: 52.0, y: 36.8, w: 17.8, h: 39.5 },
   },
   {
+    index: 3,
+    id: 'etezyen',
     slug: 'etezyen-klasik-deri-cuzdan',
+    tabLabel: '04 Etezyen',
+    name: 'Etezyen',
+    categoryLabel: 'KLASİK DERİ CÜZDAN',
+    price: '1.499 TL',
+    colorCount: 3,
+    url: '/urun/etezyen-klasik-deri-cuzdan/',
     hotspot: { x: 71.5, y: 38.0, w: 18.5, h: 38.2 },
   },
 ]
 
-const POSTER_S0 = '/assets/hero/s0.webp'
+const POSTERS = {
+  s0: '/assets/hero/s0.webp',
+  sEmpty: '/assets/hero/s_empty.webp',
+  open: [
+    '/assets/hero/o1.webp',
+    '/assets/hero/o2.webp',
+    '/assets/hero/o3.webp',
+    '/assets/hero/o4.webp',
+  ],
+}
 
-export function AppleHero({ onAddToCart }: AppleHeroProps) {
+// TODO: Add dedicated 9:16 mobile asset set in v2 for larger vertical wallet framing on phones.
+export function AppleHero({ onAddToCart: _onAddToCart }: AppleHeroProps) {
   const dockRef = useRef<HTMLDivElement>(null)
   const stageBoxRef = useRef<HTMLDivElement>(null)
 
   const [heroState, setHeroState] = useState<HeroState>('IDLE')
   const [activeWallet, setActiveWallet] = useState<number | null>(null)
-  const [selectedVariantIdx, setSelectedVariantIdx] = useState<number>(0)
-  const [selectedImageIdx, setSelectedImageIdx] = useState<number>(1) // Açılışta İç Tasarım (2-acik-gorunum)
+  const [targetWallet, setTargetWallet] = useState<number | null>(null)
+  const [showCard, setShowCard] = useState(false)
   const [isFallbackMode, setIsFallbackMode] = useState(false)
-  const [introVisible, setIntroVisible] = useState(false)
+  const [loadingWallet, setLoadingWallet] = useState<number | null>(null)
+  const [visibleClip, setVisibleClip] = useState<string | null>(null)
+  const [debugHotspots, setDebugHotspots] = useState<HotspotBox[] | null>(null)
   const [isDebugMode, setIsDebugMode] = useState(false)
 
   const stateRef = useRef<{
     heroState: HeroState
+    activeWallet: number | null
+    targetWallet: number | null
     hasInteracted: boolean
     autoOpenedOnce: boolean
   }>({
     heroState: 'IDLE',
+    activeWallet: null,
+    targetWallet: null,
     hasInteracted: false,
     autoOpenedOnce: false,
   })
 
   const introVideoRef = useRef<HTMLVideoElement | null>(null)
+  const openVideoRefs = useRef<(HTMLVideoElement | null)[]>([null, null, null, null])
+  const closeVideoRefs = useRef<(HTMLVideoElement | null)[]>([null, null, null, null])
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([null, null, null, null])
   const autoOpenTimerRef = useRef<number | null>(null)
 
-  // Dinamik ürün listesi: data/products.json üzerinden canlı eşleştirme
-  const heroItems = useMemo(() => {
-    return HERO_SHOWCASE_CONFIG.map((cfg, index) => {
-      const product = products.find((p) => p.slug === cfg.slug) || products[index]
-      const startingPrice = getProductStartingPrice(product)
-      const priceLabel = formatPrice(startingPrice) || 'Fiyat sorunuz'
-      return {
-        index,
-        id: product.slug,
-        slug: product.slug,
-        tabLabel: `0${index + 1} ${product.modelName}`,
-        name: product.modelName,
-        categoryLabel: product.productType.toLocaleUpperCase('tr-TR'),
-        price: priceLabel,
-        colorCount: product.variants.length,
-        url: `/urun/${product.slug}/`,
-        hotspot: cfg.hotspot,
-        product,
-      }
-    })
-  }, [])
+  const syncRefs = (nextState: HeroState, nextActive: number | null, nextTarget: number | null) => {
+    stateRef.current.heroState = nextState
+    stateRef.current.activeWallet = nextActive
+    stateRef.current.targetWallet = nextTarget
+    setHeroState(nextState)
+    setActiveWallet(nextActive)
+    setTargetWallet(nextTarget)
+  }
 
   const cancelAutoOpen = useCallback(() => {
     stateRef.current.hasInteracted = true
@@ -100,52 +148,200 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
     }
   }, [])
 
-  const openWalletShowcase = useCallback((idx: number) => {
-    const iv = introVideoRef.current
-    if (iv && !iv.paused) {
-      iv.pause()
+  const revealVideoWhenPainted = useCallback((video: HTMLVideoElement, clipKey: string) => {
+    const onPainted = () => {
+      setVisibleClip(clipKey)
     }
-    setIntroVisible(false)
+    const vWithRvfc = video as HTMLVideoElement & {
+      requestVideoFrameCallback?: (cb: () => void) => number
+    }
+    if (typeof vWithRvfc.requestVideoFrameCallback === 'function') {
+      vWithRvfc.requestVideoFrameCallback(onPainted)
+    } else {
+      const handlePlaying = () => {
+        onPainted()
+        video.removeEventListener('playing', handlePlaying)
+      }
+      video.addEventListener('playing', handlePlaying)
+    }
+  }, [])
 
-    const targetItem = heroItems[idx]
-    const defaultImgIdx =
-      targetItem?.product.variants[0]?.images && targetItem.product.variants[0].images.length > 1
-        ? 1
-        : 0
+  const preloadPair = useCallback((idx: number) => {
+    const ov = openVideoRefs.current[idx]
+    const cv = closeVideoRefs.current[idx]
+    if (ov && ov.preload === 'none') {
+      ov.preload = 'auto'
+      ov.load()
+    }
+    if (cv && cv.preload === 'none') {
+      cv.preload = 'auto'
+      cv.load()
+    }
+  }, [])
 
-    stateRef.current.heroState = 'OPEN'
-    setHeroState('OPEN')
-    setActiveWallet(idx)
-    setSelectedVariantIdx(0)
-    setSelectedImageIdx(defaultImgIdx)
-  }, [heroItems])
+  const playOpenClip = useCallback(
+    (idx: number, startTime = 0, rate = 1.2) => {
+      preloadPair(idx)
+      const video = openVideoRefs.current[idx]
+      if (!video || isFallbackMode) {
+        syncRefs('OPEN', idx, null)
+        setVisibleClip(null)
+        setShowCard(true)
+        return
+      }
+
+      const startPlayback = () => {
+        setLoadingWallet(null)
+        syncRefs('OPENING', idx, null)
+        setShowCard(startTime > (video.duration || 1.1) * 0.85)
+        video.currentTime = startTime
+        video.playbackRate = rate
+        revealVideoWhenPainted(video, `open_${idx}`)
+        video.play().catch(() => {
+          syncRefs('OPEN', idx, null)
+          setVisibleClip(null)
+          setShowCard(true)
+        })
+      }
+
+      if (video.readyState >= 2) {
+        startPlayback()
+      } else {
+        setLoadingWallet(idx)
+        const onReady = () => {
+          video.removeEventListener('canplay', onReady)
+          startPlayback()
+        }
+        video.addEventListener('canplay', onReady)
+        video.load()
+      }
+    },
+    [isFallbackMode, preloadPair, revealVideoWhenPainted]
+  )
+
+  const playCloseClip = useCallback(
+    (idx: number, nextTarget: number | null, startTime = 0, rate = 1.6) => {
+      preloadPair(idx)
+      setShowCard(false)
+      const video = closeVideoRefs.current[idx]
+      if (!video || isFallbackMode) {
+        if (nextTarget !== null) {
+          playOpenClip(nextTarget, 0, 1.2)
+        } else {
+          syncRefs('IDLE', null, null)
+          setVisibleClip(null)
+        }
+        return
+      }
+
+      const startPlayback = () => {
+        setLoadingWallet(null)
+        syncRefs('CLOSING', idx, nextTarget)
+        video.currentTime = startTime
+        video.playbackRate = rate
+        revealVideoWhenPainted(video, `close_${idx}`)
+        video.play().catch(() => {
+          setVisibleClip(null)
+          if (nextTarget !== null) {
+            playOpenClip(nextTarget, 0, 1.2)
+          } else {
+            syncRefs('IDLE', null, null)
+          }
+        })
+      }
+
+      if (video.readyState >= 2) {
+        startPlayback()
+      } else {
+        setLoadingWallet(idx)
+        const onReady = () => {
+          video.removeEventListener('canplay', onReady)
+          startPlayback()
+        }
+        video.addEventListener('canplay', onReady)
+        video.load()
+      }
+    },
+    [isFallbackMode, playOpenClip, preloadPair, revealVideoWhenPainted]
+  )
 
   const handleSelectWallet = useCallback(
     (idx: number) => {
       cancelAutoOpen()
-      if (stateRef.current.heroState === 'OPEN' && activeWallet === idx) {
-        stateRef.current.heroState = 'IDLE'
-        setHeroState('IDLE')
-        setActiveWallet(null)
+      const { heroState: st, activeWallet: cur } = stateRef.current
+
+      if (st === 'INTRO') {
+        const iv = introVideoRef.current
+        if (iv) iv.pause()
+        setVisibleClip(null)
+        playOpenClip(idx, 0, 1.2)
         return
       }
-      openWalletShowcase(idx)
+
+      if (st === 'IDLE' || st === 'LOADING') {
+        playOpenClip(idx, 0, 1.2)
+        return
+      }
+
+      if (st === 'OPEN' && cur !== null) {
+        if (cur === idx) {
+          playCloseClip(cur, null, 0, 1.6)
+        } else {
+          playCloseClip(cur, idx, 0, 1.6)
+        }
+        return
+      }
+
+      if (st === 'OPENING' && cur !== null) {
+        const ov = openVideoRefs.current[cur]
+        if (ov) ov.pause()
+        const dur = ov?.duration || 1.13
+        const mirrored = Math.max(0, dur - (ov?.currentTime || 0))
+        if (cur === idx) {
+          playCloseClip(cur, null, mirrored, 1.6)
+        } else {
+          playCloseClip(cur, idx, mirrored, 1.6)
+        }
+        return
+      }
+
+      if (st === 'CLOSING' && cur !== null) {
+        if (cur === idx) {
+          const cv = closeVideoRefs.current[cur]
+          if (cv) cv.pause()
+          const dur = cv?.duration || 1.13
+          const mirrored = Math.max(0, dur - (cv?.currentTime || 0))
+          playOpenClip(idx, mirrored, 1.2)
+        } else {
+          stateRef.current.targetWallet = idx
+          setTargetWallet(idx)
+        }
+      }
     },
-    [activeWallet, cancelAutoOpen, openWalletShowcase]
+    [cancelAutoOpen, playCloseClip, playOpenClip]
   )
 
   const handleCloseActive = useCallback(() => {
     cancelAutoOpen()
-    stateRef.current.heroState = 'IDLE'
-    setHeroState('IDLE')
-    setActiveWallet(null)
-  }, [cancelAutoOpen])
+    const { heroState: st, activeWallet: cur } = stateRef.current
+    if (cur === null) return
+    if (st === 'OPEN') {
+      playCloseClip(cur, null, 0, 1.6)
+    } else if (st === 'OPENING') {
+      const ov = openVideoRefs.current[cur]
+      if (ov) ov.pause()
+      const dur = ov?.duration || 1.13
+      const mirrored = Math.max(0, dur - (ov?.currentTime || 0))
+      playCloseClip(cur, null, mirrored, 1.6)
+    }
+  }, [cancelAutoOpen, playCloseClip])
 
-  // İlk yükleme: azaltılmış hareket / düşük veri kontrolü ve intro videosu
+  // Initial setup: check fallbacks, debug mode, intro autoplay, and autoOpenFirst
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     if (params.get('debug') === 'hotspots') {
       setIsDebugMode(true)
+      setDebugHotspots(HERO_PRODUCTS.map((p) => ({ ...p.hotspot })))
     }
 
     const prefersReduced =
@@ -157,25 +353,21 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
 
     if (prefersReduced || isSaveData || isSlowConn) {
       setIsFallbackMode(true)
-      stateRef.current.heroState = 'IDLE'
-      setHeroState('IDLE')
+      syncRefs('IDLE', null, null)
       return
     }
 
+    // Play intro once after mount
     const iv = introVideoRef.current
     if (iv) {
-      stateRef.current.heroState = 'INTRO'
-      setHeroState('INTRO')
-      const onPlaying = () => {
-        setIntroVisible(true)
-        iv.removeEventListener('playing', onPlaying)
-      }
-      iv.addEventListener('playing', onPlaying)
+      syncRefs('INTRO', null, null)
+      revealVideoWhenPainted(iv, 'intro')
       iv.play().catch(() => {
-        setIntroVisible(false)
-        stateRef.current.heroState = 'IDLE'
-        setHeroState('IDLE')
+        setVisibleClip(null)
+        syncRefs('IDLE', null, null)
       })
+    } else {
+      syncRefs('IDLE', null, null)
     }
 
     const onUserActivity = () => cancelAutoOpen()
@@ -187,28 +379,30 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
       window.removeEventListener('scroll', onUserActivity)
       if (autoOpenTimerRef.current !== null) window.clearTimeout(autoOpenTimerRef.current)
     }
-  }, [cancelAutoOpen])
+  }, [cancelAutoOpen, revealVideoWhenPainted])
 
-  // Etkileşim olmazsa 6.5 sn sonra ilk ürünü nazikçe öne çıkar
+  // Start 5s autoOpenFirst once IDLE is reached (clips preload on hover/focus/click to protect LCP)
   useEffect(() => {
     if (heroState !== 'IDLE') return
+
     if (!stateRef.current.hasInteracted && !stateRef.current.autoOpenedOnce && !isDebugMode) {
       autoOpenTimerRef.current = window.setTimeout(() => {
         if (!stateRef.current.hasInteracted && stateRef.current.heroState === 'IDLE') {
           stateRef.current.autoOpenedOnce = true
-          openWalletShowcase(0)
+          playOpenClip(0, 0, 1.2)
         }
       }, 6500)
     }
+
     return () => {
       if (autoOpenTimerRef.current !== null) {
         window.clearTimeout(autoOpenTimerRef.current)
         autoOpenTimerRef.current = null
       }
     }
-  }, [heroState, isDebugMode, openWalletShowcase])
+  }, [heroState, isDebugMode, playOpenClip])
 
-  // Esc tuşu ile kapat
+  // Esc key to close
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -231,22 +425,15 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
     el.scrollBy({ left: dir * 320, behavior: 'smooth' })
   }
 
-  const isOpen = heroState === 'OPEN' && activeWallet !== null
-  const activeItem = activeWallet !== null ? heroItems[activeWallet] : null
-  const activeVariant =
-    activeItem?.product.variants[selectedVariantIdx] || activeItem?.product.variants[0] || null
-  const variantImages = activeVariant?.images || []
-  const activeImage = variantImages[selectedImageIdx] || variantImages[0] || null
-  const activePrice =
-    activeVariant && formatPrice(activeVariant.price)
-      ? formatPrice(activeVariant.price)
-      : activeItem?.price
+  const activeProductMeta = activeWallet !== null ? HERO_PRODUCTS[activeWallet] : null
+  const isAnyOpenOrOpening =
+    heroState === 'OPENING' || heroState === 'OPEN' || heroState === 'CLOSING'
 
-  const viewTabs = [
-    { idx: 1, label: 'İç Tasarım' },
-    { idx: 0, label: 'Dış Görünüm' },
-    { idx: variantImages.length > 3 ? 3 : 2, label: 'Detay' },
-  ].filter((t) => Boolean(variantImages[t.idx]))
+  const activeHotspots = debugHotspots || HERO_PRODUCTS.map((p) => p.hotspot)
+
+  // Determine which base poster sits underneath video layers
+  const currentPosterSrc =
+    heroState === 'OPEN' && activeWallet !== null ? POSTERS.open[activeWallet] : POSTERS.s0
 
   return (
     <section
@@ -255,20 +442,19 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
       aria-label="Elon Leather İnteraktif Cüzdan Sahnesi"
     >
       <div className="hero-viewport">
-        {/* Arka Plan Tepsi Sahnesi */}
+        {/* Background stage container (16:9 cover on desktop, contain on mobile) */}
         <div
           className="hero-stage-shell"
-          onClick={() => {
-            if (isOpen) handleCloseActive()
+          onClick={(e) => {
+            if (e.target === e.currentTarget && heroState === 'OPEN') {
+              handleCloseActive()
+            }
           }}
         >
-          <div
-            ref={stageBoxRef}
-            className={`hero-stage-box ${isOpen ? 'is-dimmed-stage' : ''}`}
-          >
-            {/* LCP Görseli: s0.webp */}
+          <div ref={stageBoxRef} className="hero-stage-box">
+            {/* LCP Image: s0.webp preloaded high priority */}
             <img
-              src={POSTER_S0}
+              src={POSTERS.s0}
               alt="Elon Leather el yapımı hakiki deri cüzdan koleksiyonu tepsi sunumu"
               width={1280}
               height={720}
@@ -278,65 +464,156 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
               className="hero-poster-layer"
             />
 
-            {/* İlk açılış intro videosu (tepsiden yükseliş) */}
-            {!isFallbackMode && (
-              <video
-                ref={introVideoRef}
-                muted
-                playsInline
-                preload="metadata"
-                className={`hero-video-layer ${introVisible ? 'is-visible' : ''}`}
-                onEnded={() => {
-                  setIntroVisible(false)
-                  stateRef.current.heroState = 'IDLE'
-                  setHeroState('IDLE')
-                }}
-              >
-                <source src="/assets/hero/intro.webm" type="video/webm" />
-                <source src="/assets/hero/intro.mp4" type="video/mp4" />
-              </video>
+            {/* Opened wallet end poster underneath active clip */}
+            {activeWallet !== null && (
+              <img
+                src={currentPosterSrc}
+                alt={`${HERO_PRODUCTS[activeWallet].name} açık görünüm`}
+                width={1280}
+                height={720}
+                className={`hero-poster-layer ${heroState === 'OPEN' ? 'is-visible' : 'is-hidden'}`}
+              />
             )}
 
-            {/* Tepsi Yuvası Tıklama Alanları (yalnızca IDLE iken aktif) */}
-            <div className={`hero-hotspot-layer ${isOpen ? 'is-inactive' : ''}`}>
-              {heroItems.map((item, idx) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  className={`hero-hotspot-btn ${isDebugMode ? 'is-debug' : ''}`}
-                  style={{
-                    left: `${item.hotspot.x}%`,
-                    top: `${item.hotspot.y}%`,
-                    width: `${item.hotspot.w}%`,
-                    height: `${item.hotspot.h}%`,
-                  }}
-                  tabIndex={isOpen ? -1 : 0}
-                  aria-label={`${item.name} cüzdanını incele (${item.price})`}
-                  onPointerDown={(e) => {
-                    if (e.pointerType === 'mouse') e.preventDefault()
-                  }}
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    e.currentTarget.blur()
-                    if (isDebugMode) return
-                    handleSelectWallet(idx)
+            {/* Video Pool (disabled in reduced-motion / saveData / slow-net fallback) */}
+            {!isFallbackMode && (
+              <>
+                <video
+                  ref={introVideoRef}
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className={`hero-video-layer ${visibleClip === 'intro' ? 'is-visible' : ''}`}
+                  onEnded={() => {
+                    setVisibleClip(null)
+                    syncRefs('IDLE', null, null)
                   }}
                 >
-                  <span className="hero-hotspot-glow" aria-hidden="true" />
-                  <span className="hero-hotspot-tooltip" role="tooltip">
-                    {item.name}
-                  </span>
-                  {isDebugMode && <span className="hero-debug-label">{item.tabLabel}</span>}
-                </button>
-              ))}
+                  <source src="/assets/hero/intro.webm" type="video/webm" />
+                  <source src="/assets/hero/intro.mp4" type="video/mp4" />
+                </video>
+
+                {HERO_PRODUCTS.map((item, idx) => (
+                  <div key={item.id} className="hero-clip-pair">
+                    <video
+                      ref={(el) => {
+                        openVideoRefs.current[idx] = el
+                      }}
+                      muted
+                      playsInline
+                      preload="none"
+                      className={`hero-video-layer ${visibleClip === `open_${idx}` ? 'is-visible' : ''}`}
+                      onTimeUpdate={(e) => {
+                        const v = e.currentTarget
+                        if (
+                          stateRef.current.heroState === 'OPENING' &&
+                          stateRef.current.activeWallet === idx &&
+                          v.duration > 0 &&
+                          v.currentTime / v.duration >= 0.85
+                        ) {
+                          setShowCard(true)
+                        }
+                      }}
+                      onEnded={() => {
+                        if (
+                          stateRef.current.heroState === 'OPENING' &&
+                          stateRef.current.activeWallet === idx
+                        ) {
+                          syncRefs('OPEN', idx, null)
+                          setShowCard(true)
+                        }
+                      }}
+                    >
+                      <source src={`/assets/hero/open_${idx + 1}.webm`} type="video/webm" />
+                      <source src={`/assets/hero/open_${idx + 1}.mp4`} type="video/mp4" />
+                    </video>
+
+                    <video
+                      ref={(el) => {
+                        closeVideoRefs.current[idx] = el
+                      }}
+                      muted
+                      playsInline
+                      preload="none"
+                      className={`hero-video-layer ${visibleClip === `close_${idx}` ? 'is-visible' : ''}`}
+                      onEnded={() => {
+                        const nextTarget = stateRef.current.targetWallet
+                        if (nextTarget !== null) {
+                          playOpenClip(nextTarget, 0, 1.2)
+                        } else {
+                          setVisibleClip(null)
+                          syncRefs('IDLE', null, null)
+                        }
+                      }}
+                    >
+                      <source src={`/assets/hero/close_${idx + 1}.webm`} type="video/webm" />
+                      <source src={`/assets/hero/close_${idx + 1}.mp4`} type="video/mp4" />
+                    </video>
+                  </div>
+                ))}
+              </>
+            )}
+
+            {/* Hotspot Layer aligned to 16:9 stage box */}
+            <div className="hero-hotspot-layer">
+              {HERO_PRODUCTS.map((item, idx) => {
+                const box = activeHotspots[idx]
+                const isSelected = activeWallet === idx && isAnyOpenOrOpening
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className={`hero-hotspot-btn ${isSelected ? 'is-selected' : ''} ${
+                      isDebugMode ? 'is-debug' : ''
+                    }`}
+                    style={{
+                      left: `${box.x}%`,
+                      top: `${box.y}%`,
+                      width: `${box.w}%`,
+                      height: `${box.h}%`,
+                    }}
+                    aria-label={`${item.name} cüzdanını aç (${item.price})`}
+                    onMouseEnter={() => preloadPair(idx)}
+                    onFocus={() => preloadPair(idx)}
+                    onPointerDown={(e) => {
+                      if (e.pointerType === 'mouse') e.preventDefault()
+                      preloadPair(idx)
+                    }}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      e.currentTarget.blur()
+                      if (isDebugMode) return
+                      handleSelectWallet(idx)
+                    }}
+                  >
+                    <span className="hero-hotspot-glow" aria-hidden="true" />
+                    <span className="hero-hotspot-tooltip" role="tooltip">
+                      {item.name}
+                    </span>
+                    {loadingWallet === idx && (
+                      <span className="hero-hotspot-loader" aria-hidden="true" />
+                    )}
+                    {isDebugMode && (
+                      <span className="hero-debug-label">
+                        {idx + 1}: {item.name}
+                      </span>
+                    )}
+                  </button>
+                )
+              })}
             </div>
 
+            {/* Subtle warm vignette & fine film grain */}
             <div className="hero-vignette-overlay" aria-hidden="true" />
           </div>
         </div>
 
-        {/* Sol Üst Başlık */}
-        <div className={`hero-headline-overlay ${isOpen ? 'is-dimmed' : ''}`}>
+        {/* Top-left Headline (dims/shrinks while a wallet is open) */}
+        <div
+          className={`hero-headline-overlay ${
+            isAnyOpenOrOpening ? 'is-dimmed' : ''
+          }`}
+        >
           <span className="apple-hero-eyebrow">
             ELON LEATHER · EL YAPIMI HAKİKİ DERİ KOLEKSİYONU
           </span>
@@ -352,135 +629,63 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
           )}
         </div>
 
-        {/* Açık Durum: Gerçek Stüdyo Fotoğraflı Dinamik Ürün Vitrini (Sol) + Detay Kartı (Sağ) */}
+        {/* Product Detail Glass Card (Desktop Right / Mobile Below Stage) */}
         <div
-          className={`hero-showcase-overlay ${isOpen && activeItem ? 'is-visible' : ''}`}
+          className={`hero-product-card-wrap ${
+            showCard && activeProductMeta ? 'is-visible' : ''
+          }`}
           role="tabpanel"
           aria-live="polite"
-          aria-hidden={!isOpen}
-          onClick={(e) => {
-            if (e.target === e.currentTarget) handleCloseActive()
-          }}
+          aria-hidden={!showCard || !activeProductMeta}
         >
-          {activeItem && activeVariant && (
-            <div className="hero-showcase-grid">
-              {/* Sol: Gerçek Stüdyo Fotoğrafı + İç/Dış/Detay Geçişi */}
-              <div className="hero-studio-stage">
-                <div className="hero-studio-frame">
-                  {activeImage && (
-                    <img
-                      key={activeImage.full}
-                      src={activeImage.full}
-                      alt={activeImage.alt || `${activeItem.name} ${activeVariant.renk}`}
-                      width={activeImage.width || 1200}
-                      height={activeImage.height || 1800}
-                      className="hero-studio-img"
-                    />
-                  )}
-                </div>
+          {activeProductMeta && (
+            <div className="hero-product-card">
+              {/* Self-drawing stitched dashed border */}
+              <svg className="hero-card-stitch-svg" aria-hidden="true" viewBox="0 0 360 280" preserveAspectRatio="none">
+                <rect
+                  x="3"
+                  y="3"
+                  width="354"
+                  height="274"
+                  rx="14"
+                  ry="14"
+                  fill="none"
+                  stroke="#B08D57"
+                  strokeWidth="1.5"
+                  strokeDasharray="6 5"
+                  className="hero-card-stitch-rect"
+                />
+              </svg>
 
-                {viewTabs.length > 1 && (
-                  <div className="hero-studio-views" role="group" aria-label="Ürün görünümü seç">
-                    {viewTabs.map((vt) => (
-                      <button
-                        key={vt.idx}
-                        type="button"
-                        className={`hero-view-pill ${selectedImageIdx === vt.idx ? 'is-active' : ''}`}
-                        onClick={() => setSelectedImageIdx(vt.idx)}
-                      >
-                        {vt.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
+              <span className="hero-card-cat">{activeProductMeta.categoryLabel}</span>
+              <h2 className="hero-card-title">{activeProductMeta.name}</h2>
+              <p className="hero-card-price">{activeProductMeta.price}</p>
+              <p className="hero-card-meta">
+                {activeProductMeta.colorCount} renk seçeneği · El yapımı hakiki deri
+              </p>
 
-              {/* Sağ: Ürün Bilgi, Renk Varyantı & CTA Kartı */}
-              <div className="hero-product-card">
-                <svg
-                  className="hero-card-stitch-svg"
-                  aria-hidden="true"
-                  viewBox="0 0 360 320"
-                  preserveAspectRatio="none"
+              <div className="hero-card-actions">
+                <Link
+                  to={activeProductMeta.url}
+                  className="hero-card-btn-primary"
+                  tabIndex={showCard ? 0 : -1}
                 >
-                  <rect
-                    x="3"
-                    y="3"
-                    width="354"
-                    height="314"
-                    rx="14"
-                    ry="14"
-                    fill="none"
-                    stroke="#B08D57"
-                    strokeWidth="1.5"
-                    strokeDasharray="6 5"
-                    className="hero-card-stitch-rect"
-                  />
-                </svg>
-
-                <span className="hero-card-cat">{activeItem.categoryLabel}</span>
-                <h2 className="hero-card-title">{activeItem.name}</h2>
-                <p className="hero-card-price">{activePrice}</p>
-                <p className="hero-card-meta">
-                  {activeVariant.renk} · {activeItem.colorCount} renk seçeneği · El yapımı hakiki deri
-                </p>
-
-                {/* Canlı Renk Varyantı Seçici */}
-                {activeItem.product.variants.length > 1 && (
-                  <div className="hero-card-swatches" role="group" aria-label="Renk seçenekleri">
-                    {activeItem.product.variants.map((v, vIdx) => (
-                      <button
-                        key={v.sku || v.renkSlug}
-                        type="button"
-                        className={`hero-swatch-btn ${selectedVariantIdx === vIdx ? 'is-active' : ''}`}
-                        style={{ backgroundColor: v.colorHex }}
-                        title={v.renk}
-                        aria-label={`${v.renk} rengini seç`}
-                        aria-pressed={selectedVariantIdx === vIdx}
-                        onClick={() => {
-                          setSelectedVariantIdx(vIdx)
-                          if (!v.images[selectedImageIdx]) {
-                            setSelectedImageIdx(v.images.length > 1 ? 1 : 0)
-                          }
-                        }}
-                      />
-                    ))}
-                  </div>
-                )}
-
-                <div className="hero-card-actions">
-                  <Link
-                    to={activeItem.url}
-                    className="hero-card-btn-primary"
-                    tabIndex={isOpen ? 0 : -1}
-                  >
-                    Ürünü İncele →
-                  </Link>
-                  {onAddToCart && (
-                    <button
-                      type="button"
-                      className="hero-card-btn-secondary"
-                      tabIndex={isOpen ? 0 : -1}
-                      onClick={() => onAddToCart(activeItem.product, activeVariant)}
-                    >
-                      Sepete Ekle
-                    </button>
-                  )}
-                  <button
-                    type="button"
-                    className="hero-card-btn-quiet"
-                    tabIndex={isOpen ? 0 : -1}
-                    onClick={handleCloseActive}
-                  >
-                    Kapat
-                  </button>
-                </div>
+                  Ürünü İncele →
+                </Link>
+                <button
+                  type="button"
+                  className="hero-card-btn-quiet"
+                  tabIndex={showCard ? 0 : -1}
+                  onClick={handleCloseActive}
+                >
+                  Diğer cüzdanlar
+                </button>
               </div>
             </div>
           )}
         </div>
 
-        {/* Alt 4'lü Cüzdan Seçici Çubuk */}
+        {/* Bottom 4-Wallet Selector Tablist */}
         <div className="hero-selector-bar">
           <div
             className="hero-selector-tablist"
@@ -490,17 +695,17 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
               const currentIdx = tabRefs.current.findIndex((el) => el === document.activeElement)
               if (e.key === 'ArrowRight') {
                 e.preventDefault()
-                const next = (currentIdx + 1) % heroItems.length
+                const next = (currentIdx + 1) % HERO_PRODUCTS.length
                 tabRefs.current[next]?.focus()
               } else if (e.key === 'ArrowLeft') {
                 e.preventDefault()
-                const prev = (currentIdx - 1 + heroItems.length) % heroItems.length
+                const prev = (currentIdx - 1 + HERO_PRODUCTS.length) % HERO_PRODUCTS.length
                 tabRefs.current[prev]?.focus()
               }
             }}
           >
-            {heroItems.map((item, idx) => {
-              const isSelected = activeWallet === idx && isOpen
+            {HERO_PRODUCTS.map((item, idx) => {
+              const isActive = activeWallet === idx && isAnyOpenOrOpening
               return (
                 <button
                   key={item.id}
@@ -509,8 +714,10 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
                   }}
                   type="button"
                   role="tab"
-                  aria-selected={isSelected}
-                  className={`hero-selector-tab ${isSelected ? 'is-active' : ''}`}
+                  aria-selected={isActive}
+                  className={`hero-selector-tab ${isActive ? 'is-active' : ''}`}
+                  onMouseEnter={() => preloadPair(idx)}
+                  onFocus={() => preloadPair(idx)}
                   onClick={() => handleSelectWallet(idx)}
                 >
                   <span>{item.tabLabel}</span>
@@ -520,17 +727,25 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
           </div>
         </div>
 
-        {/* SEO İçin Taranabilir Ürün Bağlantıları */}
+        {/* Crawlable SEO Product Links for Search Engines */}
         <nav className="sr-only" aria-label="Öne Çıkan Cüzdan Bağlantıları">
-          {heroItems.map((item) => (
+          {HERO_PRODUCTS.map((item) => (
             <Link key={item.id} to={item.url}>
               {item.name} - {item.price}
             </Link>
           ))}
         </nav>
+
+        {/* Debug Hotspot Editor Overlay (?debug=hotspots) */}
+        {isDebugMode && debugHotspots && (
+          <div className="hero-debug-panel">
+            <strong>Hotspot Debug (?debug=hotspots)</strong>
+            <pre>{JSON.stringify(debugHotspots, null, 2)}</pre>
+          </div>
+        )}
       </div>
 
-      {/* Yatay Koleksiyon Şeridi (12 Model) */}
+      {/* Horizontal Collection Dock (12 Models) */}
       <div className="apple-collection-dock">
         <div className="apple-dock-header">
           <div>
@@ -555,32 +770,35 @@ export function AppleHero({ onAddToCart }: AppleHeroProps) {
           </button>
 
           <div className="apple-dock-track" ref={dockRef}>
-            {dockProducts.map((prod) => {
-              const firstVariant = prod.variants[0]
-              const thumb = firstVariant?.images[0]?.thumb || firstVariant?.images[0]?.full || ''
-              const price = getProductStartingPrice(prod)
-              return (
-                <Link key={prod.slug} to={`/urun/${prod.slug}/`} className="apple-dock-card">
-                  <div className="apple-dock-thumb">
-                    {thumb && (
-                      <img
-                        src={thumb}
-                        alt={prod.name}
-                        width={300}
-                        height={300}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    )}
-                  </div>
-                  <div className="apple-dock-label">
-                    <strong>{prod.modelName}</strong>
-                    <span className="apple-dock-category">{prod.productType}</span>
-                    <span className="apple-dock-price">{formatPrice(price)}</span>
-                  </div>
-                </Link>
-              )
-            })}
+          {dockProducts.map((prod) => {
+            const thumb = prod.variants[0]?.images[0]?.thumb || prod.variants[0]?.images[0]?.full
+            const price = getProductStartingPrice(prod)
+            return (
+              <Link
+                key={prod.slug}
+                to={`/urun/${prod.slug}/`}
+                className="apple-dock-card"
+              >
+                <div className="apple-dock-thumb">
+                  {thumb && (
+                    <img
+                      src={thumb}
+                      alt={prod.name}
+                      width={300}
+                      height={300}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
+                </div>
+                <div className="apple-dock-label">
+                  <strong>{prod.modelName}</strong>
+                  <span className="apple-dock-category">{prod.productType}</span>
+                  <span className="apple-dock-price">{formatPrice(price)}</span>
+                </div>
+              </Link>
+            )
+          })}
           </div>
 
           <button
