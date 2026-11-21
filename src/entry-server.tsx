@@ -1,6 +1,7 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { createStaticHandler, createStaticRouter, StaticRouterProvider } from 'react-router'
+import { BLOG_POSTS } from './app/blogData'
 import { routes } from './app/routes'
 import {
   getActiveVariant,
@@ -39,6 +40,98 @@ export function computeRouteSeo(urlPath: string): RouteSeoPayload {
 
   if (pathname === '/kategoriler') {
     return buildAllCategoriesSeo(siteConfig)
+  }
+
+  const base = siteConfig.siteUrl.replace(/\/+$/, '')
+  const defaultOg = siteConfig.defaultOgImage.startsWith('http')
+    ? siteConfig.defaultOgImage
+    : `${base}${siteConfig.defaultOgImage}`
+
+  if (pathname === '/kvkk') {
+    const title = 'KVKK Aydınlatma Metni & Gizlilik Politikası | Elon Leather'
+    const description =
+      '6698 Sayılı Kişisel Verilerin Korunması Kanunu kapsamında Elon Leather KVKK aydınlatma metni, çerez ve gizlilik politikası.'
+    return {
+      title,
+      description,
+      canonical: `${base}/kvkk/`,
+      robots: 'index, follow',
+      ogType: 'website',
+      ogTitle: title,
+      ogDescription: description,
+      ogImage: defaultOg,
+      ogLocale: 'tr_TR',
+      jsonLd: [],
+    }
+  }
+
+  if (pathname === '/blog') {
+    const title = 'Blog & Deri Rehberi | Elon Leather'
+    const description =
+      'Crazy Horse deri bakımı, cüzdan seçimi, patina oluşumu ve isme özel deri hediye rehberleri — Elon Leather Atölye Blogu.'
+    return {
+      title,
+      description,
+      canonical: `${base}/blog/`,
+      robots: 'index, follow',
+      ogType: 'website',
+      ogTitle: title,
+      ogDescription: description,
+      ogImage: defaultOg,
+      ogLocale: 'tr_TR',
+      jsonLd: [],
+    }
+  }
+
+  if (pathname.startsWith('/blog/')) {
+    const slug = decodeURIComponent(pathname.slice('/blog/'.length))
+    const post = BLOG_POSTS.find((p) => p.slug === slug)
+    if (post) {
+      const title = `${post.title} | Elon Leather Blog`
+      const imgUrl = post.coverImage.startsWith('http') ? post.coverImage : `${base}${post.coverImage}`
+      return {
+        title,
+        description: post.excerpt,
+        canonical: `${base}/blog/${post.slug}/`,
+        robots: 'index, follow',
+        ogType: 'article',
+        ogTitle: title,
+        ogDescription: post.excerpt,
+        ogImage: imgUrl,
+        ogLocale: 'tr_TR',
+        jsonLd: [],
+      }
+    }
+  }
+
+  if (pathname === '/giris' || pathname === '/uye-ol' || pathname === '/sepet') {
+    const metaMap: Record<string, { title: string; description: string }> = {
+      '/giris': {
+        title: 'Giriş Yap | Elon Leather',
+        description: 'Elon Leather hesabınıza giriş yapın; siparişlerinizi ve favori hakiki deri ürünlerinizi yönetin.',
+      },
+      '/uye-ol': {
+        title: 'Üye Ol | Elon Leather',
+        description: 'Elon Leather hesabı oluşturun; el yapımı hakiki deri siparişlerinizi kolayca yönetin.',
+      },
+      '/sepet': {
+        title: 'Sepetim | Elon Leather',
+        description: 'Elon Leather alışveriş sepetiniz: el yapımı hakiki deri cüzdan, kartlık ve aksesuar sipariş özetiniz.',
+      },
+    }
+    const m = metaMap[pathname]
+    return {
+      title: m.title,
+      description: m.description,
+      canonical: `${base}${pathname}/`,
+      robots: 'noindex, follow',
+      ogType: 'website',
+      ogTitle: m.title,
+      ogDescription: m.description,
+      ogImage: defaultOg,
+      ogLocale: 'tr_TR',
+      jsonLd: [],
+    }
   }
 
   if (pathname.startsWith('/urun/')) {

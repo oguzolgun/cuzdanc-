@@ -50,7 +50,7 @@ export type CartItem = {
   personalizationAddon?: PersonalizationAddon
 }
 
-type StoreContext = {
+export type StoreContext = {
   addToCart: (
     product: ProductRecord,
     variant?: ProductVariantRecord,
@@ -61,6 +61,12 @@ type StoreContext = {
   openMenu: () => void
   openCart: () => void
   cartCount: number
+  cart: CartItem[]
+  subtotal: number
+  updateCartQuantity: (index: number, delta: number) => void
+  removeCartItem: (index: number) => void
+  clearCart: () => void
+  buildOrderSummaryMailto: () => string
 }
 
 function getAddonExtraPrice(product: ProductRecord, addon: PersonalizationAddon = 'none'): number {
@@ -73,7 +79,7 @@ function getAddonExtraPrice(product: ProductRecord, addon: PersonalizationAddon 
   return 0
 }
 
-function getCartUnitPrice(item: CartItem): number | null {
+export function getCartUnitPrice(item: CartItem): number | null {
   if (typeof item.variant.price !== 'number') return null
   return item.variant.price + getAddonExtraPrice(item.product, item.personalizationAddon)
 }
@@ -196,6 +202,22 @@ export function StoreLayout() {
     const unit = getCartUnitPrice(item)
     return sum + (unit ?? 0) * item.quantity
   }, 0)
+
+  const updateCartQuantity = (index: number, delta: number) => {
+    setCart((current) =>
+      current
+        .map((item, idx) => (idx === index ? { ...item, quantity: item.quantity + delta } : item))
+        .filter((item) => item.quantity > 0)
+    )
+  }
+
+  const removeCartItem = (index: number) => {
+    setCart((current) => current.filter((_, idx) => idx !== index))
+  }
+
+  const clearCart = () => {
+    setCart([])
+  }
 
   const openMenu = () => setMenuOpen(true)
   const openCart = () => setCartOpen(true)
@@ -395,6 +417,13 @@ export function StoreLayout() {
                     <strong>{siteConfig.email}</strong> adresine iletebilirsiniz.
                   </p>
                 )}
+                <Link
+                  to="/sepet/"
+                  className="cart-page-link"
+                  onClick={() => setCartOpen(false)}
+                >
+                  Sepet Sayfasını Aç →
+                </Link>
               </>
             )}
           </div>
@@ -409,6 +438,12 @@ export function StoreLayout() {
               openMenu,
               openCart,
               cartCount: count,
+              cart,
+              subtotal,
+              updateCartQuantity,
+              removeCartItem,
+              clearCart,
+              buildOrderSummaryMailto,
             } satisfies StoreContext
           }
         />
@@ -1892,8 +1927,13 @@ function Footer() {
 
           <div className="footer-dir-col">
             <h3>Atölye &amp; Bilgi</h3>
+            <Link to="/kategoriler/">Tüm Kategoriler</Link>
+            <Link to="/blog/">Blog &amp; Deri Rehberi</Link>
             <Link to="/hikayemiz/">Hikâyemiz</Link>
-            <Link to="/#kisisellestir">İsim Baskı Atölyesi</Link>
+            <Link to="/sepet/">Sepetim</Link>
+            <Link to="/giris/">Giriş Yap</Link>
+            <Link to="/uye-ol/">Üye Ol</Link>
+            <Link to="/kvkk/">KVKK Aydınlatma Metni</Link>
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
             {isConfiguredValue(siteConfig.shippingBadgeText) && (
               <span>{siteConfig.shippingBadgeText}</span>
@@ -1903,7 +1943,9 @@ function Footer() {
 
         <div className="footer-legal">
           <p>© 2026 ELON LEATHER · El Yapımı Hakiki Deri Atölyesi</p>
-          <p>Telif Hakkı Saklıdır.</p>
+          <p>
+            <Link to="/kvkk/">KVKK &amp; Gizlilik</Link> · Telif Hakkı Saklıdır.
+          </p>
         </div>
       </div>
     </footer>

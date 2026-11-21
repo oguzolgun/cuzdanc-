@@ -193,6 +193,20 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
               )
             })}
             <Link
+              to="/kategoriler/"
+              className={`apple-nav-item ${pathname.startsWith('/kategoriler') ? 'is-active' : ''}`}
+              onMouseEnter={() => setActiveParentSlug(null)}
+            >
+              Kategoriler
+            </Link>
+            <Link
+              to="/blog/"
+              className={`apple-nav-item ${pathname.startsWith('/blog') ? 'is-active' : ''}`}
+              onMouseEnter={() => setActiveParentSlug(null)}
+            >
+              Blog
+            </Link>
+            <Link
               to="/hikayemiz/"
               className={`apple-nav-item ${pathname.startsWith('/hikayemiz') ? 'is-active' : ''}`}
               onMouseEnter={() => setActiveParentSlug(null)}
@@ -202,6 +216,22 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
           </nav>
 
           <div className="apple-nav-actions">
+            <Link
+              to="/giris/"
+              className={`apple-icon-btn ${pathname.startsWith('/giris') || pathname.startsWith('/uye-ol') ? 'is-active' : ''}`}
+              onClick={() => {
+                setActiveParentSlug(null)
+                setSearchOpen(false)
+              }}
+              aria-label="Hesabım · Giriş Yap"
+              title="Giriş Yap / Üye Ol"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8.5" r="3.5" />
+                <path d="M5 19.5c1.5-3.4 4-4.8 7-4.8s5.5 1.4 7 4.8" />
+              </svg>
+            </Link>
+
             <button
               type="button"
               className={`apple-icon-btn ${searchOpen ? 'is-active' : ''}`}

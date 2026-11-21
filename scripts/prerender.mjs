@@ -53,6 +53,37 @@ function buildRoutePlan() {
     indexable: true,
   })
 
+  for (const staticRoute of [
+    { slug: 'kvkk', priority: '0.5', changefreq: 'yearly', indexable: true },
+    { slug: 'blog', priority: '0.8', changefreq: 'weekly', indexable: true },
+    { slug: 'giris', priority: '0.3', changefreq: 'monthly', indexable: false },
+    { slug: 'uye-ol', priority: '0.3', changefreq: 'monthly', indexable: false },
+    { slug: 'sepet', priority: '0.3', changefreq: 'monthly', indexable: false },
+  ]) {
+    routes.push({
+      urlPath: `/${staticRoute.slug}/`,
+      outRel: path.join(staticRoute.slug, 'index.html'),
+      priority: staticRoute.priority,
+      changefreq: staticRoute.changefreq,
+      indexable: staticRoute.indexable,
+    })
+  }
+
+  for (const blogSlug of [
+    'crazy-horse-hakiki-deri-nedir-patina-nasil-olusur',
+    'hakiki-deri-cuzdan-bakimi-ve-temizligi',
+    'miknatisli-mi-klasik-mi-dogru-cuzdan-secimi',
+    'isme-ozel-baskili-deri-hediye-rehberi',
+  ]) {
+    routes.push({
+      urlPath: `/blog/${blogSlug}/`,
+      outRel: path.join('blog', blogSlug, 'index.html'),
+      priority: '0.7',
+      changefreq: 'monthly',
+      indexable: true,
+    })
+  }
+
   routes.push({
     urlPath: '/404.html',
     outRel: '404.html',
