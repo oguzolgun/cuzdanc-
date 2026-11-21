@@ -369,7 +369,7 @@ const openRois = [
   { x0: 210, x1: 685, y0: 120, y1: 445 }, // o1: Lodos Pro
   { x0: 380, x1: 905, y0: 75, y1: 445 },  // o2: Lodos
   { x0: 475, x1: 915, y0: 135, y1: 472 }, // o3: Garbi
-  { x0: 410, x1: 925, y0: 100, y1: 455 }, // o4: Etezyen
+  { x0: 410, x1: 925, y0: 75, y1: 455 },  // o4: Etezyen
 ]
 
 const openFrames = 26 // 0.87s @ 30fps — crisp snappy lift & flick-open

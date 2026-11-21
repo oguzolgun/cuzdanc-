@@ -4514,8 +4514,13 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   display: flex;
   justify-content: center;
   gap: 12px;
-  max-width: 420px;
+  max-width: 540px;
   margin: 0 auto;
+}
+
+.cart-empty-actions .auth-submit-btn,
+.cart-empty-actions .auth-quiet-btn {
+  white-space: nowrap;
 }
 
 .cart-rec-section {
