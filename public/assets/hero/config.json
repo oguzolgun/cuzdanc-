@@ -144,23 +144,23 @@
     "open": [
       {
         "wallet": 1,
-        "startVsS0": 0.960958,
-        "endVsOi": 0.98745
+        "startVsS0": 0.905658,
+        "endVsOi": 0.986601
       },
       {
         "wallet": 2,
-        "startVsS0": 0.962365,
-        "endVsOi": 0.987148
+        "startVsS0": 0.89579,
+        "endVsOi": 0.986613
       },
       {
         "wallet": 3,
-        "startVsS0": 0.962302,
-        "endVsOi": 0.987952
+        "startVsS0": 0.90218,
+        "endVsOi": 0.987149
       },
       {
         "wallet": 4,
-        "startVsS0": 0.964088,
-        "endVsOi": 0.98845
+        "startVsS0": 0.905021,
+        "endVsOi": 0.987561
       }
     ]
   }
