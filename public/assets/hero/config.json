@@ -2,18 +2,18 @@
   "edgeColor": "#f4f5e5",
   "autoOpenFirst": true,
   "durations": {
-    "intro": 2,
+    "intro": 3.88,
     "open": [
-      0.87,
-      0.87,
-      0.87,
-      0.87
+      3.88,
+      3.88,
+      3.88,
+      3.88
     ],
     "close": [
-      0.87,
-      0.87,
-      0.87,
-      0.87
+      3.88,
+      3.88,
+      3.88,
+      3.88
     ]
   },
   "posters": {
@@ -137,5 +137,31 @@
         "h": 38.2
       }
     }
-  ]
+  ],
+  "ssim": {
+    "introStartVsEmpty": 0.989236,
+    "introEndVsS0": 0.988423,
+    "open": [
+      {
+        "wallet": 1,
+        "startVsS0": 0.960958,
+        "endVsOi": 0.98745
+      },
+      {
+        "wallet": 2,
+        "startVsS0": 0.962365,
+        "endVsOi": 0.987148
+      },
+      {
+        "wallet": 3,
+        "startVsS0": 0.962302,
+        "endVsOi": 0.987952
+      },
+      {
+        "wallet": 4,
+        "startVsS0": 0.964088,
+        "endVsOi": 0.98845
+      }
+    ]
+  }
 }
