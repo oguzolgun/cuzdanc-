@@ -3490,14 +3490,33 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
   pointer-events: none;
 }
 
-.hero-video-layer {
+.hero-video-layer,
+.hero-canvas-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 2;
   opacity: 0;
   pointer-events: none;
 }
 
-.hero-video-layer.is-visible {
+.hero-video-layer.is-visible,
+.hero-canvas-layer.is-visible {
   opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-debug-resize {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 12px;
+  height: 12px;
+  background: #ffcf4d;
+  border: 1.5px solid #1b1714;
+  border-radius: 2px;
+  cursor: nwse-resize;
 }
 
 .hero-vignette-overlay {
@@ -3964,14 +3983,26 @@ svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; }
     left: auto;
     transform: none;
     order: 3;
+    width: 100%;
     max-width: 100%;
-    padding: 14px 16px 6px;
+    padding: 12px 12px 6px;
   }
 
   .hero-selector-tablist {
+    width: 100%;
+    justify-content: space-between;
+    gap: 2px;
+    padding: 4px;
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .hero-selector-tab {
+    flex: 1 1 auto;
+    padding: 7px 6px;
+    font-size: 11px;
+    text-align: center;
   }
 
   .hero-selector-tablist::-webkit-scrollbar {

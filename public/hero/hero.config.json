@@ -1,0 +1,60 @@
+{
+  "fps": 16,
+  "edgeColor": "#1b140f",
+  "autoOpenFirst": true,
+  "autoOpenDelayMs": 5000,
+  "products": [
+    {
+      "index": 1,
+      "id": "lodos-pro",
+      "slug": "lodos-pro-miknatisli-deri-cuzdan",
+      "tabLabel": "01 Lodos Pro",
+      "name": "Lodos Pro",
+      "categoryLabel": "MIKNATISLI DERİ CÜZDAN",
+      "price": "1.600 TL",
+      "colorCount": 3,
+      "url": "/urun/lodos-pro-miknatisli-deri-cuzdan/",
+      "hotspot": { "x": 11.2, "y": 35.8, "w": 19.0, "h": 40.5 }
+    },
+    {
+      "index": 2,
+      "id": "lodos",
+      "slug": "lodos-miknatisli-deri-cuzdan",
+      "tabLabel": "02 Lodos",
+      "name": "Lodos",
+      "categoryLabel": "MIKNATISLI DERİ CÜZDAN",
+      "price": "1.500 TL",
+      "colorCount": 5,
+      "url": "/urun/lodos-miknatisli-deri-cuzdan/",
+      "hotspot": { "x": 32.0, "y": 36.0, "w": 18.0, "h": 40.2 }
+    },
+    {
+      "index": 3,
+      "id": "garbi",
+      "slug": "garbi-mandalli-deri-cuzdan",
+      "tabLabel": "03 Garbi",
+      "name": "Garbi",
+      "categoryLabel": "MANDALLI DERİ CÜZDAN",
+      "price": "1.400 TL",
+      "colorCount": 7,
+      "url": "/urun/garbi-mandalli-deri-cuzdan/",
+      "hotspot": { "x": 52.0, "y": 36.8, "w": 17.8, "h": 39.5 }
+    },
+    {
+      "index": 4,
+      "id": "etezyen",
+      "slug": "etezyen-klasik-deri-cuzdan",
+      "tabLabel": "04 Etezyen",
+      "name": "Etezyen",
+      "categoryLabel": "KLASİK DERİ CÜZDAN",
+      "price": "1.499 TL",
+      "colorCount": 3,
+      "url": "/urun/etezyen-klasik-deri-cuzdan/",
+      "hotspot": { "x": 71.5, "y": 38.0, "w": 18.5, "h": 38.2 }
+    }
+  ],
+  "cardPlacement": {
+    "desktop": "right-center",
+    "mobile": "bottom-sheet"
+  }
+}
