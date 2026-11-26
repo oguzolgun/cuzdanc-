@@ -161,15 +161,15 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
         onMouseEnter={cancelClose}
       >
         <div className="apple-nav-inner">
-          <Link to="/" className="apple-nav-brand" aria-label="ELON LEATHER Ana Sayfa">
+          <Link to="/" className="apple-nav-brand" aria-label="ELONS LEATHER Ana Sayfa">
             <img
               src="/assets/elon-mark.png"
-              alt="ELON LEATHER amblemi"
+              alt="ELONS LEATHER amblemi"
               width={28}
               height={28}
               className="apple-nav-mark"
             />
-            <span className="apple-nav-wordmark">ELON LEATHER</span>
+            <span className="apple-nav-wordmark">ELONS LEATHER</span>
           </Link>
 
           <nav className="apple-nav-links" aria-label="Kategori Menüsü">

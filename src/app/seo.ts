@@ -270,9 +270,9 @@ export function buildProductSeo(
 
 export function buildStorySeo(config: SiteConfigRecord): RouteSeoPayload {
   const canonical = absUrl(config.siteUrl, '/hikayemiz/')
-  const title = 'Hikâyemiz & Deri Zanaatı | Elon Leather'
+  const title = 'Hikâyemiz & Deri Zanaatı | Elons Leather'
   const description =
-    'Elon Leather atölyesinde el dikimi hakiki deri üretimi, malzeme seçimi, sıcak gofraj isim baskısı ve zanaat yaklaşımımız hakkında bilgi edinin.'
+    'Elons Leather atölyesinde el dikimi hakiki deri üretimi, malzeme seçimi, sıcak gofraj isim baskısı ve zanaat yaklaşımımız hakkında bilgi edinin.'
 
   const breadcrumbSchema: Record<string, unknown> = {
     '@context': 'https://schema.org',
@@ -313,9 +313,9 @@ export function buildStorySeo(config: SiteConfigRecord): RouteSeoPayload {
 
 export function buildAllCategoriesSeo(config: SiteConfigRecord): RouteSeoPayload {
   const canonical = absUrl(config.siteUrl, '/kategoriler/')
-  const title = 'Tüm Kategoriler & Deri Koleksiyonları | Elon Leather'
+  const title = 'Tüm Kategoriler & Deri Koleksiyonları | Elons Leather'
   const description =
-    'Elon Leather el yapımı hakiki deri cüzdan, kartlık, deri çanta ve aksesuar koleksiyonları. 12 özgün model ve 9 ürün kategorisini hemen keşfedin.'
+    'Elons Leather el yapımı hakiki deri cüzdan, kartlık, deri çanta ve aksesuar koleksiyonları. 12 özgün model ve 9 ürün kategorisini hemen keşfedin.'
 
   const breadcrumbSchema: Record<string, unknown> = {
     '@context': 'https://schema.org',
@@ -366,13 +366,13 @@ export function buildAllCategoriesSeo(config: SiteConfigRecord): RouteSeoPayload
 
 export function buildNotFoundSeo(config: SiteConfigRecord): RouteSeoPayload {
   return {
-    title: 'Sayfa Bulunamadı (404) | Elon Leather',
-    description: 'Aradığınız sayfa Elon Leather mağazasında bulunamadı. Cüzdan, kartlık, deri çanta ve aksesuar kategorilerimize göz atabilirsiniz.',
+    title: 'Sayfa Bulunamadı (404) | Elons Leather',
+    description: 'Aradığınız sayfa Elons Leather mağazasında bulunamadı. Cüzdan, kartlık, deri çanta ve aksesuar kategorilerimize göz atabilirsiniz.',
     canonical: absUrl(config.siteUrl, '/404.html'),
     robots: 'noindex, follow',
     ogType: 'website',
-    ogTitle: 'Sayfa Bulunamadı | Elon Leather',
-    ogDescription: 'Elon Leather mağaza koleksiyonlarına ana sayfadan veya kategori menüsünden ulaşabilirsiniz.',
+    ogTitle: 'Sayfa Bulunamadı | Elons Leather',
+    ogDescription: 'Elons Leather mağaza koleksiyonlarına ana sayfadan veya kategori menüsünden ulaşabilirsiniz.',
     ogImage: absUrl(config.siteUrl, config.defaultOgImage),
     ogLocale: config.locale,
     jsonLd: [],
@@ -385,7 +385,7 @@ export function renderSeoHeadTags(seo: RouteSeoPayload): string {
     `<meta name="description" content="${escapeAttr(seo.description)}" />`,
     `<meta name="robots" content="${escapeAttr(seo.robots)}" />`,
     `<link rel="canonical" href="${escapeAttr(seo.canonical)}" />`,
-    `<meta property="og:site_name" content="Elon Leather" />`,
+    `<meta property="og:site_name" content="Elons Leather" />`,
     `<meta property="og:locale" content="${escapeAttr(seo.ogLocale)}" />`,
     `<meta property="og:type" content="${escapeAttr(seo.ogType)}" />`,
     `<meta property="og:title" content="${escapeAttr(seo.ogTitle)}" />`,
@@ -463,7 +463,7 @@ export function useDocumentSeo(seo: RouteSeoPayload) {
     upsertMeta('name', 'robots', seo.robots)
     upsertLink('canonical', seo.canonical)
 
-    upsertMeta('property', 'og:site_name', 'Elon Leather')
+    upsertMeta('property', 'og:site_name', 'Elons Leather')
     upsertMeta('property', 'og:locale', seo.ogLocale)
     upsertMeta('property', 'og:type', seo.ogType)
     upsertMeta('property', 'og:title', seo.ogTitle)

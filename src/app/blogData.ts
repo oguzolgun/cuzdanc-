@@ -31,7 +31,7 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: 'Balmumu ile İşlenmiş Doğal Dana Derisi',
         paragraphs: [
           'Crazy Horse deri, sentetik kaplamalarla üzeri örtülmemiş tam sırçalı (full-grain) sığır derisinin doğal balmumu ve bitkisel yağlarla sıcak preslenerek işlenmesiyle elde edilir. Bu işlem deriye hem suya karşı doğal bir direnç hem de parmağınızla dokunduğunuzda renk tonunun hafifçe açılıp koyulaştığı canlı bir karakter kazandırır.',
-          'Elon Leather atölyesinde üretilen Lodos Pro, Garbi ve Etezyen gibi modellerde tercih edilen bu deri türü, her cüzdanın ilk günden itibaren tek ve benzersiz görünmesini sağlar.',
+          'Elons Leather atölyesinde üretilen Lodos Pro, Garbi ve Etezyen gibi modellerde tercih edilen bu deri türü, her cüzdanın ilk günden itibaren tek ve benzersiz görünmesini sağlar.',
         ],
       },
       {
@@ -76,7 +76,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: '10 Kasım 2026',
     readTime: '4 dk okuma',
     excerpt:
-      'Ön cep minimalizminden klasik katlanır alışkanlığa kadar taşıma tarzınıza en uygun Elon Leather cüzdan formunu seçmenize yardımcı olacak pratik karşılaştırma.',
+      'Ön cep minimalizminden klasik katlanır alışkanlığa kadar taşıma tarzınıza en uygun Elons Leather cüzdan formunu seçmenize yardımcı olacak pratik karşılaştırma.',
     coverImage: '/assets/products/elon-leather-lodos-siyah-miknatisli-deri-cuzdan-2-acik-gorunum.webp',
     coverAlt: 'Lodos Siyah mıknatıslı hakiki deri cüzdan açık iç tasarım',
     relatedProductSlug: 'lodos-miknatisli-deri-cuzdan',
@@ -110,7 +110,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: 'Ücretsiz İsim & Monogram Baskısı',
         paragraphs: [
-          'Elon Leather atölyesinde seçtiğiniz cüzdan, ajanda kılıfı veya anahtarlığa ücretsiz isim veya baş harf (monogram) baskısı uygulanır. Büyük harflerden oluşan sade bir tipografi, hakiki derinin doğal dokusuyla zamansız bir bütünlük oluşturur.',
+          'Elons Leather atölyesinde seçtiğiniz cüzdan, ajanda kılıfı veya anahtarlığa ücretsiz isim veya baş harf (monogram) baskısı uygulanır. Büyük harflerden oluşan sade bir tipografi, hakiki derinin doğal dokusuyla zamansız bir bütünlük oluşturur.',
         ],
       },
       {

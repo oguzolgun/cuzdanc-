@@ -54,10 +54,10 @@ export function Magnetic3DShowcase({ isPdp: _isPdp = false }: { isPdp?: boolean 
   const active = FEATURES[activeIdx] ?? FEATURES[0]
 
   return (
-    <section className="atelier-real-showcase" id="3d-deneyim" aria-label="Elon Leather Atölye Detayları">
+    <section className="atelier-real-showcase" id="3d-deneyim" aria-label="Elons Leather Atölye Detayları">
       <div className="atelier-showcase-container">
         <div className="atelier-showcase-copy">
-          <span className="magnetic-3d-eyebrow">ELON LEATHER · ATÖLYE DETAYI</span>
+          <span className="magnetic-3d-eyebrow">ELONS LEATHER · ATÖLYE DETAYI</span>
           <h2 className="magnetic-3d-title">
             Gerçek Deri,
             <br />

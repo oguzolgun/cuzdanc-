@@ -747,7 +747,7 @@ export function AppleHero({ onAddToCart: _onAddToCart }: AppleHeroProps) {
     <section
       className="interactive-hero"
       id="hero"
-      aria-label="Elon Leather İnteraktif Cüzdan Sahnesi"
+      aria-label="Elons Leather İnteraktif Cüzdan Sahnesi"
     >
       <div className="hero-viewport">
         <div
@@ -762,7 +762,7 @@ export function AppleHero({ onAddToCart: _onAddToCart }: AppleHeroProps) {
             {/* LCP Image: last frame of intro preloaded high priority */}
             <img
               src={idlePosterUrl}
-              alt="Elon Leather el yapımı hakiki deri cüzdan koleksiyonu tepsi sunumu"
+              alt="Elons Leather el yapımı hakiki deri cüzdan koleksiyonu tepsi sunumu"
               width={1280}
               height={720}
               fetchPriority="high"
@@ -864,7 +864,7 @@ export function AppleHero({ onAddToCart: _onAddToCart }: AppleHeroProps) {
           }`}
         >
           <span className="apple-hero-eyebrow">
-            ELON LEATHER · EL YAPIMI HAKİKİ DERİ KOLEKSİYONU
+            ELONS LEATHER · EL YAPIMI HAKİKİ DERİ KOLEKSİYONU
           </span>
           <h1 className="hero-main-h1">
             Cebinizdeki dünyayı<br />

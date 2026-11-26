@@ -101,8 +101,8 @@ function useAfterInteractionValidation(formRef: React.RefObject<HTMLFormElement 
 export function LoginPage() {
   useDocumentSeo(
     buildSimpleSeo(
-      'Giriş Yap | Elon Leather',
-      'Elon Leather hesabınıza giriş yapın; siparişlerinizi ve favori hakiki deri ürünlerinizi yönetin.',
+      'Giriş Yap | Elons Leather',
+      'Elons Leather hesabınıza giriş yapın; siparişlerinizi ve favori hakiki deri ürünlerinizi yönetin.',
       '/giris/',
       'noindex, follow'
     )
@@ -149,7 +149,7 @@ export function LoginPage() {
     <main className="auth-page">
       <div className="auth-shell">
         <div className="auth-intro">
-          <p className="overline">ELON LEATHER · ÜYE HESABI</p>
+          <p className="overline">ELONS LEATHER · ÜYE HESABI</p>
           <h1>Atölye Hesabınıza Giriş Yapın</h1>
           <p className="auth-sub">
             Sipariş taleplerinizi takip edin, kişiselleştirme notlarınızı saklayın ve koleksiyonlara hızlı erişin.
@@ -283,8 +283,8 @@ export function LoginPage() {
 export function RegisterPage() {
   useDocumentSeo(
     buildSimpleSeo(
-      'Üye Ol | Elon Leather',
-      'Elon Leather hesabı oluşturun; el yapımı hakiki deri siparişlerinizi ve kişiselleştirme tercihlerinizi kolayca yönetin.',
+      'Üye Ol | Elons Leather',
+      'Elons Leather hesabı oluşturun; el yapımı hakiki deri siparişlerinizi ve kişiselleştirme tercihlerinizi kolayca yönetin.',
       '/uye-ol/',
       'noindex, follow'
     )
@@ -320,7 +320,7 @@ export function RegisterPage() {
     <main className="auth-page">
       <div className="auth-shell">
         <div className="auth-intro">
-          <p className="overline">ELON LEATHER · YENİ ÜYELİK</p>
+          <p className="overline">ELONS LEATHER · YENİ ÜYELİK</p>
           <h1>Üye Olun</h1>
           <p className="auth-sub">
             Ücretsiz hesap oluşturarak sipariş özetlerinizi saklayın ve yeni sezon Ege denizciliği serilerinden haberdar olun.
@@ -455,8 +455,8 @@ export function RegisterPage() {
 export function CartPage() {
   useDocumentSeo(
     buildSimpleSeo(
-      'Sepetim | Elon Leather',
-      'Elon Leather alışveriş sepetiniz: el yapımı hakiki deri cüzdan, kartlık ve aksesuar sipariş özetiniz.',
+      'Sepetim | Elons Leather',
+      'Elons Leather alışveriş sepetiniz: el yapımı hakiki deri cüzdan, kartlık ve aksesuar sipariş özetiniz.',
       '/sepet/',
       'noindex, follow'
     )
@@ -481,7 +481,7 @@ export function CartPage() {
     <main className="cart-page">
       <div className="cart-page-head">
         <div>
-          <p className="overline">ELON LEATHER · SİPARİŞ ÖZETİ</p>
+          <p className="overline">ELONS LEATHER · SİPARİŞ ÖZETİ</p>
           <h1>Alışveriş Sepetim {cartCount > 0 ? `(${cartCount} Ürün)` : ''}</h1>
         </div>
         {cart.length > 0 && (
@@ -657,8 +657,8 @@ export function CartPage() {
 export function KvkkPage() {
   useDocumentSeo(
     buildSimpleSeo(
-      'KVKK Aydınlatma Metni & Gizlilik Politikası | Elon Leather',
-      '6698 Sayılı Kişisel Verilerin Korunması Kanunu kapsamında Elon Leather KVKK aydınlatma metni, çerez ve gizlilik politikası.',
+      'KVKK Aydınlatma Metni & Gizlilik Politikası | Elons Leather',
+      '6698 Sayılı Kişisel Verilerin Korunması Kanunu kapsamında Elons Leather KVKK aydınlatma metni, çerez ve gizlilik politikası.',
       '/kvkk/'
     )
   )
@@ -668,13 +668,13 @@ export function KvkkPage() {
       <article className="kvkk-article">
         <p className="overline">YASAL BİLGİLENDİRME · 6698 SAYILI KANUN</p>
         <h1>KVKK Aydınlatma Metni ve Gizlilik Politikası</h1>
-        <p className="kvkk-updated">Son Güncelleme: Kasım 2026 · Veri Sorumlusu: Elon Leather Atölyesi</p>
+        <p className="kvkk-updated">Son Güncelleme: Kasım 2026 · Veri Sorumlusu: Elons Leather Atölyesi</p>
 
         <section>
           <h2>1. Veri Sorumlusu</h2>
           <p>
             6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, kişisel verileriniz veri sorumlusu
-            sıfatıyla <strong>Elon Leather</strong> (“Şirket” veya “Atölye”) tarafından aşağıda açıklanan kapsamda
+            sıfatıyla <strong>Elons Leather</strong> (“Şirket” veya “Atölye”) tarafından aşağıda açıklanan kapsamda
             işlenebilecektir. İletişim: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
           </p>
         </section>
@@ -732,8 +732,8 @@ export function KvkkPage() {
 export function BlogListPage() {
   useDocumentSeo(
     buildSimpleSeo(
-      'Blog & Deri Rehberi | Elon Leather',
-      'Crazy Horse deri bakımı, cüzdan seçimi, patina oluşumu ve isme özel deri hediye rehberleri — Elon Leather Atölye Blogu.',
+      'Blog & Deri Rehberi | Elons Leather',
+      'Crazy Horse deri bakımı, cüzdan seçimi, patina oluşumu ve isme özel deri hediye rehberleri — Elons Leather Atölye Blogu.',
       '/blog/'
     )
   )
@@ -749,7 +749,7 @@ export function BlogListPage() {
   return (
     <main className="blog-page">
       <header className="blog-hero">
-        <p className="overline">ELON LEATHER · ATÖLYE NOTLARI</p>
+        <p className="overline">ELONS LEATHER · ATÖLYE NOTLARI</p>
         <h1>Deri Zanaatı &amp; Bakım Rehberi</h1>
         <p className="blog-hero-sub">
           Hakiki dana derisinin doğası, patina süreci, cüzdan seçimi ve uzun ömürlü kullanım ipuçları.
@@ -809,7 +809,7 @@ export function BlogPostPage() {
 
   useDocumentSeo(
     buildSimpleSeo(
-      `${post.title} | Elon Leather Blog`,
+      `${post.title} | Elons Leather Blog`,
       post.excerpt,
       `/blog/${post.slug}/`,
       'index, follow',

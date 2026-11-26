@@ -131,7 +131,7 @@ function Icon({
 function Logo({ light = false }: { light?: boolean }) {
   return (
     <span className={`brand-logo ${light ? 'is-light' : ''}`}>
-      <img src="/assets/elon-logo.png" alt="ELON LEATHER" width={148} height={92} loading="lazy" />
+      <img src="/assets/elon-logo.png" alt="ELONS LEATHER" width={148} height={92} loading="lazy" />
     </span>
   )
 }
@@ -240,9 +240,9 @@ export function StoreLayout() {
       ].filter(Boolean)
       return `- ${parts.join(' | ')}`
     })
-    const subject = encodeURIComponent('Elon Leather Sipariş Talebi')
+    const subject = encodeURIComponent('Elons Leather Sipariş Talebi')
     const body = encodeURIComponent(
-      `Merhaba Elon Leather Atölyesi,\n\nAşağıdaki ürünler hakkında sipariş oluşturmak istiyorum:\n\n${lines.join('\n')}\n\nAra Toplam: ${formatPrice(subtotal) || '-'}\n`
+      `Merhaba Elons Leather Atölyesi,\n\nAşağıdaki ürünler hakkında sipariş oluşturmak istiyorum:\n\n${lines.join('\n')}\n\nAra Toplam: ${formatPrice(subtotal) || '-'}\n`
     )
     return `mailto:${siteConfig.email}?subject=${subject}&body=${body}`
   }
@@ -261,7 +261,7 @@ export function StoreLayout() {
             <Icon name="close" />
             <span>Kapat</span>
           </button>
-          <p className="overline">ELON LEATHER · KOLEKSİYON DİZİNİ</p>
+          <p className="overline">ELONS LEATHER · KOLEKSİYON DİZİNİ</p>
           <nav aria-label="Mobil Kategori Menüsü">
             {categories.map((category, idx) => {
               const modelCount = getProductsByCategory(category.slug).length
@@ -297,7 +297,7 @@ export function StoreLayout() {
       <aside className={`cart-drawer ${cartOpen ? 'is-open' : ''}`} aria-label="Sepet">
         <div className="cart-head">
           <div>
-            <p className="overline">Elon Leather Atelier</p>
+            <p className="overline">Elons Leather Atelier</p>
             <h2>
               Sepetiniz <span>({count})</span>
             </h2>
@@ -582,7 +582,7 @@ function EmbossingStudio() {
           <em>Adınız deriye kazınsın.</em>
         </h2>
         <p>
-          Elon Leather atölyesinde seçili hakiki deri cüzdan, kartlık ve aksesuarlara sıcak gofraj baskıyla isminizi
+          Elons Leather atölyesinde seçili hakiki deri cüzdan, kartlık ve aksesuarlara sıcak gofraj baskıyla isminizi
           veya baş harflerinizi işleyebilirsiniz.
         </p>
       </div>
@@ -598,14 +598,14 @@ function EmbossingStudio() {
           <div className="swatch-brand-stamp">
             <img
               src="/assets/elon-mark.png"
-              alt="ELON LEATHER"
+              alt="ELONS LEATHER"
               width={38}
               height={38}
               loading="lazy"
               className="swatch-el-mark"
             />
             <div className="swatch-brand-info">
-              <span className="swatch-brand-name">ELON LEATHER</span>
+              <span className="swatch-brand-name">ELONS LEATHER</span>
               <span className="swatch-brand-sub">EL DİKİMİ ATELIER</span>
             </div>
           </div>
@@ -740,7 +740,7 @@ export function HomePage() {
         <header className="category-runway-head">
           <div>
             <p className="overline">Koleksiyonlar · {products.length} Özgün Seri</p>
-            <h2>Her yolculuk için bir Elon Leather.</h2>
+            <h2>Her yolculuk için bir Elons Leather.</h2>
           </div>
           <Link to="/kategoriler/" className="category-runway-all">
             Tümünü Gör <Icon name="arrow" />
@@ -809,7 +809,7 @@ export function HomePage() {
       {/* Authentic Craft Editorial Band */}
       <section className="craft-band">
         <div className="craft-mark">
-          <img src="/assets/elon-mark.png" alt="ELON LEATHER" width={105} height={105} loading="lazy" />
+          <img src="/assets/elon-mark.png" alt="ELONS LEATHER" width={105} height={105} loading="lazy" />
         </div>
         <div className="craft-band-image">
           <img
@@ -1105,7 +1105,7 @@ export function CategoryPage() {
             </Link>
           ))}
           <Link to="/hikayemiz/" className="internal-link-chip">
-            Elon Leather Hikâyesi →
+            Elons Leather Hikâyesi →
           </Link>
         </div>
       </section>
@@ -1628,13 +1628,13 @@ export function BrandStoryPage() {
         <nav className="breadcrumb" aria-label="İçerik Haritası">
           <Link to="/">Ana Sayfa</Link> / <span aria-current="page">Hikâyemiz</span>
         </nav>
-        <p className="overline">Elon Leather Atölyesi</p>
+        <p className="overline">Elons Leather Atölyesi</p>
         <h1>
           Sadelik, doğal deri ve<br />
           <em>günlük yaşamın ritmi.</em>
         </h1>
         <p className="story-lead">
-          Elon Leather, cebinizde ve çantanızda her gün taşıdığınız eşyaları zamansız hakiki deri formlarla yeniden
+          Elons Leather, cebinizde ve çantanızda her gün taşıdığınız eşyaları zamansız hakiki deri formlarla yeniden
           yorumlamak için doğdu. Her model abartıdan uzak, işlevsel ve yıllar içinde patina kazanan bir karakter taşır.
         </p>
       </section>
@@ -1706,7 +1706,7 @@ export function AllCategoriesPage() {
         <nav className="breadcrumb" aria-label="İçerik Haritası">
           <Link to="/">Ana Sayfa</Link> / <span aria-current="page">Kategoriler</span>
         </nav>
-        <p className="overline">Elon Leather · Koleksiyon Dizini</p>
+        <p className="overline">Elons Leather · Koleksiyon Dizini</p>
         <h1>
           Tüm Kategoriler &amp;<br />
           <em>Atölye Seçkisi.</em>
@@ -1872,7 +1872,7 @@ function Footer() {
     <footer className="apple-footer">
       <div className="apple-footer-inner">
         <div className="footer-newsletter">
-          <p className="overline">Elon Leather Bülten</p>
+          <p className="overline">Elons Leather Bülten</p>
           <h2>
             Dünyaları<br />
             <em>birlikte taşıyalım.</em>
@@ -1942,7 +1942,7 @@ function Footer() {
         </div>
 
         <div className="footer-legal">
-          <p>© 2026 ELON LEATHER · El Yapımı Hakiki Deri Atölyesi</p>
+          <p>© 2026 ELONS LEATHER · El Yapımı Hakiki Deri Atölyesi</p>
           <p>
             <Link to="/kvkk/">KVKK &amp; Gizlilik</Link> · Telif Hakkı Saklıdır.
           </p>

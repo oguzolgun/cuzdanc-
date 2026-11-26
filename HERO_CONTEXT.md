@@ -1,4 +1,4 @@
-# HERO CONTEXT (Elon Leather, cuzdanc.vercel.app)
+# HERO CONTEXT (Elons Leather, cuzdanc.vercel.app)
 
 ## Goal
 Replace the homepage hero with an interactive canvas hero. A vintage trunk tray holds 4 wallets. The user picks one; it lifts out and opens; an elegant card shows its name and price. Picking another wallet closes the current one (reverse playback), then opens the new one.

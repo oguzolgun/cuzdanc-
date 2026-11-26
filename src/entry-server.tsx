@@ -48,9 +48,9 @@ export function computeRouteSeo(urlPath: string): RouteSeoPayload {
     : `${base}${siteConfig.defaultOgImage}`
 
   if (pathname === '/kvkk') {
-    const title = 'KVKK Aydınlatma Metni & Gizlilik Politikası | Elon Leather'
+    const title = 'KVKK Aydınlatma Metni & Gizlilik Politikası | Elons Leather'
     const description =
-      '6698 Sayılı Kişisel Verilerin Korunması Kanunu kapsamında Elon Leather KVKK aydınlatma metni, çerez ve gizlilik politikası.'
+      '6698 Sayılı Kişisel Verilerin Korunması Kanunu kapsamında Elons Leather KVKK aydınlatma metni, çerez ve gizlilik politikası.'
     return {
       title,
       description,
@@ -66,9 +66,9 @@ export function computeRouteSeo(urlPath: string): RouteSeoPayload {
   }
 
   if (pathname === '/blog') {
-    const title = 'Blog & Deri Rehberi | Elon Leather'
+    const title = 'Blog & Deri Rehberi | Elons Leather'
     const description =
-      'Crazy Horse deri bakımı, cüzdan seçimi, patina oluşumu ve isme özel deri hediye rehberleri — Elon Leather Atölye Blogu.'
+      'Crazy Horse deri bakımı, cüzdan seçimi, patina oluşumu ve isme özel deri hediye rehberleri — Elons Leather Atölye Blogu.'
     return {
       title,
       description,
@@ -87,7 +87,7 @@ export function computeRouteSeo(urlPath: string): RouteSeoPayload {
     const slug = decodeURIComponent(pathname.slice('/blog/'.length))
     const post = BLOG_POSTS.find((p) => p.slug === slug)
     if (post) {
-      const title = `${post.title} | Elon Leather Blog`
+      const title = `${post.title} | Elons Leather Blog`
       const imgUrl = post.coverImage.startsWith('http') ? post.coverImage : `${base}${post.coverImage}`
       return {
         title,
@@ -107,16 +107,16 @@ export function computeRouteSeo(urlPath: string): RouteSeoPayload {
   if (pathname === '/giris' || pathname === '/uye-ol' || pathname === '/sepet') {
     const metaMap: Record<string, { title: string; description: string }> = {
       '/giris': {
-        title: 'Giriş Yap | Elon Leather',
-        description: 'Elon Leather hesabınıza giriş yapın; siparişlerinizi ve favori hakiki deri ürünlerinizi yönetin.',
+        title: 'Giriş Yap | Elons Leather',
+        description: 'Elons Leather hesabınıza giriş yapın; siparişlerinizi ve favori hakiki deri ürünlerinizi yönetin.',
       },
       '/uye-ol': {
-        title: 'Üye Ol | Elon Leather',
-        description: 'Elon Leather hesabı oluşturun; el yapımı hakiki deri siparişlerinizi kolayca yönetin.',
+        title: 'Üye Ol | Elons Leather',
+        description: 'Elons Leather hesabı oluşturun; el yapımı hakiki deri siparişlerinizi kolayca yönetin.',
       },
       '/sepet': {
-        title: 'Sepetim | Elon Leather',
-        description: 'Elon Leather alışveriş sepetiniz: el yapımı hakiki deri cüzdan, kartlık ve aksesuar sipariş özetiniz.',
+        title: 'Sepetim | Elons Leather',
+        description: 'Elons Leather alışveriş sepetiniz: el yapımı hakiki deri cüzdan, kartlık ve aksesuar sipariş özetiniz.',
       },
     }
     const m = metaMap[pathname]
