@@ -228,9 +228,10 @@
     ],
     "personalization": {
       "isimYazdirma": true,
-      "logoEkleme": false,
+      "logoEkleme": true,
       "gorselBaski": false,
-      "extraPrice": 0
+      "extraPrice": 0,
+      "logoExtraPrice": 150
     },
     "faq": [
       {
@@ -592,9 +593,10 @@
     ],
     "personalization": {
       "isimYazdirma": true,
-      "logoEkleme": false,
+      "logoEkleme": true,
       "gorselBaski": false,
-      "extraPrice": 0
+      "extraPrice": 0,
+      "logoExtraPrice": 150
     },
     "faq": [
       {
@@ -771,9 +773,10 @@
     ],
     "personalization": {
       "isimYazdirma": true,
-      "logoEkleme": false,
+      "logoEkleme": true,
       "gorselBaski": false,
-      "extraPrice": 0
+      "extraPrice": 0,
+      "logoExtraPrice": 150
     },
     "faq": [
       {
@@ -1096,9 +1099,10 @@
     ],
     "personalization": {
       "isimYazdirma": true,
-      "logoEkleme": false,
+      "logoEkleme": true,
       "gorselBaski": false,
-      "extraPrice": 0
+      "extraPrice": 0,
+      "logoExtraPrice": 150
     },
     "faq": [
       {
@@ -1236,9 +1240,10 @@
     ],
     "personalization": {
       "isimYazdirma": true,
-      "logoEkleme": false,
+      "logoEkleme": true,
       "gorselBaski": false,
-      "extraPrice": 0
+      "extraPrice": 0,
+      "logoExtraPrice": 150
     },
     "faq": [
       {
@@ -1609,9 +1614,10 @@
     ],
     "personalization": {
       "isimYazdirma": true,
-      "logoEkleme": false,
+      "logoEkleme": true,
       "gorselBaski": false,
-      "extraPrice": 0
+      "extraPrice": 0,
+      "logoExtraPrice": 150
     },
     "faq": [
       {
@@ -1710,9 +1716,10 @@
     ],
     "personalization": {
       "isimYazdirma": true,
-      "logoEkleme": false,
+      "logoEkleme": true,
       "gorselBaski": false,
-      "extraPrice": 0
+      "extraPrice": 0,
+      "logoExtraPrice": 150
     },
     "faq": [
       {
@@ -1812,9 +1819,10 @@
     ],
     "personalization": {
       "isimYazdirma": true,
-      "logoEkleme": false,
+      "logoEkleme": true,
       "gorselBaski": false,
-      "extraPrice": 0
+      "extraPrice": 0,
+      "logoExtraPrice": 150
     },
     "faq": [
       {
@@ -2138,9 +2146,10 @@
     ],
     "personalization": {
       "isimYazdirma": true,
-      "logoEkleme": false,
+      "logoEkleme": true,
       "gorselBaski": false,
-      "extraPrice": 0
+      "extraPrice": 0,
+      "logoExtraPrice": 150
     },
     "faq": [
       {
@@ -2265,6 +2274,249 @@
     "seo": {
       "title": "Halat El Yapımı Deri Bileklik | Elons Leather",
       "metaDescription": "Ayarlanabilir Halat el yapımı hakiki deri erkek bileklik. Bohem Frisko rengi ve doğal deri dokusuyla günlük stilinizi hemen şimdi tamamlayın."
+    }
+  },
+  {
+    "id": "poyraz",
+    "slug": "poyraz-miknatisli-deri-cuzdan",
+    "sourceFolder": "POYRAZ",
+    "name": "Poyraz El Yapımı Mıknatıslı Deri Cüzdan",
+    "modelName": "Poyraz",
+    "productType": "Mıknatıslı Deri Cüzdan",
+    "primaryCategory": "miknatisli-deri-cuzdan",
+    "extraCategories": [],
+    "shortDescription": "Üç katlı fonksiyonel iç düzeni gizli mıknatıslı üst kapakla birleştiren Poyraz hakiki deri cüzdan; Haki ve Kahve renk alternatifleri ve isteğe bağlı isim veya logo baskısıyla düzenli ve güvenli taşıma deneyimi sunar.",
+    "longDescription": "Poyraz El Yapımı Mıknatıslı Deri Cüzdan, yoğun günlük tempoda hem bol kart kapasitesine hem de şık ve düzenli bir katlanır forma ihtiyaç duyan kullanıcılar için atölyemizde titizlikle tasarlanmıştır. Üç panelli geniş açılımı sayesinde sık kullandığınız banka kartlarını, kimliklerinizi ve nakit banknotlarınızı üst üste yığmadan ayrı bölmelerde kolayca organize edebilirsiniz. Kapak altında yer alan gizli mıknatıslı kilit sistemi, ekstra kalın bir kayışa ihtiyaç duymadan cüzdanınızı tek dokunuşla sessizce kapatır ve cebinizde ya da çantanızda dağılmasını önler. Doğal yağlı crazy horse dokusuna sahip hakiki derisi temas ve kullanım sıklığına bağlı olarak zaman içinde benzersiz, sıcak bir patina karakteri kazanır. Çift kanat dikişleri ve pürüzsüz kenar işçiliği günlük aşınmalara karşı uzun ömürlü dayanıklılık sunar. Haki tonunun doğal mat duruşu ile derin Kahve renginin klasik ağırlığı kaban, ceket ve günlük casual kombinlerle zahmetsiz uyum yakalar. Ürün sayfasındaki Kişiselleştirme Alanı üzerinden ücretsiz isim yazdırma veya özel logo ekleme seçenekleriyle kendinize ya da sevdiklerinize özel kalıcı bir hatıra oluşturabilirsiniz.",
+    "features": [
+      "Doğal damarlı ve patina kazanan hakiki deri yüzey",
+      "Üç panelli geniş açılımlı kartlık ve düzenleme yapısı",
+      "Tek hareketle sessiz ve güvenli kapanan gizli mıknatıslı kapak",
+      "İsteğe bağlı sıcak gofraj isim yazdırma ve özel logo baskısı"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Temizlik için yalnızca yumuşak ve kuru pamuklu bir bez kullanınız.",
+      "Alkol, kolonya veya ıslak mendil gibi kimyasal çözücülerden uzak tutunuz.",
+      "Derinin formunu korumak için aşırı nemli ortamlarda bekletmeyiniz."
+    ],
+    "variants": [
+      {
+        "renk": "Haki",
+        "renkSlug": "haki",
+        "colorHex": "#5b5c43",
+        "sku": "ELN-POY-HAKI",
+        "price": "TODO",
+        "seoTitle": "Poyraz Haki Mıknatıslı Deri Cüzdan | Elons Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-poyraz-haki-miknatisli-deri-cuzdan-1-ana-gorsel.webp",
+            "thumb": "/assets/products/elon-leather-poyraz-haki-miknatisli-deri-cuzdan-1-ana-gorsel-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Poyraz Haki mıknatıslı hakiki deri cüzdan - ana stüdyo görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-poyraz-haki-miknatisli-deri-cuzdan-2-acik-gorunum.webp",
+            "thumb": "/assets/products/elon-leather-poyraz-haki-miknatisli-deri-cuzdan-2-acik-gorunum-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Poyraz Haki mıknatıslı hakiki deri cüzdan - açık görünüm ve detaylar"
+          },
+          {
+            "full": "/assets/products/elon-leather-poyraz-haki-miknatisli-deri-cuzdan-3-yasam-tarzi.webp",
+            "thumb": "/assets/products/elon-leather-poyraz-haki-miknatisli-deri-cuzdan-3-yasam-tarzi-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Poyraz Haki mıknatıslı hakiki deri cüzdan - yaşam tarzı kullanım çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-poyraz-haki-miknatisli-deri-cuzdan-4-detay.webp",
+            "thumb": "/assets/products/elon-leather-poyraz-haki-miknatisli-deri-cuzdan-4-detay-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Poyraz Haki mıknatıslı hakiki deri cüzdan - doku ve işçilik detayı"
+          }
+        ],
+        "inStock": true
+      },
+      {
+        "renk": "Kahve",
+        "renkSlug": "kahve",
+        "colorHex": "#4e2c1f",
+        "sku": "ELN-POY-KAHVE",
+        "price": "TODO",
+        "seoTitle": "Poyraz Kahve Mıknatıslı Deri Cüzdan | Elons Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-poyraz-kahve-miknatisli-deri-cuzdan-1-ana-gorsel.webp",
+            "thumb": "/assets/products/elon-leather-poyraz-kahve-miknatisli-deri-cuzdan-1-ana-gorsel-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Poyraz Kahve mıknatıslı hakiki deri cüzdan - ana stüdyo görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-poyraz-kahve-miknatisli-deri-cuzdan-2-acik-gorunum.webp",
+            "thumb": "/assets/products/elon-leather-poyraz-kahve-miknatisli-deri-cuzdan-2-acik-gorunum-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Poyraz Kahve mıknatıslı hakiki deri cüzdan - açık görünüm ve detaylar"
+          },
+          {
+            "full": "/assets/products/elon-leather-poyraz-kahve-miknatisli-deri-cuzdan-3-yasam-tarzi.webp",
+            "thumb": "/assets/products/elon-leather-poyraz-kahve-miknatisli-deri-cuzdan-3-yasam-tarzi-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Poyraz Kahve mıknatıslı hakiki deri cüzdan - yaşam tarzı kullanım çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-poyraz-kahve-miknatisli-deri-cuzdan-4-detay.webp",
+            "thumb": "/assets/products/elon-leather-poyraz-kahve-miknatisli-deri-cuzdan-4-detay-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Poyraz Kahve mıknatıslı hakiki deri cüzdan - doku ve işçilik detayı"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": true,
+      "logoEkleme": true,
+      "gorselBaski": false,
+      "extraPrice": 0,
+      "logoExtraPrice": 150
+    },
+    "faq": [
+      {
+        "question": "Poyraz cüzdan hangi renk seçenekleriyle sunuluyor?",
+        "answer": "Poyraz modeli doğal dokulu Haki ve klasik Kahve olmak üzere iki farklı hakiki deri seçeneğine sahiptir."
+      },
+      {
+        "question": "Poyraz cüzdanın kapama sistemi nasıldır?",
+        "answer": "Üst kapakta gizli mıknatıslı kapama bulunur; cebinizde kendiliğinden açılmadan güvenli biçimde kapanır."
+      },
+      {
+        "question": "Poyraz modeline isim veya logo baskısı yaptırabilir miyim?",
+        "answer": "Evet, ürün sayfasındaki Kişiselleştirme Alanı üzerinden ücretsiz isim yazdırma veya ek özel logo baskısı seçebilirsiniz."
+      }
+    ],
+    "relatedProducts": [
+      "lodos-pro-miknatisli-deri-cuzdan",
+      "lodos-miknatisli-deri-cuzdan",
+      "palamar-orgu-kemer"
+    ],
+    "seo": {
+      "title": "Poyraz Mıknatıslı Hakiki Deri Cüzdan | Elons Leather",
+      "metaDescription": "El yapımı Poyraz mıknatıslı hakiki deri cüzdan. Haki ve Kahve renk seçenekleri, üç katlı düzen, isim ve logo baskı imkânıyla hemen keşfedin."
+    }
+  },
+  {
+    "id": "palamar-orgu",
+    "slug": "palamar-orgu-kemer",
+    "sourceFolder": "PALAMAR ÖRGÜ",
+    "name": "Palamar Örgü Hakiki Deri Uçlu Esnek Kemer",
+    "modelName": "Palamar Örgü",
+    "productType": "Esnek Örgü Deri Kemer",
+    "primaryCategory": "deri-kemer",
+    "extraCategories": [],
+    "shortDescription": "Deliksiz esnek örgü gövdesini el yapımı hakiki deri toka detaylarıyla buluşturan Palamar Örgü kemer; Taba renginin sıcak dokusuyla bel ölçünüze gün boyu milimetrik ve konforlu bir uyum sağlar.",
+    "longDescription": "Palamar Örgü Hakiki Deri Uçlu Esnek Kemer, klasik kemer deliklerinin yarattığı ölçü sınırlamasını ortadan kaldırmak üzere tasarlanmış modern ve konforlu bir günlük aksesuardır. Sıkı dokunmuş elastik örgü gövdesi sayesinde metal toka iğnesi örgünün dilediğiniz noktasından sorunsuzca geçerek tam bedeninize uygun gerginliği ayarlar; böylece gün boyu otururken veya yürürken belinizde baskı oluşturmaz. Kemer ucunda ve toka bağlantısında kullanılan el işçiliği koyu kahve hakiki deri parçalar, Taba örgü şeritlerle kontrast bir bütünlük kurar ve her çekme hareketinde yüksek dayanıklılık sunar. Mat koyu füme dikdörtgen toka tasarımı çizilmelere karşı dirençli yapısıyla uzun süreli temiz bir görünüm korur. Keten pantolonlar, koyu denimler, chino kumaşlar ve mevsimlik kaşe kabanlarla kusursuz bir doku uyumu yakalayarak hem şehir içi ofis stilinde hem de hafta sonu kombinlerinde zahmetsizce yerini alır. İsterseniz ürün sayfasındaki Kişiselleştirme Alanı üzerinden deri uç detayına ücretsiz isim baskısı veya özel logo seçeneği ekleyerek kemerinizi yalnızca size ait kılabilirsiniz. Doğal tabaklanmış deri uç ve köprü parçaları uzun yıllar kullanımda zengin bir patina kazanarak aksesuar koleksiyonunuza karakterli bir derinlik katar.",
+    "features": [
+      "Deliksiz her noktadan geçebilen yüksek esnekliğe sahip örgü gövde",
+      "Toka ucu ve köprüde özenle dikilmiş hakiki deri detaylar",
+      "Mat koyu füme metal dikdörtgen toka ile zamansız görünüm",
+      "Günlük chino, keten ve kot kombinlerine kolay uyum sağlayan Taba ton"
+    ],
+    "specs": {
+      "boyut": "TODO",
+      "kartKapasitesi": "TODO",
+      "banknotBolmesi": "TODO",
+      "kapama": "TODO",
+      "malzeme": "Hakiki deri uç & esnek örgü",
+      "uretim": "El yapımı"
+    },
+    "careInstructions": [
+      "Kullanmadığınız dönemlerde örgünün formunu korumak için gevşek rulo halinde muhafaza ediniz.",
+      "Çamaşır makinesinde yıkamayınız; kuru veya hafif nemli bezle yüzeyini nazikçe temizleyiniz.",
+      "Hakiki deri uç ve köprü parçalarını doğrudan su ve kimyasal temizleyicilerden koruyunuz."
+    ],
+    "variants": [
+      {
+        "renk": "Taba",
+        "renkSlug": "taba",
+        "colorHex": "#a35829",
+        "sku": "ELN-PAL-TABA",
+        "price": "TODO",
+        "seoTitle": "Palamar Örgü Taba Esnek Deri Kemer | Elons Leather",
+        "images": [
+          {
+            "full": "/assets/products/elon-leather-palamar-orgu-taba-esnek-orgu-kemer-1-ana-gorsel.webp",
+            "thumb": "/assets/products/elon-leather-palamar-orgu-taba-esnek-orgu-kemer-1-ana-gorsel-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Palamar Örgü Taba esnek örgü deri kemer - ana stüdyo görünümü"
+          },
+          {
+            "full": "/assets/products/elon-leather-palamar-orgu-taba-esnek-orgu-kemer-2-acik-gorunum.webp",
+            "thumb": "/assets/products/elon-leather-palamar-orgu-taba-esnek-orgu-kemer-2-acik-gorunum-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Palamar Örgü Taba esnek örgü deri kemer - açık görünüm ve detaylar"
+          },
+          {
+            "full": "/assets/products/elon-leather-palamar-orgu-taba-esnek-orgu-kemer-3-yasam-tarzi.webp",
+            "thumb": "/assets/products/elon-leather-palamar-orgu-taba-esnek-orgu-kemer-3-yasam-tarzi-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Palamar Örgü Taba esnek örgü deri kemer - yaşam tarzı kullanım çekimi"
+          },
+          {
+            "full": "/assets/products/elon-leather-palamar-orgu-taba-esnek-orgu-kemer-4-detay.webp",
+            "thumb": "/assets/products/elon-leather-palamar-orgu-taba-esnek-orgu-kemer-4-detay-600.webp",
+            "width": 1200,
+            "height": 1800,
+            "alt": "Palamar Örgü Taba esnek örgü deri kemer - doku ve işçilik detayı"
+          }
+        ],
+        "inStock": true
+      }
+    ],
+    "personalization": {
+      "isimYazdirma": true,
+      "logoEkleme": true,
+      "gorselBaski": false,
+      "extraPrice": 0,
+      "logoExtraPrice": 150
+    },
+    "faq": [
+      {
+        "question": "Palamar Örgü kemer deliksiz nasıl ayarlanır?",
+        "answer": "Toka iğnesi sık dokunmuş elastik örgünün herhangi bir arasından rahatlıkla geçerek bel ölçünüze göre ayarlanır."
+      },
+      {
+        "question": "Örgü kemerin uç ve köprü bölümleri hakiki deri mi?",
+        "answer": "Evet, kemerin toka bağlantısı, köprü halkası ve uç kısmı el işçiliğiyle hazırlanmış hakiki deridir."
+      },
+      {
+        "question": "Kemer zamanla bollaşıp sarkma yapar mı?",
+        "answer": "Yüksek esneklik kazanımına sahip sıkı örgü dokusu günlük kullanımda formunu ve toparlama direncini korur."
+      }
+    ],
+    "relatedProducts": [
+      "halat-deri-bileklik",
+      "poyraz-miknatisli-deri-cuzdan",
+      "lodos-pro-miknatisli-deri-cuzdan"
+    ],
+    "seo": {
+      "title": "Palamar Örgü Taba Esnek Deri Kemer | Elons Leather",
+      "metaDescription": "El yapımı hakiki deri uçlu Palamar Örgü Taba esnek kemer. Deliksiz ayarlanabilir konforlu örgü dokusu ve şık metal tokasıyla hemen keşfedin."
     }
   }
 ]

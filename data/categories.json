@@ -546,10 +546,10 @@
       }
     ],
     "relatedSlugs": [
+      "deri-kemer",
       "deri-anahtarlik",
       "deri-ajanda-kilifi",
-      "deri-bileklik",
-      "cuzdan-kartlik"
+      "deri-bileklik"
     ],
     "seo": {
       "title": "El Yapımı Hakiki Deri Aksesuarlar | Elons Leather",
@@ -734,6 +734,66 @@
     "seo": {
       "title": "El Yapımı Hakiki Deri Bileklik | Halat | Elons Leather",
       "metaDescription": "Ayarlanabilir Halat el yapımı erkek hakiki deri bileklik. Doğal Frisko rengi ve bohem zanaat karakteriyle günlük stilinizi hemen tamamlayın."
+    }
+  },
+  {
+    "slug": "deri-kemer",
+    "name": "Deri Kemer",
+    "parentSlug": "deri-aksesuar",
+    "index": "13",
+    "targetKeyword": "el yapımı esnek örgü deri kemer",
+    "h1": "El Yapımı Hakiki Deri & Örgü Kemerler",
+    "bannerImage": "/assets/products/elon-leather-palamar-orgu-taba-esnek-orgu-kemer-1-ana-gorsel.webp",
+    "shortIntro": "Elons Leather hakiki deri uçlu esnek örgü kemer koleksiyonu, deliksiz geçmeli örgüsü ve sağlam metal tokasıyla her bel ölçüsüne milimetrik uyum sağlar. Palamar Örgü Taba erkek kemer modeli gün boyu esnekliği, sıcak dokusu ve zahmetsiz şıklığıyla günlük kombinlerinizi zamansız biçimde tamamlar.",
+    "seoGuideSections": [
+      {
+        "heading": "Deliksiz Esnek Örgü Yapısı ile Gün Boyu Konfor",
+        "level": "h2",
+        "paragraphs": [
+          "Klasik kemerlerde sabit aralıklarla açılan delikler çoğu zaman iki ölçü arasında sıkışmanıza yol açar ve oturup kalkarken bel çevresinde rahatsız edici bir baskı yaratır. Esnek örgü gövdeli hakiki deri kemerlerde ise toka iğnesi sıkı dokunmuş örgü ipliklerinin dilediğiniz noktasından kolayca geçer; böylece gün içinde yemek sonrasında ya da hareket halindeyken belinize tam oturan milimetrik bir ayar yapabilirsiniz.",
+          "Koleksiyonumuzun öne çıkan parçası Palamar Örgü Taba esnek kemer, yüksek toparlanma gücüne sahip dokuma gövdesi ile hakiki deri toka ucu ve köprü detaylarını bir araya getirir. Sarkma veya gevşeme yapmadan pantolonunuzu dengeli biçimde kavrar, günlük hareket özgürlüğünüzü kısıtlamaz."
+        ]
+      },
+      {
+        "heading": "Taba Deri ve Akıllı Casual Kombinlere Sıcak Uyum",
+        "level": "h3",
+        "paragraphs": [
+          "Taba tonunun sıcak ve doğal karakteri koyu lacivert chino pantolonlardan ham kotlara, bej keten takımlardan hafta sonu kaşe kaban kombinlerine kadar geniş bir gardırop yelpazesine eşlik eder. Hakiki deri uç kısmında yer alan özenli dikiş işçiliği ve mat füme toka detayı hem spor hem de akıllı casual tarzda dengeli bir görünüm ortaya çıkarır.",
+          "Cüzdan, kartlık veya deri bileklikle renk bütünlüğü kurmak istediğinizde Lodos Pro ya da Poyraz serisi modellerle uyumlu sıcak bir aksesuar seti oluşturabilirsiniz."
+        ]
+      },
+      {
+        "heading": "Örgü Kemerlerde Uzun Ömürlü Kullanım ve Bakım",
+        "level": "h2",
+        "paragraphs": [
+          "Esnek örgü kemerinizin formunu ve hakiki deri detaylarının doğal dokusunu uzun yıllar koruyabilmek için kullanmadığınız zamanlarda kemeri gevşek biçimde rulo yaparak serin ve kuru bir çekmecede saklamanız önerilir. Çamaşır makinesinde yıkamaktan, aşırı sıkmaktan veya kimyasal leke çıkarıcılardan uzak durunuz.",
+          "Deri uç ve toka çevresindeki günlük tozları yumuşak, kuru bir pamuklu bezle silerek ilk günkü zarif görünümünü zahmetsizce sürdürebilirsiniz."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Palamar Örgü kemer farklı bel ölçülerine nasıl uyum sağlar?",
+        "answer": "Deliksiz esnek örgü yapısı sayesinde toka iğnesi örgünün herhangi bir noktasından geçerek tam istediğiniz ölçüde sabitlenir."
+      },
+      {
+        "question": "Kemerin hangi kısımları hakiki deriden üretilmektedir?",
+        "answer": "Toka bağlantısı, köprü halkası ve kemer ucu el işçiliğiyle şekillendirilmiş hakiki deriden hazırlanmaktadır."
+      },
+      {
+        "question": "Örgü kemer hem günlük hem klasik pantolonlarla kullanılır mı?",
+        "answer": "Evet, Taba tonu ve mat metal tokası chino, keten ve denim pantolonların tümüyle rahatlıkla kombinlenir."
+      }
+    ],
+    "relatedSlugs": [
+      "deri-aksesuar",
+      "deri-bileklik",
+      "deri-anahtarlik",
+      "miknatisli-deri-cuzdan"
+    ],
+    "seo": {
+      "title": "El Yapımı Esnek Örgü Deri Kemer | Elons Leather",
+      "metaDescription": "El yapımı hakiki deri uçlu esnek örgü Palamar kemer modelleri. Deliksiz ayarlanabilir tasarım ve sıcak Taba tonuyla gün boyu konforu keşfedin."
     }
   }
 ]

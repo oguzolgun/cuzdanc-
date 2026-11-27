@@ -304,7 +304,7 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
                     </li>
                   ))}
                   <li>
-                    <Link to="/#kisisellestir">İsim Baskı Atölyesi</Link>
+                    <Link to="/kategoriler/">Tüm Kategoriler</Link>
                   </li>
                 </ul>
               </div>

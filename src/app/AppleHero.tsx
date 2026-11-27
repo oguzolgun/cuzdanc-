@@ -857,15 +857,12 @@ export function AppleHero({ onAddToCart: _onAddToCart }: AppleHeroProps) {
           </div>
         </div>
 
-        {/* Top-left Headline */}
+        {/* Centered Headline */}
         <div
           className={`hero-headline-overlay ${
             isAnyOpenOrOpening ? 'is-dimmed' : ''
           }`}
         >
-          <span className="apple-hero-eyebrow">
-            ELONS LEATHER · EL YAPIMI HAKİKİ DERİ KOLEKSİYONU
-          </span>
           <h1 className="hero-main-h1">
             Cebinizdeki dünyayı<br />
             <em>yeniden tanımlayın.</em>

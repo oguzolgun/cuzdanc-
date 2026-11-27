@@ -315,7 +315,7 @@ export function buildAllCategoriesSeo(config: SiteConfigRecord): RouteSeoPayload
   const canonical = absUrl(config.siteUrl, '/kategoriler/')
   const title = 'Tüm Kategoriler & Deri Koleksiyonları | Elons Leather'
   const description =
-    'Elons Leather el yapımı hakiki deri cüzdan, kartlık, deri çanta ve aksesuar koleksiyonları. 12 özgün model ve 9 ürün kategorisini hemen keşfedin.'
+    'Elons Leather el yapımı hakiki deri cüzdan, kartlık, deri çanta, kemer ve aksesuar koleksiyonları. 14 özgün model ve 10 ürün kategorisini hemen keşfedin.'
 
   const breadcrumbSchema: Record<string, unknown> = {
     '@context': 'https://schema.org',

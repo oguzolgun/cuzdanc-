@@ -284,8 +284,8 @@ export function StoreLayout() {
             <Link to="/hikayemiz/" onClick={() => setMenuOpen(false)}>
               Hikâyemiz
             </Link>
-            <Link to="/#kisisellestir" onClick={() => setMenuOpen(false)}>
-              İsim Baskı Atölyesi
+            <Link to="/kategoriler/" onClick={() => setMenuOpen(false)}>
+              Tüm Kategoriler
             </Link>
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
           </div>
@@ -558,162 +558,15 @@ function ProductCard({
 }
 
 /* =========================================================================
-   LIVE LEATHER EMBOSSING STUDIO (Preserved User Design)
-   ========================================================================= */
-function EmbossingStudio() {
-  const [name, setName] = useState('BURAYA İSİM GİRİNİZ')
-  const [leatherColor, setLeatherColor] = useState<'cognac' | 'chestnut' | 'olive' | 'black'>('cognac')
-
-  const leatherPalette = {
-    cognac: { name: 'Konyak Taba', bg: '#96481e', stitch: '#cf9872', isDark: false },
-    chestnut: { name: 'Antik Kestane', bg: '#4e281c', stitch: '#9c6f5d', isDark: true },
-    olive: { name: 'Zeytin Yeşili', bg: '#3e4233', stitch: '#868c73', isDark: true },
-    black: { name: 'Gece Siyahı', bg: '#1c1b1a', stitch: '#42413e', isDark: true },
-  }
-
-  const selected = leatherPalette[leatherColor]
-
-  return (
-    <section className="embossing-studio-section" id="kisisellestir">
-      <div className="studio-header">
-        <p className="overline">İsteğe Bağlı Kişiselleştirme Atölyesi</p>
-        <h2>
-          Cüzdanınıza ruh katın:<br />
-          <em>Adınız deriye kazınsın.</em>
-        </h2>
-        <p>
-          Elons Leather atölyesinde seçili hakiki deri cüzdan, kartlık ve aksesuarlara sıcak gofraj baskıyla isminizi
-          veya baş harflerinizi işleyebilirsiniz.
-        </p>
-      </div>
-
-      <div className="studio-workbench">
-        <div
-          className={`leather-swatch-display ${selected.isDark ? 'is-dark' : ''}`}
-          style={{ background: selected.bg }}
-        >
-          <div className="leather-grain-overlay" />
-          <div className="leather-hand-stitching" style={{ borderColor: selected.stitch }} />
-
-          <div className="swatch-brand-stamp">
-            <img
-              src="/assets/elon-mark.png"
-              alt="ELONS LEATHER"
-              width={38}
-              height={38}
-              loading="lazy"
-              className="swatch-el-mark"
-            />
-            <div className="swatch-brand-info">
-              <span className="swatch-brand-name">ELONS LEATHER</span>
-              <span className="swatch-brand-sub">EL DİKİMİ ATELIER</span>
-            </div>
-          </div>
-
-          <div className="swatch-corner-emboss">
-            <div className="embossed-name-output style-blind">
-              {name.trim() ? name.toUpperCase() : 'BURAYA İSİM GİRİNİZ'}
-            </div>
-          </div>
-        </div>
-
-        <div className="studio-controls">
-          <div className="emboss-input-group">
-            <div className="emboss-input-header">
-              <label htmlFor="custom-name-input">Deriye İşlenecek İsim veya Baş Harfler</label>
-              <span className="emboss-input-badge">✦ Ücretsiz İsim Baskısı</span>
-            </div>
-
-            <div className="emboss-input-box">
-              <svg viewBox="0 0 24 24" className="emboss-input-icon" fill="none" stroke="currentColor" aria-hidden="true">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.8"
-                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                />
-              </svg>
-
-              <input
-                id="custom-name-input"
-                type="text"
-                maxLength={siteConfig.personalizationDefaults.maxNameLength}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                onFocus={(e) => e.target.select()}
-                placeholder="Buraya isim giriniz..."
-                className="emboss-text-field"
-                autoComplete="off"
-                spellCheck="false"
-              />
-
-              <div className="emboss-input-actions">
-                {name.length > 0 && (
-                  <button
-                    type="button"
-                    onClick={() => setName('')}
-                    className="emboss-clear-btn"
-                    title="Temizle"
-                    aria-label="Metni temizle"
-                  >
-                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" strokeWidth="2.5">
-                      <line x1="18" y1="6" x2="6" y2="18" />
-                      <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                  </button>
-                )}
-                <span className="emboss-char-count">
-                  {name.length}/{siteConfig.personalizationDefaults.maxNameLength}
-                </span>
-              </div>
-            </div>
-
-            <p className="emboss-input-hint">
-              <strong>✦ Canlı Önizleme:</strong> Buraya yazdığınız isim soldaki deriye anında sıcak gofrajla yansıtılır.
-            </p>
-          </div>
-
-          <div className="leather-color-group">
-            <span className="leather-color-header">Deri Tonunu Önizleyin</span>
-            <div className="leather-color-buttons">
-              {(Object.keys(leatherPalette) as (keyof typeof leatherPalette)[]).map((key) => (
-                <button
-                  key={key}
-                  type="button"
-                  className={`color-btn ${leatherColor === key ? 'active' : ''}`}
-                  onClick={() => setLeatherColor(key)}
-                >
-                  <i style={{ background: leatherPalette[key].bg }} />
-                  <span>{leatherPalette[key].name}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="studio-cta-wrap">
-            <Link to="/cuzdan-kartlik/" className="primary-link">
-              Bu Baskıyla Bir Ürün Seçin <Icon name="arrow" />
-            </Link>
-            <p className="studio-note">
-              * Seçtiğiniz ürünün sayfasında isminizi belirtebilir; Lodos Pro modelinde logo veya görsel baskı seçeneğini tercih edebilirsiniz.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* =========================================================================
    HOMEPAGE (/)
    ========================================================================= */
 const FEATURED_MODEL_SLUGS = [
   'lodos-pro-miknatisli-deri-cuzdan',
+  'poyraz-miknatisli-deri-cuzdan',
   'lodos-miknatisli-deri-cuzdan',
+  'palamar-orgu-kemer',
   'etezyen-klasik-deri-cuzdan',
-  'esinti-ince-deri-kartlik',
   'efes-deri-el-cantasi',
-  'assos-deri-omuz-cantasi',
 ]
 
 export function HomePage() {
@@ -786,8 +639,6 @@ export function HomePage() {
 
       <Magnetic3DShowcase />
 
-      <EmbossingStudio />
-
       {/* Featured Products */}
       <section className="new-arrivals">
         <header className="split-heading">
@@ -833,8 +684,8 @@ export function HomePage() {
           </p>
           <div className="craft-details-checklist">
             <span>✓ %100 el yapımı hakiki deri gövde ve özenli dikiş</span>
-            <span>✓ Cüzdan, kartlık, pasaportluk, çanta ve küçük deri aksesuar seçkisi</span>
-            <span>✓ İsteğe bağlı sıcak gofraj isim baskısı (Lodos Pro’da ek logo ve görsel)</span>
+            <span>✓ Cüzdan, kartlık, pasaportluk, kemer, çanta ve küçük deri aksesuar seçkisi</span>
+            <span>✓ Ürün detayından seçilebilen ücretsiz sıcak gofraj isim ve ek logo baskısı</span>
           </div>
           <div className="craft-cta-group">
             <Link to="/kategoriler/" className="craft-cta-primary">
@@ -1137,6 +988,7 @@ export function ProductPage() {
   const [wantsEngraving, setWantsEngraving] = useState(false)
   const [engravingText, setEngravingText] = useState('')
   const [personalizationAddon, setPersonalizationAddon] = useState<PersonalizationAddon>('none')
+  const [showPersonalizationHelp, setShowPersonalizationHelp] = useState(false)
 
   useEffect(() => {
     setActiveImgIdx(0)
@@ -1378,103 +1230,34 @@ export function ProductPage() {
             </div>
           </div>
 
-          {/* Personalization Controls */}
-          {product.personalization.isimYazdirma && (
-            <div className="personalization-box">
-              <label className="checkbox-label">
-                <input
-                  type="checkbox"
-                  checked={wantsEngraving}
-                  onChange={(e) => setWantsEngraving(e.target.checked)}
-                />
-                <div>
-                  <strong>Ücretsiz İsim / Baş Harf Baskısı Ekle</strong>
-                  <small>Sıcak gofraj presiyle deriye işlenir (+0 TL)</small>
-                </div>
-              </label>
-
-              {wantsEngraving && (
-                <div className="personalization-inputs">
-                  <div className="p-input-field">
-                    <label htmlFor="p-text">
-                      Yazılacak İsim veya Baş Harfler (Maks {maxNameChars})
-                    </label>
-                    <input
-                      id="p-text"
-                      type="text"
-                      maxLength={maxNameChars}
-                      value={engravingText}
-                      onChange={(e) => setEngravingText(e.target.value)}
-                      placeholder="Örn: OĞUZ OLGUN"
-                    />
-                  </div>
-                </div>
-              )}
-
-              {(hasLogoOption || hasImageOption) && (
-                <fieldset className="p-addon-fieldset">
-                  <legend>Ek Baskı Seçeneği</legend>
-                  <div className="p-addon-options">
-                    <label className={`p-addon-opt ${personalizationAddon === 'none' ? 'is-selected' : ''}`}>
-                      <input
-                        type="radio"
-                        name="personalizationAddon"
-                        checked={personalizationAddon === 'none'}
-                        onChange={() => setPersonalizationAddon('none')}
-                      />
-                      <span>Yalnızca İsim Baskısı (+0 TL)</span>
-                    </label>
-                    {hasLogoOption && (
-                      <label className={`p-addon-opt ${personalizationAddon === 'logo' ? 'is-selected' : ''}`}>
-                        <input
-                          type="radio"
-                          name="personalizationAddon"
-                          checked={personalizationAddon === 'logo'}
-                          onChange={() => setPersonalizationAddon('logo')}
-                        />
-                        <span>Özel Logo Ekleme (+{logoExtraTry} TL)</span>
-                      </label>
-                    )}
-                    {hasImageOption && (
-                      <label className={`p-addon-opt ${personalizationAddon === 'image' ? 'is-selected' : ''}`}>
-                        <input
-                          type="radio"
-                          name="personalizationAddon"
-                          checked={personalizationAddon === 'image'}
-                          onChange={() => setPersonalizationAddon('image')}
-                        />
-                        <span>Görsel Baskı (+{imageExtraTry} TL)</span>
-                      </label>
-                    )}
-                  </div>
-                </fieldset>
-              )}
-            </div>
-          )}
-
           {/* Purchase Row */}
           {hasNumericPrice ? (
-            <div className="buy-row">
-              <div className="quantity">
-                <button
-                  type="button"
-                  aria-label="Adet azalt"
-                  onClick={() => setQuantity((value) => Math.max(1, value - 1))}
-                >
-                  <Icon name="minus" />
-                </button>
-                <span>{quantity}</span>
-                <button
-                  type="button"
-                  aria-label="Adet artır"
-                  onClick={() => setQuantity((value) => value + 1)}
-                >
-                  <Icon name="plus" />
+            <div className="pdp-buy-actions">
+              <div className="buy-row">
+                <div className="quantity">
+                  <button
+                    type="button"
+                    aria-label="Adet azalt"
+                    onClick={() => setQuantity((value) => Math.max(1, value - 1))}
+                  >
+                    <Icon name="minus" />
+                  </button>
+                  <span>{quantity}</span>
+                  <button
+                    type="button"
+                    aria-label="Adet artır"
+                    onClick={() => setQuantity((value) => value + 1)}
+                  >
+                    <Icon name="plus" />
+                  </button>
+                </div>
+                <button type="button" className="add-cart" onClick={handleAdd}>
+                  <span>Sepete Ekle</span>
+                  <strong>{totalButtonPrice}</strong>
                 </button>
               </div>
-              <button type="button" className="add-cart" onClick={handleAdd}>
-                <span>Sepete Ekle</span>
-                <strong>{totalButtonPrice}</strong>
+              <button type="button" className="pdp-buy-now" onClick={handleAdd}>
+                Hemen Satın Alın
               </button>
             </div>
           ) : (
@@ -1486,6 +1269,98 @@ export function ProductPage() {
                 <span>Atölyeden Bilgi &amp; Stok Sor</span>
                 <Icon name="arrow" />
               </a>
+            </div>
+          )}
+
+          {/* Personalization Controls */}
+          {(product.personalization.isimYazdirma || hasLogoOption || hasImageOption) && (
+            <div className="personalization-area">
+              <div className="p-area-head">
+                <h2>Kişiselleştirme Alanı</h2>
+                <button
+                  type="button"
+                  className="p-help-btn"
+                  aria-label="Kişiselleştirme hakkında bilgi"
+                  aria-expanded={showPersonalizationHelp}
+                  onClick={() => setShowPersonalizationHelp((v) => !v)}
+                >
+                  ?
+                </button>
+              </div>
+
+              {showPersonalizationHelp && (
+                <p className="p-help-note">
+                  İsim yazdırma sıcak gofraj baskıyla ücretsiz işlenir. Özel logo veya görsel ekleme seçildiğinde siparişinizin ardından görseli e-posta ile paylaşabilirsiniz.
+                </p>
+              )}
+
+              <div className="p-check-list">
+                {product.personalization.isimYazdirma && (
+                  <label className="p-check-row">
+                    <input
+                      type="checkbox"
+                      checked={wantsEngraving}
+                      onChange={(e) => setWantsEngraving(e.target.checked)}
+                    />
+                    <span>İSİM YAZDIRMA</span>
+                    <em className="p-free-tag">(Ücretsiz)</em>
+                  </label>
+                )}
+
+                {hasLogoOption && (
+                  <label className="p-check-row">
+                    <input
+                      type="checkbox"
+                      checked={personalizationAddon === 'logo'}
+                      onChange={(e) =>
+                        setPersonalizationAddon(e.target.checked ? 'logo' : 'none')
+                      }
+                    />
+                    <span>
+                      LOGO EKLEME <em>({logoExtraTry},00 TL)</em>
+                    </span>
+                  </label>
+                )}
+
+                {hasImageOption && (
+                  <label className="p-check-row">
+                    <input
+                      type="checkbox"
+                      checked={personalizationAddon === 'image'}
+                      onChange={(e) =>
+                        setPersonalizationAddon(e.target.checked ? 'image' : 'none')
+                      }
+                    />
+                    <span>
+                      GÖRSEL BASKI <em>({imageExtraTry},00 TL)</em>
+                    </span>
+                  </label>
+                )}
+              </div>
+
+              {product.personalization.isimYazdirma && (
+                <div className="p-name-field">
+                  <label htmlFor="p-text">Yazdırılacak İsim</label>
+                  <input
+                    id="p-text"
+                    type="text"
+                    maxLength={maxNameChars}
+                    value={engravingText}
+                    onChange={(e) => {
+                      const val = e.target.value
+                      setEngravingText(val)
+                      setWantsEngraving(val.trim().length > 0)
+                    }}
+                    placeholder="İsim veya baş harfler (örn: OĞUZ OLGUN)"
+                  />
+                </div>
+              )}
+
+              {personalizationAddon !== 'none' && (
+                <p className="p-addon-note">
+                  ✓ Seçtiğiniz ek baskı (+{addonExtra} TL) toplam fiyata yansıtıldı. Sipariş sonrası logonuzu/görselinizi {siteConfig.email} adresine iletebilirsiniz.
+                </p>
+              )}
             </div>
           )}
 
@@ -1677,8 +1552,8 @@ export function BrandStoryPage() {
               {cat.name} ({getProductsByCategory(cat.slug).length}) →
             </Link>
           ))}
-          <Link to="/#kisisellestir" className="apple-btn-primary">
-            İsim Baskısı Önizle
+          <Link to="/kategoriler/" className="apple-btn-primary">
+            Tüm Koleksiyonları Gör
           </Link>
         </div>
       </section>

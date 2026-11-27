@@ -91,9 +91,9 @@ export function Magnetic3DShowcase({ isPdp: _isPdp = false }: { isPdp?: boolean 
             <Link to="/cuzdan-kartlik/" className="magnetic-btn-secondary">
               Tüm Cüzdanlar
             </Link>
-            <a href="#kisisellestir" className="magnetic-btn-secondary">
-              İsim Baskısı Dene
-            </a>
+            <Link to="/urun/poyraz-miknatisli-deri-cuzdan/" className="magnetic-btn-secondary">
+              Poyraz&apos;ı İncele
+            </Link>
           </div>
         </div>
 
