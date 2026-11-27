@@ -567,6 +567,14 @@ export function CartPage() {
                         ✦ Ek Seçenek: <strong>Görsel Baskı (+300 TL)</strong>
                       </span>
                     )}
+                    {item.logoFileName && (
+                      <span className="cart-logo-preview-row">
+                        {item.logoPreviewUrl && (
+                          <img src={item.logoPreviewUrl} alt={item.logoFileName} />
+                        )}
+                        <span>{item.logoFileName}</span>
+                      </span>
+                    )}
 
                     <div className="cart-page-controls">
                       <div className="cart-qty-box">

@@ -8,7 +8,7 @@ import {
   useParams,
   useSearchParams,
 } from 'react-router'
-import { FormEvent, useEffect, useMemo, useState, type CSSProperties } from 'react'
+import { FormEvent, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import {
   categories,
   formatPrice,
@@ -42,12 +42,19 @@ import { Magnetic3DShowcase } from './Magnetic3DShowcase'
 
 export type PersonalizationAddon = 'none' | 'logo' | 'image'
 
+export type LogoAsset = {
+  fileName: string
+  previewUrl?: string
+}
+
 export type CartItem = {
   product: ProductRecord
   variant: ProductVariantRecord
   quantity: number
   engraving?: string
   personalizationAddon?: PersonalizationAddon
+  logoFileName?: string
+  logoPreviewUrl?: string
 }
 
 export type StoreContext = {
@@ -56,7 +63,8 @@ export type StoreContext = {
     variant?: ProductVariantRecord,
     quantity?: number,
     engraving?: string,
-    personalizationAddon?: PersonalizationAddon
+    personalizationAddon?: PersonalizationAddon,
+    logoAsset?: LogoAsset
   ) => void
   openMenu: () => void
   openCart: () => void
@@ -165,10 +173,12 @@ export function StoreLayout() {
     variant: ProductVariantRecord = product.variants[0],
     quantity = 1,
     engraving = '',
-    personalizationAddon: PersonalizationAddon = 'none'
+    personalizationAddon: PersonalizationAddon = 'none',
+    logoAsset?: LogoAsset
   ) => {
     if (typeof variant.price !== 'number') return
     const normalizedEngraving = engraving.trim().toUpperCase()
+    const normalizedFileName = logoAsset?.fileName?.trim() || ''
     setCheckoutSubmitted(false)
     setCart((current) => {
       const match = current.find(
@@ -176,7 +186,8 @@ export function StoreLayout() {
           item.product.slug === product.slug &&
           item.variant.renkSlug === variant.renkSlug &&
           (item.engraving || '') === normalizedEngraving &&
-          (item.personalizationAddon || 'none') === personalizationAddon
+          (item.personalizationAddon || 'none') === personalizationAddon &&
+          (item.logoFileName || '') === normalizedFileName
       )
       if (match) {
         return current.map((item) =>
@@ -191,6 +202,8 @@ export function StoreLayout() {
           quantity,
           engraving: normalizedEngraving,
           personalizationAddon,
+          logoFileName: normalizedFileName || undefined,
+          logoPreviewUrl: logoAsset?.previewUrl || undefined,
         },
       ]
     })
@@ -233,9 +246,9 @@ export function StoreLayout() {
         unit !== null ? formatPrice(unit * item.quantity) : '',
         item.engraving ? `İsim Baskı: ${item.engraving}` : '',
         item.personalizationAddon === 'logo'
-          ? 'Özel Logo Baskısı (+150 TL)'
+          ? `Özel Logo Baskısı (+150 TL)${item.logoFileName ? ` [${item.logoFileName}]` : ''}`
           : item.personalizationAddon === 'image'
-            ? 'Özel Görsel Baskı (+300 TL)'
+            ? `Özel Görsel Baskı (+300 TL)${item.logoFileName ? ` [${item.logoFileName}]` : ''}`
             : '',
       ].filter(Boolean)
       return `- ${parts.join(' | ')}`
@@ -365,6 +378,14 @@ export function StoreLayout() {
                     {item.personalizationAddon === 'image' && (
                       <span className="cart-engraving-badge">
                         ✦ Ek Seçenek: <strong>Görsel Baskı (+300 TL)</strong>
+                      </span>
+                    )}
+                    {item.logoFileName && (
+                      <span className="cart-logo-preview-row">
+                        {item.logoPreviewUrl && (
+                          <img src={item.logoPreviewUrl} alt={item.logoFileName} />
+                        )}
+                        <span>{item.logoFileName}</span>
                       </span>
                     )}
                     {linePrice && <strong>{linePrice}</strong>}
@@ -989,6 +1010,11 @@ export function ProductPage() {
   const [engravingText, setEngravingText] = useState('')
   const [personalizationAddon, setPersonalizationAddon] = useState<PersonalizationAddon>('none')
   const [showPersonalizationHelp, setShowPersonalizationHelp] = useState(false)
+  const [logoFileName, setLogoFileName] = useState('')
+  const [logoPreviewUrl, setLogoPreviewUrl] = useState('')
+  const [logoError, setLogoError] = useState('')
+  const [isDraggingLogo, setIsDraggingLogo] = useState(false)
+  const logoInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     setActiveImgIdx(0)
@@ -999,7 +1025,41 @@ export function ProductPage() {
     setWantsEngraving(false)
     setEngravingText('')
     setPersonalizationAddon('none')
+    setLogoFileName('')
+    setLogoPreviewUrl('')
+    setLogoError('')
+    setIsDraggingLogo(false)
   }, [slug])
+
+  const clearLogoUpload = () => {
+    setLogoFileName('')
+    setLogoPreviewUrl('')
+    setLogoError('')
+    if (logoInputRef.current) {
+      logoInputRef.current.value = ''
+    }
+  }
+
+  const handleLogoFile = (file?: File | null) => {
+    if (!file) return
+    if (file.size > 10 * 1024 * 1024) {
+      setLogoError('Dosya boyutu 10 MB sınırını aşmamalıdır.')
+      return
+    }
+    setLogoError('')
+    setLogoFileName(file.name)
+    if (file.type.startsWith('image/')) {
+      const reader = new FileReader()
+      reader.onload = () => {
+        if (typeof reader.result === 'string') {
+          setLogoPreviewUrl(reader.result)
+        }
+      }
+      reader.readAsDataURL(file)
+    } else {
+      setLogoPreviewUrl('')
+    }
+  }
 
   const seoPayload = useMemo(() => {
     if (!product || !activeVariant || !primaryCat) {
@@ -1081,7 +1141,10 @@ export function ProductPage() {
       activeVariant,
       quantity,
       wantsEngraving ? engravingText : '',
-      personalizationAddon
+      personalizationAddon,
+      personalizationAddon !== 'none' && logoFileName
+        ? { fileName: logoFileName, previewUrl: logoPreviewUrl || undefined }
+        : undefined
     )
   }
 
@@ -1357,9 +1420,73 @@ export function ProductPage() {
               )}
 
               {personalizationAddon !== 'none' && (
-                <p className="p-addon-note">
-                  ✓ Seçtiğiniz ek baskı (+{addonExtra} TL) toplam fiyata yansıtıldı. Sipariş sonrası logonuzu/görselinizi {siteConfig.email} adresine iletebilirsiniz.
-                </p>
+                <div className="p-logo-upload-wrap">
+                  <p className="p-logo-upload-label">
+                    {personalizationAddon === 'image' ? 'Görsel Yükleme Alanı' : 'Logo Yükleme Alanı'}
+                  </p>
+                  <div
+                    className={`p-logo-dropzone ${isDraggingLogo ? 'is-dragging' : ''} ${logoFileName ? 'has-file' : ''}`}
+                    onDragOver={(e) => {
+                      e.preventDefault()
+                      setIsDraggingLogo(true)
+                    }}
+                    onDragLeave={() => setIsDraggingLogo(false)}
+                    onDrop={(e) => {
+                      e.preventDefault()
+                      setIsDraggingLogo(false)
+                      handleLogoFile(e.dataTransfer.files?.[0])
+                    }}
+                  >
+                    <input
+                      ref={logoInputRef}
+                      type="file"
+                      className="sr-only"
+                      accept="image/*,.svg,.pdf,.ai,.eps"
+                      aria-label={
+                        personalizationAddon === 'image' ? 'Görsel yükle' : 'Logo görseli yükle'
+                      }
+                      onChange={(e) => handleLogoFile(e.target.files?.[0])}
+                    />
+                    {logoFileName ? (
+                      <div className="p-logo-preview">
+                        {logoPreviewUrl && (
+                          <img src={logoPreviewUrl} alt={logoFileName} className="p-logo-thumb" />
+                        )}
+                        <div className="p-logo-meta">
+                          <strong>{logoFileName}</strong>
+                          <div className="p-logo-preview-actions">
+                            <button
+                              type="button"
+                              className="p-logo-upload-btn"
+                              onClick={() => logoInputRef.current?.click()}
+                            >
+                              Değiştir
+                            </button>
+                            <button
+                              type="button"
+                              className="p-logo-remove-btn"
+                              onClick={clearLogoUpload}
+                            >
+                              Kaldır
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        className="p-logo-upload-btn"
+                        onClick={() => logoInputRef.current?.click()}
+                      >
+                        Görseli Ekle
+                      </button>
+                    )}
+                  </div>
+                  {logoError && <p className="p-logo-error">{logoError}</p>}
+                  <div className="p-charge-banner" role="status">
+                    Seçimleriniz toplam tutara <strong>{addonExtra},00 TL</strong> ek ücret ekleyecektir.
+                  </div>
+                </div>
               )}
             </div>
           )}
