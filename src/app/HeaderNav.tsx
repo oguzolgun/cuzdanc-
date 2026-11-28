@@ -174,12 +174,11 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
 
           <nav className="apple-nav-links" aria-label="Kategori Menüsü">
             {parentCategories.map((cat) => {
-              const childSlugs = new Set(getChildCategories(cat.slug).map((c) => `/${c.slug}`))
               const cleanPath = pathname.replace(/\/+$/, '') || '/'
               const isCurrent =
                 activeParentSlug === cat.slug ||
                 cleanPath === `/${cat.slug}` ||
-                childSlugs.has(cleanPath)
+                cleanPath.startsWith(`/${cat.slug}/`)
               return (
                 <Link
                   key={cat.slug}
@@ -188,7 +187,7 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
                   onMouseEnter={() => openParentMenu(cat.slug)}
                   onFocus={() => openParentMenu(cat.slug)}
                 >
-                  {cat.name}
+                  {cat.menuLabel || cat.name}
                 </Link>
               )
             })}
@@ -293,7 +292,7 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
                 <ul className="apple-flyout-sublist">
                   <li>
                     <Link to={`/${activeParent.slug}/`} className="is-strong">
-                      Tüm {activeParent.name}
+                      Tüm {activeParent.name} Modelleri
                     </Link>
                   </li>
                   {activeChildren.map((sub) => (
@@ -303,6 +302,13 @@ export function HeaderNav({ cartCount, onOpenCart, onOpenMobileMenu }: HeaderNav
                       </Link>
                     </li>
                   ))}
+                  {activeChildren.length === 0 && (
+                    <li>
+                      <Link to="/erkek-deri-cuzdan/ince/">
+                        İnce Deri Cüzdanlar ({getProductsByCategory('erkek-deri-cuzdan/ince').length})
+                      </Link>
+                    </li>
+                  )}
                   <li>
                     <Link to="/kategoriler/">Tüm Kategoriler</Link>
                   </li>

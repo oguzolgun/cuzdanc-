@@ -160,7 +160,7 @@ export function computeRouteSeo(urlPath: string): RouteSeoPayload {
     return buildNotFoundSeo(siteConfig)
   }
 
-  const catSlug = decodeURIComponent(pathname.slice(1))
+  const catSlug = decodeURIComponent(pathname.replace(/^\/+|\/+$/g, ''))
   const category = getCategoryBySlug(catSlug)
   if (category) {
     const parentCat = getParentCategory(category)

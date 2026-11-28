@@ -39,6 +39,7 @@ import {
 import { HeaderNav } from './HeaderNav'
 import { AppleHero } from './AppleHero'
 import { Magnetic3DShowcase } from './Magnetic3DShowcase'
+import { ProductEditorialSections } from './ProductEditorialSections'
 
 export type PersonalizationAddon = 'none' | 'logo' | 'image'
 
@@ -282,11 +283,12 @@ export function StoreLayout() {
                 <NavLink
                   key={category.slug}
                   to={`/${category.slug}/`}
+                  className={category.parentSlug ? 'is-sub-link' : 'is-parent-link'}
                   onClick={() => setMenuOpen(false)}
                 >
                   <small>{String(idx + 1).padStart(2, '0')}</small>
                   <span>
-                    {category.name} <em>({modelCount})</em>
+                    {category.parentSlug ? `↳ ${category.name}` : category.name} <em>({modelCount})</em>
                   </span>
                   <Icon name="arrow" />
                 </NavLink>
@@ -553,13 +555,25 @@ function ProductCard({
                     title={variant.renk}
                     aria-label={`${product.modelName} - ${variant.renk}`}
                   >
-                    <i style={{ background: variant.colorHex }} />
+                    <i
+                      style={{
+                        background: variant.secondaryColorHex
+                          ? `linear-gradient(135deg, ${variant.colorHex} 50%, ${variant.secondaryColorHex} 50%)`
+                          : variant.colorHex,
+                      }}
+                    />
                   </button>
                 ))}
               </div>
             ) : (
               <span className="card-color-chip">
-                <i style={{ background: activeVariant?.colorHex || '#8C4319' }} />
+                <i
+                  style={{
+                    background: activeVariant?.secondaryColorHex
+                      ? `linear-gradient(135deg, ${activeVariant.colorHex} 50%, ${activeVariant.secondaryColorHex} 50%)`
+                      : activeVariant?.colorHex || '#8C4319',
+                  }}
+                />
                 {activeVariant?.renk}
               </span>
             )}
@@ -590,6 +604,15 @@ const FEATURED_MODEL_SLUGS = [
   'efes-deri-el-cantasi',
 ]
 
+const FEATURED_CATEGORY_SLUGS = [
+  'erkek-deri-cuzdan/miknatisli',
+  'deri-kartlik',
+  'erkek-deri-canta/el-cantasi',
+  'deri-aksesuar/ajanda-defter-kilifi',
+  'deri-aksesuar/deri-kemer',
+  'erkege-hediye',
+]
+
 export function HomePage() {
   const { addToCart } = useOutletContext<StoreContext>()
 
@@ -605,11 +628,17 @@ export function HomePage() {
     )
   }, [])
 
+  const showcaseCategories = useMemo(() => {
+    return FEATURED_CATEGORY_SLUGS.map((s) => getCategoryBySlug(s)).filter(
+      (c): c is NonNullable<typeof c> => Boolean(c)
+    )
+  }, [])
+
   return (
     <main>
       <AppleHero onAddToCart={(product, variant) => addToCart(product, variant, 1)} />
 
-      {/* Category Grid covering 6 featured product sub-categories */}
+      {/* Category Grid covering 6 featured categories */}
       <section className="category-runway" id="koleksiyon">
         <header className="category-runway-head">
           <div>
@@ -621,7 +650,7 @@ export function HomePage() {
           </Link>
         </header>
         <div className="category-cards-grid">
-          {subCategories.slice(0, 6).map((category) => {
+          {showcaseCategories.map((category) => {
             const catProducts = getProductsByCategory(category.slug)
             const variantTotal = catProducts.reduce((sum, p) => sum + p.variants.length, 0)
             return (
@@ -653,7 +682,7 @@ export function HomePage() {
         </div>
         <div className="category-runway-actions">
           <Link to="/kategoriler/" className="category-runway-more-btn">
-            Tüm Kategorileri Gör ({subCategories.length} Kategori) →
+            Tüm Kategorileri Gör ({categories.length} Kategori) →
           </Link>
         </div>
       </section>
@@ -667,8 +696,8 @@ export function HomePage() {
             <p className="overline">Atölye Seçkisi</p>
             <h2>Öne Çıkan Deri Tasarımlar</h2>
           </div>
-          <Link to="/cuzdan-kartlik/">
-            Tüm Cüzdan &amp; Kartlıklar <Icon name="arrow" />
+          <Link to="/erkek-deri-cuzdan/">
+            Tüm Erkek Deri Cüzdanlar <Icon name="arrow" />
           </Link>
         </header>
         <div className="editorial-grid">
@@ -745,11 +774,12 @@ export function HomePage() {
 }
 
 /* =========================================================================
-   CATEGORY PAGE (/:slug/) — Supports all 3 parents + 9 sub-categories
+   CATEGORY PAGE (/:slug/ and /:parentSlug/:childSlug/) — Nested SEO Tree
    ========================================================================= */
 export function CategoryPage() {
-  const { slug = '' } = useParams()
-  const category = getCategoryBySlug(slug)
+  const { slug = '', parentSlug = '', childSlug = '' } = useParams()
+  const resolvedSlug = parentSlug && childSlug ? `${parentSlug}/${childSlug}` : slug
+  const category = getCategoryBySlug(resolvedSlug)
   const parentCategory = category ? getParentCategory(category) : undefined
 
   const [sort, setSort] = useState<'onerilen' | 'artan' | 'azalan' | 'alfabetik'>('onerilen')
@@ -758,7 +788,7 @@ export function CategoryPage() {
   useEffect(() => {
     setSearchQuery('')
     setSort('onerilen')
-  }, [slug])
+  }, [resolvedSlug])
 
   const baseItems = useMemo(() => {
     if (!category) return []
@@ -1125,6 +1155,32 @@ export function ProductPage() {
     { label: 'Ek Not', value: product.exactNameNote || '' },
   ].filter((row) => isConfiguredValue(row.value))
 
+  const hasCustomOptions = product.personalization.isimYazdirma || hasLogoOption || hasImageOption
+  const isPlainSelected = personalizationAddon === 'none' && !wantsEngraving
+  const isNameSelected = personalizationAddon === 'none' && wantsEngraving
+  const stickyCustomSummary =
+    personalizationAddon === 'logo'
+      ? `Logo baskılı (+${logoExtraTry} TL)`
+      : personalizationAddon === 'image'
+        ? `Görsel baskılı (+${imageExtraTry} TL)`
+        : wantsEngraving
+          ? engravingText.trim()
+            ? `İsim baskısı: ${engravingText.trim()}`
+            : 'İsim baskısı ücretsiz'
+          : 'İsimsiz'
+
+  const previewLeatherBg = activeVariant.secondaryColorHex
+    ? `linear-gradient(135deg, ${activeVariant.colorHex} 0%, ${activeVariant.secondaryColorHex} 100%)`
+    : activeVariant.colorHex
+  const previewStampShown =
+    personalizationAddon === 'logo'
+      ? 'LOGONUZ'
+      : personalizationAddon === 'image'
+        ? 'GÖRSELİNİZ'
+        : engravingText.trim()
+          ? engravingText.trim()
+          : 'ADINIZ'
+
   const handleVariantSelect = (variant: ProductVariantRecord) => {
     if (variant.renkSlug === activeVariant.renkSlug) return
     if (variant.renkSlug === product.variants[0]?.renkSlug) {
@@ -1148,15 +1204,31 @@ export function ProductPage() {
     )
   }
 
-  const longParagraphs = product.longDescription
-    .split(/\n\s*\n/)
-    .map((p) => p.trim())
-    .filter(Boolean)
-
   return (
     <main className="product-main">
+      {/* Top Breadcrumb Bar */}
+      <div className="pdp-top-breadcrumb-wrap">
+        <nav className="breadcrumb pdp-top-breadcrumb" aria-label="İçerik Haritası">
+          <Link to="/">Ana Sayfa</Link>
+          {parentCat && (
+            <>
+              {' › '}
+              <Link to={`/${parentCat.slug}/`}>{parentCat.name}</Link>
+            </>
+          )}
+          {primaryCat && (
+            <>
+              {' › '}
+              <Link to={`/${primaryCat.slug}/`}>{primaryCat.name}</Link>
+            </>
+          )}
+          {' › '}
+          <span aria-current="page">{product.modelName}</span>
+        </nav>
+      </div>
+
       <div className="product-page">
-        {/* Gallery Column */}
+        {/* Gallery Column (Vertical Thumbnails on Left + 4:5 Main Stage) */}
         <div
           className="product-gallery"
           tabIndex={images.length > 1 ? 0 : undefined}
@@ -1169,111 +1241,104 @@ export function ProductPage() {
             }
           }}
         >
-          <div className="gallery-stage">
-            {currentImage && (
-              <picture>
-                {safeImgIdx === 0 && (
-                  <source media="(max-width: 768px)" srcSet={currentImage.thumb} />
-                )}
-                <img
-                  src={currentImage.full}
-                  alt={currentImage.alt}
-                  width={currentImage.width}
-                  height={currentImage.height}
-                  loading={safeImgIdx === 0 ? 'eager' : 'lazy'}
-                  decoding={safeImgIdx === 0 ? 'sync' : 'async'}
-                  fetchPriority={safeImgIdx === 0 ? 'high' : undefined}
-                />
-              </picture>
-            )}
-
+          <div className="pdp-gallery-split">
             {images.length > 1 && (
-              <div className="gallery-nav-controls">
-                <button
-                  type="button"
-                  aria-label="Önceki görsel"
-                  onClick={() => setActiveImgIdx((i) => (i - 1 + images.length) % images.length)}
-                >
-                  ‹
-                </button>
-                <span>
-                  {safeImgIdx + 1} / {images.length}
-                </span>
-                <button
-                  type="button"
-                  aria-label="Sonraki görsel"
-                  onClick={() => setActiveImgIdx((i) => (i + 1) % images.length)}
-                >
-                  ›
-                </button>
+              <div className="gallery-thumbs">
+                {images.map((img, idx) => (
+                  <button
+                    type="button"
+                    key={img.full}
+                    className={safeImgIdx === idx ? 'active' : ''}
+                    aria-pressed={safeImgIdx === idx}
+                    onClick={() => setActiveImgIdx(idx)}
+                    aria-label={`${product.modelName} görsel ${idx + 1}`}
+                  >
+                    <img
+                      src={img.thumb}
+                      alt=""
+                      width={img.width}
+                      height={img.height}
+                      loading="lazy"
+                      fetchPriority="low"
+                    />
+                  </button>
+                ))}
               </div>
             )}
-          </div>
 
-          {images.length > 1 && (
-            <div className="gallery-thumbs">
-              {images.map((img, idx) => (
-                <button
-                  type="button"
-                  key={img.full}
-                  className={safeImgIdx === idx ? 'active' : ''}
-                  onClick={() => setActiveImgIdx(idx)}
-                  aria-label={`${product.modelName} görsel ${idx + 1}`}
-                >
+            <div className="gallery-stage">
+              {product.personalization.isimYazdirma && (
+                <span className="pdp-gallery-perk-pill">ÜCRETSİZ İSİM BASKISI</span>
+              )}
+              {currentImage && (
+                <picture>
+                  {safeImgIdx === 0 && (
+                    <source media="(max-width: 768px)" srcSet={currentImage.thumb} />
+                  )}
                   <img
-                    src={img.thumb}
-                    alt=""
-                    width={img.width}
-                    height={img.height}
-                    loading="lazy"
-                    fetchPriority="low"
+                    src={currentImage.full}
+                    alt={currentImage.alt}
+                    width={currentImage.width}
+                    height={currentImage.height}
+                    loading={safeImgIdx === 0 ? 'eager' : 'lazy'}
+                    decoding={safeImgIdx === 0 ? 'sync' : 'async'}
+                    fetchPriority={safeImgIdx === 0 ? 'high' : undefined}
                   />
-                </button>
-              ))}
+                </picture>
+              )}
+
+              {images.length > 1 && (
+                <div className="gallery-nav-controls">
+                  <button
+                    type="button"
+                    aria-label="Önceki görsel"
+                    onClick={() => setActiveImgIdx((i) => (i - 1 + images.length) % images.length)}
+                  >
+                    ‹
+                  </button>
+                  <span>
+                    {safeImgIdx + 1} / {images.length}
+                  </span>
+                  <button
+                    type="button"
+                    aria-label="Sonraki görsel"
+                    onClick={() => setActiveImgIdx((i) => (i + 1) % images.length)}
+                  >
+                    ›
+                  </button>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
 
-        {/* Sticky Purchase Column */}
+        {/* Purchase Column */}
         <section className="product-purchase" id="buy-box">
-          <nav className="breadcrumb" aria-label="İçerik Haritası">
-            <Link to="/">Ana Sayfa</Link>
-            {parentCat && (
-              <>
-                {' / '}
-                <Link to={`/${parentCat.slug}/`}>{parentCat.name}</Link>
-              </>
-            )}
-            {primaryCat && (
-              <>
-                {' / '}
-                <Link to={`/${primaryCat.slug}/`}>{primaryCat.name}</Link>
-              </>
-            )}
-          </nav>
-
           <p className="overline">
-            {primaryCat?.name || product.productType} · SKU {activeVariant.sku}
+            {(primaryCat?.name || product.productType).toLocaleUpperCase('tr-TR')} · SKU {activeVariant.sku}
           </p>
           <h1>
             {product.modelName} {product.productType} - {activeVariant.renk}
           </h1>
 
+          <p className="product-description">{product.shortDescription}</p>
+
           {unitPrice !== null ? (
-            <strong className="detail-price">{formatPrice(unitPrice)}</strong>
+            <div className="pdp-price-line">
+              <strong className="detail-price">{formatPrice(unitPrice)}</strong>
+              <span className="pdp-vat-note">KDV dahil · {product.specs.malzeme}</span>
+            </div>
           ) : (
             <p className="price-pending-banner">
               Fiyat ve teknik ölçü bilgileri atölyemiz tarafından güncellenmektedir.
             </p>
           )}
 
-          <p className="product-description">{product.shortDescription}</p>
-
           {/* Variant Color Switcher */}
           <div className="option-block">
             <div className="option-label">
               <span>
-                Deri Rengi {product.variants.length > 1 ? `(${product.variants.length} Seçenek)` : ''}
+                DERİ RENGİ {product.variants.length > 1 ? `(${product.variants.length} Seçenek)` : ''}
               </span>
               <strong>{activeVariant.renk}</strong>
             </div>
@@ -1283,60 +1348,25 @@ export function ProductPage() {
                   type="button"
                   key={variant.sku}
                   className={variant.renkSlug === activeVariant.renkSlug ? 'active' : ''}
+                  aria-pressed={variant.renkSlug === activeVariant.renkSlug}
                   onClick={() => handleVariantSelect(variant)}
                   title={variant.renk}
                   aria-label={`${product.modelName} ${variant.renk}`}
                 >
-                  <i style={{ background: variant.colorHex }} />
+                  <i
+                    style={{
+                      background: variant.secondaryColorHex
+                        ? `linear-gradient(135deg, ${variant.colorHex} 50%, ${variant.secondaryColorHex} 50%)`
+                        : variant.colorHex,
+                    }}
+                  />
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Purchase Row */}
-          {hasNumericPrice ? (
-            <div className="pdp-buy-actions">
-              <div className="buy-row">
-                <div className="quantity">
-                  <button
-                    type="button"
-                    aria-label="Adet azalt"
-                    onClick={() => setQuantity((value) => Math.max(1, value - 1))}
-                  >
-                    <Icon name="minus" />
-                  </button>
-                  <span>{quantity}</span>
-                  <button
-                    type="button"
-                    aria-label="Adet artır"
-                    onClick={() => setQuantity((value) => value + 1)}
-                  >
-                    <Icon name="plus" />
-                  </button>
-                </div>
-                <button type="button" className="add-cart" onClick={handleAdd}>
-                  <span>Sepete Ekle</span>
-                  <strong>{totalButtonPrice}</strong>
-                </button>
-              </div>
-              <button type="button" className="pdp-buy-now" onClick={handleAdd}>
-                Hemen Satın Alın
-              </button>
-            </div>
-          ) : (
-            <div className="buy-row-pending">
-              <a
-                href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`${product.modelName} Hakkında Bilgi Talebi`)}`}
-                className="add-cart add-cart-inquiry"
-              >
-                <span>Atölyeden Bilgi &amp; Stok Sor</span>
-                <Icon name="arrow" />
-              </a>
-            </div>
-          )}
-
-          {/* Personalization Controls */}
-          {(product.personalization.isimYazdirma || hasLogoOption || hasImageOption) && (
+          {/* Personalization Controls + Live Preview */}
+          {hasCustomOptions && (
             <div className="personalization-area">
               <div className="p-area-head">
                 <h2>Kişiselleştirme Alanı</h2>
@@ -1353,57 +1383,89 @@ export function ProductPage() {
 
               {showPersonalizationHelp && (
                 <p className="p-help-note">
-                  İsim yazdırma sıcak gofraj baskıyla ücretsiz işlenir. Özel logo veya görsel ekleme seçildiğinde siparişinizin ardından görseli e-posta ile paylaşabilirsiniz.
+                  İsim yazdırma sıcak gofraj baskıyla ücretsiz işlenir. Özel logo veya görsel ekleme seçildiğinde görselinizi hemen aşağıdan yükleyebilir ya da sipariş sonrasında e-posta ile paylaşabilirsiniz.
                 </p>
               )}
 
-              <div className="p-check-list">
+              {/* Tactile Option Cards */}
+              <div className="pdp-custom-cards" role="group" aria-label="Kişiselleştirme seçenekleri">
+                <button
+                  type="button"
+                  aria-pressed={isPlainSelected}
+                  className={`pdp-custom-card ${isPlainSelected ? 'is-selected' : ''}`}
+                  onClick={() => {
+                    setPersonalizationAddon('none')
+                    setWantsEngraving(false)
+                  }}
+                >
+                  <strong>İsimsiz</strong>
+                  <span>Sade yüzey</span>
+                </button>
+
                 {product.personalization.isimYazdirma && (
+                  <button
+                    type="button"
+                    aria-pressed={isNameSelected}
+                    className={`pdp-custom-card ${isNameSelected ? 'is-selected' : ''}`}
+                    onClick={() => {
+                      setPersonalizationAddon('none')
+                      setWantsEngraving(true)
+                    }}
+                  >
+                    <strong>İsim baskılı</strong>
+                    <span>Ücretsiz</span>
+                  </button>
+                )}
+
+                {hasLogoOption && (
+                  <button
+                    type="button"
+                    aria-pressed={personalizationAddon === 'logo'}
+                    className={`pdp-custom-card ${personalizationAddon === 'logo' ? 'is-selected' : ''}`}
+                    onClick={() => {
+                      setPersonalizationAddon('logo')
+                    }}
+                  >
+                    <strong>Logo baskılı</strong>
+                    <span>+{logoExtraTry} TL</span>
+                  </button>
+                )}
+
+                {hasImageOption && (
+                  <button
+                    type="button"
+                    aria-pressed={personalizationAddon === 'image'}
+                    className={`pdp-custom-card ${personalizationAddon === 'image' ? 'is-selected' : ''}`}
+                    onClick={() => {
+                      setPersonalizationAddon('image')
+                    }}
+                  >
+                    <strong>Görsel baskı</strong>
+                    <span>+{imageExtraTry} TL</span>
+                  </button>
+                )}
+              </div>
+
+              {/* Quick Toggle Checkboxes for Combined İsim + Logo */}
+              {personalizationAddon !== 'none' && product.personalization.isimYazdirma && (
+                <div className="p-check-list" style={{ marginTop: '12px' }}>
                   <label className="p-check-row">
                     <input
                       type="checkbox"
                       checked={wantsEngraving}
                       onChange={(e) => setWantsEngraving(e.target.checked)}
                     />
-                    <span>İSİM YAZDIRMA</span>
+                    <span>İSİM YAZDIRMA EKLE</span>
                     <em className="p-free-tag">(Ücretsiz)</em>
                   </label>
-                )}
+                </div>
+              )}
 
-                {hasLogoOption && (
-                  <label className="p-check-row">
-                    <input
-                      type="checkbox"
-                      checked={personalizationAddon === 'logo'}
-                      onChange={(e) =>
-                        setPersonalizationAddon(e.target.checked ? 'logo' : 'none')
-                      }
-                    />
-                    <span>
-                      LOGO EKLEME <em>({logoExtraTry},00 TL)</em>
-                    </span>
-                  </label>
-                )}
-
-                {hasImageOption && (
-                  <label className="p-check-row">
-                    <input
-                      type="checkbox"
-                      checked={personalizationAddon === 'image'}
-                      onChange={(e) =>
-                        setPersonalizationAddon(e.target.checked ? 'image' : 'none')
-                      }
-                    />
-                    <span>
-                      GÖRSEL BASKI <em>({imageExtraTry},00 TL)</em>
-                    </span>
-                  </label>
-                )}
-              </div>
-
-              {product.personalization.isimYazdirma && (
+              {product.personalization.isimYazdirma && (wantsEngraving || personalizationAddon === 'none') && (
                 <div className="p-name-field">
-                  <label htmlFor="p-text">Yazdırılacak İsim</label>
+                  <label htmlFor="p-text">
+                    Yazdırılacak isim ya da baş harfler (en fazla {maxNameChars} karakter)
+                  </label>
                   <input
                     id="p-text"
                     type="text"
@@ -1414,7 +1476,7 @@ export function ProductPage() {
                       setEngravingText(val)
                       setWantsEngraving(val.trim().length > 0)
                     }}
-                    placeholder="İsim veya baş harfler (örn: OĞUZ OLGUN)"
+                    placeholder="Örnek: B. BAŞER"
                   />
                 </div>
               )}
@@ -1488,95 +1550,135 @@ export function ProductPage() {
                   </div>
                 </div>
               )}
+
+              {/* Live Embossing / Logo Preview Swatch */}
+              {(wantsEngraving || personalizationAddon !== 'none') && (
+                <div
+                  role="img"
+                  aria-label="Sıcak baskı canlı deri önizlemesi"
+                  className="pdp-live-stamp-tile"
+                  style={{ background: previewLeatherBg }}
+                >
+                  <div aria-hidden="true" className="pdp-live-stamp-stitch" />
+                  {logoPreviewUrl && personalizationAddon !== 'none' ? (
+                    <img
+                      src={logoPreviewUrl}
+                      alt={logoFileName || 'Logo önizleme'}
+                      className="pdp-live-stamp-logo"
+                    />
+                  ) : (
+                    <span>{previewStampShown}</span>
+                  )}
+                </div>
+              )}
             </div>
           )}
 
-          {/* Optional Configured Central Site Notices (hidden when "TODO") */}
-          {(isConfiguredValue(siteConfig.shippingSummary) ||
-            isConfiguredValue(siteConfig.returnPolicy)) && (
-            <div className="pdp-policy-notes">
-              {isConfiguredValue(siteConfig.shippingSummary) && (
-                <p>{siteConfig.shippingSummary}</p>
-              )}
-              {isConfiguredValue(siteConfig.returnPolicy) && <p>{siteConfig.returnPolicy}</p>}
+          {/* Purchase Row */}
+          {hasNumericPrice ? (
+            <div className="pdp-buy-actions">
+              <div className="buy-row">
+                <div className="quantity">
+                  <button
+                    type="button"
+                    aria-label="Adet azalt"
+                    onClick={() => setQuantity((value) => Math.max(1, value - 1))}
+                  >
+                    <Icon name="minus" />
+                  </button>
+                  <span>{quantity}</span>
+                  <button
+                    type="button"
+                    aria-label="Adet artır"
+                    onClick={() => setQuantity((value) => value + 1)}
+                  >
+                    <Icon name="plus" />
+                  </button>
+                </div>
+                <button type="button" className="add-cart" onClick={handleAdd}>
+                  <span>Sepete Ekle</span>
+                  <strong>{totalButtonPrice}</strong>
+                </button>
+              </div>
+              <button type="button" className="pdp-buy-now" onClick={handleAdd}>
+                Hemen Satın Alın
+              </button>
+            </div>
+          ) : (
+            <div className="buy-row-pending">
+              <a
+                href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`${product.modelName} Hakkında Bilgi Talebi`)}`}
+                className="add-cart add-cart-inquiry"
+              >
+                <span>Atölyeden Bilgi &amp; Stok Sor</span>
+                <Icon name="arrow" />
+              </a>
             </div>
           )}
+
+          {/* 3-Column Trust Row */}
+          <div className="pdp-trust-strip">
+            <span>%100 Hakiki Deri</span>
+            <span>
+              {product.personalization.isimYazdirma ? 'Ücretsiz İsim Baskısı' : 'El Yapımı Üretim'}
+            </span>
+            <span>Doğal Patina Dokusu</span>
+          </div>
 
           <p className="stock-note">
-            <i /> {activeVariant.inStock ? 'Sipariş üzerine hazırlanır' : 'Stok bilgisi güncelleniyor'} · {product.variants.length} Renk Seçeneği
+            <i /> {activeVariant.inStock ? 'Sipariş üzerine elde hazırlanır' : 'Stok bilgisi güncelleniyor'} · {product.variants.length} Renk Seçeneği
           </p>
+
+          {/* Buybox Native Accordions */}
+          <div className="pdp-buybox-accordions">
+            <details>
+              <summary>Teknik özellikler</summary>
+              <dl className="pdp-specs-list">
+                {specRows.map((row) => (
+                  <div key={row.label} className="pdp-spec-row">
+                    <dt>{row.label}</dt>
+                    <dd>{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </details>
+
+            <details>
+              <summary>Kişiselleştirme ve baskı</summary>
+              <div className="pdp-acc-body">
+                {product.personalization.isimYazdirma ? (
+                  <p>
+                    İsim ve baş harfler ısı ve basınçla deriye ücretsiz olarak gömülür.
+                    {hasLogoOption &&
+                      ` Kurumsal veya kişisel logo baskısı +${logoExtraTry} TL farkla uygulanır; logo dosyanızı yukarıdaki alandan hemen yükleyebilirsiniz.`}
+                  </p>
+                ) : (
+                  <p>Bu model yüzey yapısı gereği sade formda el işçiliğiyle üretilmektedir.</p>
+                )}
+              </div>
+            </details>
+
+            <details>
+              <summary>Bakım</summary>
+              <ul className="pdp-acc-list">
+                {product.careInstructions.map((tip) => (
+                  <li key={tip}>{tip}</li>
+                ))}
+              </ul>
+            </details>
+          </div>
         </section>
       </div>
 
-      {/* Below-Fold Deep SEO & Product Specs Architecture */}
-      <section className="product-deep-sections">
-        <div className="product-deep-grid">
-          <article className="product-deep-card">
-            <p className="overline">Model Hikâyesi</p>
-            <h2>{product.modelName} Tasarım ve Kullanım Detayları</h2>
-            {longParagraphs.map((paragraph, idx) => (
-              <p key={idx} className="product-long-paragraph">
-                {paragraph}
-              </p>
-            ))}
-          </article>
-
-          <article className="product-deep-card">
-            <p className="overline">Özellikler &amp; Ölçüler</p>
-            <h2>Öne Çıkan Özellikler</h2>
-            <ul className="pdp-features-list">
-              {product.features.map((feat) => (
-                <li key={feat}>
-                  <Icon name="check" />
-                  <span>{feat}</span>
-                </li>
-              ))}
-            </ul>
-
-            <h3 className="pdp-specs-subheading">Teknik Özellikler</h3>
-            <dl className="pdp-specs-list">
-              {specRows.map((row) => (
-                <div key={row.label} className="pdp-spec-row">
-                  <dt>{row.label}</dt>
-                  <dd>{row.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </article>
-        </div>
-
-        <article className="product-care-band">
-          <div>
-            <p className="overline">Uzun Ömürlü Kullanım</p>
-            <h2>Deri Bakım Talimatları</h2>
-          </div>
-          <ul className="pdp-features-list" style={{ margin: 0 }}>
-            {product.careInstructions.map((tip) => (
-              <li key={tip}>
-                <Icon name="check" />
-                <span>{tip}</span>
-              </li>
-            ))}
-          </ul>
-        </article>
-
-        {product.faq.length > 0 && (
-          <section className="product-faq-section" aria-labelledby="pdp-faq-heading">
-            <div className="category-faq-header">
-              <p className="overline">Ürün Hakkında</p>
-              <h2 id="pdp-faq-heading">Sık Sorulan Sorular</h2>
-            </div>
-            <div className="faq-accordion-list">
-              {product.faq.map((item) => (
-                <details key={item.question} className="faq-item">
-                  <summary>{item.question}</summary>
-                  <p>{item.answer}</p>
-                </details>
-              ))}
-            </div>
-          </section>
-        )}
-      </section>
+      {/* Editorial Storytelling, Patina Simulator, Authenticity Checklist & Comparison */}
+      <ProductEditorialSections
+        product={product}
+        activeVariant={activeVariant}
+        engravingText={engravingText}
+        wantsEngraving={wantsEngraving}
+        personalizationAddon={personalizationAddon}
+        logoPreviewUrl={logoPreviewUrl}
+      />
 
       {related.length > 0 && (
         <section className="related">
@@ -1599,18 +1701,25 @@ export function ProductPage() {
         </section>
       )}
 
-      {/* Mobile Sticky CTA Bar (Only rendered cleanly when priced) */}
+      {/* Desktop & Mobile Sticky Bottom Purchase Bar */}
       {hasNumericPrice && totalButtonPrice && (
-        <div className="mobile-sticky-cta" role="region" aria-label="Hızlı Sepet Ekleme">
-          <div className="mobile-sticky-meta">
-            <strong>{product.modelName}</strong>
-            <span>
-              {activeVariant.renk} · {totalButtonPrice}
-            </span>
+        <div className="pdp-sticky-bar" role="region" aria-label="Hızlı Sepet Ekleme">
+          <div className="pdp-sticky-inner">
+            <div className="pdp-sticky-meta">
+              <strong>
+                {product.modelName} {product.productType}
+              </strong>
+              <span>
+                {activeVariant.renk} · {stickyCustomSummary}
+              </span>
+            </div>
+            <div className="pdp-sticky-cta-group">
+              <strong className="pdp-sticky-price">{totalButtonPrice}</strong>
+              <button type="button" className="pdp-sticky-btn" onClick={handleAdd}>
+                Sepete Ekle
+              </button>
+            </div>
           </div>
-          <button type="button" className="mobile-sticky-btn" onClick={handleAdd}>
-            Sepete Ekle
-          </button>
         </div>
       )}
     </main>
@@ -1689,17 +1798,20 @@ export function BrandStoryPage() {
 }
 
 /* =========================================================================
-   ALL CATEGORIES PAGE (/kategoriler/) — Full Directory of 9 Sub-Categories
+   ALL CATEGORIES PAGE (/kategoriler/) — Full Directory of 17 SEO Categories
    ========================================================================= */
 export function AllCategoriesPage() {
-  const [activeTab, setActiveTab] = useState<'all' | 'cuzdan-kartlik' | 'deri-canta' | 'deri-aksesuar'>('all')
+  const [activeTab, setActiveTab] = useState<string>('all')
 
   const seoPayload = useMemo(() => buildAllCategoriesSeo(siteConfig), [])
   useDocumentSeo(seoPayload)
 
   const displayedCategories = useMemo(() => {
-    if (activeTab === 'all') return subCategories
-    return subCategories.filter((c) => c.parentSlug === activeTab)
+    if (activeTab === 'all') return categories
+    const children = getChildCategories(activeTab)
+    if (children.length > 0) return children
+    const selfCat = getCategoryBySlug(activeTab)
+    return selfCat ? [selfCat] : []
   }, [activeTab])
 
   return (
@@ -1714,8 +1826,8 @@ export function AllCategoriesPage() {
           <em>Atölye Seçkisi.</em>
         </h1>
         <p className="all-cats-lead">
-          Zanaatkâr eliyle şekillenen 12 özgün model ve 9 ürün kategorisi. Cebinizde, elinizde ve omzunuzda
-          ömür boyu taşınacak doğal dokulu hakiki deri tasarımlarımızı keşfedin.
+          Zanaatkâr eliyle şekillenen {products.length} özgün model, {parentCategories.length} ana koleksiyon ve{' '}
+          {subCategories.length} alt kategori. Cebinizde, elinizde ve omzunuzda ömür boyu taşınacak doğal dokulu hakiki deri tasarımlarımızı keşfedin.
         </p>
 
         {/* Category Family Tabs */}
@@ -1727,7 +1839,7 @@ export function AllCategoriesPage() {
             className={`all-cats-tab-btn ${activeTab === 'all' ? 'is-active' : ''}`}
             onClick={() => setActiveTab('all')}
           >
-            Tüm Kategoriler ({subCategories.length})
+            Tüm Kategoriler ({categories.length})
           </button>
           {parentCategories.map((parent) => {
             const count = getChildCategories(parent.slug).length
@@ -1738,9 +1850,9 @@ export function AllCategoriesPage() {
                 role="tab"
                 aria-selected={activeTab === parent.slug}
                 className={`all-cats-tab-btn ${activeTab === parent.slug ? 'is-active' : ''}`}
-                onClick={() => setActiveTab(parent.slug as typeof activeTab)}
+                onClick={() => setActiveTab(parent.slug)}
               >
-                {parent.name} ({count})
+                {parent.name} {count > 0 ? `(${count})` : `(${getProductsByCategory(parent.slug).length})`}
               </button>
             )
           })}
@@ -1787,7 +1899,7 @@ export function AllCategoriesPage() {
         <header className="split-heading">
           <div>
             <p className="overline">Ana Koleksiyonlar</p>
-            <h2>3 Temel Deri Dünyası</h2>
+            <h2>{parentCategories.length} Temel Deri Dünyası</h2>
           </div>
         </header>
         <div className="all-cats-parents-grid">
@@ -1906,25 +2018,27 @@ function Footer() {
           </div>
 
           <div className="footer-dir-col">
-            <h3>Kategoriler</h3>
-            {parentCategories.map((cat) => (
-              <Link to={`/${cat.slug}/`} key={cat.slug}>
-                {cat.name}
-              </Link>
-            ))}
-            <Link to="/miknatisli-deri-cuzdan/">Mıknatıslı Deri Cüzdan</Link>
-            <Link to="/klasik-deri-cuzdan/">Klasik Deri Cüzdan</Link>
-            <Link to="/ince-deri-kartlik/">İnce Deri Kartlık</Link>
-            <Link to="/deri-pasaportluk/">Pasaportluk</Link>
+            <h3>Cüzdan &amp; Hediye</h3>
+            <Link to="/erkek-deri-cuzdan/">Erkek Deri Cüzdan</Link>
+            <Link to="/erkek-deri-cuzdan/miknatisli/">Mıknatıslı Deri Cüzdan</Link>
+            <Link to="/erkek-deri-cuzdan/para-klipsli/">Para Klipsli Deri Cüzdan</Link>
+            <Link to="/erkek-deri-cuzdan/ince/">İnce Deri Cüzdan</Link>
+            <Link to="/erkek-deri-cuzdan/isimli/">İsimli Deri Cüzdan</Link>
+            <Link to="/deri-kartlik/">Deri Kartlık</Link>
+            <Link to="/erkege-hediye/">Erkeğe Hediye</Link>
+            <Link to="/erkege-hediye/hediye-seti/">Erkek Hediye Seti</Link>
           </div>
 
           <div className="footer-dir-col">
             <h3>Çanta &amp; Aksesuar</h3>
-            <Link to="/deri-el-cantasi/">El Çantası</Link>
-            <Link to="/omuz-gogus-cantasi/">Omuz &amp; Göğüs Çantası</Link>
-            <Link to="/deri-anahtarlik/">Anahtarlık</Link>
-            <Link to="/deri-ajanda-kilifi/">Ajanda Kılıfı</Link>
-            <Link to="/deri-bileklik/">Deri Bileklik</Link>
+            <Link to="/erkek-deri-canta/">Erkek Deri Çanta</Link>
+            <Link to="/erkek-deri-canta/el-cantasi/">Erkek Deri El Çantası</Link>
+            <Link to="/erkek-deri-canta/omuz-cantasi/">Erkek Deri Omuz Çantası</Link>
+            <Link to="/deri-aksesuar/pasaport-kilifi/">Deri Pasaport Kılıfı</Link>
+            <Link to="/deri-aksesuar/anahtarlik/">Deri Anahtarlık</Link>
+            <Link to="/deri-aksesuar/ajanda-defter-kilifi/">Deri Ajanda ve Defter Kılıfı</Link>
+            <Link to="/deri-aksesuar/erkek-bileklik/">Erkek Deri Bileklik</Link>
+            <Link to="/deri-aksesuar/deri-kemer/">Deri Kemer</Link>
           </div>
 
           <div className="footer-dir-col">

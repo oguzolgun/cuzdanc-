@@ -34,7 +34,7 @@ const FEATURES: ShowcaseFeature[] = [
     thumb: '/assets/products/elon-leather-lodos-pro-taba-miknatisli-deri-cuzdan-2-acik-gorunum-600.webp',
     alt: 'Lodos Pro Taba hakiki deri cüzdan açık iç görünüm ve kart bölmeleri',
     ctaLabel: 'Mıknatıslı Cüzdanları Gör →',
-    ctaUrl: '/miknatisli-deri-cuzdan/',
+    ctaUrl: '/erkek-deri-cuzdan/miknatisli/',
   },
   {
     id: 'craft',
@@ -88,7 +88,7 @@ export function Magnetic3DShowcase({ isPdp: _isPdp = false }: { isPdp?: boolean 
             <Link to={active.ctaUrl} className="magnetic-btn-primary">
               {active.ctaLabel}
             </Link>
-            <Link to="/cuzdan-kartlik/" className="magnetic-btn-secondary">
+            <Link to="/erkek-deri-cuzdan/" className="magnetic-btn-secondary">
               Tüm Cüzdanlar
             </Link>
             <Link to="/urun/poyraz-miknatisli-deri-cuzdan/" className="magnetic-btn-secondary">

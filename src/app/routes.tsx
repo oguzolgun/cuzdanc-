@@ -4,21 +4,21 @@ import { BlogListPage, BlogPostPage, CartPage, KvkkPage, LoginPage, RegisterPage
 
 const LEGACY_KATEGORI_REDIRECTS: Record<string, string> = {
   tumu: '/kategoriler/',
-  'cuzdan-kartlik': '/cuzdan-kartlik/',
-  'miknatisli-deri-cuzdan': '/miknatisli-deri-cuzdan/',
-  'klasik-deri-cuzdan': '/klasik-deri-cuzdan/',
-  'klasik-cuzdan': '/klasik-deri-cuzdan/',
-  'ince-deri-kartlik': '/ince-deri-kartlik/',
-  'deri-canta': '/deri-canta/',
-  'seyahat-pasaport': '/deri-pasaportluk/',
+  'cuzdan-kartlik': '/erkek-deri-cuzdan/',
+  'miknatisli-deri-cuzdan': '/erkek-deri-cuzdan/miknatisli/',
+  'klasik-deri-cuzdan': '/erkek-deri-cuzdan/',
+  'klasik-cuzdan': '/erkek-deri-cuzdan/',
+  'ince-deri-kartlik': '/deri-kartlik/',
+  'deri-canta': '/erkek-deri-canta/',
+  'seyahat-pasaport': '/deri-aksesuar/pasaport-kilifi/',
   aksesuar: '/deri-aksesuar/',
-  'cok-satanlar': '/cuzdan-kartlik/',
-  'yeni-gelenler': '/cuzdan-kartlik/',
+  'cok-satanlar': '/erkek-deri-cuzdan/',
+  'yeni-gelenler': '/erkek-deri-cuzdan/',
 }
 
 function LegacyCategoryRedirect() {
-  const { slug = 'cuzdan-kartlik' } = useParams()
-  const target = LEGACY_KATEGORI_REDIRECTS[slug] || '/cuzdan-kartlik/'
+  const { slug = 'erkek-deri-cuzdan' } = useParams()
+  const target = LEGACY_KATEGORI_REDIRECTS[slug] || '/erkek-deri-cuzdan/'
   return <Navigate to={target} replace />
 }
 
@@ -40,8 +40,21 @@ export const routes: RouteObject[] = [
       { path: 'urun/:slug', Component: ProductPage },
       { path: 'kategori/:slug', Component: LegacyCategoryRedirect },
       { path: 'aksesuar', element: <Navigate to="/deri-aksesuar/" replace /> },
-      { path: 'cekya-aksesuar', element: <Navigate to="/deri-anahtarlik/" replace /> },
-      { path: 'hong-kong-aksesuar', element: <Navigate to="/deri-ajanda-kilifi/" replace /> },
+      { path: 'cekya-aksesuar', element: <Navigate to="/deri-aksesuar/anahtarlik/" replace /> },
+      { path: 'hong-kong-aksesuar', element: <Navigate to="/deri-aksesuar/ajanda-defter-kilifi/" replace /> },
+      { path: 'cuzdan-kartlik', element: <Navigate to="/erkek-deri-cuzdan/" replace /> },
+      { path: 'miknatisli-deri-cuzdan', element: <Navigate to="/erkek-deri-cuzdan/miknatisli/" replace /> },
+      { path: 'klasik-deri-cuzdan', element: <Navigate to="/erkek-deri-cuzdan/" replace /> },
+      { path: 'ince-deri-kartlik', element: <Navigate to="/deri-kartlik/" replace /> },
+      { path: 'deri-pasaportluk', element: <Navigate to="/deri-aksesuar/pasaport-kilifi/" replace /> },
+      { path: 'deri-canta', element: <Navigate to="/erkek-deri-canta/" replace /> },
+      { path: 'deri-el-cantasi', element: <Navigate to="/erkek-deri-canta/el-cantasi/" replace /> },
+      { path: 'omuz-gogus-cantasi', element: <Navigate to="/erkek-deri-canta/omuz-cantasi/" replace /> },
+      { path: 'deri-anahtarlik', element: <Navigate to="/deri-aksesuar/anahtarlik/" replace /> },
+      { path: 'deri-ajanda-kilifi', element: <Navigate to="/deri-aksesuar/ajanda-defter-kilifi/" replace /> },
+      { path: 'deri-bileklik', element: <Navigate to="/deri-aksesuar/erkek-bileklik/" replace /> },
+      { path: 'deri-kemer', element: <Navigate to="/deri-aksesuar/deri-kemer/" replace /> },
+      { path: ':parentSlug/:childSlug', Component: CategoryPage },
       { path: ':slug', Component: CategoryPage },
       { path: '*', Component: NotFound },
     ],

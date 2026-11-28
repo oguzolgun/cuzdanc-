@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { categories as allCategories } from './data'
 import type { CategoryRecord, ProductRecord, ProductVariantRecord, SiteConfigRecord } from './types'
 
 export type PreloadImageSpec =
@@ -311,11 +312,14 @@ export function buildStorySeo(config: SiteConfigRecord): RouteSeoPayload {
   }
 }
 
-export function buildAllCategoriesSeo(config: SiteConfigRecord): RouteSeoPayload {
+export function buildAllCategoriesSeo(
+  config: SiteConfigRecord,
+  categoriesList: CategoryRecord[] = allCategories
+): RouteSeoPayload {
   const canonical = absUrl(config.siteUrl, '/kategoriler/')
   const title = 'Tüm Kategoriler & Deri Koleksiyonları | Elons Leather'
   const description =
-    'Elons Leather el yapımı hakiki deri cüzdan, kartlık, deri çanta, kemer ve aksesuar koleksiyonları. 14 özgün model ve 10 ürün kategorisini hemen keşfedin.'
+    'Elons Leather el yapımı erkek deri cüzdan, deri kartlık, erkek deri çanta, deri aksesuar ve hediye koleksiyonları. 14 özgün model ve 17 kategoriyi keşfedin.'
 
   const breadcrumbSchema: Record<string, unknown> = {
     '@context': 'https://schema.org',
@@ -335,18 +339,13 @@ export function buildAllCategoriesSeo(config: SiteConfigRecord): RouteSeoPayload
     inLanguage: config.language,
     mainEntity: {
       '@type': 'ItemList',
-      numberOfItems: 9,
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Mıknatıslı Deri Cüzdan', url: absUrl(config.siteUrl, '/miknatisli-deri-cuzdan/') },
-        { '@type': 'ListItem', position: 2, name: 'Klasik Deri Cüzdan', url: absUrl(config.siteUrl, '/klasik-deri-cuzdan/') },
-        { '@type': 'ListItem', position: 3, name: 'İnce Deri Kartlık', url: absUrl(config.siteUrl, '/ince-deri-kartlik/') },
-        { '@type': 'ListItem', position: 4, name: 'Pasaportluk', url: absUrl(config.siteUrl, '/deri-pasaportluk/') },
-        { '@type': 'ListItem', position: 5, name: 'El Çantası', url: absUrl(config.siteUrl, '/deri-el-cantasi/') },
-        { '@type': 'ListItem', position: 6, name: 'Omuz & Göğüs Çantası', url: absUrl(config.siteUrl, '/omuz-gogus-cantasi/') },
-        { '@type': 'ListItem', position: 7, name: 'Anahtarlık', url: absUrl(config.siteUrl, '/deri-anahtarlik/') },
-        { '@type': 'ListItem', position: 8, name: 'Ajanda Kılıfı', url: absUrl(config.siteUrl, '/deri-ajanda-kilifi/') },
-        { '@type': 'ListItem', position: 9, name: 'Deri Bileklik', url: absUrl(config.siteUrl, '/deri-bileklik/') },
-      ],
+      numberOfItems: categoriesList.length,
+      itemListElement: categoriesList.map((cat, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: cat.name,
+        url: absUrl(config.siteUrl, `/${cat.slug}/`),
+      })),
     },
   }
 

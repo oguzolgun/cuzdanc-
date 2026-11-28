@@ -12,6 +12,7 @@ export type FaqItem = {
 export type CategoryRecord = {
   slug: string
   name: string
+  menuLabel?: string
   parentSlug: string | null
   index: string
   targetKeyword: string
@@ -39,11 +40,21 @@ export type ProductVariantRecord = {
   renk: string
   renkSlug: string
   colorHex: string
+  secondaryColorHex?: string
   sku: string
   price: number | 'TODO'
   seoTitle?: string
   images: ProductImageRecord[]
   inStock: boolean
+}
+
+export type ProductEditorialRecord = {
+  headline: string
+  highlights: Array<{ title: string; text: string }>
+  detailPoints: Array<{ title: string; text: string; pinX: number; pinY: number }>
+  workshopSteps: Array<{ title: string; text: string }>
+  honestNotes: Array<{ title: string; text: string }>
+  compareWithSlug?: string
 }
 
 export type ProductSpecsRecord = {
@@ -81,6 +92,7 @@ export type ProductRecord = {
   careInstructions: string[]
   variants: ProductVariantRecord[]
   personalization: ProductPersonalizationRecord
+  editorial?: ProductEditorialRecord
   faq: FaqItem[]
   relatedProducts: string[]
   seo: {

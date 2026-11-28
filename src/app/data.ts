@@ -7,6 +7,7 @@ export type {
   CategoryGuideSection,
   CategoryRecord,
   FaqItem,
+  ProductEditorialRecord,
   ProductImageRecord,
   ProductPersonalizationRecord,
   ProductRecord,
@@ -28,8 +29,13 @@ export function isConfiguredValue(val: unknown): boolean {
   return str.length > 0 && str.toUpperCase() !== 'TODO'
 }
 
+export function normalizeCategorySlug(slug: string): string {
+  return String(slug || '').replace(/^\/+|\/+$/g, '')
+}
+
 export function getCategoryBySlug(slug: string): CategoryRecord | undefined {
-  return categories.find((c) => c.slug === slug)
+  const clean = normalizeCategorySlug(slug)
+  return categories.find((c) => c.slug === clean)
 }
 
 export function getParentCategory(category: CategoryRecord): CategoryRecord | undefined {
@@ -38,12 +44,14 @@ export function getParentCategory(category: CategoryRecord): CategoryRecord | un
 }
 
 export function getChildCategories(parentSlug: string): CategoryRecord[] {
-  return categories.filter((c) => c.parentSlug === parentSlug)
+  const clean = normalizeCategorySlug(parentSlug)
+  return categories.filter((c) => c.parentSlug === clean)
 }
 
 export function getProductsByCategory(catSlug: string): ProductRecord[] {
-  const childSlugs = getChildCategories(catSlug).map((c) => c.slug)
-  const targetSlugs = new Set([catSlug, ...childSlugs])
+  const clean = normalizeCategorySlug(catSlug)
+  const childSlugs = getChildCategories(clean).map((c) => c.slug)
+  const targetSlugs = new Set([clean, ...childSlugs])
   return products.filter(
     (p) =>
       targetSlugs.has(p.primaryCategory) ||

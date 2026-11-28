@@ -6,8 +6,12 @@
     "name": "Lodos El Yapımı Mıknatıslı Deri Cüzdan",
     "modelName": "Lodos",
     "productType": "Mıknatıslı Deri Cüzdan",
-    "primaryCategory": "miknatisli-deri-cuzdan",
-    "extraCategories": [],
+    "primaryCategory": "erkek-deri-cuzdan/miknatisli",
+    "extraCategories": [
+      "erkek-deri-cuzdan/isimli",
+      "erkege-hediye",
+      "erkege-hediye/hediye-seti"
+    ],
     "shortDescription": "Mıknatıslı çift katlı gövde yapısını el yapımı hakiki deri işçiliğiyle buluşturan Lodos cüzdan; beş farklı renk alternatifi ve ücretsiz sıcak isim baskısıyla günlük taşımanıza düzenli ve sıcak bir eşlik sunar.",
     "longDescription": "Lodos El Yapımı Mıknatıslı Deri Cüzdan, günlük hayatında hem hızlı erişim hem de derli toplu bir cep profili arayan kullanıcılar için özenle tasarlanmıştır. İki kanat arasına özenle gizlenen manyetik kapanış sistemi sayesinde ekstra çıtçıt ya da kalın dış kemer kullanılmadan kapaklar sessizce sabitlenir ve çantanızda veya cebinizde kendiliğinden açılmaz. Doğal damarlı hakiki deri yüzeyi ilk günden itibaren elde sıcak, tok ve samimi bir kavrama hissi uyandırır. Gün boyu yapılan şehir yürüyüşlerinden yoğun iş toplantılarına ve hafta sonu kaçamaklarına kadar her ortamda formunu dengeli biçimde koruyarak günlük rutininize zahmetsiz bir konfor katar. Düzenli kullanımla birlikte el ısısına ve günlük hareketlerinize uyum sağlayarak kendine has derin bir patina geliştirir ve yıllar geçtikçe daha karakterli bir görünüme kavuşur. Siyah Haki ve Siyah Taba gibi iki renkli modern kombinlerin yanı sıra tek tonlu Taba, Siyah ve Zeytin Karası Yeşil alternatifleri farklı giyim tarzlarına kolayca eşlik eder. Keten gömlekler, ham denim ceketler veya klasik takım ceket iç cepleriyle sıcak bir doku uyumu yakalar. İsteğe bağlı ücretsiz sıcak isim yazdırma seçeneğiyle yalnızca size veya sevdiklerinize ait kalıcı, anlamlı bir hatıraya dönüşür.",
     "features": [
@@ -33,7 +37,7 @@
       {
         "renk": "Siyah Haki",
         "renkSlug": "siyah-haki",
-        "colorHex": "#3f4935",
+        "colorHex": "#24211E",
         "sku": "ELN-RIO-SIYHAK",
         "price": 1500,
         "seoTitle": "Lodos Siyah Haki Deri Cüzdan | Elons Leather",
@@ -67,12 +71,13 @@
             "alt": "Lodos Siyah Haki mıknatıslı hakiki deri cüzdan - deri dokusu ve dikiş detayı"
           }
         ],
-        "inStock": true
+        "inStock": true,
+        "secondaryColorHex": "#5E553F"
       },
       {
         "renk": "Siyah Taba",
         "renkSlug": "siyah-taba",
-        "colorHex": "#96481e",
+        "colorHex": "#24211E",
         "sku": "ELN-RIO-SIYTAB",
         "price": 1500,
         "seoTitle": "Lodos Siyah Taba Deri Cüzdan | Elons Leather",
@@ -106,7 +111,8 @@
             "alt": "Lodos Siyah Taba mıknatıslı hakiki deri cüzdan - deri dokusu ve dikiş detayı"
           }
         ],
-        "inStock": true
+        "inStock": true,
+        "secondaryColorHex": "#9A5A2C"
       },
       {
         "renk": "Zeytin Karası Yeşil",
@@ -264,8 +270,12 @@
     "name": "Lodos Pro Mıknatıslı Çift Katlı Deri Cüzdan",
     "modelName": "Lodos Pro",
     "productType": "Mıknatıslı Deri Cüzdan",
-    "primaryCategory": "miknatisli-deri-cuzdan",
-    "extraCategories": [],
+    "primaryCategory": "erkek-deri-cuzdan/miknatisli",
+    "extraCategories": [
+      "erkek-deri-cuzdan/isimli",
+      "erkege-hediye",
+      "erkege-hediye/hediye-seti"
+    ],
     "shortDescription": "8 x 10 cm kompakt ölçüsünde 20 karta kadar kapasite ve 2 ayrı banknot bölmesi sunan Lodos Pro; mıknatıslı çift katlı tasarımı, ücretsiz isim, logo ve görsel baskı seçenekleriyle öne çıkar.",
     "longDescription": "Lodos Pro El Yapımı Hakiki Deri Mıknatıslı Çift Katlı Cüzdan ve Kartlık, yüksek taşıma kapasitesini şaşırtıcı derecede kompakt bir siluette toplar. Yalnızca 8 x 10 cm boyutlarında olmasına rağmen düzenli katman mimarisi sayesinde 20 karta kadar rahat yerleşim alanı ve kağıt paraları farklı değerlere ya da fişlere göre ayırmanızı kolaylaştıran 2 ayrı banknot bölmesi sunar. İki kanat arasında gizli çalışan mıknatıslı kapanış sistemi, cebinizde ya da çantanızda hacimli bir kilit çıkıntısı yaratmadan güvenli tutuş sağlar ve ödeme anlarında tek elle akıcı biçimde açılır. Birinci sınıf doğal dokulu hakiki deri kullanımla yumuşayarak elinize uyumlanır ve zaman geçtikçe kullanıcısına özgü benzersiz bir yüzey karakteri geliştirir. Zeytin Karası Yeşil, Taba (Kahverengi) ve Siyah renk seçenekleri hem günlük şehir kombinlerine hem de klasik giyim stiline dengeli bir sıcaklık katar. Kendi adınızı veya baş harflerinizi ücretsiz olarak bastırabileceğiniz gibi, dilerseniz ek ücretle özel logo (+150 TL) ya da görsel baskı (+300 TL) uygulatarak sevdikleriniz veya kurumsal ekipleriniz için tamamen size özel, uzun yıllar değerini koruyan unutulmaz bir hatıra oluşturabilirsiniz.",
     "features": [
@@ -449,8 +459,11 @@
     "name": "Lodos Plus El Yapımı Mıknatıslı Deri Cüzdan",
     "modelName": "Lodos Plus",
     "productType": "Mıknatıslı Deri Cüzdan",
-    "primaryCategory": "miknatisli-deri-cuzdan",
-    "extraCategories": [],
+    "primaryCategory": "erkek-deri-cuzdan/miknatisli",
+    "extraCategories": [
+      "erkek-deri-cuzdan/isimli",
+      "erkege-hediye"
+    ],
     "shortDescription": "Sıcak dikiş hatları ve mıknatıslı çift katlı yapısıyla Lodos Plus, günlük cüzdan kullanımında yalın bohem estetiği el yapımı hakiki deri dokusuyla birleştirir.",
     "longDescription": "Lodos Plus El Yapımı Hakiki Deri Mıknatıslı Çift Katlı Cüzdan, Lodos ailesinin dikiş vurgusu ve doğal toprak tonlarıyla öne çıkan karakteristik yorumudur. Çift katlı gövdesi, açıldığı anda tüm kartlarınıza düzenli biçimde ulaşmanızı sağlarken gizli mıknatıs kapanışı sayesinde kapalı konumda formunu pürüzsüz biçimde korur. Dış yüzeydeki belirgin zanaat dikişleri tasarıma sıcak ve samimi bir atölye dokusu kazandırır; kenar kesimleri cepte rahatsızlık vermeyecek dengeli ve yumuşak bir formda özenle tamamlanır. Taba, Antrasit ve Kahverengi renk seçenekleri özellikle koyu kot pantolonlar, toprak tonlu trikolar, süet botlar, keten ceketler ve rahat hafta sonu kombinleriyle zahmetsiz bir uyum yakalar. Doğal damarlı hakiki deri yüzeyi ilk dokunuştan itibaren samimi bir el emeği hissi uyandırır. Zaman geçtikçe kullanıcısının el temasını yansıtan yumuşak ve zengin bir yüzey parıltısı geliştirir ve yıllarca değerini kaybetmeyen samimi bir yol arkadaşına dönüşür. Ücretsiz sıcak isim baskısı ekleyerek günlük cüzdanınızı kişisel bir anıya veya doğum günü gibi özel günlerde verilecek anlamlı bir armağana kolayca dönüştürebilirsiniz.",
     "features": [
@@ -629,8 +642,12 @@
     "name": "Etezyen El Yapımı Klasik Deri Cüzdan & Kartlık",
     "modelName": "Etezyen",
     "productType": "Klasik Deri Cüzdan",
-    "primaryCategory": "klasik-deri-cuzdan",
-    "extraCategories": [],
+    "primaryCategory": "erkek-deri-cuzdan",
+    "extraCategories": [
+      "erkek-deri-cuzdan/isimli",
+      "erkege-hediye",
+      "erkege-hediye/hediye-seti"
+    ],
     "shortDescription": "Geleneksel katlanabilir cüzdan alışkanlıklarını modern deri işçiliğiyle yorumlayan Etezyen serisi; sade yüzeyi, özenli dikişleri ve üç zamansız renk alternatifiyle öne çıkar.",
     "longDescription": "Etezyen El Yapımı Deri Cüzdan ve Kartlık, karmaşadan uzak, sade ve tanıdık bir günlük taşıma düzeni arayan kullanıcılar için özenle tasarlanmıştır. Mıknatıslı ya da metal mekanizmalı yapılara gereksinim duymadan klasik katlanır cüzdan ergonomisini hakiki derinin yumuşaklığıyla buluşturur. İki kanatlı doğal katlama formu ceket iç cebinde, ön veya arka pantolon ceplerinde ve el çantası bölmelerinde dengeli biçimde oturur; kenar dikişleri ise uzun süreli açılıp kapanmalarda formun korunmasına destek olur. Geleneksel cüzdan hissini seven kullanıcılar için günlük kartları ve evrakları sade biçimde düzenleme kolaylığı sağlar. Taba (Kahverengi), Siyah ve Zeytin Karası Yeşil renkleri her mevsim ve her kıyafet tarzıyla kolayca eşleşir; resmi iş toplantılarından keyifli hafta sonu yolculuklarına kadar geniş bir kullanım alanına hitap eder. İlk günkü mat ve doğal dokusu kullanıldıkça kullanıcının ellerinden gelen sıcaklıkla parlar ve benzersiz bir patina kazanır. Doğum günü, Babalar Günü veya yeni iş tebriki için risksiz ve zamansız bir hediye arıyorsanız ücretsiz isim yazdırma seçeneğiyle kişisel dokunuşunuzu kolayca ekleyebilirsiniz.",
     "features": [
@@ -809,8 +826,12 @@
     "name": "Garbi İnce Tasarım Mandallı Deri Cüzdan",
     "modelName": "Garbi",
     "productType": "Mandallı Deri Cüzdan",
-    "primaryCategory": "klasik-deri-cuzdan",
-    "extraCategories": [],
+    "primaryCategory": "erkek-deri-cuzdan/para-klipsli",
+    "extraCategories": [
+      "erkek-deri-cuzdan/ince",
+      "erkek-deri-cuzdan/isimli",
+      "erkege-hediye"
+    ],
     "shortDescription": "İnce kesimli klasik gövdeyi pratik banknot mandalıyla buluşturan Garbi cüzdan; cebinde hafiflik ve düzenli kağıt para yerleşimi arayanlar için el işçiliğiyle hazırlanır.",
     "longDescription": "Garbi İnce Tasarım Hakiki Deri Mandal Tutuculu Cüzdan ve Kartlık, kağıt paraları kalın ve hacimli bölmelere sıkıştırmadan düzenli tutmak isteyen kullanıcılar için sade ve fonksiyonel bir çözüm sunar. Gövdenin ince kesimi özellikle dar paça pantolonlarda ve hafif yazlık ceket ceplerinde istenmeyen kabarıklık oluşmasını azaltırken, iç kısımdaki pratik mandal tutucu mekanizması banknotların tek bir hareketle düzenli biçimde sabitlenmesini ve çıkarılmasını kolaylaştırır. Sade ve pürüzsüz dış yüzeyi elde hafif bir denge oluşturur, günlük ödeme anlarında kağıt paranıza ve temel kartlarınıza hızlı erişim sağlar. İki renkli modern Taba Yeşil alternatifinin yanı sıra Zeytin Karası Yeşil, Taba (Kahverengi) ve Siyah seçenekleri sade ofis stilinden hafta sonu bohem kombinlerine kadar geniş bir beğeni yelpazesine hitap eder. El yapımı hakiki derinin doğal damarlı dokusu kısa sürede elinize uyum sağlar ve düzenli kullanımda yıllar geçtikçe derinleşen sıcak bir yüzey karakteri kazanır. Ürünü yalnızca kendinize özel kılmak veya şık bir hediye sunmak için ücretsiz isim yazdırma seçeneğinden hemen yararlanabilirsiniz.",
     "features": [
@@ -836,7 +857,7 @@
       {
         "renk": "Taba Yeşil",
         "renkSlug": "taba-yesil",
-        "colorHex": "#3f4935",
+        "colorHex": "#9A5A2C",
         "sku": "ELN-DUB-TABYES",
         "price": 1400,
         "seoTitle": "Garbi Taba Yeşil Deri Cüzdan | Elons Leather",
@@ -870,7 +891,8 @@
             "alt": "Garbi Taba Yeşil mandallı hakiki deri cüzdan - deri dokusu ve dikiş detayı"
           }
         ],
-        "inStock": true
+        "inStock": true,
+        "secondaryColorHex": "#3B4030"
       },
       {
         "renk": "Zeytin Karası Yeşil",
@@ -1135,8 +1157,11 @@
     "name": "Esinti El Yapımı İnce Deri Kartlık",
     "modelName": "Esinti",
     "productType": "İnce Deri Kartlık",
-    "primaryCategory": "ince-deri-kartlik",
-    "extraCategories": [],
+    "primaryCategory": "deri-kartlik",
+    "extraCategories": [
+      "erkek-deri-cuzdan/ince",
+      "erkege-hediye"
+    ],
     "shortDescription": "Yalnızca temel kartlarını yanında taşımayı tercih edenler için geliştirilen Esinti ince kartlık, el işçiliği hakiki derisi ve sade formuyla cebinizde varlığını hissettirmez.",
     "longDescription": "Esinti El Yapımı İnce Deri Kartlık, günlük hayatta nakit yerine banka ve kimlik kartlarını kullanan, ceplerindeki ağırlığı ve karmaşayı ortadan kaldırmak isteyenler için yalın ama karakterli bir tasarım sunar. Büyük ve kalın katmanlı cüzdanların aksine fazlalıklardan arındırılmış ince gövdesi, en dar keten pantolon, ceket iç cebi veya gömlek üst cebinde bile dışarıdan siluet bozulmasına yol açmaz. Hafif yapısı sayesinde gün boyu toplantıdan kafeye, kısa yolculuklardan akşam yürüyüşlerine geçerken varlığını unutturacak bir rahatlıkla temel kartlarınızı düzenli şekilde bir arada tutar. Usta ellerde kesilen ve dikilen hakiki deri yüzey, kullandıkça doğal bir yumuşaklık ve sıcak bir yüzey parıltısı kazanır. Siyah renk seçeneği modern, net ve şehirli bir minimalizm sunarken, Taba alternatifi bohem ve sıcak toprak estetiğini öne çıkarır. Her iki renkte de özenle hazırlanan kart yuvaları kartların günlük hareket esnasında güvenle sabit kalmasına destek olur ve pratik erişim sunar. Dilerseniz ücretsiz isim yazdırma seçeneğini ekleyerek sevdiğiniz birine günlük hayatta her an kullanacağı kalıcı, zarif bir kartlık armağan edebilirsiniz.",
     "features": [
@@ -1276,8 +1301,11 @@
     "name": "Efes El Yapımı Hakiki Deri El Çantası",
     "modelName": "Efes",
     "productType": "Deri El Çantası",
-    "primaryCategory": "deri-el-cantasi",
-    "extraCategories": [],
+    "primaryCategory": "erkek-deri-canta/el-cantasi",
+    "extraCategories": [
+      "erkege-hediye",
+      "erkege-hediye/hediye-seti"
+    ],
     "shortDescription": "Telefon, cüzdan ve tüm günlük eşyalarınızı tek elde düzenle taşımanız için tasarlanan Efes deri el çantası; yedi özgün renk ve ücretsiz isim baskısıyla sunulur.",
     "longDescription": "Efes El Yapımı Hakiki Deri El Çantası, pantolon veya ceket ceplerini dolduran cüzdan, akıllı telefon, kulaklık, güneş gözlüğü, anahtarlık ve not defteri gibi eşyaları zarif bir düzen içinde tek elde bir araya getirir. Temiz hatlı ve dengeli formu; ofis toplantılarından akşam yemeklerine, günlük şehir işlerinden kısa hafta sonu seyahatlerine kadar her atmosferde rafine ve kendinden emin bir duruş sergiler. Ceplerde oluşan gereksiz şişkinliği ortadan kaldırarak giysi dikişlerinizi ve siluetinizi korurken gün içinde ihtiyacınız olan tüm eşyalara tek noktadan ulaşmanızı kolaylaştırır. Koleksiyonun en geniş renk yelpazesine sahip modellerinden biri olan Efes; klasik Siyah, karakterli Siyah (Desenli), Antrasit, Taba (Kahverengi) ve Kahve tonlarının yanında dikkat çekici Timsah Yeşil ve Vişne Çürüğü Mor alternatifleriyle de sunulur. El yapımı hakiki derinin esnek dokusu gün boyu konforlu bir elde kavrama sağlar ve kullanıldıkça derinleşir; unisex sade çizgisi hem kadın hem erkek günlük kombinlerine uyum gösterir. Özel günlerde anlamlı bir hediye arıyorsanız ücretsiz isim baskısı ekleyerek yalnızca sahibine özel tek ve kalıcı bir parça haline getirebilirsiniz.",
     "features": [
@@ -1650,8 +1678,10 @@
     "name": "Assos Hakiki Deri Göğüs & Omuz Çantası",
     "modelName": "Assos",
     "productType": "Omuz & Göğüs Çantası",
-    "primaryCategory": "omuz-gogus-cantasi",
-    "extraCategories": [],
+    "primaryCategory": "erkek-deri-canta/omuz-cantasi",
+    "extraCategories": [
+      "erkege-hediye"
+    ],
     "shortDescription": "Hareketli şehir günleri ve seyahatler için geliştirilen Assos göğüs ve omuz çantası; sıcak taba hakiki derisiyle ellerinizi tamamen serbest bırakır.",
     "longDescription": "Assos El Yapımı Hakiki Deri Göğüs ve Omuz Çantası, gün boyu şehir içinde hareket ederken veya yeni rotalar keşfederken eşyalarına hem hızlı erişmek hem de iki elini tamamen serbest bırakmak isteyen kullanıcılar için özenle tasarlanmıştır. Vücuda paralel duran ergonomik askı mimarisi kalabalık caddelerde yürüyüş, bisiklet veya motosiklet sürüşü ya da havalimanı aktarmaları sırasında çantanın dengesizce savrulmasını önler ve omuzdaki yükü yumuşakça dağıtır. Taba (Kahverengi) hakiki derinin sıcak ve yaşanmışlık vadeden dokusu; ham kot ceketler, ekru keten gömlekler, sonbahar trençkotları ve toprak tonlu günlük kıyafetlerle güçlü, doğal ve bohem bir uyum yakalar. Cüzdanınızı, pasaportunuzu, telefonunuzu, güneş gözlüğünüzü ve anahtarlarınızı büyük bir sırt çantasına gereksinim duymadan tek kompakt gövdede düzenli biçimde taşımanıza yardımcı olur. Zamanla kazanacağı doğal patina her yolculuğun izini yüzeyinde taşır; düzenli kullanımda derinin yumuşaklığı daha da belirginleşir. Seyahat ve hareket özgürlüğünü seven dostlarınız için kalıcı bir armağan düşünüyorsanız ücretsiz isim yazdırma seçeneğiyle kişisel imzanızı taşıyan zamansız bir yol arkadaşına kolayca dönüştürebilirsiniz.",
     "features": [
@@ -1753,8 +1783,10 @@
     "name": "Pasat Hakiki Deri Pasaportluk & Seyahat Cüzdanı",
     "modelName": "Pasat",
     "productType": "Deri Pasaportluk",
-    "primaryCategory": "deri-pasaportluk",
-    "extraCategories": [],
+    "primaryCategory": "deri-aksesuar/pasaport-kilifi",
+    "extraCategories": [
+      "erkege-hediye"
+    ],
     "shortDescription": "Seyahatlerde pasaportunuzu, uçuş kartlarınızı ve temel kimlik belgelerinizi düzenli biçimde bir arada tutmak için tasarlanan Taba hakiki deri Pasat pasaportluk ve seyahat cüzdanı.",
     "longDescription": "Pasat Hakiki Deri Pasaportluk ve Seyahat Cüzdanı, havalimanı geçişlerinde ve yurt dışı rotalarında tüm seyahat belgelerini tek bir düzenli alanda toplamak isteyen gezginler için özenle hazırlanmıştır. Pasaport kapağını sırt çantası veya el bagajı içindeki bükülmelere, kıvrılmalara ve yüzey sürtünmelerine karşı korurken, sık kullandığınız kimlik, biniş ve ödeme kartlarına hızlıca ulaşmanıza yardımcı olan derli toplu bir yapı sunar. Güvenlik noktalarında, pasaport kontrol sıralarında veya otel girişlerinde evrak arama telaşını ortadan kaldırarak yolculuk ritminizi sadeleştirir ve hızlandırır. Sıcak Taba rengindeki hakiki deri gövdesi her yolculukla birlikte elinizin temasını alarak yumuşar ve size özel bir seyahat hatırası niteliğinde doğal patina geliştirir. İster tek başına ceket iç cebinde ister omuz veya el çantanızın düzenli bir iç gözünde taşınmaya uygundur; yurt dışına sık çıkan yakınlarınız, eğitim için yola çıkan öğrenciler veya balayı gezginleri için zamansız bir armağan alternatifi oluşturur. Ürünün güncel fiyat, kesin ölçü ve bölme kapasitesi bilgileri şu anda doğrulama ve güncelleme aşamasındadır; seri görsellerini ve genel yapısını bu sayfa üzerinden inceleyebilirsiniz.",
     "features": [
@@ -1855,8 +1887,11 @@
     "name": "Çapa Unisex El Yapımı Deri Anahtarlık",
     "modelName": "Çapa",
     "productType": "Unisex Deri Anahtarlık",
-    "primaryCategory": "deri-anahtarlik",
-    "extraCategories": [],
+    "primaryCategory": "deri-aksesuar/anahtarlik",
+    "extraCategories": [
+      "erkege-hediye",
+      "erkege-hediye/hediye-seti"
+    ],
     "shortDescription": "Anahtarlarınızı cepte ve çantada sessizce, çizmeden düzenli taşımak için tasarlanan Çapa unisex hakiki deri anahtarlık; Mor, Haki ve Kahve seçenekleriyle sunulur.",
     "longDescription": "Çapa Unisex Hakiki Deri Anahtarlık, ev ve araç anahtarlarınızı cebinizdeki telefon ekranını, güneş gözlüğünüzü veya deri cüzdanınızı çizmeden düzenli biçimde taşımanız için tasarlanmış pratik ve sıcak bir günlük eşlikçidir. Sert metal halkaların yarattığı soğuk ve keskin teması yumuşak hakiki deri gövdeyle dengeleyerek gün boyunca elde rahat bir kavrama sağlar; çalışma masanızın veya sehpanın üzerine bırakıldığında gürültü yaratmaz. Kompakt formu sayesinde hem pantolon ceplerinde gereksiz kabarıklık oluşturmaz hem de geniş el veya sırt çantalarının iç bölmelerinde el yordamıyla kolayca bulunur ve anahtarlarınızı dağılmadan bir arada tutar. Mor, Haki ve Kahve renk seçenekleri sade ama özgün renk dokunuşları arayan kullanıcıların stiline kolayca uyum sağlar; kullandığınız cüzdan veya omuz çantasıyla uyumlu renk eşleştirmeleri yapmanıza olanak tanır. Doğal derinin dayanıklı yapısı günlük açma kapama ve anahtar yükü altında formunu yıllarca korur. Yeni ev kutlamaları, yeni araç teslimatı ya da bir deri cüzdan hediyesinin yanına eklenecek anlamlı, ulaşılabilir bir tamamlayıcı parça olarak kadın ve erkek unisex günlük kullanım için idealdir.",
     "features": [
@@ -2041,8 +2076,11 @@
     "name": "Seyir Elit Hakiki Deri Ajanda Kılıfı",
     "modelName": "Seyir",
     "productType": "Elit Deri Ajanda Kılıfı",
-    "primaryCategory": "deri-ajanda-kilifi",
-    "extraCategories": [],
+    "primaryCategory": "deri-aksesuar/ajanda-defter-kilifi",
+    "extraCategories": [
+      "erkege-hediye",
+      "erkege-hediye/hediye-seti"
+    ],
     "shortDescription": "Çalışma masanızda notlarınızı ve planlarınızı sıcak deri zanaatıyla koruyan Seyir Elit ajanda kılıfı; Koyu Taba ve Kırmızı seçenekleri ile sunulur.",
     "longDescription": "Seyir Elit Hakiki Deri Ajanda Kılıfı, yoğun toplantı temposunda, seyahat notlarında ve yaratıcı tasarım süreçlerinde kullandığınız ajanda ve not defterlerinizi dış darbelere ve yıpranmalara karşı koruyan uzun ömürlü bir kılıftır. Karton veya ince kapaklı defterler çantalarda kısa sürede köşelerinden kıvrılıp sırtından ayrılırken, hakiki deri dış koruyucu gövde sayfa kenarlarını ve defter formunu dengeli biçimde muhafaza eder. Yıl veya elinizdeki not defteri sayfaları sona erdiğinde yalnızca iç defteri yenileyerek aynı el yapımı deri kılıfı yıllarca kullanmaya devam edebilirsiniz; bu sayede kılıf zamanla tüm projelerinize ve fikirlerinize tanıklık eden kalıcı, sürdürülebilir bir masa ortağına dönüşür. Koyu Taba rengi klasik ahşap masalara ve dingin çalışma alanlarına doğal bir sıcaklık katarken, Kırmızı alternatif yaratıcı stüdyo masalarında enerjik ve zarif bir odak noktası oluşturur. Doğal derinin yumuşak dokusu yazı yazarken bileğinize ve elinize sıcak bir zemin sunar. İsteğe bağlı ücretsiz isim baskısıyla meslektaşlarınıza veya sevdiklerinize unutulmaz bir yeni iş, terfi ya da mezuniyet hediyesi sunabilirsiniz.",
     "features": [
@@ -2182,8 +2220,10 @@
     "name": "Halat El Yapımı Ayarlanabilir Deri Bileklik",
     "modelName": "Halat",
     "productType": "Ayarlanabilir Deri Bileklik",
-    "primaryCategory": "deri-bileklik",
-    "extraCategories": [],
+    "primaryCategory": "deri-aksesuar/erkek-bileklik",
+    "extraCategories": [
+      "erkege-hediye"
+    ],
     "shortDescription": "Frisko tonundaki doğal hakiki derisi ve bileğe göre ayarlanabilen pratik yapısıyla Halat el yapımı erkek bileklik, bohem ve sade aksesuar tarzını zahmetsizce tamamlar.",
     "longDescription": "Halat El Yapımı Ayarlanabilir Deri Bileklik, bilek ölçüsü endişesi taşımadan rahatça kullanılabilen sade, sıcak ve karakterli bir günlük erkek aksesuarıdır. Ayarlanabilir bağlantı mimarisi ince ya da kalın farklı bilek ölçülerine kolaylıkla uyum sağlar; böylece hem kendiniz hem de doğum günü veya özel bir teşekkür jesti için hediye alacağınız sevdikleriniz açısından ölçü riski taşımayan pratik bir tercih haline gelir. Frisko tonundaki sıcak toprak renkli hakiki deri yüzeyi, kullandıkça teninizin doğal ısısıyla yumuşar ve bileğinizin doğal kavisini alarak yalnızca size özel kişisel bir form oluşturur. Soğuk metal takılar veya ağır zincirler yerine doğal dokulu materyalleri seven kullanıcılar için dört mevsim hafif, konforlu ve nefes alan bir kullanım vadeder. Tek başına minimalist bir vurgu olarak ya da deri kayışlı klasik bir kol saatiyle aynı bilekte katmanlı şekilde rahatlıkla kombinlenebilir. Ham keten gömleklerden kot ceketlere, sonbahar trikolarından günlük pamuklu tişörtlere kadar farklı stillere yılın her günü dingin, sıcak ve bohem bir doğallık ile el işçiliği ruhu kazandırır.",
     "features": [
@@ -2283,8 +2323,11 @@
     "name": "Poyraz El Yapımı Mıknatıslı Deri Cüzdan",
     "modelName": "Poyraz",
     "productType": "Mıknatıslı Deri Cüzdan",
-    "primaryCategory": "miknatisli-deri-cuzdan",
-    "extraCategories": [],
+    "primaryCategory": "erkek-deri-cuzdan/miknatisli",
+    "extraCategories": [
+      "erkek-deri-cuzdan/isimli",
+      "erkege-hediye"
+    ],
     "shortDescription": "Üç katlı fonksiyonel iç düzeni gizli mıknatıslı üst kapakla birleştiren Poyraz hakiki deri cüzdan; Haki ve Kahve renk alternatifleri ve isteğe bağlı isim veya logo baskısıyla düzenli ve güvenli taşıma deneyimi sunar.",
     "longDescription": "Poyraz El Yapımı Mıknatıslı Deri Cüzdan, yoğun günlük tempoda hem bol kart kapasitesine hem de şık ve düzenli bir katlanır forma ihtiyaç duyan kullanıcılar için atölyemizde titizlikle tasarlanmıştır. Üç panelli geniş açılımı sayesinde sık kullandığınız banka kartlarını, kimliklerinizi ve nakit banknotlarınızı üst üste yığmadan ayrı bölmelerde kolayca organize edebilirsiniz. Kapak altında yer alan gizli mıknatıslı kilit sistemi, ekstra kalın bir kayışa ihtiyaç duymadan cüzdanınızı tek dokunuşla sessizce kapatır ve cebinizde ya da çantanızda dağılmasını önler. Doğal yağlı crazy horse dokusuna sahip hakiki derisi temas ve kullanım sıklığına bağlı olarak zaman içinde benzersiz, sıcak bir patina karakteri kazanır. Çift kanat dikişleri ve pürüzsüz kenar işçiliği günlük aşınmalara karşı uzun ömürlü dayanıklılık sunar. Haki tonunun doğal mat duruşu ile derin Kahve renginin klasik ağırlığı kaban, ceket ve günlük casual kombinlerle zahmetsiz uyum yakalar. Ürün sayfasındaki Kişiselleştirme Alanı üzerinden ücretsiz isim yazdırma veya özel logo ekleme seçenekleriyle kendinize ya da sevdiklerinize özel kalıcı bir hatıra oluşturabilirsiniz.",
     "features": [
@@ -2424,8 +2467,11 @@
     "name": "Palamar Örgü Hakiki Deri Uçlu Esnek Kemer",
     "modelName": "Palamar Örgü",
     "productType": "Esnek Örgü Deri Kemer",
-    "primaryCategory": "deri-kemer",
-    "extraCategories": [],
+    "primaryCategory": "deri-aksesuar/deri-kemer",
+    "extraCategories": [
+      "erkege-hediye",
+      "erkege-hediye/hediye-seti"
+    ],
     "shortDescription": "Deliksiz esnek örgü gövdesini el yapımı hakiki deri toka detaylarıyla buluşturan Palamar Örgü kemer; Taba renginin sıcak dokusuyla bel ölçünüze gün boyu milimetrik ve konforlu bir uyum sağlar.",
     "longDescription": "Palamar Örgü Hakiki Deri Uçlu Esnek Kemer, klasik kemer deliklerinin yarattığı ölçü sınırlamasını ortadan kaldırmak üzere tasarlanmış modern ve konforlu bir günlük aksesuardır. Sıkı dokunmuş elastik örgü gövdesi sayesinde metal toka iğnesi örgünün dilediğiniz noktasından sorunsuzca geçerek tam bedeninize uygun gerginliği ayarlar; böylece gün boyu otururken veya yürürken belinizde baskı oluşturmaz. Kemer ucunda ve toka bağlantısında kullanılan el işçiliği koyu kahve hakiki deri parçalar, Taba örgü şeritlerle kontrast bir bütünlük kurar ve her çekme hareketinde yüksek dayanıklılık sunar. Mat koyu füme dikdörtgen toka tasarımı çizilmelere karşı dirençli yapısıyla uzun süreli temiz bir görünüm korur. Keten pantolonlar, koyu denimler, chino kumaşlar ve mevsimlik kaşe kabanlarla kusursuz bir doku uyumu yakalayarak hem şehir içi ofis stilinde hem de hafta sonu kombinlerinde zahmetsizce yerini alır. İsterseniz ürün sayfasındaki Kişiselleştirme Alanı üzerinden deri uç detayına ücretsiz isim baskısı veya özel logo seçeneği ekleyerek kemerinizi yalnızca size ait kılabilirsiniz. Doğal tabaklanmış deri uç ve köprü parçaları uzun yıllar kullanımda zengin bir patina kazanarak aksesuar koleksiyonunuza karakterli bir derinlik katar.",
     "features": [
